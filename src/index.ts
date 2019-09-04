@@ -1,43 +1,57 @@
 import program from "commander"
+import * as fs from "fs"
+import * as yaml from "js-yaml"
+import { JsonConvert, ValueCheckingMode } from "json2typescript"
+import { ParseConf } from "./factory/ParseFactory"
 import phLogger from "./logger/phLogger"
-
-// const program = require("commander")
 
 program
     .version("0.1.0")
-    .option("-C, --chdir <path>", "change the working directory")
-    .option("-c, --config <path>", "set config path. defaults to ./deploy.conf")
-    .option("-T, --no-tests", "ignore test hook")
+    .option("-d, --dir <path>", "the ui generate file path")
+    .option("-m, --mode <mode>", "the output type of the result components, ember or react, only ember for now")
+    .option("-l, --local <ldir>", "output to local distination dir")
+    .option("-n, --name <tname>", "output name")
+    .action((options: any) => {
+        phLogger.info("start with args: ")
+        let inputPath: string = options.path
+        if (!inputPath || inputPath === "") {
+            inputPath = "."
+        }
+        phLogger.info("dir: " + inputPath)
 
-program
-    .command("setup [env]")
-    .description("run setup commands for all envs")
-    .option("-s, --setup_mode [mode]", "Which setup mode to use")
-    .action((env: string, options: any) => {
-        const mode = options.setup_mode || "normal"
-        env = env || "all"
-        phLogger.info("setup for %s env(s) with %s mode", env, mode)
-    })
+        let mode: string = options.mode
+        if (!mode || mode === "") {
+            mode = "ember"
+        }
+        phLogger.info("mode: " + mode)
 
-program
-    .command("exec <cmd>")
-    .alias("ex")
-    .description("execute the given remote cmd")
-    .option("-e, --exec_mode <mode>", "Which exec mode to use")
-    .action((cmd: string, options: any) => {
-        phLogger.info('exec "%s" using %s mode', cmd, options.exec_mode)
-    }).on("--help", () => {
-        phLogger.info("")
-        phLogger.info("Examples:")
-        phLogger.info("")
-        phLogger.info("  $ deploy exec sequential")
-        phLogger.info("  $ deploy exec async")
-    })
+        let local: string = options.output
+        if (!local || local === "") {
+            local = "./result"
+        }
+        phLogger.info("local: " + local)
 
-program
-    .command("*")
-    .action((env: string) => {
-        phLogger.info('deploying "%s"', env)
-    })
+        let name: string = options.tname
+        if (!name || name === "") {
+            name = "result"
+        }
+        phLogger.info("name: " + name)
 
-program.parse(process.argv)
+        const path = process.env.PH_TS_UI_PARSE + "/conf"
+        const jsonConvert: JsonConvert = new JsonConvert()
+        const doc = yaml.safeLoad(fs.readFileSync(path + "/conf.yml", "utf8"))
+        // jsonConvert.operationMode = OperationMode.LOGGING // print some debug data
+        jsonConvert.ignorePrimitiveChecks = false // don't allow assigning number to string etc.
+        jsonConvert.valueCheckingMode = ValueCheckingMode.DISALLOW_NULL // never allow null
+        const conf = jsonConvert.deserializeObject(doc, ParseConf)
+
+        phLogger.info(conf)
+        const m = conf.modes.find((x) => x.key === mode)
+        let func = null
+        if (m) {
+            func = m.func
+        }
+        phLogger.info(func)
+
+    } )
+    .parse(process.argv)

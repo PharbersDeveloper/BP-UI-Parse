@@ -1,0 +1,3 @@
+modes:
+  - key: ember
+    func: abcde
