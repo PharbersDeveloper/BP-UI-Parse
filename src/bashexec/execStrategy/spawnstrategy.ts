@@ -11,7 +11,7 @@ export class SpawnStrategy extends ExecStrategy {
 
     public async exec(cmd: string) {
 
-        const ex = spawn(cmd)
+        const ex = spawn("ember", ["addon", "alfredyangTest"])
 
         // 捕获标准输出并将其打印到控制台
         ex.stdout.on("data", (data: string) => {
