@@ -22,6 +22,9 @@
   },
   "devDependencies": {
     "@types/node": "^12.6.2",
+    "@types/mocha": "^5.2.7",
+    "mocha": "^6.2.0",
+    "mocha-typescript": "^1.1.17",
     "source-map-support": "^0.5.13",
     "tslint": "^5.18.0",
     "typedoc": "^0.14.2",
