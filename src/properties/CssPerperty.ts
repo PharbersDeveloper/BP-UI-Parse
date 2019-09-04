@@ -15,8 +15,9 @@ export abstract class CssProperty {
     }
 
     public getDescription(): string {
-        if (this.description)
+        if (this.description) {
         return this.description
+        }
     }
 
     public toCssLine(cf: any) {
