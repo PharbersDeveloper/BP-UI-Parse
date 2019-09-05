@@ -3,10 +3,15 @@
 import { ExecStrategy } from "./execStrategy/bashstrategy"
 import { SpawnStrategy } from "./execStrategy/spawnstrategy"
 
-export abstract class BashExec<T extends ExecStrategy> {
-    protected cmd: string
-    public async exec() {
-        const s = new SpawnStrategy()
-        s.exec(this.cmd)
+export interface IBashExec<T extends ExecStrategy> {
+    exec(callback: (code: number) => void): void
+}
+
+export abstract class BashExec implements IBashExec<SpawnStrategy> {
+    protected cmd?: string
+    protected args?: string[]
+    protected stg = new SpawnStrategy()
+    public async exec(callback: (code: number) => void) {
+        this.stg.exec(this.cmd, this.args, callback)
     }
 }

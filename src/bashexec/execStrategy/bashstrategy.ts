@@ -3,11 +3,7 @@
 import phLogger from "../../logger/phLogger"
 
 export abstract class ExecStrategy {
-    public static instance(): ExecStrategy {
-        phLogger.error("never in here")
-        return null
-    }
-    public exec(cmd: string) {
+    public exec(cmd: string, args: string[], callback: (code: number) => void) {
         phLogger.error("never in here")
     }
 }
