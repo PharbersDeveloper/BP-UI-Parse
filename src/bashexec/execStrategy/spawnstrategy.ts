@@ -6,7 +6,7 @@ import phLogger from "../../logger/phLogger"
 import { ExecStrategy } from "./bashstrategy"
 
 export class SpawnStrategy extends ExecStrategy {
-    public exec(cmd: string, args: string[]) {
+    public exec(cmd: string, args: string[], callback: (code: number) => void) {
 
         const ex = spawn(cmd, args)
 
@@ -25,6 +25,7 @@ export class SpawnStrategy extends ExecStrategy {
         // 注册子进程关闭事件
         ex.on("exit", (code: number, signal: any) => {
             phLogger.info("exit:" + code)
+            callback(code)
         })
     }
 }
