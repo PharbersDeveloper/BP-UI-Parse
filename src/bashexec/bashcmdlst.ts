@@ -15,17 +15,16 @@ export class BashSpwanCmds {
 
     private execOne() {
         const tmp = this.cmds[this.cur]
-        tmp.exec(this.cmdscb)
-    }
-
-    private cmdscb(code: number): void {
-        if (code === 0 && this.cmds.length - 1 > this.cur) {
-            this.cur += 1
-            this.execOne()
-        } else if (code === 0) {
-            phLogger.info("success")
-        } else {
-            phLogger.error("error")
-        }
+        const that = this
+        tmp.exec((code: number) => {
+            if (code === 0 && that.cmds.length - 1 > that.cur) {
+                that.cur += 1
+                that.execOne()
+            } else if (code === 0) {
+                phLogger.info("success")
+            } else {
+                phLogger.error("error")
+            }
+        })
     }
 }

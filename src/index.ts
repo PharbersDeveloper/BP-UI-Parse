@@ -12,8 +12,8 @@ program
     .version("0.1.0")
     .option("-d, --dir <path>", "the ui generate file path")
     .option("-m, --mode <mode>", "the output type of the result components, ember or react, only ember for now")
-    .option("-o, --output<output>", "output to local distination dir")
-    .option("-n, --name <tname>", "output name")
+    .option("-o, --output <output>", "output to local distination dir")
+    .option("-n, --name <name>", "output name")
     .action(exec)
     .parse(process.argv)
 
@@ -39,7 +39,7 @@ async function exec(options: any) {
     }
     phLogger.info("output: " + output)
 
-    let name: string = options.tname
+    let name: string = options.name
     if (!name || name === "") {
         name = "name"
         program.outputHelp()
@@ -69,7 +69,7 @@ async function exec(options: any) {
     const cmdlst = new BashSpwanCmds()
     cmdlst.cmds = [
         new CdExec(output),
-        new EmberAddonExec(name)
+        new EmberAddonExec(output + "/" + name)
     ]
 
     cmdlst.exec()
