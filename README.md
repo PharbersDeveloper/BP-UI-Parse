@@ -6,6 +6,7 @@ ts
 ## 安装说明
 1. 下载工程，更改文件夹名字
 2. 修改package.json文件中的name，到你需要工程名字
+  2.1 PH_TS_UI_PARSE 环境变量到你的项目文件夹
 3. yarn 安装各种依赖
 4. npm run build 编译
 5. npm run start 启动程序
@@ -28,23 +29,3 @@ PhLogger.fatal(<what ever you want>)
 ```
 
 2. 在log文件夹下生成log文件，log同时会在console中打出
-
-## 使用说明
-1. 在models文件夹下，添加你想要的名字
-> 特别注意：名字必须是大驼峰命名
-2. 修改conf文件夹下的yml文件，看例子
-```yml
-models:
-  - file: <文件名：大驼峰>
-    reg: <访问名：在json-api下是文件名的复数>
-```
-3. 修改conf文件夹下的yml文件，配置数据库
-```yml
-mongo:
-  algorithm: <访问协议>
-  host: <访问域名>
-  port: <访问端口>
-  username: <用户名：暂时不支持>
-  pwd: <密码：暂时不支持>
-  coll: <数据库>
-```
