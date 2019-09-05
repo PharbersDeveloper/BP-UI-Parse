@@ -3,10 +3,10 @@
 import { BashExec } from "./bashexec"
 import { SpawnStrategy } from "./execStrategy/spawnstrategy"
 
-export class EmberAddonExec extends BashExec<SpawnStrategy> {
+export class EmberAddonExec extends BashExec {
+    protected cmd: string = "ember"
     constructor(name: string) {
         super()
-        // this.cmd = "ls" + name
-        this.cmd = "ls"
+        this.args = ["addon", "alfredyang1986", "--skip-npm"]
     }
 }

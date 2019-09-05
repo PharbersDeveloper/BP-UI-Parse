@@ -3,6 +3,7 @@ import * as fs from "fs"
 import * as yaml from "js-yaml"
 import { JsonConvert, ValueCheckingMode } from "json2typescript"
 import { EmberAddonExec } from "./bashexec/addonExec"
+import { SpawnStrategy } from "./bashexec/execStrategy/spawnstrategy"
 import { ParseConf } from "./factory/ParseFactory"
 import phLogger from "./logger/phLogger"
 
@@ -31,7 +32,7 @@ async function exec(options: any) {
 
     let local: string = options.ldir
     if (!local || local === "") {
-        local = "result"
+        local = "alfredyangtest"
     }
     phLogger.info("local: " + local)
 
@@ -61,5 +62,5 @@ async function exec(options: any) {
      * 1. 第一步创建ember addon
      */
     const commandCreateAddon = new EmberAddonExec(local)
-    await commandCreateAddon.exec()
+    await commandCreateAddon.exec(SpawnStrategy)
 }
