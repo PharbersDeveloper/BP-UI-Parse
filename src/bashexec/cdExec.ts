@@ -8,4 +8,11 @@ export class CdExec extends BashExec {
         super()
         this.args = [path]
     }
+
+    public async exec(callback: (code: number) => void) {
+        process.chdir(this.args[0])
+        if (callback) {
+            callback(0)
+        }
+    }
 }
