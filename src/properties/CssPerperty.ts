@@ -4,7 +4,7 @@ export abstract class CssProperty {
     protected tp: string = "css"
     protected key: string
     protected value: any
-    protected description: string = undefined
+    protected description?: string = ""
 
     public getKey(): string {
         return this.key
@@ -18,9 +18,10 @@ export abstract class CssProperty {
         if (this.description) {
             return this.description
         }
+        return ""
     }
 
-    public toCssLine(cf: any) {
-        return this.getKey() + " : " + this.getValue() + this.getDescription()
+    public toCssLine(cf?: any) {
+        return this.getKey() + " : " + this.getValue() + this.getDescription() + ";"
     }
 }

@@ -10,7 +10,7 @@ import { EmberBlueprintExec } from "./bashexec/emberBluepirnt"
 import { EmberGenExec } from "./bashexec/emberGenExec"
 import { EmberInitBlueprintExec } from "./bashexec/emberInitBlueprint"
 import { EmberYarnExec } from "./bashexec/emberYarn"
-import { BasicComponent} from "./components/BasicCpmponent"
+import { BasicUi} from "./components/BasicUi"
 import { ParseConf } from "./factory/ParseFactory"
 import phLogger from "./logger/phLogger"
 
@@ -69,10 +69,11 @@ async function exec(options: any) {
     }
     phLogger.info(func)
 
+    // 获取 ui json
     const inputFileData = fs.readFileSync(inputPath, "utf8")
-    const componentData = jsonConvert.deserializeObject(JSON.parse(inputFileData), BasicComponent)
-    phLogger.info(componentData)
-    phLogger.info(componentData.blueprintName)
+    const componentData = jsonConvert.deserializeObject(JSON.parse(inputFileData), BasicUi)
+
+    phLogger.info(componentData.page.name)
 
     /**
      * cmds explain
@@ -84,6 +85,10 @@ async function exec(options: any) {
      * line4 生成自定义 blueprint
      * line5 初始化 blueprint（index.js & __name__.js & __templatename__.hbs）
      * line6 测试 blueprint 的结果
+     * todo 五个基础布局器
+     * todo 生成 css 的blueprint ✅
+     * todo 生成 page 页面
+     * todo 将 组件 放入 page页面进行展示
      */
     const cmdlst = new BashSpwanCmds()
     phLogger.info("output: " + output)
@@ -93,10 +98,10 @@ async function exec(options: any) {
         new EmberAddonExec(name),
         new CdExec(output + "/" + name),
         new EmberYarnExec(),
-        new EmberGenExec("component", "test-component"),    // 测试生成组件 ✔️
-        new EmberGenExec("blueprint", componentData.blueprintName),
-        new EmberInitBlueprintExec(inputPath, output, name, componentData),
-        new EmberBlueprintExec(componentData.blueprintName, componentData.name)
+        // new EmberGenExec("component", "test-component"),
+        new EmberGenExec("blueprint", componentData.page.blueprintName),
+        new EmberInitBlueprintExec(inputPath, output, name, componentData.components),
+        new EmberBlueprintExec(componentData)
     ]
 
     cmdlst.exec()
