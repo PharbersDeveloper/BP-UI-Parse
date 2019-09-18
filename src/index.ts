@@ -73,8 +73,6 @@ async function exec(options: any) {
     const inputFileData = fs.readFileSync(inputPath, "utf8")
     const componentData = jsonConvert.deserializeObject(JSON.parse(inputFileData), BasicUi)
 
-    phLogger.info(componentData.page.name)
-
     /**
      * cmds explain
      * line0 进入输出目录
@@ -97,11 +95,14 @@ async function exec(options: any) {
         new CdExec(output),
         new EmberAddonExec(name),
         new CdExec(output + "/" + name),
-        new EmberYarnExec(),
+        new EmberYarnExec("install"),
         // new EmberGenExec("component", "test-component"),
-        new EmberGenExec("blueprint", componentData.page.blueprintName),
+        // new EmberGenExec("blueprint", componentData.components),
         new EmberInitBlueprintExec(inputPath, output, name, componentData.components),
-        new EmberBlueprintExec(componentData)
+        new EmberBlueprintExec(componentData),
+        // new CdExec(output + "/" + name),
+        // new EmberYarnExec("link"),
+        // new CdExec(output + "/" + "project-demo")
     ]
 
     cmdlst.exec()

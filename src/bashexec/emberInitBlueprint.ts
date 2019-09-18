@@ -16,36 +16,41 @@ export class EmberInitBlueprintExec extends BashExec {
         this.blueprintData = blueprintClass
     }
     public async exec(callback: (code: number) => void) {
-        this.genBlueprint(this.args[0], this.args[1], this.args[2])
+        const blueprintData = this.blueprintData
+        for (let i = 0, len = blueprintData.length; i < len; i++) {
+            this.genBlueprint(this.args[0], this.args[1], this.args[2], blueprintData[i])
+        }
+        // this.genBlueprint(this.args[0], this.args[1], this.args[2])
         if (callback) {
             callback(0)
         }
     }
     // 初始化 blueprint 下的 index.js
-    private async genBlueprint(inputPath: string, outputPath: string, name: string) {
+    private async genBlueprint(inputPath: string, outputPath: string, name: string, blueprintData: BasicComponent) {
         const tempPath = inputPath.split("/").slice(0, -1).join("/") + "/"
-        const path = tempPath + "tempBlueprint.js"
-        const fileData = fs.readFileSync(path, "utf-8")
-        const blueprint: string = this.blueprintData[0].blueprintName
+        const inputDataPath = tempPath + "tempBlueprint.js"
+        const fileData = fs.readFileSync(inputDataPath, "utf-8")
+        const blueprint: string = blueprintData.blueprintName
 
         const fileDir: string = outputPath + "/" + name + "/blueprints/" + blueprint
 
+        fs.mkdirSync(fileDir, { recursive: true })
         // 修改 blueprint‘s index.js （应该是通过一个 blueprint 类，根据inputpath 下的json生成相应的文件信息）
         fs.writeFileSync(fileDir + "/index.js", fileData)
 
-        this.createBlueprint(fileDir)
+        this.createBlueprint(fileDir, blueprintData)
     }
-    private createBlueprint(fileDir: string): void {
+    private createBlueprint(fileDir: string, blueprintData: BasicComponent): void {
         // 创建 blueprint 的 路径
-        this.createBlueprintLogicPath(fileDir)
+        this.createBlueprintLogicPath(fileDir, blueprintData)
         this.createBlueprintTempPath(fileDir)
         this.createBlueprintExportPath(fileDir)
     }
     // 创建 blueprint 下的逻辑文件所在的路径
-    private async createBlueprintLogicPath(fileDir: string) {
+    private async createBlueprintLogicPath(fileDir: string, blueprintData: BasicComponent) {
         const path: string = fileDir + "/files/__root__/__path__"
         fs.mkdirSync(path, { recursive: true })
-        this.createBlueprintLogicFile(path)
+        this.createBlueprintLogicFile(path, blueprintData)
     }
     // 创建 blueprint 下的模版文件所在的路径
     private async createBlueprintTempPath(fileDir: string) {
@@ -56,7 +61,7 @@ export class EmberInitBlueprintExec extends BashExec {
 
     }
     // 创建 blueprint 下的逻辑文件
-    private async createBlueprintLogicFile(path: string) {
+    private async createBlueprintLogicFile(path: string, blueprintData: BasicComponent) {
         // const tempData: string = "import Component from '@ember/component';" + "\r" +
         //     "import layout from '../templates/components/<%= dasherizedModuleName %>';" + "\r" +
         //     "export default Component.extend({" + "\r" +
@@ -69,14 +74,14 @@ export class EmberInitBlueprintExec extends BashExec {
         "export default Component.extend({" + "\r" +
         "    layout," + "\r"
         const dataEnd: string = "}); " + "\r"
-        const dataBody: string = "    tagName: '" + this.blueprintData[0].tagName + "'," + "\r" +
-        "    classNames: ['" + this.blueprintData[0].classNames.join()  + "']" + "\r"
+        const dataBody: string = "    tagName: '" + blueprintData.tagName + "'," + "\r" +
+        "    classNames: ['" + blueprintData.classNames.join()  + "']" + "\r"
 
         this.writeFileSync(path + "/__name__.js", dataStart + dataBody + dataEnd)
     }
     // 创建 blueprint 下的模版文件
     private async createBlueprintTempFile(path: string) {
-        const tempData: string = "{{text}}{{yield}}"
+        const tempData: string = "{{yield}}"
         this.writeFileSync(path + "/__templatename__.hbs", tempData)
     }
     private writeFileSync(path: string, fileData: string) {

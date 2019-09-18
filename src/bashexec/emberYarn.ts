@@ -4,8 +4,8 @@ import { BashExec } from "./bashexec"
 
 export class EmberYarnExec extends BashExec {
     protected cmd = "yarn"
-    constructor() {
+    constructor(type: string) {
         super()
-        this.args = ["install"]
+        this.args = [type]
     }
 }

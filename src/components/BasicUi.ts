@@ -7,7 +7,7 @@ import { BasicPage } from "./BasicPage"
 @JsonObject("BasicUi")
 export class BasicUi {
 
-    @JsonProperty("page", BasicPage)
+    @JsonProperty("page", BasicPage, true)
     public page?: BasicPage = null
 
     @JsonProperty("components", [BasicComponent])
