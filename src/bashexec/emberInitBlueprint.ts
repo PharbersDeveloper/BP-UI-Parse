@@ -1,7 +1,8 @@
 "use strict"
 
 import * as fs from "fs"
-import { BasicComponent} from "../components/BasicComponent"
+import { BasicComponent } from "../components/BasicComponent"
+import { uniqBy } from "../utils/uniqby"
 import { BashExec } from "./bashexec"
 
 export class EmberInitBlueprintExec extends BashExec {
@@ -17,10 +18,10 @@ export class EmberInitBlueprintExec extends BashExec {
     }
     public async exec(callback: (code: number) => void) {
         const blueprintData = this.blueprintData
-        for (let i = 0, len = blueprintData.length; i < len; i++) {
-            this.genBlueprint(this.args[0], this.args[1], this.args[2], blueprintData[i])
+        const uniqBpData = uniqBy(blueprintData, "blueprintName")
+        for (let i = 0, len = uniqBpData.length; i < len; i++) {
+            this.genBlueprint(this.args[0], this.args[1], this.args[2], uniqBpData[i])
         }
-        // this.genBlueprint(this.args[0], this.args[1], this.args[2])
         if (callback) {
             callback(0)
         }
@@ -70,12 +71,16 @@ export class EmberInitBlueprintExec extends BashExec {
         //     "}); " + "\r"
 
         const dataStart: string = "import Component from '@ember/component';" + "\r" +
-        "import layout from '../templates/components/<%= dasherizedModuleName %>';" + "\r" +
-        "export default Component.extend({" + "\r" +
-        "    layout," + "\r"
+            "import layout from '../templates/components/<%= dasherizedModuleName %>';" + "\r" +
+            "export default Component.extend({" + "\r" +
+            "    layout," + "\r"
         const dataEnd: string = "}); " + "\r"
         const dataBody: string = "    tagName: '" + blueprintData.tagName + "'," + "\r" +
-        "    classNames: ['" + blueprintData.classNames.join()  + "']" + "\r"
+                "   classNames:<%= addClassNames %>, " + "\r"
+
+            // "    classNames: ['p-button']," + "\r" +
+            // "    classNameBindings: ['type']," + "\r"
+        // "    classNames: ['" + blueprintData.classNames.join()  + "']" + "\r"
 
         this.writeFileSync(path + "/__name__.js", dataStart + dataBody + dataEnd)
     }
@@ -96,39 +101,39 @@ export class EmberInitBlueprintExec extends BashExec {
         const fileData: string = "export { default } from '<%= modulePath %>';"
         fs.writeFileSync(path + "/__name__.js", fileData)
 
-        this.createStyles()
+        // this.createStyles()
     }
     // 创建 styles 文件夹路径 并初始化 addon.css(todo也需要在 ember project 写入样式文件，目前仅限addon)
-    private async createStyles() {
-        // this.args = [inputPath, outputPath, name]
-        const fileDir: string = this.args[1] + "/" + this.args[2] + "/addon/styles"
-        const tempData: string = "*,::after,::before {" + "\r" +
-            "-webkit-box-sizing: border-box;" + "\r" +
-            "box-sizing: border-box;" + "\r" +
-            "font-family: system, -apple-system, BlinkMacSystemFont," + "\r" +
-            "    'PingFang SC', 'Hiragino Sans GB', 'Segoe UI', 'Roboto', 'Microsoft YaHei'," + "\r" +
-            "    'Helvetica Neue', Helvetica, Arial, sans-serif;" + "\r" +
-        "}" + "\r"
+    // private async createStyles() {
+    //     // this.args = [inputPath, outputPath, name]
+    //     const fileDir: string = this.args[1] + "/" + this.args[2] + "/addon/styles"
+    //     const tempData: string = "*,::after,::before {" + "\r" +
+    //         "-webkit-box-sizing: border-box;" + "\r" +
+    //         "box-sizing: border-box;" + "\r" +
+    //         "font-family: system, -apple-system, BlinkMacSystemFont," + "\r" +
+    //         "    'PingFang SC', 'Hiragino Sans GB', 'Segoe UI', 'Roboto', 'Microsoft YaHei'," + "\r" +
+    //         "    'Helvetica Neue', Helvetica, Arial, sans-serif;" + "\r" +
+    //         "}" + "\r"
 
-        fs.mkdirSync(fileDir, { recursive: true })
+    //     fs.mkdirSync(fileDir, { recursive: true })
 
-        this.writeFileSync(fileDir + "/addon.css", tempData)
-        const blueprintData = this.blueprintData
-        for (let d = 0, len = blueprintData.length; d < len; d++) {
-            this.addStyles(fileDir + "/addon.css", blueprintData[d])
-        }
-    }
+    //     this.writeFileSync(fileDir + "/addon.css", tempData)
+    //     const blueprintData = this.blueprintData
+    //     for (let d = 0, len = blueprintData.length; d < len; d++) {
+    //         this.addStyles(fileDir + "/addon.css", blueprintData[d])
+    //     }
+    // }
 
-    private async addStyles(path: string, componentConfig: BasicComponent) {
-        // add style
-        const styles = componentConfig.styles
-        const styleStart: string = "." + componentConfig.classNames[0] + "{" + "\r"
-        const styleEnd: string = "}" + "\r"
+    // private async addStyles(path: string, componentConfig: BasicComponent) {
+    //     // add style
+    //     const styles = componentConfig.styles
+    //     const styleStart: string = "." + componentConfig.classNames[0] + "{" + "\r"
+    //     const styleEnd: string = "}" + "\r"
 
-        let styleBody = ""
-        for (let i = 0, len = styles.length; i < len; i++) {
-            styleBody += styles[i].toCssLine() + "\r"
-        }
-        fs.appendFileSync(path, styleStart + styleBody + styleEnd)
-    }
+    //     let styleBody = ""
+    //     for (let i = 0, len = styles.length; i < len; i++) {
+    //         styleBody += styles[i].toCssLine() + "\r"
+    //     }
+    //     fs.appendFileSync(path, styleStart + styleBody + styleEnd)
+    // }
 }

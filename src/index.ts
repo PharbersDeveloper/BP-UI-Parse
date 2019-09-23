@@ -10,13 +10,17 @@ import { EmberBlueprintExec } from "./bashexec/emberBluepirnt"
 import { EmberGenExec } from "./bashexec/emberGenExec"
 import { EmberInitBlueprintExec } from "./bashexec/emberInitBlueprint"
 import { EmberYarnExec } from "./bashexec/emberYarn"
-import { BasicUi} from "./components/BasicUi"
+// import {DealComponentClass} from "./bashexec/execComponent/dealComponentClass"
+import { GenerateStyle } from "./bashexec/generateStyle"
+import { BasicUi } from "./components/BasicUi"
+import { TotalStyle } from "./components/TotalStyle"
 import { ParseConf } from "./factory/ParseFactory"
 import phLogger from "./logger/phLogger"
 
 program
     .version("0.1.0")
     .option("-d, --directory <directory>", "the ui generate file path")
+    .option("-s, --style <style>", "the ui styles file path")
     .option("-m, --mode <mode>", "the output type of the result components, ember or react, only ember for now")
     .option("-o, --output <output>", "output to local distination dir")
     .option("-n, --name <name>", "output name")
@@ -53,6 +57,12 @@ async function exec(options: any) {
     }
     phLogger.info("name: " + name)
 
+    let style: string = options.style
+    if (!style || style === "") {
+        style = "."
+    }
+    phLogger.info("style: " + style)
+
     const path = process.env.PH_TS_UI_PARSE + "/conf"
     const jsonConvert: JsonConvert = new JsonConvert()
     const doc = yaml.safeLoad(fs.readFileSync(path + "/conf.yml", "utf8"))
@@ -72,6 +82,10 @@ async function exec(options: any) {
     // 获取 ui json
     const inputFileData = fs.readFileSync(inputPath, "utf8")
     const componentData = jsonConvert.deserializeObject(JSON.parse(inputFileData), BasicUi)
+
+    // 获取 styles json
+    const inputStyleData = fs.readFileSync(style, "utf8")
+    const cssData = jsonConvert.deserializeObject(JSON.parse(inputStyleData), TotalStyle)
 
     /**
      * cmds explain
@@ -100,9 +114,8 @@ async function exec(options: any) {
         // new EmberGenExec("blueprint", componentData.components),
         new EmberInitBlueprintExec(inputPath, output, name, componentData.components),
         new EmberBlueprintExec(componentData),
-        // new CdExec(output + "/" + name),
-        // new EmberYarnExec("link"),
-        // new CdExec(output + "/" + "project-demo")
+        new GenerateStyle(cssData, output, name),
+        // new DealComponentClass(componentData, output, name)
     ]
 
     cmdlst.exec()

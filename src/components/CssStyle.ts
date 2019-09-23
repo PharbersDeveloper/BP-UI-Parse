@@ -18,6 +18,4 @@ export class CssStyle extends CssProperty {
     @JsonProperty("description", String)
     public description?: string = ""
 
-    // @JsonProperty("components", [Object])
-    // public components: object[] = []
 }

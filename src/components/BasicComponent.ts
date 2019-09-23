@@ -1,6 +1,6 @@
 "use strict"
 import {JsonObject, JsonProperty} from "json2typescript"
-import {CssStyle} from "./CssProperty"
+// import {CssStyle} from "./CssProperty"
 
 @JsonObject("BasicComponent")
 export class BasicComponent {
@@ -13,8 +13,8 @@ export class BasicComponent {
     @JsonProperty("description", String)
     public description: string = "some description for this component"
 
-    @JsonProperty("styles", [CssStyle])
-    public styles: CssStyle[] = []
+    @JsonProperty("styles", [String])
+    public styles: string[] = []
 
     @JsonProperty("tagName", String)
     public tagName: string = "div"
