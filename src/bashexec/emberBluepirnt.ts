@@ -2,7 +2,6 @@
 
 import { BasicComponent } from "../components/BasicComponent"
 import { BasicUi } from "../components/BasicUi"
-import phLogger from "../logger/phLogger"
 import { BashExec } from "./bashexec"
 
 export class EmberBlueprintExec extends BashExec {
@@ -18,8 +17,6 @@ export class EmberBlueprintExec extends BashExec {
         const cmds = this.cmds
         // const uniqBpData = uniqBy(cmds, "blueprintName")
         const uniqBpData = cmds
-
-        phLogger.info("emberBlueprint")
 
         for (let i = 0, len = uniqBpData.length; i < len; i++) {
             const styles = "addClassNames:" + uniqBpData[i].styles.join()
