@@ -2,14 +2,14 @@
 
 import fs from "fs"
 import { JsonConvert } from "json2typescript"
+import BPCtx from "../context/BPCtx"
+import BPEmberCtx from "../context/BPEmberCtx"
 import { ParseBPML } from "../factory/ParseBPML"
 import phLogger from "../logger/phLogger"
 import { BPObject } from "../object/BPObject"
 import { BPThemeProperty } from "../properties/themes/BPThemeProperty"
 import { BPWidget } from "../widgets/BPWidget"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
-import BPCtx from "../context/BPCtx"
-import BPEmberCtx from "../context/BPEmberCtx"
 
 export default class BPApplication extends BPObject {
 
@@ -17,13 +17,13 @@ export default class BPApplication extends BPObject {
     public routers: BPMainWindow[] = []
 
     public run(args: string[]) {
-        const projectPath = "/Users/alfredyang/Desktop/buttons" // TODO: 解析工作
+        const projectPath = "/Users/alfredyang/Desktop/code/pharbers/BP-UI-Parse/test/data/buttons" // TODO: 解析工作
         const inputPath = projectPath + "/main.bpml"
         const jsonConvert: JsonConvert = new JsonConvert()
         const inputFileData = fs.readFileSync(inputPath, "utf8")
         const appContent = jsonConvert.deserializeObject(JSON.parse(inputFileData), ParseBPML)
         if (this.exec(appContent)) {
-            this.ctxs.forEach( ctx => {
+            this.ctxs.forEach( (ctx) => {
                 this.routers.forEach( (x) => x.paint(ctx) )
             } )
         }

@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "paint": ["ember"]
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "path": "/",
+
+      "css": [
+        {
+          "k": "width",
+          "v": "200px"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+
+      "components": [
+        {
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "test",
+          "text": "alfred test"
+        }
+      ]
+    }
+  ]
+}

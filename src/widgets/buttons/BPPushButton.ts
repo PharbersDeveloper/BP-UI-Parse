@@ -1,8 +1,8 @@
 "use strict"
 
+import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
 import { BPWidget } from "../BPWidget"
-import BPCtx from "../../context/BPCtx"
 
 export default class BPPushButton extends BPWidget {
 
