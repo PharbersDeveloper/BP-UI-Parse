@@ -22,9 +22,13 @@ import { TotalStyle } from "../components/TotalStyle"
 import { ParseConf } from "../factory/ParseFactory"
 import phLogger from "../logger/phLogger"
 import { BPObject } from "../object/BPObject"
+import { BPWidget } from "../widgets/BPWidget"
 
 export default class BPApplication extends BPObject {
-    public init(args: string[]) {
+
+    public mainWindow: BPWidget = null
+
+    public run(args: string[]) {
         /**
          * 将index.ts中的东西转移进来
          */
