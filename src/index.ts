@@ -1,36 +1,10 @@
 #! /usr/bin/env node
-import program from "commander"
-import * as fs from "fs"
-import * as yaml from "js-yaml"
-import { JsonConvert, ValueCheckingMode } from "json2typescript"
-import { EmberAddonExec } from "./bashexec/addonExec"
-import { BashSpwanCmds } from "./bashexec/bashcmdlst"
-import { CdExec } from "./bashexec/cdExec"
-import { EmberBlueprintExec } from "./bashexec/emberBluepirnt"
-import { EmberGenExec } from "./bashexec/emberGenExec"
-import { EmberInitBlueprintExec } from "./bashexec/emberInitBlueprint"
-import { EmberInstallDepExec } from "./bashexec/emberInstallDepExec"
-import { EmberRunExec } from "./bashexec/emberRun"
-import { EmberShowExec } from "./bashexec/emberShowExex"
-import { EmberYarnExec } from "./bashexec/emberYarn"
-// import {DealComponentClass} from "./bashexec/execComponent/dealComponentClass"
-import { GenerateStyle } from "./bashexec/generateStyle"
-import { RemoveFolderExec } from "./bashexec/removeFolderExec"
-import { BasicUi } from "./components/BasicUi"
-import { TotalStyle } from "./components/TotalStyle"
-import { ParseConf } from "./factory/ParseFactory"
-import phLogger from "./logger/phLogger"
 
-program
-    .version("0.1.0")
-    .option("-d, --directory <directory>", "the ui generate file path")
-    .option("-s, --style <style>", "the ui styles file path")
-    .option("-m, --mode <mode>", "the output type of the result components, ember or react, only ember for now")
-    .option("-o, --output <output>", "output to local distination dir")
-    .option("-n, --name <name>", "output name")
-    .action(exec)
-    .parse(process.argv)
+import BPApplication from "./application/BPApplication"
 
+<<<<<<< Updated upstream
+new BPApplication().run(process.argv)
+=======
 async function exec(options: any) {
     phLogger.info("start with args: ")
     let inputPath: string = options.directory
@@ -120,9 +94,12 @@ async function exec(options: any) {
         new GenerateStyle(cssData, output, name),
         new EmberYarnExec("remove", "ember-cli-htmlbars"),
         new EmberInstallDepExec("ember-cli-htmlbars", "-S"),
+        new EmberInstallDepExec("@fortawesome/ember-fontawesome", "-S"),
+        new EmberYarnExec("add", "@fortawesome/free-solid-svg-icons"),
         new CdExec(output + "/" + name),
         new EmberShowExec(output, name, componentData.components)
     ]
 
     cmdlst.exec()
 }
+>>>>>>> Stashed changes

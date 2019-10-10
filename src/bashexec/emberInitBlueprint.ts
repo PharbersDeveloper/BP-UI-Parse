@@ -6,14 +6,10 @@ import { uniqBy } from "../utils/uniqby"
 import { BashExec } from "./bashexec"
 
 export class EmberInitBlueprintExec extends BashExec {
-    // protected cmd = "cd"
-    private outputPath: string = ""
     private blueprintData: BasicComponent[] = null
-    // constructor(inputPath: string, outputPath: string, name: string, blueprint: string, testBluep: string) {
     constructor(inputPath: string, outputPath: string, name: string, blueprintClass: BasicComponent[]) {
         super()
         this.args = [inputPath, outputPath, name]
-        this.outputPath = outputPath
         this.blueprintData = blueprintClass
     }
     public async exec(callback: (code: number) => void) {
@@ -63,13 +59,6 @@ export class EmberInitBlueprintExec extends BashExec {
     }
     // 创建 blueprint 下的逻辑文件
     private async createBlueprintLogicFile(path: string, blueprintData: BasicComponent) {
-        // const tempData: string = "import Component from '@ember/component';" + "\r" +
-        //     "import layout from '../templates/components/<%= dasherizedModuleName %>';" + "\r" +
-        //     "export default Component.extend({" + "\r" +
-        //     "    layout," + "\r" +
-        //     "    tagName: '" + this.blueprintData[0].tagName + "'" + "\r" +
-        //     "}); " + "\r"
-
         const dataStart: string = "import Component from '@ember/component';" + "\r" +
             "import layout from '../templates/components/<%= dasherizedModuleName %>';" + "\r" +
             "export default Component.extend({" + "\r" +
@@ -96,40 +85,5 @@ export class EmberInitBlueprintExec extends BashExec {
     private async createBlueprintExportFile(path: string) {
         const fileData: string = "export { default } from '<%= modulePath %>';"
         fs.writeFileSync(path + "/__name__.js", fileData)
-
-        // this.createStyles()
     }
-    // 创建 styles 文件夹路径 并初始化 addon.css(todo也需要在 ember project 写入样式文件，目前仅限addon)
-    // private async createStyles() {
-    //     // this.args = [inputPath, outputPath, name]
-    //     const fileDir: string = this.args[1] + "/" + this.args[2] + "/addon/styles"
-    //     const tempData: string = "*,::after,::before {" + "\r" +
-    //         "-webkit-box-sizing: border-box;" + "\r" +
-    //         "box-sizing: border-box;" + "\r" +
-    //         "font-family: system, -apple-system, BlinkMacSystemFont," + "\r" +
-    //         "    'PingFang SC', 'Hiragino Sans GB', 'Segoe UI', 'Roboto', 'Microsoft YaHei'," + "\r" +
-    //         "    'Helvetica Neue', Helvetica, Arial, sans-serif;" + "\r" +
-    //         "}" + "\r"
-
-    //     fs.mkdirSync(fileDir, { recursive: true })
-
-    //     this.writeFileSync(fileDir + "/addon.css", tempData)
-    //     const blueprintData = this.blueprintData
-    //     for (let d = 0, len = blueprintData.length; d < len; d++) {
-    //         this.addStyles(fileDir + "/addon.css", blueprintData[d])
-    //     }
-    // }
-
-    // private async addStyles(path: string, componentConfig: BasicComponent) {
-    //     // add style
-    //     const styles = componentConfig.styles
-    //     const styleStart: string = "." + componentConfig.classNames[0] + "{" + "\r"
-    //     const styleEnd: string = "}" + "\r"
-
-    //     let styleBody = ""
-    //     for (let i = 0, len = styles.length; i < len; i++) {
-    //         styleBody += styles[i].toCssLine() + "\r"
-    //     }
-    //     fs.appendFileSync(path, styleStart + styleBody + styleEnd)
-    // }
 }
