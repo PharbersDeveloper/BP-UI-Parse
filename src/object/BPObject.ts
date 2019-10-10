@@ -13,6 +13,10 @@ export class BPObject {
     protected objId = uuid.v4()
     private signals = Array<string>()
 
+    public resetObjId(id: string): void {
+        this.objId = id
+    }
+
     /**
      * registerSignals
      */

@@ -1,8 +1,8 @@
 "use strict"
 import {JsonObject, JsonProperty} from "json2typescript"
-import { ModeConf } from "./ModeConf"
+import { ParseCssConf } from "./ParseCssConf"
 
-@JsonObject("BPML")
+@JsonObject("router")
 export class ParseRouterConf {
 
     @JsonProperty("id", String)
@@ -10,4 +10,7 @@ export class ParseRouterConf {
 
     @JsonProperty("path", String)
     public path: string = ""
+
+    @JsonProperty("css", ParseCssConf)
+    public css: ParseCssConf = undefined
 }
