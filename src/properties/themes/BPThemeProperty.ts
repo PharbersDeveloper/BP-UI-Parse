@@ -3,7 +3,7 @@
 import { CssProperty } from "../CssPerperty"
 
 export class BPThemeProperty {
-    protected properties: Array<CssProperty>
+    protected properties: CssProperty[]
 
     // TODO: 修改配置文件
     protected normals: Array<{key: string, v: any}> = [
@@ -24,13 +24,13 @@ export class BPThemeProperty {
         this.initDefaults()
     }
 
-    private initDefaults(...normals: {key: string, v: any}[]) {
-        normals.forEach( x => {
-            this.properties.push( 
+    private initDefaults(...normals: Array<{key: string, v: any}>) {
+        normals.forEach( (x) => {
+            this.properties.push(
                 {
-                    tp: "css",
                     key: x.key,
-                    value: x.v
+                    tp: "css",
+                    value: x.v,
                 }
             )
         })

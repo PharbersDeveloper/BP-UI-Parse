@@ -3,5 +3,5 @@
 import { CssProperty } from "../CssPerperty"
 
 export class BPLayoutProperty {
-    protected properties: Array<CssProperty>
+    protected properties: CssProperty[]
 }

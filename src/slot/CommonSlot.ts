@@ -4,15 +4,15 @@ import { BPObject } from "../object/BPObject"
 
 export class BPSlot {
 
-    private _target: BPObject = null
-    private _trigger: (...args: any) => any
+    private target: BPObject = null
+    private tf: (...args: any[]) => any
 
-    constructor(target: BPObject, tri: (...args: any) => any) {
-        this._target = target
-        this._trigger = tri
+    constructor(target: BPObject, tri: (...args: any[]) => any) {
+        this.target = target
+        this.tf = tri
     }
 
-    public trigger(...args: any): any {
-        return this._trigger(args)
+    public trigger(...args: any[]): any {
+        return this.tf(args)
     }
 }

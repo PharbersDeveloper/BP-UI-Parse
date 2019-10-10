@@ -1,4 +1,5 @@
 import { slow, suite, test, timeout } from "mocha-typescript"
+import BPApplication from "../../src/application/BPApplication"
 import PhLogger from "../../src/logger/phLogger"
 
 @suite(timeout(1000 * 60), slow(1000))
@@ -14,5 +15,6 @@ class ExcelDataInput {
 
     @test public async uiparsetest() {
         PhLogger.info(`start input data with excel`)
+        new BPApplication().run(null)
     }
 }
