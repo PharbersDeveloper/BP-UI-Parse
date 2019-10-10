@@ -5,11 +5,11 @@ import { BPWidget } from "../BPWidget"
 
 export default class BPMainWindow extends BPWidget {
 
-    protected paint() {
+    public paint() {
         phLogger.info("alfred paint test")
     }
 
-    protected hitSize() {
+    public hitSize() {
         phLogger.info("alfred paint test")
     }
 }

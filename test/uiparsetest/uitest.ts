@@ -14,7 +14,7 @@ class ExcelDataInput {
     }
 
     @test public async uiparsetest() {
-        PhLogger.info(`start input data with excel`)
+        PhLogger.info(`start application test`)
         new BPApplication().run(null)
     }
 }

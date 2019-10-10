@@ -23,7 +23,7 @@ export default class BPApplication extends BPObject {
         const inputFileData = fs.readFileSync(inputPath, "utf8")
         const appContent = jsonConvert.deserializeObject(JSON.parse(inputFileData), ParseBPML)
         if (this.exec(appContent)) {
-            phLogger.info("alfred test with paint")
+            this.routers.forEach( (x) => x.paint() )
         }
     }
 
@@ -32,14 +32,11 @@ export default class BPApplication extends BPObject {
      * 1. 首先，需要将窗口抽象成树型结构
      */
     public exec(content: ParseBPML): boolean {
-        phLogger.info(content)
         content.routers.forEach((router) => {
             const mw = new BPMainWindow()
             mw.resetObjId(router.id)
-            phLogger.info(mw)
             const cp = new BPThemeProperty()
             router.css.forEach( (c) => cp.resetProperty(c.k, c.v) )
-            phLogger.info(cp)
             this.routers.push(mw)
         } )
         return true
