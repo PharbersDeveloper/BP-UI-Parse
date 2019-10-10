@@ -18,7 +18,7 @@ export class EmberShowExec extends BashExec {
             callback(0)
         }
     }
-    // 初始化 blueprint 下的 index.js
+    // 展示 components
     private async showComponents(output: string, name: string) {
         const componentsData = this.components
         const outputPath = output + "/" + name + "/tests/dummy/app/templates/application.hbs"
@@ -28,9 +28,10 @@ export class EmberShowExec extends BashExec {
         for (let i = 0, len = componentsData.length; i < len; i++) {
             const componentData: BasicComponent = componentsData[i]
 
-            let showData = ""
+            const showData = ""
 
-            showData = "{{#" + componentData.name + "}}" + componentData.description + "{{/" + componentData.name + "}}"
+            // showData = "{{#" + componentData.name + "}}" + componentData.description
+            // + "{{/" + componentData.name + "}}"
 
             fileData = fileData + showData + "\r"
         }

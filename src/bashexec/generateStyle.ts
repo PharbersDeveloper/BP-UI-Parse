@@ -47,7 +47,7 @@ export class GenerateStyle extends BashExec {
         const styleStart: string = "." + style.description + " {" + "\r"
         const styleEnd: string = "}" + "\r"
 
-        const styleBody = style.key + ":" + style.value + ";"
+        const styleBody = style.key + ":" + style.value + ";" + "\r"
 
         fs.appendFileSync(path, styleStart + "  " + styleBody + styleEnd)
     }

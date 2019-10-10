@@ -78,10 +78,6 @@ export class EmberInitBlueprintExec extends BashExec {
         const dataBody: string = "    tagName: '" + blueprintData.tagName + "'," + "\r" +
                 "   classNames:<%= addClassNames %>, " + "\r"
 
-            // "    classNames: ['p-button']," + "\r" +
-            // "    classNameBindings: ['type']," + "\r"
-        // "    classNames: ['" + blueprintData.classNames.join()  + "']" + "\r"
-
         this.writeFileSync(path + "/__name__.js", dataStart + dataBody + dataEnd)
     }
     // 创建 blueprint 下的模版文件

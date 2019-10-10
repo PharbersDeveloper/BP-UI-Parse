@@ -9,13 +9,13 @@ import { CdExec } from "./bashexec/cdExec"
 import { EmberBlueprintExec } from "./bashexec/emberBluepirnt"
 import { EmberGenExec } from "./bashexec/emberGenExec"
 import { EmberInitBlueprintExec } from "./bashexec/emberInitBlueprint"
-import {EmberInstallDepExec} from "./bashexec/emberInstallDepExec"
-import {EmberRunExec} from "./bashexec/emberRun"
-import {EmberShowExec} from "./bashexec/emberShowExex"
+import { EmberInstallDepExec } from "./bashexec/emberInstallDepExec"
+import { EmberRunExec } from "./bashexec/emberRun"
+import { EmberShowExec } from "./bashexec/emberShowExex"
 import { EmberYarnExec } from "./bashexec/emberYarn"
-
 // import {DealComponentClass} from "./bashexec/execComponent/dealComponentClass"
 import { GenerateStyle } from "./bashexec/generateStyle"
+import { RemoveFolderExec } from "./bashexec/removeFolderExec"
 import { BasicUi } from "./components/BasicUi"
 import { TotalStyle } from "./components/TotalStyle"
 import { ParseConf } from "./factory/ParseFactory"
@@ -111,11 +111,10 @@ async function exec(options: any) {
 
     cmdlst.cmds = [
         new CdExec(output),
+        new RemoveFolderExec(name),
         new EmberAddonExec(name),
         new CdExec(output + "/" + name),
         new EmberYarnExec("install"),
-        // new EmberGenExec("component", "test-component"),
-        // new EmberGenExec("blueprint", componentData.components),
         new EmberInitBlueprintExec(inputPath, output, name, componentData.components),
         new EmberBlueprintExec(componentData),
         new GenerateStyle(cssData, output, name),
@@ -123,8 +122,6 @@ async function exec(options: any) {
         new EmberInstallDepExec("ember-cli-htmlbars", "-S"),
         new CdExec(output + "/" + name),
         new EmberShowExec(output, name, componentData.components)
-        // new EmberRunExec()
-        // new DealComponentClass(componentData, output, name)
     ]
 
     cmdlst.exec()
