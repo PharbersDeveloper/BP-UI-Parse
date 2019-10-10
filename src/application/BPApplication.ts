@@ -5,6 +5,7 @@ import { JsonConvert } from "json2typescript"
 import { ParseBPML } from "../factory/ParseBPML"
 import phLogger from "../logger/phLogger"
 import { BPObject } from "../object/BPObject"
+import { BPThemeProperty } from "../properties/themes/BPThemeProperty"
 import { BPWidget } from "../widgets/BPWidget"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 
@@ -35,6 +36,10 @@ export default class BPApplication extends BPObject {
         content.routers.forEach((router) => {
             const mw = new BPMainWindow()
             mw.resetObjId(router.id)
+            phLogger.info(mw)
+            const cp = new BPThemeProperty()
+            phLogger.info(cp)
+            phLogger.info(router.css.width)
             this.routers.push(mw)
         } )
         return true

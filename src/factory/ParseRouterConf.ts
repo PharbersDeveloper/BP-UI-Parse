@@ -5,7 +5,7 @@ import { ParseCssConf } from "./ParseCssConf"
 @JsonObject("router")
 export class ParseRouterConf {
 
-    @JsonProperty("id", String)
+    @JsonProperty("id", String, )
     public id: string = ""
 
     @JsonProperty("path", String)

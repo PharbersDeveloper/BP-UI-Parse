@@ -34,5 +34,17 @@ export class BPThemeProperty {
                 }
             )
         })
-   }
+    }
+
+    public isPropertyExists(): boolean {
+        return false
+    }
+
+    public resetProperty(key: string, v: any): void {
+
+    }
+
+    public queryProperty(key: string): any | undefined {
+        return undefined
+    }
 }

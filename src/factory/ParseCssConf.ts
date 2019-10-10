@@ -1,7 +1,7 @@
 "use strict"
 import {JsonObject, JsonProperty} from "json2typescript"
 
-@JsonObject("BPML")
+@JsonObject("css")
 export class ParseCssConf {
     @JsonProperty("width", Number)
     public width: number = 0
@@ -9,6 +9,6 @@ export class ParseCssConf {
     @JsonProperty("height", Number)
     public height: number = 0
 
-    @JsonProperty("background", String)
-    public background: string = ""
+    @JsonProperty("background", String, true)
+    public background: string = undefined
 }
