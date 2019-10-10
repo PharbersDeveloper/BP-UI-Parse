@@ -3,7 +3,7 @@
 import { CssProperty } from "../CssPerperty"
 
 export class BPThemeProperty {
-    protected properties: CssProperty[]
+    protected properties: CssProperty[] = []
 
     // TODO: 修改配置文件
     protected normals: Array<{key: string, v: any}> = [
@@ -24,8 +24,20 @@ export class BPThemeProperty {
         this.initDefaults()
     }
 
+    public isPropertyExists(key: string): boolean {
+        return this.properties.find((x) => x.key === key) !== undefined
+    }
+
+    public resetProperty(key: string, v: any): void {
+        this.properties.find((x) => x.key === key).value = v
+    }
+
+    public queryProperty(key: string): any | undefined {
+        return this.properties.find((x) => x.key === key).value
+    }
+
     private initDefaults(...normals: Array<{key: string, v: any}>) {
-        normals.forEach( (x) => {
+        this.normals.forEach( (x) => {
             this.properties.push(
                 {
                     key: x.key,
@@ -34,17 +46,5 @@ export class BPThemeProperty {
                 }
             )
         })
-    }
-
-    public isPropertyExists(): boolean {
-        return false
-    }
-
-    public resetProperty(key: string, v: any): void {
-
-    }
-
-    public queryProperty(key: string): any | undefined {
-        return undefined
     }
 }

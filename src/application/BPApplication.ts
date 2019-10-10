@@ -38,8 +38,8 @@ export default class BPApplication extends BPObject {
             mw.resetObjId(router.id)
             phLogger.info(mw)
             const cp = new BPThemeProperty()
+            router.css.forEach( (c) => cp.resetProperty(c.k, c.v) )
             phLogger.info(cp)
-            phLogger.info(router.css.width)
             this.routers.push(mw)
         } )
         return true

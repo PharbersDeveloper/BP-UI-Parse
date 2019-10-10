@@ -1,14 +1,11 @@
 "use strict"
-import {JsonObject, JsonProperty} from "json2typescript"
+import {Any, JsonObject, JsonProperty} from "json2typescript"
 
 @JsonObject("css")
 export class ParseCssConf {
-    @JsonProperty("width", Number)
-    public width: number = 0
+    @JsonProperty("k", String)
+    public k: string = ""
 
-    @JsonProperty("height", Number)
-    public height: number = 0
-
-    @JsonProperty("background", String, true)
-    public background: string = undefined
+    @JsonProperty("v", Any)
+    public v: any = undefined
 }

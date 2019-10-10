@@ -11,6 +11,6 @@ export class ParseRouterConf {
     @JsonProperty("path", String)
     public path: string = ""
 
-    @JsonProperty("css", ParseCssConf)
-    public css: ParseCssConf = undefined
+    @JsonProperty("css", [ParseCssConf])
+    public css: ParseCssConf[] = []
 }
