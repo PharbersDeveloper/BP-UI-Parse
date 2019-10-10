@@ -9,8 +9,4 @@ export default class BPMainWindow extends BPWidget {
     public paint(ctx: BPCtx) {
         phLogger.info("alfred paint test")
     }
-
-    public hitSize() {
-        phLogger.info("alfred paint test")
-    }
 }

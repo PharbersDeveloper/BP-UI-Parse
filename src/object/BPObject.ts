@@ -55,8 +55,4 @@ export class BPObject {
     public slot(func: (...args: any[]) => any): BPSlot {
         return new BPSlot(this, func)
     }
-
-    protected initBPObject<T>() {
-        phLogger.info("alfred test")
-    }
 }
