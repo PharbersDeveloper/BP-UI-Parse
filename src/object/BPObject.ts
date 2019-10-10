@@ -1,6 +1,6 @@
 "use strict"
 
-import uuid from "uuid"
+import uuid = require("uuid")
 import phLogger from "../logger/phLogger"
 import { BPThemeProperty } from "../properties/themes/BPThemeProperty"
 import { BPSlot } from "../slot/CommonSlot"

@@ -26,7 +26,7 @@ export default class BPApplication extends BPObject {
         //     .action(this.exec)
         //     .parse(args)
 
-        const projectPath = "~/Users/alfred/Desktop/buttons"
+        const projectPath = "/Users/alfredyang/Desktop/buttons"
         const inputPath = projectPath + "/main.bpml"
         const jsonConvert: JsonConvert = new JsonConvert()
         const inputFileData = fs.readFileSync(inputPath, "utf8")
