@@ -6,5 +6,5 @@ import { ParseCssConf } from "./ParseCssConf"
 export class ParsePtCtxConf {
 
     @JsonProperty("paint", [String] )
-    public ctx: string[] = []
+    public ctxs: string[] = []
 }
