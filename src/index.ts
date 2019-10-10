@@ -12,6 +12,7 @@ async function exec(options: any) {
         inputPath = "."
     }
     phLogger.info("dir: " + inputPath)
+new BPApplication().run(process.argv)
 
     let mode: string = options.mode
     if (!mode || mode === "") {
