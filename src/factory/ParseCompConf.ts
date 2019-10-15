@@ -10,10 +10,13 @@ export class ParseCompConf {
     public id: string = ""
 
     @JsonProperty("type", String)
-    public path: string = ""
+    public type: string = ""
 
     @JsonProperty("text", String)
     public text: string = ""
+
+    @JsonProperty("name", String)
+    public name: string = ""
 
     @JsonProperty("css", [ParseCssConf])
     public css: ParseCssConf[] = []

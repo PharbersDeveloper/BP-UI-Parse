@@ -11,7 +11,6 @@
       "cat": "main-window",
       "name": "index",
       "path": "/",
-
       "css": [
         {
           "k": "width",
@@ -29,14 +28,179 @@
           "type": "BPPushButton",
           "cat": "test",
           "text": "alfred test",
+          "name":"bp-push-button",
           "css": [
             {
               "k": "width",
-              "v": "200px"
+              "v": "auto"
+            },
+            {
+              "k": "min-width",
+              "v": "80px"
+            },
+            {
+              "k": "background",
+              "v": "rgba(9,30,66,0.04)"
+            },
+            {
+              "k": "font-size",
+              "v": "14px"
+            },
+            {
+              "k": "color",
+              "v": "#505F79"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "32px"
             },
             {
               "k": "height",
-              "v": "300px"
+              "v": "32px"
+            },
+            {
+              "k": "padding",
+              "v": "0 12px"
+            },
+            {
+              "k": "border",
+              "v": "0"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            }
+          ]
+        },
+        {
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "test",
+          "text": "alfred test primary",
+          "name":"bp-push-button-primary",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "min-width",
+              "v": "80px"
+            },{
+              "k": "height",
+              "v": "32px"
+            },{
+              "k": "background-color",
+              "v": "#3172E0"
+            },{
+              "k": "font-size",
+              "v": "14px"
+            },{
+              "k": "color",
+              "v": "#fff"
+            },{
+              "k": "text-align",
+              "v": "center"
+            },{
+              "k": "line-height",
+              "v": "32px"
+            },{
+              "k": "padding",
+              "v": "0 12px"
+            },{
+              "k": "border",
+              "v": "0"
+            },{
+              "k": "border-radius",
+              "v": "4px"
+            }
+          ]
+        },
+        {
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "test",
+          "text": "alfred test danger",
+          "name":"bp-push-button-danger",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "min-width",
+              "v": "80px"
+            },{
+              "k": "height",
+              "v": "32px"
+            },{
+              "k": "background",
+              "v": "#DE350B"
+            },{
+              "k": "font-size",
+              "v": "14px"
+            },{
+              "k": "color",
+              "v": "#fff"
+            },{
+              "k": "text-align",
+              "v": "center"
+            },{
+              "k": "line-height",
+              "v": "32px"
+            },{
+              "k": "padding",
+              "v": "0 12px"
+            },{
+              "k": "border",
+              "v": "0"
+            },{
+              "k": "border-radius",
+              "v": "4px"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "test",
+          "text": "alfred test warning",
+          "name":"bp-push-button-warning",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "min-width",
+              "v": "80px"
+            },{
+              "k": "height",
+              "v": "32px"
+            },{
+              "k": "background",
+              "v": "#FFAB00"
+            },{
+              "k": "font-size",
+              "v": "14px"
+            },{
+              "k": "color",
+              "v": "#505F79"
+            },{
+              "k": "text-align",
+              "v": "center"
+            },{
+              "k": "line-height",
+              "v": "32px"
+            },{
+              "k": "padding",
+              "v": "0 12px"
+            },{
+              "k": "border",
+              "v": "0"
+            },{
+              "k": "border-radius",
+              "v": "4px"
             }
           ]
         }

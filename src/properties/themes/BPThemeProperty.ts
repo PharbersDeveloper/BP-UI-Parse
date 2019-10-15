@@ -1,5 +1,6 @@
 "use strict"
 
+import phLogger from "../../logger/phLogger"
 import { CssProperty } from "../CssPerperty"
 
 export class BPThemeProperty {
@@ -19,6 +20,8 @@ export class BPThemeProperty {
         { key: "padding-top", v: 8 },
         { key: "padding-bottom", v: 8 },
         { key: "background", v: "#FFFFFF" },
+        // { key: "min-width", v: "80px" },
+
     ]
 
     constructor() {
@@ -30,6 +33,18 @@ export class BPThemeProperty {
     }
 
     public resetProperty(key: string, v: any): void {
+        const property = this.properties.find((x) => x.key === key)
+        if (property) {
+            property.value = v
+        } else {
+            this.properties.push(
+                {
+                    key,
+                    tp: "css",
+                    value: v,
+                }
+            )
+        }
         this.properties.find((x) => x.key === key).value = v
     }
 

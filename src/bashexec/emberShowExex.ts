@@ -1,66 +1,71 @@
 "use strict"
 
 import * as fs from "fs"
-import { BasicComponent } from "../components/BasicComponent"
 import phLogger from "../logger/phLogger"
+import BPComp from "../widgets/Comp"
 import { BashExec } from "./bashexec"
 
 export class EmberShowExec extends BashExec {
     protected cmd = "ember"
-    protected components: BasicComponent[] = []
-    constructor( output: string, name: string, components: BasicComponent[]) {
+    protected component: BPComp = null
+    constructor(output: string, name: string, routeName: string, component: BPComp) {
         super()
-        this.components = components
-        this.args = [output, name]
+        this.component = component
+        this.args = [output, name, routeName]
     }
     public async exec(callback: (code: number) => void) {
-        this.showComponents(this.args[0], this.args[1])
+        this.changeCompProperties(this.args[0], this.args[1])
+        this.addCompStyles(this.args[0], this.args[1])
+        this.showComponents(this.args[0], this.args[1], this.args[2])
         if (callback) {
             callback(0)
         }
     }
+    // 根据bppushbutton 之类的类，修改 components 的属性
+    private async changeCompProperties(output: string, name: string, ) {
+        const outputPath = output + "/" + name + "/addon/components/" + this.component.name + ".js"
+        const fileData = "import Component from '@ember/component';" + "\r" +
+        "import layout from '../templates/components/bp-push-button-primary';" + "\r" +
+         "\n" +
+        "export default Component.extend({" + "\r" +
+          "   layout," + "\r" +
+          "   tagName:'button'," + "\r" +
+          "   classNames:['" + this.component.name + "']," + "\r" +
+        "});" + "\r"
+        fs.writeFileSync(outputPath, fileData)
+
+    }
+    // 生成 css 类
+    private async addCompStyles(output: string, name: string, ) {
+
+        const outputPath = output + "/" + name + "/addon/styles"
+
+        let fileData = "." + this.component.name + "{" + "\r" + "\n"
+        let styles: string = ""
+        this.component.css.forEach((item) => {
+            const style = item.key + ": " + item.value + ";" + "\r"
+            styles = styles + style
+        })
+
+        fileData = fileData + styles + "\r" + "}" + "\r"
+        fs.mkdirSync(outputPath, { recursive: true })
+        fs.appendFileSync(outputPath + "/addon.css", fileData)
+
+    }
     // 展示 components
-    private async showComponents(output: string, name: string) {
-        const componentsData = this.components
-        const outputPath = output + "/" + name + "/tests/dummy/app/templates/application.hbs"
-        // let fileData = fs.readFileSync(outputPath, "utf-8")
-        // let fileData: string = ""
+    private async showComponents(output: string, name: string, routeName: string) {
+        const component = this.component
+        const outputPath = output + "/" + name + "/tests/dummy/app/templates/" + routeName + ".hbs"
 
-        // fileData = this.recursiveComponents(componentsData)
-        phLogger.info(this.recursiveComponents(componentsData))
-
-        fs.writeFileSync(outputPath, this.recursiveComponents(componentsData))
+        // fs.writeFileSync(outputPath, this.recursiveComponents(component))
+        fs.appendFileSync(outputPath, this.recursiveComponents(component))
     }
 
-    private recursiveComponents(componentsData: BasicComponent[]) {
-
+    private recursiveComponents(component: BPComp) {
         let fileData: string = ""
 
-        for (let i = 0, len = componentsData.length; i < len; i++) {
-            const componentData = componentsData[i]
-            let showData = ""
-            const componentsLength = componentData.components.length
+        fileData = "{{#" + component.name + "}}" + component.type + "{{/" + component.name + "}}"
 
-            if (componentsLength === 0) {
-                showData = this.showIcon(componentData)
-                // showData = "{{#" + componentData.name + "}}" + componentData.description
-                // + "{{/" + componentData.name + "}}" + "\r"
-            } else {
-                showData = "{{#" + componentData.name + "}}"
-                const inside: string = this.recursiveComponents(componentData.components)
-
-                showData = showData + inside + "{{/" + componentData.name + "}}"
-            }
-
-            fileData = fileData + showData + "\r"
-        }
-        return fileData
-    }
-    private showIcon(cData: BasicComponent) {
-        // <FaIcon @icon="ad"/>
-        if (cData.name === "fa-icon") {
-            return `<FaIcon @icon="${cData.description}" />`
-        }
-        return "{{#" + cData.name + "}}" + cData.description + "{{/" + cData.name + "}}" + "\r"
+        return fileData + "\r"
     }
 }

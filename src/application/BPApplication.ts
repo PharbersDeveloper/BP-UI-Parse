@@ -27,7 +27,7 @@ export default class BPApplication extends BPObject {
         if (this.exec(appContent)) {
             // 整体内容整理完毕：
             // this.routers 包含全部的展示页面（以及组件）
-            phLogger.info(this.routers)
+            // phLogger.info(this.routers)
 
             this.ctxs.forEach( (ctx) => {
                 this.routers.forEach( (x) => x.paint(ctx) )
@@ -48,7 +48,6 @@ export default class BPApplication extends BPObject {
         content.routers.forEach((router) => {
             const mw = new BPMainWindow()
             mw.resetObjId(router.id)
-            mw.setRouteName(router.name)
             const cp = new BPThemeProperty()
             router.css.forEach( (c) => cp.resetProperty(c.k, c.v) )
             mw.css = cp.properties
@@ -59,12 +58,14 @@ export default class BPApplication extends BPObject {
                 const icp = new BPThemeProperty()
                 comp.css.forEach( (c) => icp.resetProperty(c.k, c.v) )
                 singleComp.css = icp.properties
+                singleComp.type = comp.type
+                singleComp.name = comp.name
+
                 components.push(singleComp)
             })
             mw.components = components
+            mw.routeName = router.name
             // end 将 components 放入 mw
-
-            // phLogger.info(router)
             this.routers.push(mw)
         } )
         return true
