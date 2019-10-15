@@ -3,7 +3,8 @@
 import { CssProperty } from "../CssPerperty"
 
 export class BPThemeProperty {
-    protected properties: CssProperty[] = []
+    // protected properties: CssProperty[] = []
+    public properties: CssProperty[] = []
 
     // TODO: 修改配置文件
     protected normals: Array<{key: string, v: any}> = [

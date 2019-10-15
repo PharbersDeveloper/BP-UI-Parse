@@ -4,9 +4,12 @@ import BPCtx from "../context/BPCtx"
 import { BPLayout } from "../layouts/BPLayout"
 import phLogger from "../logger/phLogger"
 import { BPObject } from "../object/BPObject"
+import { CssProperty } from "../properties/CssPerperty"
 import { BPThemeProperty } from "../properties/themes/BPThemeProperty"
 
 export abstract class BPWidget extends BPObject {
+
+    public css: CssProperty[] = []
     protected mainLayout: BPLayout = null
     private theme: BPThemeProperty = null
 

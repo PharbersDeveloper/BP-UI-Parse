@@ -1,6 +1,7 @@
 {
   "meta": {
-    "paint": ["ember"]
+    "paint": ["ember"],
+    "name": "refactoring-code"
   },
 
   "routers": [
@@ -8,6 +9,7 @@
       "id": "page main window",
       "type": "BPMainWindow",
       "cat": "main-window",
+      "name": "index",
       "path": "/",
 
       "css": [
@@ -26,7 +28,17 @@
           "id": "test",
           "type": "BPPushButton",
           "cat": "test",
-          "text": "alfred test"
+          "text": "alfred test",
+          "css": [
+            {
+              "k": "width",
+              "v": "200px"
+            },
+            {
+              "k": "height",
+              "v": "300px"
+            }
+          ]
         }
       ]
     }
