@@ -22,15 +22,16 @@ export class EmberShowExec extends BashExec {
         }
     }
     // 根据bppushbutton 之类的类，修改 components 的属性
-    private async changeCompProperties(output: string, name: string, ) {
+    private async changeCompProperties(output: string, name: string) {
+
         const outputPath = output + "/" + name + "/addon/components/" + this.component.name + ".js"
         const fileData = "import Component from '@ember/component';" + "\r" +
-        "import layout from '../templates/components/bp-push-button-primary';" + "\r" +
+        "import layout from '../templates/components/" + this.component.name + "';" + "\r" +
          "\n" +
         "export default Component.extend({" + "\r" +
           "   layout," + "\r" +
           "   tagName:'button'," + "\r" +
-          "   classNames:['" + this.component.name + "']," + "\r" +
+          "   classNames:['bp-push-button', '" + this.component.name + "']," + "\r" +
         "});" + "\r"
         fs.writeFileSync(outputPath, fileData)
 

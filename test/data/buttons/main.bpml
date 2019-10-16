@@ -57,22 +57,21 @@
             {
               "k": "line-height",
               "v": "32px"
-            },
-            {
+            }, {
               "k": "height",
               "v": "32px"
-            },
-            {
+            }, {
               "k": "padding",
               "v": "0 12px"
-            },
-            {
+            }, {
               "k": "border",
               "v": "0"
-            },
-            {
+            }, {
               "k": "border-radius",
               "v": "4px"
+            }, {
+              "k": "cursor",
+              "v": "pointer"
             }
           ]
         },
@@ -201,6 +200,51 @@
             },{
               "k": "border-radius",
               "v": "4px"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "test",
+          "text": "alfred test subtle",
+          "name":"bp-push-button-subtle",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "min-width",
+              "v": "80px"
+            },{
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "background",
+              "v": "transparent"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "test",
+          "text": "alfred test link",
+          "name":"bp-push-button-link",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "min-width",
+              "v": "80px"
+            },{
+              "k": "height",
+              "v": "32px"
+            },{
+              "k": "background",
+              "v": "transparent"
+            },{
+              "k": "color",
+              "v": "#3172E0"
             }
           ]
         }
