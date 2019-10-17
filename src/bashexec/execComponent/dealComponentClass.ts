@@ -4,7 +4,7 @@ import * as fs from "fs"
 import { BasicUi } from "../../components/BasicUi"
 import phLogger from "../../logger/phLogger"
 import { BashExec } from "../bashexec"
-
+// 可以删除 2019-10-17
 export class DealComponentClass extends BashExec {
     protected blueprint: BasicUi = null
 

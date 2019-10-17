@@ -7,6 +7,7 @@ import { BPWidget } from "./BPWidget"
 export default class BPComp extends BPWidget {
     public type: string = ""
     public name: string = ""
+    public text: string = ""
     public paint(ctx: BPCtx) {
         phLogger.info("alfred paint test")
     }

@@ -1,6 +1,7 @@
 "use strict"
 
-import { EmberShowExec } from "../../bashexec/emberShowExex"
+import { PushButtonExec } from "../../bashexec/widgets/buttons/pushButtonExec"
+
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
 import { BPWidget } from "../BPWidget"
@@ -19,6 +20,6 @@ export default class BPPushButton extends BPWidget {
     }
     public paint(ctx: BPCtx, component: BPComp) {
         phLogger.info("alfred paint test")
-        return [new EmberShowExec(this.output, this.projectName, this.routeName, component)]
+        return [new PushButtonExec(this.output, this.projectName, this.routeName, component)]
     }
 }
