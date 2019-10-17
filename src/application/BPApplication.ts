@@ -18,7 +18,7 @@ export default class BPApplication extends BPObject {
     public routers: BPMainWindow[] = []
 
     public run(args: string[]) {
-        const projectPath = process.env.PH_TS_SERVER_HOME + "/test/data/buttons" // TODO: 解析工作
+        const projectPath = args[1] + "/test/data/buttons" // TODO: 解析工作
         // const projectPath = "/Users/alfredyang/Desktop/code/pharbers/BP-UI-Parse/test/data/buttons" // TODO: 解析工作
         const inputPath = projectPath + "/main.bpml"
         const jsonConvert: JsonConvert = new JsonConvert()
@@ -27,8 +27,6 @@ export default class BPApplication extends BPObject {
         if (this.exec(appContent)) {
             // 整体内容整理完毕：
             // this.routers 包含全部的展示页面（以及组件）
-            // phLogger.info(this.routers)
-
             this.ctxs.forEach( (ctx) => {
                 this.routers.forEach( (x) => x.paint(ctx) )
             } )
@@ -49,14 +47,14 @@ export default class BPApplication extends BPObject {
             const mw = new BPMainWindow()
             mw.resetObjId(router.id)
             const cp = new BPThemeProperty()
-            router.css.forEach( (c) => cp.resetProperty(c.k, c.v) )
+            router.css.forEach( (c) => cp.resetProperty(c.k, c.v, c.tp) )
             mw.css = cp.properties
             // 将 components 放入 mw
             const components: BPComp[] = []
             router.components.forEach( (comp) => {
                 const singleComp = new BPComp()
                 const icp = new BPThemeProperty()
-                comp.css.forEach( (c) => icp.resetProperty(c.k, c.v) )
+                comp.css.forEach( (c) => icp.resetProperty(c.k, c.v, c.tp) )
                 singleComp.css = icp.properties
                 singleComp.type = comp.type
                 singleComp.name = comp.name

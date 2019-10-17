@@ -32,20 +32,21 @@ export class BPThemeProperty {
         return this.properties.find((x) => x.key === key) !== undefined
     }
 
-    public resetProperty(key: string, v: any): void {
+    public resetProperty(key: string, v: any, type?: string): void {
+
         const property = this.properties.find((x) => x.key === key)
-        if (property) {
+        if (property && property.tp === type) {
             property.value = v
         } else {
             this.properties.push(
                 {
                     key,
-                    tp: "css",
+                    tp: type,
                     value: v,
                 }
             )
         }
-        this.properties.find((x) => x.key === key).value = v
+        // this.properties.find((x) => x.key === key).value = v
     }
 
     public queryProperty(key: string): any | undefined {

@@ -1,6 +1,7 @@
 "use strict"
 
 import * as fs from "fs"
+import { outputFile } from "fs-extra"
 import phLogger from "../logger/phLogger"
 import BPComp from "../widgets/Comp"
 import { BashExec } from "./bashexec"
@@ -43,15 +44,34 @@ export class EmberShowExec extends BashExec {
 
         let fileData = "." + this.component.name + "{" + "\r" + "\n"
         let styles: string = ""
-        this.component.css.forEach((item) => {
+
+        this.component.css.filter((item) => item.tp === "css").forEach((item) => {
             const style = item.key + ": " + item.value + ";" + "\r"
             styles = styles + style
         })
-
         fileData = fileData + styles + "\r" + "}" + "\r"
-        fs.mkdirSync(outputPath, { recursive: true })
+
+        this.component.css.filter((item) => item.tp !== "css").forEach((item) => {
+            let pseudoClass: string = "." + this.component.name + ":" + item.tp + " {" + "\r" + "\n"
+            const pseudoStyle = item.key + ": " + item.value + ";" + "\r"
+            pseudoClass = pseudoClass + pseudoStyle + "\r" + "}" + "\r"
+            fileData += pseudoClass
+        })
+
+        const existFile: boolean = this.fsExistsSync(outputPath)
+        if (!existFile) {
+            fs.mkdirSync(outputPath, { recursive: true })
+        }
         fs.appendFileSync(outputPath + "/addon.css", fileData)
 
+    }
+    private  fsExistsSync(path: string) {
+        try {
+            fs.accessSync(path, fs.constants.R_OK | fs.constants.W_OK)
+          } catch (err) {
+            return false
+          }
+        return true
     }
     // 展示 components
     private async showComponents(output: string, name: string, routeName: string) {

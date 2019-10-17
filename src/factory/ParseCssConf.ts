@@ -8,4 +8,7 @@ export class ParseCssConf {
 
     @JsonProperty("v", Any)
     public v: any = undefined
+
+    @JsonProperty("tp", String, true)
+    public tp: string = "css"
 }

@@ -72,6 +72,18 @@
             }, {
               "k": "cursor",
               "v": "pointer"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }, {
+              "k": "background",
+              "v": "#E1ECFF",
+              "tp": "active"
+            }, {
+              "k": "color",
+              "v": "#3172E0",
+              "tp": "active"
             }
           ]
         },
