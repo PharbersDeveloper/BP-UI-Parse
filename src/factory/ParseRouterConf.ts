@@ -19,6 +19,9 @@ export class ParseRouterConf {
     @JsonProperty("css", [ParseCssConf])
     public css: ParseCssConf[] = []
 
+    @JsonProperty("layout", [ParseCssConf])
+    public layout: ParseCssConf[] = []
+
     @JsonProperty("components", [ParseCompConf])
     public components: ParseCompConf[] = []
 }

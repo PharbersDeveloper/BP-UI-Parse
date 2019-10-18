@@ -29,12 +29,13 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "@types/node": "^12.6.2",
     "@types/mocha": "^5.2.7",
+    "@types/node": "^12.6.2",
+    "json2typescript": "^1.2.3",
     "mocha": "^6.2.0",
     "mocha-typescript": "^1.1.17",
     "source-map-support": "^0.5.13",
-    "json2typescript": "^1.2.3",
+    "style-dictionary": "^2.8.2",
     "tslint": "^5.18.0",
     "typedoc": "^0.14.2",
     "typescript": "^2.9.2"

@@ -21,4 +21,15 @@ export abstract class BPWidget extends BPObject {
     protected hitSize() {
         phLogger.info("alfred paint test")
     }
+
+    // private initStyle() {
+    //     this.genLayout()
+    //     this.genTheme()
+    // }
+    // private genLayout() {
+
+    // }
+    // private genTheme() {
+
+    // }
 }

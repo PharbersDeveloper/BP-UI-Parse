@@ -21,7 +21,6 @@ export class BPThemeProperty {
         { key: "padding-bottom", v: 8 },
         { key: "background", v: "#FFFFFF" },
         // { key: "min-width", v: "80px" },
-
     ]
 
     constructor() {

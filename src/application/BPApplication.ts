@@ -24,6 +24,7 @@ export default class BPApplication extends BPObject {
         const jsonConvert: JsonConvert = new JsonConvert()
         const inputFileData = fs.readFileSync(inputPath, "utf8")
         const appContent = jsonConvert.deserializeObject(JSON.parse(inputFileData), ParseBPML)
+
         if (this.exec(appContent)) {
             // 整体内容整理完毕：
             // this.routers 包含全部的展示页面（以及组件）
@@ -48,7 +49,9 @@ export default class BPApplication extends BPObject {
             mw.resetObjId(router.id)
             const cp = new BPThemeProperty()
             router.css.forEach( (c) => cp.resetProperty(c.k, c.v, c.tp) )
-            mw.css = cp.properties
+            router.layout.forEach( (c) => cp.resetProperty(c.k, c.v, c.tp) )
+
+            mw.css.push(...cp.properties)
             // 将 components 放入 mw
             const components: BPComp[] = []
             router.components.forEach( (comp) => {

@@ -11,6 +11,15 @@
       "cat": "main-window",
       "name": "index",
       "path": "/",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "column"
+        }
+      ],
       "css": [
         {
           "k": "width",

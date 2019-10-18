@@ -21,7 +21,7 @@ export class PushButtonExec extends BashExec {
             callback(0)
         }
     }
-    // 根据bppushbutton 之类的类，修改 components 的属性
+    // 根据 bppushbutton 之类的类，修改 components 的属性
     private async changeCompProperties(output: string, name: string) {
 
         const outputPath = output + "/" + name + "/addon/components/" + this.component.name + ".js"
@@ -89,15 +89,9 @@ export class PushButtonExec extends BashExec {
 
         if (hbsData === "{{outlet}}") {
             containerStart = "<div class='bp-" + routeName + "'>"
-            // containerBody = this.recursiveComponents(component),
-            // containerEnd = "</div>"
         } else {
             containerStart = hbsData.split("</div>")[0]
-
         }
-        //  containerStart = "<div class='" + "'>",
-            // containerBody = this.recursiveComponents(component),
-            // containerEnd = "</div>"
         fs.writeFileSync(outputPath, containerStart + containerBody + containerEnd)
 
         // fs.appendFileSync(outputPath, containerStart + containerBody + containerEnd)
