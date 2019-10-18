@@ -2,6 +2,7 @@
 
 import fs from "fs"
 import { JsonConvert } from "json2typescript"
+import { BashSpwanCmds } from "../bashexec/bashcmdlst"
 import BPCtx from "../context/BPCtx"
 import BPEmberCtx from "../context/BPEmberCtx"
 import { ParseBPML } from "../factory/ParseBPML"
@@ -16,10 +17,10 @@ export default class BPApplication extends BPObject {
 
     public ctxs: BPCtx[] = []
     public routers: BPMainWindow[] = []
+    private cmdlst = new BashSpwanCmds()
 
     public run(args: string[]) {
         const projectPath = args[1] + "/test/data/buttons" // TODO: 解析工作
-        // const projectPath = "/Users/alfredyang/Desktop/code/pharbers/BP-UI-Parse/test/data/buttons" // TODO: 解析工作
         const inputPath = projectPath + "/main.bpml"
         const jsonConvert: JsonConvert = new JsonConvert()
         const inputFileData = fs.readFileSync(inputPath, "utf8")
@@ -28,9 +29,14 @@ export default class BPApplication extends BPObject {
         if (this.exec(appContent)) {
             // 整体内容整理完毕：
             // this.routers 包含全部的展示页面（以及组件）
+            this.cmdlst.cmds = []
+            const that = this
             this.ctxs.forEach( (ctx) => {
-                this.routers.forEach( (x) => x.paint(ctx) )
+                this.routers.forEach( (x, i) => {
+                    that.cmdlst.cmds = [...x.paint(ctx) ]
+                })
             } )
+            this.cmdlst.exec()
         }
     }
 

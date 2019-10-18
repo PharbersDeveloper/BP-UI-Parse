@@ -17,13 +17,13 @@
           "v": "flex"
         },{
           "k": "flex-direction",
-          "v": "column"
+          "v": "row"
         }
       ],
       "css": [
         {
           "k": "width",
-          "v": "200px"
+          "v": "100%"
         },
         {
           "k": "height",
@@ -95,8 +95,7 @@
               "tp": "active"
             }
           ]
-        },
-        {
+        },{
           "id": "test",
           "type": "BPPushButton",
           "cat": "test",
@@ -136,10 +135,21 @@
             },{
               "k": "border-radius",
               "v": "4px"
+            }, {
+              "k": "background",
+              "v": "#3881FF",
+              "tp": "hover"
+            }, {
+              "k": "background",
+              "v": "#2355A9",
+              "tp": "active"
+            }, {
+              "k": "color",
+              "v": "#fff",
+              "tp": "active"
             }
           ]
-        },
-        {
+        },{
           "id": "test",
           "type": "BPPushButton",
           "cat": "test",
@@ -179,6 +189,18 @@
             },{
               "k": "border-radius",
               "v": "4px"
+            }, {
+              "k": "background",
+              "v": "#FF5630",
+              "tp": "hover"
+            }, {
+              "k": "background",
+              "v": "#BF2600",
+              "tp": "active"
+            }, {
+              "k": "color",
+              "v": "#fff",
+              "tp": "active"
             }
           ]
         },{
@@ -221,6 +243,18 @@
             },{
               "k": "border-radius",
               "v": "4px"
+            }, {
+              "k": "background",
+              "v": "#FFC400",
+              "tp": "hover"
+            }, {
+              "k": "background",
+              "v": "#FF991F",
+              "tp": "active"
+            }, {
+              "k": "color",
+              "v": "#505F79",
+              "tp": "active"
             }
           ]
         },{
@@ -242,6 +276,18 @@
             }, {
               "k": "background",
               "v": "transparent"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }, {
+              "k": "background",
+              "v": "#E1ECFF",
+              "tp": "active"
+            }, {
+              "k": "color",
+              "v": "#3172E0",
+              "tp": "active"
             }
           ]
         },{
@@ -266,6 +312,46 @@
             },{
               "k": "color",
               "v": "#3172E0"
+            }, {
+              "k": "color",
+              "v": "#3881FF",
+              "tp": "hover"
+            },{
+              "k": "background",
+              "v": "transparent",
+              "tp": "hover"
+            },{
+              "k": "background",
+              "v": "transparent",
+              "tp": "active"
+            },{
+              "k": "color",
+              "v": "#2355A9",
+              "tp": "active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "page with menu",
+      "type": "BPMainWindow",
+      "cat": "navigation",
+      "name":"navigation",
+      "path":"navigation",
+      "layout":[],
+      "css":[],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPNavMenu",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-nav-menu",
+          "css":[
+            {
+              "k":"color",
+              "v":"red"
             }
           ]
         }

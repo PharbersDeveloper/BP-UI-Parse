@@ -14,22 +14,11 @@ export abstract class BPWidget extends BPObject {
     protected mainLayout: BPLayout = null
     private theme: BPThemeProperty = null
 
-    protected paint(ctx: BPCtx, compnent?: BPComp) {
+    protected paint(ctx: BPCtx, comp?: BPComp) {
         phLogger.info("alfred paint test")
     }
 
     protected hitSize() {
         phLogger.info("alfred paint test")
     }
-
-    // private initStyle() {
-    //     this.genLayout()
-    //     this.genTheme()
-    // }
-    // private genLayout() {
-
-    // }
-    // private genTheme() {
-
-    // }
 }

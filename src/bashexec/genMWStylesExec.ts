@@ -26,8 +26,6 @@ export class GenMWStylesExec extends BashExec {
         route.css.forEach((css) => {
             containerBody = containerBody + css.key + ":" + css.value + ";\r"
         })
-        phLogger.info("-=-=-=-=-=-=-=--=-")
-        phLogger.info(outPath)
         fs.appendFileSync(outPath + "/app.css", containerStart + containerBody + containerEnd)
 
     }
