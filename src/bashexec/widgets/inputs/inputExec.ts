@@ -28,6 +28,7 @@ export class InputExec extends BashExec {
 
     const outputPath = output + "/" + name + "/addon/components/" + this.component.name + ".js"
     const disabledInput = this.component.name.indexOf("disabled") !== -1 ? "disabled: 'disabled'" : "disabled: false"
+    const placeholderInput = this.component.name.indexOf("placeholder") !== -1 ? "placeholder: 'input here'" : "placeholder: ''"
     const fileData = "import Component from '@ember/component';" + "\r" +
       "import layout from '../templates/components/" + this.component.name + "';" + "\r" +
       "\n" +
@@ -37,8 +38,9 @@ export class InputExec extends BashExec {
       "   classNames:['bp-input-part', '" + this.component.name + "']," + "\r" +
       "   content: 'default'," + "\r" +
       "classNameBindings: ['block:btn-block', 'type', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
-      "attributeBindings: ['disabled']," + "\r" +
-       disabledInput + "\r" +
+      "attributeBindings: ['disabled', 'placeholder']," + "\r" +
+       disabledInput + ",\r" +
+       placeholderInput + "\r" +
       "});" + "\r"
     fs.writeFileSync(outputPath, fileData)
 

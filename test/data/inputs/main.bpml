@@ -250,7 +250,54 @@
               "v": "border-box"
             }
           ]
-        }
+        },{
+          "id": "test",
+          "type": "BPInput",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-input-placeholder",
+          "css": [
+            {
+              "k": "width",
+              "v": "240px"
+            },
+            {
+              "k": "height",
+              "v": "40px"
+            }, {
+              "k": "line-height",
+              "v": "14px"
+            },{
+              "k": "font-size",
+              "v": "14px"
+            }, {
+              "k": "padding",
+              "v": "10px 8px"
+            }, {
+              "k": "border",
+              "v": "1px solid #DFE1E6"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "color",
+              "v": "#172B4D"
+            },
+            {
+              "k": "border",
+              "v": "1px solid #3172E0",
+              "tp": "focus"
+            },
+            {
+              "k": "outline",
+              "v": "none",
+              "tp": "focus"
+            },{
+              "k": "box-sizing",
+              "v": "border-box"
+            }
+          ]
+				}
       ]
     },
     {
