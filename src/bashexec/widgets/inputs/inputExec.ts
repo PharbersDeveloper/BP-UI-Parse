@@ -27,6 +27,7 @@ export class InputExec extends BashExec {
   private async changeCompProperties(output: string, name: string) {
 
     const outputPath = output + "/" + name + "/addon/components/" + this.component.name + ".js"
+    const disabledInput = this.component.name.indexOf("disabled") !== -1 ? "disabled: 'disabled'" : "disabled: false"
     const fileData = "import Component from '@ember/component';" + "\r" +
       "import layout from '../templates/components/" + this.component.name + "';" + "\r" +
       "\n" +
@@ -37,6 +38,7 @@ export class InputExec extends BashExec {
       "   content: 'default'," + "\r" +
       "classNameBindings: ['block:btn-block', 'type', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
       "attributeBindings: ['disabled']," + "\r" +
+       disabledInput + "\r" +
       "});" + "\r"
     fs.writeFileSync(outputPath, fileData)
 

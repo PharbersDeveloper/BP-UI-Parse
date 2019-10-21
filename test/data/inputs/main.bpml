@@ -205,6 +205,51 @@
               "v": "border-box"
             }
           ]
+        }, {
+          "id": "test",
+          "type": "BPInput",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-input-disabled",
+          "css": [
+						{
+              "k": "width",
+              "v": "240px"
+            },
+            {
+              "k": "height",
+              "v": "40px"
+            }, {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "font-size",
+              "v": "14px"
+            }, {
+              "k": "padding",
+              "v": "10px 8px"
+            }, {
+              "k": "background",
+              "v": "#F4F5F7"
+            }, {
+              "k": "border",
+              "v": "none"
+            },{
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "color",
+              "v": "#172B4D"
+            },
+            {
+              "k": "outline",
+              "v": "none",              
+              "tp": "focus"
+            },{
+              "k": "box-sizing",
+              "v": "border-box"
+            }
+          ]
         }
       ]
     },
