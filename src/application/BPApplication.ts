@@ -20,7 +20,8 @@ export default class BPApplication extends BPObject {
     private cmdlst = new BashSpwanCmds()
 
     public run(args: string[]) {
-        const projectPath = args[1] + "/test/data/buttons" // TODO: 解析工作
+        // const projectPath = args[1] + "/test/data/buttons" // TODO: 解析工作
+        const projectPath = args[1] + "/test/data/divider" // TODO: 解析工作
         const inputPath = projectPath + "/main.bpml"
         const jsonConvert: JsonConvert = new JsonConvert()
         const inputFileData = fs.readFileSync(inputPath, "utf8")
@@ -60,6 +61,7 @@ export default class BPApplication extends BPObject {
             mw.css.push(...cp.properties)
             // 将 components 放入 mw
             const components: BPComp[] = []
+            // 对组件 css 的处理
             router.components.forEach( (comp) => {
                 const singleComp = new BPComp()
                 const icp = new BPThemeProperty()

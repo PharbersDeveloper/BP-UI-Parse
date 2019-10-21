@@ -9,11 +9,13 @@ import { EmberInstallDepExec } from "../bashexec/emberInstallDepExec"
 import { EmberYarnExec } from "../bashexec/emberYarn"
 import { GenMWStylesExec } from "../bashexec/genMWStylesExec"
 import { RemoveFolderExec } from "../bashexec/removeFolderExec"
-import {SassyStyles} from "../bashexec/sassyStyles"
+import { SassyStyles } from "../bashexec/sassyStyles"
 import phLogger from "../logger/phLogger"
-import {BPWidget} from "../widgets/BPWidget"
+import { BPWidget } from "../widgets/BPWidget"
 import BPPushButton from "../widgets/buttons/BPPushButton"
 import BPComp from "../widgets/Comp"
+import BPDivider from "../widgets/inputs/BPDivider"
+import BPInput from "../widgets/inputs/BPInput"
 import BPNavMenu from "../widgets/navs/BPNavMenu"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import BPCtx from "./BPCtx"
@@ -29,7 +31,8 @@ export default class BPEmberCtx extends BPCtx {
         super()
         phLogger.info("exec something with emberjs")
         this.projectName = projectName
-        const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
+        // const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
+        const output: string = "/Users/Simon/Desktop/ui-output"
         this.output = output
     }
     public cmdStart() {
@@ -42,10 +45,7 @@ export default class BPEmberCtx extends BPCtx {
         ]
     }
     public cmdEnd() {
-        return [
-            new EmberYarnExec("remove", "ember-cli-htmlbars"),
-            new EmberInstallDepExec("ember-cli-htmlbars@3.0.0", "-S"),
-        ]
+        return [new EmberYarnExec("remove", "ember-cli-htmlbars"), new EmberInstallDepExec("ember-cli-htmlbars@3.0.0", "-S")]
     }
     public paintMW(route: BPMainWindow, components: BPComp[]) {
         this.genCompTypeList(route.routeName)
@@ -61,7 +61,7 @@ export default class BPEmberCtx extends BPCtx {
         // 4. 将执行命令抛出
         return this.runExec()
     }
-    public paintComps( components: BPComp[]) {
+    public paintComps(components: BPComp[]) {
         const compTypeList = this.compTypeList
         this.currentCompTypeList = []
         for (let i = 0, len = components.length; i < len; i++) {
@@ -69,13 +69,17 @@ export default class BPEmberCtx extends BPCtx {
 
             this.cmds.push(new EmberGenExec("component", component.name))
 
-            this.currentCompTypeList.push( compTypeList.find((x) => x.constructor.name === component.type))
+            this.currentCompTypeList.push(compTypeList.find((x) => x.constructor.name === component.type))
         }
     }
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
-        this.compTypeList = [new BPPushButton(this.output, this.projectName, routeName),
-         new BPNavMenu(this.output, this.projectName, routeName)]
+        this.compTypeList = [
+            new BPDivider(this.output, this.projectName, routeName),
+            new BPInput(this.output, this.projectName, routeName),
+            new BPPushButton(this.output, this.projectName, routeName),
+            new BPNavMenu(this.output, this.projectName, routeName)
+        ]
 
         return this.compTypeList
     }
@@ -85,12 +89,11 @@ export default class BPEmberCtx extends BPCtx {
         const that = this
 
         currentCompTypeList.forEach((item, index) => {
-            that.cmds.push(...(item.paint(that, components[index])))
+            that.cmds.push(...item.paint(that, components[index]))
         })
-
     }
     private mwStyles(route: BPMainWindow) {
-        this.cmds.push(new GenMWStylesExec(this.output, this.projectName, route, ))
+        this.cmds.push(new GenMWStylesExec(this.output, this.projectName, route))
     }
     private generaSassyStyles() {
         this.cmds.push(new SassyStyles(this.output, this.projectName))
@@ -99,5 +102,4 @@ export default class BPEmberCtx extends BPCtx {
         return this.cmds
         // this.cmdlst.exec()
     }
-
 }

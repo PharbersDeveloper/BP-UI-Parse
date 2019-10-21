@@ -44,6 +44,7 @@ export class PushButtonExec extends BashExec {
 
         const outputPath = output + "/" + name + "/addon/styles"
 
+        // 该组件的 css 样式
         let fileData = "." + this.component.name + "{" + "\r" + "\n"
         let styles: string = ""
 
@@ -53,6 +54,7 @@ export class PushButtonExec extends BashExec {
         })
         fileData = fileData + styles + "\r" + "}" + "\r"
 
+        // 伪类
         this.component.css.filter((item) => item.tp !== "css").forEach((item) => {
             let pseudoClass: string = "." + this.component.name + ":" + item.tp + " {" + "\r" + "\n"
             const pseudoStyle = item.key + ": " + item.value + ";" + "\r"
