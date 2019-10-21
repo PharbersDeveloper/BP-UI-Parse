@@ -12,8 +12,9 @@ import { RemoveFolderExec } from "../bashexec/removeFolderExec"
 import { SassyStyles } from "../bashexec/sassyStyles"
 import phLogger from "../logger/phLogger"
 import { BPWidget } from "../widgets/BPWidget"
+import BPPushButton from "../widgets/buttons/BPPushButton"
 import BPComp from "../widgets/Comp"
-// import BPPushButton from "../widgets/buttons/BPPushButton"
+import BPDivider from "../widgets/inputs/BPDivider"
 import BPInput from "../widgets/inputs/BPInput"
 import BPNavMenu from "../widgets/navs/BPNavMenu"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
@@ -74,7 +75,9 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPDivider(this.output, this.projectName, routeName),
             new BPInput(this.output, this.projectName, routeName),
+            new BPPushButton(this.output, this.projectName, routeName),
             new BPNavMenu(this.output, this.projectName, routeName)
         ]
 

@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-divider"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "divider",
+      "path": "/divider",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+
+      "components": [
+        {
+          "id": "test",
+          "type": "BPDivider",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-divider-default",
+          "css": [
+            {
+              "k": "width",
+              "v": "100%"
+            },
+            {
+              "k": "height",
+              "v": "1px"
+            },{
+              "k": "color",
+              "v": "rgba(9,30,66,0.08)"
+            }, {
+							"k": "background",
+							"v": "rgba(9,30,66,0.08)"
+						}
+            
+          ]
+					}
+      ]
+    },
+    {
+      "id": "page with menu",
+      "type": "BPMainWindow",
+      "cat": "navigation",
+      "name":"navigation",
+      "path":"navigation",
+      "layout":[],
+      "css":[],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPNavMenu",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-nav-menu",
+          "css":[
+            {
+              "k":"color",
+              "v":"red"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
