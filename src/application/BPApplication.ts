@@ -60,6 +60,7 @@ export default class BPApplication extends BPObject {
             mw.css.push(...cp.properties)
             // 将 components 放入 mw
             const components: BPComp[] = []
+            // 对组件 css 的处理
             router.components.forEach( (comp) => {
                 const singleComp = new BPComp()
                 const icp = new BPThemeProperty()

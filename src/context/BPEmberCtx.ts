@@ -11,7 +11,7 @@ import { GenMWStylesExec } from "../bashexec/genMWStylesExec"
 import { RemoveFolderExec } from "../bashexec/removeFolderExec"
 import {SassyStyles} from "../bashexec/sassyStyles"
 import phLogger from "../logger/phLogger"
-import {BPWidget} from "../widgets/BPWidget"
+import { BPWidget } from "../widgets/BPWidget"
 import BPPushButton from "../widgets/buttons/BPPushButton"
 import BPComp from "../widgets/Comp"
 import BPNavMenu from "../widgets/navs/BPNavMenu"
@@ -99,5 +99,4 @@ export default class BPEmberCtx extends BPCtx {
         return this.cmds
         // this.cmdlst.exec()
     }
-
 }

@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-input"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "input",
+      "path": "/input",
+      "css": [
+        {
+          "k": "width",
+          "v": "200px"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+
+      "components": [
+        {
+          "id": "test",
+          "type": "BPInput",
+          "cat": "test",
+          "name":"bp-input-default",
+          "css": [
+            {
+              "k": "width",
+              "v": "240px"
+            },
+            {
+              "k": "height",
+              "v": "40px"
+            }, {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "4px 8px"
+            }, {
+              "k": "border",
+              "v": "1px solid #DFE1E6"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "color",
+              "v": "#172B4D"
+            }
+          ]
+					},{
+          "id": "test",
+          "type": "BPInput",
+          "cat": "test",
+          "text": "",
+          "name":"bp-input-danger",
+          "css": [
+            {
+              "k": "width",
+              "v": "240px"
+            },
+            {
+              "k": "height",
+              "v": "40px"
+            }, {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "4px 8px"
+            }, {
+              "k": "border",
+              "v": "1px solid #DE350B"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "color",
+              "v": "#172B4D"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPInput",
+          "cat": "test",
+          "text": "",
+          "name":"bp-input-success",
+          "css": [
+            {
+              "k": "width",
+              "v": "240px"
+            },
+            {
+              "k": "height",
+              "v": "40px"
+            }, {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "4px 8px"
+            }, {
+              "k": "border",
+              "v": "1px solid #36B37E"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "color",
+              "v": "#172B4D"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPInput",
+          "cat": "test",
+          "text": "",
+          "name":"bp-input-warning",
+          "css": [
+						{
+              "k": "width",
+              "v": "240px"
+            },
+            {
+              "k": "height",
+              "v": "40px"
+            }, {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "4px 8px"
+            }, {
+              "k": "border",
+              "v": "1px solid #FFAB00"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "color",
+              "v": "#172B4D"
+            }       
+          ]
+        },{
+          "id": "test",
+          "type": "BPInput",
+          "cat": "test",
+          "text": "",
+          "name":"bp-input-active",
+          "css": [
+            {
+              "k": "width",
+              "v": "240px"
+            },
+            {
+              "k": "height",
+              "v": "40px"
+            }, {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "4px 8px"
+            }, {
+              "k": "border",
+              "v": "1px solid #3172E0"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "color",
+              "v": "#172B4D"
+            } 
+          ]
+        }
+      ]
+    }
+  ]
+}
