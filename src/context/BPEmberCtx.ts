@@ -17,6 +17,7 @@ import BPComp from "../widgets/Comp"
 import BPDivider from "../widgets/inputs/BPDivider"
 import BPInput from "../widgets/inputs/BPInput"
 import BPNavMenu from "../widgets/navs/BPNavMenu"
+import BPNavMenuItem from "../widgets/navs/BPNavMenuItem"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import BPCtx from "./BPCtx"
 
@@ -78,7 +79,8 @@ export default class BPEmberCtx extends BPCtx {
             new BPDivider(this.output, this.projectName, routeName),
             new BPInput(this.output, this.projectName, routeName),
             new BPPushButton(this.output, this.projectName, routeName),
-            new BPNavMenu(this.output, this.projectName, routeName)
+            new BPNavMenu(this.output, this.projectName, routeName),
+            new BPNavMenuItem(this.output, this.projectName, routeName)
         ]
 
         return this.compTypeList

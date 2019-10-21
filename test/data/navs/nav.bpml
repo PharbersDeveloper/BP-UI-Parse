@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "basic",
+      "path": "basic",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+
+      "components": [
+        {
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-push-button",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "min-width",
+              "v": "80px"
+            },
+            {
+              "k": "background",
+              "v": "rgba(9,30,66,0.04)"
+            },
+            {
+              "k": "font-size",
+              "v": "14px"
+            },
+            {
+              "k": "color",
+              "v": "#505F79"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "0 12px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "cursor",
+              "v": "pointer"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }, {
+              "k": "background",
+              "v": "#E1ECFF",
+              "tp": "active"
+            }, {
+              "k": "color",
+              "v": "#3172E0",
+              "tp": "active"
+            }
+          ]
+        },{
+          "id": "nav",
+          "type": "BPNavMenuItem",
+          "cat": "basic",
+          "text": "nav item text",
+          "name": "bp-nav-menu-item",
+          "layout": [
+              {
+                "k": "display",
+                "v": "flex"
+              },{
+                "k": "flex-direction",
+                "v": "row"
+              }
+            ],
+          "css": [
+            {
+              "k": "display",
+              "v": "flex"
+            },{
+              "k": "flex-direction",
+              "v": "row"
+            },{
+              "k": "width",
+              "v": "208px"
+            },{
+              "k": "box-sizing",
+              "v": "border-box"
+            },{
+              "k": "font-size",
+              "v": "14px"
+            },{
+              "k": "color",
+              "v": "#505F79"
+            },{
+              "k": "justify-content",
+              "v": "center"
+            },{
+              "k": "align-items",
+              "v": "center"
+            },{
+              "k": "height",
+              "v": "40px"
+            },{
+              "k": "padding",
+              "v": "0 12px"
+            },{
+              "k": "border",
+              "v": "0"
+            },{
+              "k": "border-radius",
+              "v": "3px"
+            },{
+              "k": "cursor",
+              "v": "pointer"
+            },{
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "page with menu",
+      "type": "BPMainWindow",
+      "cat": "navigation",
+      "name":"navigation",
+      "path":"navigation",
+      "layout":[
+        {
+          "k":"width",
+          "v":"100%"
+        },{
+          "k":"height",
+          "v":"400px"
+        }
+      ],
+      "css":[],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPNavMenu",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-nav-menu",
+          "layout":[],
+          "css":[
+            {
+              "k":"display",
+              "v":"flex"
+            },{
+              "k":"flex-direction",
+              "v":"row"
+            },{
+              "k":"justify-content",
+              "v":"space-around"
+            },{
+              "k":"width",
+              "v":"100%"
+            },{
+              "k":"height",
+              "v":"100%"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

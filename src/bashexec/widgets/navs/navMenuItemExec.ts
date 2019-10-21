@@ -1,11 +1,10 @@
 "use strict"
 
 import * as fs from "fs"
-import phLogger from "../../../logger/phLogger"
 import BPComp from "../../../widgets/Comp"
-import { BashExec } from "../.././bashexec"
+import { BashExec } from "../../bashexec"
 
-export class NavMenuExec extends BashExec {
+export class NavMenuItemExec extends BashExec {
     protected cmd = "ember"
     protected component: BPComp = null
     constructor(output: string, name: string, routeName: string, component: BPComp) {
@@ -31,13 +30,9 @@ export class NavMenuExec extends BashExec {
          "\n" +
         "export default Component.extend({" + "\r" +
           "   layout," + "\r" +
-          "   tagName:'nav'," + "\r" +
+          "   tagName:'span'," + "\r" +
           "   classNames:['" + this.component.name + "']," + "\r" +
-          "   classNameBindings:['isColumn:flex-column']," + "\r" +
-          "   isColumn: false," + "\r" +
-
         "});" + "\r"
-
         fs.writeFileSync(outputPath, fileData)
 
     }
@@ -47,9 +42,7 @@ export class NavMenuExec extends BashExec {
         const fileData = "{{#if hasBlock}}" + "\r" +
         "  {{yield}}" + "\r" +
         "{{else}}" + "\r" +
-        "  {{#each navs as |nav|}}" + "\r" +
-        "    <BpNavMenuItem @value={{nav.value}} />" + "\r" +
-        "  {{/each}}" + "\r" +
+        "  {{value}}" + "\r" +
         "{{/if}}" + "\r"
 
         fs.writeFileSync(outputPath, fileData)
@@ -109,27 +102,13 @@ export class NavMenuExec extends BashExec {
         }
         fs.writeFileSync(outputPath, containerStart + containerBody + containerEnd)
 
-        const logicOutputPath = output + "/" + name + "/tests/dummy/app/routes/" + routeName + ".js"
-        // const logicData = fs.readFileSync(outputPath, "utf8")
-        const logicDataStart: string = "import Route from '@ember/routing/route';" + "\r" +
-        "   export default Route.extend({" + "\r"
-        const logicDataEnd: string =  "\r" + " });"
-        const logicDataBody: string = "    model() {" + "\r" +
-        "    return {" + "\r" +
-        "        navs: [" + "\r" +
-        "            { value: 'nav item 1' }," + "\r" +
-        "            { value: 'nav item 2' }," + "\r" +
-        "            { value: 'nav item 3' }" + "\r" +
-        "        ]" + "\r" +
-        "    }" + "\r" +
-        "}" + "\r"
-        fs.writeFileSync(logicOutputPath, logicDataStart + logicDataBody + logicDataEnd)
+        // fs.appendFileSync(outputPath, containerStart + containerBody + containerEnd)
     }
 
     private recursiveComponents(component: BPComp): string {
         let fileData: string = ""
 
-        fileData = "{{" + component.name + " navs=model.navs}}"
+        fileData = "{{#" + component.name + "}}" + component.type + "{{/" + component.name + "}}"
 
         return fileData + "\r"
     }

@@ -7,7 +7,7 @@ import { ParsePtCtxConf } from "./ParsePtCtxConf"
 @JsonObject("router")
 export class ParseRouterConf {
 
-    @JsonProperty("id", String, )
+    @JsonProperty("id", String)
     public id: string = ""
 
     @JsonProperty("path", String)

@@ -18,7 +18,13 @@ export class ParseCompConf {
     @JsonProperty("name", String)
     public name: string = ""
 
-    @JsonProperty("css", [ParseCssConf])
+    @JsonProperty("css", [ParseCssConf], true)
     public css: ParseCssConf[] = []
+
+    @JsonProperty("layout", [ParseCssConf], true)
+    public layout: ParseCssConf[] = []
+
+    @JsonProperty("components", [ParseCompConf], true)
+    public components: ParseCompConf[] = []
 
 }
