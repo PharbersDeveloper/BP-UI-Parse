@@ -11,10 +11,19 @@
       "cat": "main-window",
       "name": "input",
       "path": "/input",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
       "css": [
         {
           "k": "width",
-          "v": "200px"
+          "v": "100%"
         },
         {
           "k": "height",
@@ -27,6 +36,7 @@
           "id": "test",
           "type": "BPInput",
           "cat": "test",
+          "text": "simon test",
           "name":"bp-input-default",
           "css": [
             {
@@ -38,10 +48,13 @@
               "v": "40px"
             }, {
               "k": "line-height",
-              "v": "32px"
+              "v": "14px"
+            },{
+              "k": "font-size",
+              "v": "14px"
             }, {
               "k": "padding",
-              "v": "4px 8px"
+              "v": "10px 8px"
             }, {
               "k": "border",
               "v": "1px solid #DFE1E6"
@@ -51,13 +64,26 @@
             }, {
               "k": "color",
               "v": "#172B4D"
+            },
+            {
+              "k": "border",
+              "v": "1px solid #3172E0",
+              "tp": "focus"
+            },
+            {
+              "k": "outline",
+              "v": "none",
+              "tp": "focus"
+            },{
+              "k": "box-sizing",
+              "v": "border-box"
             }
           ]
 					},{
           "id": "test",
           "type": "BPInput",
           "cat": "test",
-          "text": "",
+          "text": "simon test",
           "name":"bp-input-danger",
           "css": [
             {
@@ -71,8 +97,11 @@
               "k": "line-height",
               "v": "32px"
             }, {
+              "k": "font-size",
+              "v": "14px"
+            }, {
               "k": "padding",
-              "v": "4px 8px"
+              "v": "10px 8px"
             }, {
               "k": "border",
               "v": "1px solid #DE350B"
@@ -82,13 +111,21 @@
             }, {
               "k": "color",
               "v": "#172B4D"
+            },
+            {
+              "k": "outline",
+              "v": "none",              
+              "tp": "focus"
+            },{
+              "k": "box-sizing",
+              "v": "border-box"
             }
           ]
         },{
           "id": "test",
           "type": "BPInput",
           "cat": "test",
-          "text": "",
+          "text": "simon test",
           "name":"bp-input-success",
           "css": [
             {
@@ -102,8 +139,11 @@
               "k": "line-height",
               "v": "32px"
             }, {
+              "k": "font-size",
+              "v": "14px"
+            }, {
               "k": "padding",
-              "v": "4px 8px"
+              "v": "10px 8px"
             }, {
               "k": "border",
               "v": "1px solid #36B37E"
@@ -113,13 +153,21 @@
             }, {
               "k": "color",
               "v": "#172B4D"
+            },
+            {
+              "k": "outline",
+              "v": "none",
+              "tp": "focus"
+            },{
+              "k": "box-sizing",
+              "v": "border-box"
             }
           ]
         },{
           "id": "test",
           "type": "BPInput",
           "cat": "test",
-          "text": "",
+          "text": "simon test",
           "name":"bp-input-warning",
           "css": [
 						{
@@ -133,8 +181,11 @@
               "k": "line-height",
               "v": "32px"
             }, {
+              "k": "font-size",
+              "v": "14px"
+            }, {
               "k": "padding",
-              "v": "4px 8px"
+              "v": "10px 8px"
             }, {
               "k": "border",
               "v": "1px solid #FFAB00"
@@ -144,38 +195,39 @@
             }, {
               "k": "color",
               "v": "#172B4D"
-            }       
-          ]
-        },{
-          "id": "test",
-          "type": "BPInput",
-          "cat": "test",
-          "text": "",
-          "name":"bp-input-active",
-          "css": [
-            {
-              "k": "width",
-              "v": "240px"
             },
             {
-              "k": "height",
-              "v": "40px"
-            }, {
-              "k": "line-height",
-              "v": "32px"
-            }, {
-              "k": "padding",
-              "v": "4px 8px"
-            }, {
-              "k": "border",
-              "v": "1px solid #3172E0"
-            }, {
-              "k": "border-radius",
-              "v": "4px"
-            }, {
-              "k": "color",
-              "v": "#172B4D"
-            } 
+              "k": "outline",
+              "v": "none",              
+              "tp": "focus"
+            },{
+              "k": "box-sizing",
+              "v": "border-box"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "page with menu",
+      "type": "BPMainWindow",
+      "cat": "navigation",
+      "name":"navigation",
+      "path":"navigation",
+      "layout":[],
+      "css":[],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPNavMenu",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-nav-menu",
+          "css":[
+            {
+              "k":"color",
+              "v":"red"
+            }
           ]
         }
       ]
