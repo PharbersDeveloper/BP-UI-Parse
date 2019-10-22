@@ -55,8 +55,8 @@ export default class BPApplication extends BPObject {
             const mw = new BPMainWindow()
             mw.resetObjId(router.id)
             const cp = new BPThemeProperty()
-            router.css.forEach( (c) => cp.resetProperty(c.k, c.v, c.tp) )
-            router.layout.forEach( (c) => cp.resetProperty(c.k, c.v, c.tp) )
+            router.css.forEach( (c) => cp.resetProperty(c.k, c.v, c.tp, c.pe ) )
+            router.layout.forEach( (c) => cp.resetProperty(c.k, c.v, c.tp, c.pe ) )
 
             mw.css.push(...cp.properties)
             // 将 components 放入 mw
@@ -65,7 +65,7 @@ export default class BPApplication extends BPObject {
             router.components.forEach( (comp) => {
                 const singleComp = new BPComp()
                 const icp = new BPThemeProperty()
-                comp.css.forEach( (c) => icp.resetProperty(c.k, c.v, c.tp) )
+                comp.css.forEach( (c) => icp.resetProperty(c.k, c.v, c.tp, c.pe ) )
                 singleComp.css = icp.properties
                 singleComp.type = comp.type
                 singleComp.name = comp.name
