@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-badge"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "badge",
+      "path": "/badge",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+
+      "components": [
+        {
+          "id": "test",
+          "type": "BPBadge",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-badge-single",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "background",
+              "v": "#3172E0"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "color",
+              "v": "#FFFFFF"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            }, {
+              "k": "height",
+              "v": "16px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "8px"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPBadge",
+          "cat": "test",
+          "text": "alfred test primary",
+          "name":"bp-badge-double",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "background",
+              "v": "#3172E0"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "color",
+              "v": "#FFFFFF"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            }, {
+              "k": "height",
+              "v": "16px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "8px"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPBadge",
+          "cat": "test",
+          "text": "alfred test danger",
+          "name":"bp-badge-max",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "background",
+              "v": "#3172E0"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "color",
+              "v": "#FFFFFF"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            }, {
+              "k": "height",
+              "v": "16px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "8px"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "page with menu",
+      "type": "BPMainWindow",
+      "cat": "navigation",
+      "name":"navigation",
+      "path":"navigation",
+      "layout":[],
+      "css":[],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPNavMenu",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-nav-menu",
+          "css":[
+            {
+              "k":"color",
+              "v":"red"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
