@@ -31,15 +31,16 @@ export class BPThemeProperty {
         return this.properties.find((x) => x.key === key) !== undefined
     }
 
-    public resetProperty(key: string, v: any, type?: string): void {
+    public resetProperty(key: string, v: any, type?: string, pe?: string): void {
 
         const property = this.properties.find((x) => x.key === key)
-        if (property && property.tp === type) {
+        if (property && property.tp === type && property.pe === pe) {
             property.value = v
         } else {
             this.properties.push(
                 {
                     key,
+                    pe,
                     tp: type,
                     value: v,
                 }
@@ -57,6 +58,7 @@ export class BPThemeProperty {
             this.properties.push(
                 {
                     key: x.key,
+                    pe: "css",
                     tp: "css",
                     value: x.v,
                 }
