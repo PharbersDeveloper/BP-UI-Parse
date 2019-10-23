@@ -157,8 +157,7 @@
           ]
         }
       ]
-    },
-    {
+    },{
       "id": "page with menu",
       "type": "BPMainWindow",
       "cat": "navigation",
