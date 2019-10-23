@@ -161,6 +161,12 @@
 /* tag end */
 
 /* avatar start */
+
+.avatar:focus {
+  border: 2px solid #4C9AFF;
+  outline: none;
+}
+
 .avatar-x-small {
   height: 16px;
   width: 16px;
@@ -198,6 +204,7 @@
 }
 
 .avatar-square {
-	border-radius: 4px;
+  border-radius: 4px;
 }
+
 /* avatar end */

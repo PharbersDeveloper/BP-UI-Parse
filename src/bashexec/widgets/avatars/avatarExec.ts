@@ -36,7 +36,7 @@ export class AvatarExec extends BashExec {
             "export default Component.extend({" + "\r" +
               "   layout," + "\r" +
               "   tagName:'img'," + "\r" +
-              "   classNames:['" + this.component.name + " " + sizeType + " " + circleClass + "']," + "\r" +
+              "   classNames:['avatar " + this.component.name + " " + sizeType + " " + circleClass + "']," + "\r" +
               "   content: 'default'," + "\r" +
               "		classNameBindings: ['type', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
               "		attributeBindings: ['src']," + "\r" +
@@ -70,7 +70,7 @@ export class AvatarExec extends BashExec {
 
         // fileData 包含一下public css
         const publicCSS = fs.readFileSync("/Users/Simon/Desktop/BP-UI-Parse/src/public.css", "utf8")
-        phLogger.info(publicCSS)
+        // phLogger.info(publicCSS)
         fileData += publicCSS
 
         const existFile: boolean = this.fsExistsSync(outputPath)
