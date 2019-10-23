@@ -9,8 +9,8 @@
       "id": "page main window",
       "type": "BPMainWindow",
       "cat": "main-window",
-      "name": "basic",
-      "path": "basic",
+      "name": "common",
+      "path": "common",
       "layout": [
         {
           "k": "display",
@@ -30,7 +30,6 @@
           "v": "300px"
         }
       ],
-
       "components": [
         {
           "id": "test",
@@ -199,6 +198,87 @@
             },{
               "k":"height",
               "v":"100%"
+            }
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPPushButton",
+              "cat":"test",
+              "text": "nav button 1",
+              "name":"bp-push-button",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPPushButton",
+              "cat":"test",
+              "text": "nav button 2",
+              "name":"bp-push-button",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPPushButton",
+              "cat":"test",
+              "text": "nav button 3",
+              "name":"bp-push-button",
+              "layout":[],
+              "css":[]
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPTabBar",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-tab-bar",
+          "layout":[],
+          "css":[
+            {
+              "k":"display",
+              "v":"flex"
+            },{
+              "k":"flex-direction",
+              "v":"row"
+            },{
+              "k":"width",
+              "v":"100%"
+            },{
+              "k":"height",
+              "v":"100px"
+            }
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPPushButton",
+              "cat":"test",
+              "text": "nav button 1",
+              "name":"bp-push-button",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPPushButton",
+              "cat":"test",
+              "text": "nav button 2",
+              "name":"bp-push-button",
+              "layout":[],
+              "css":[
+                {
+                  "k":"color",
+                  "v":"red"
+                }
+              ]
+            },{
+              "id": "test",
+              "type": "BPPushButton",
+              "cat":"test",
+              "text": "nav button 3",
+              "name":"bp-push-button",
+              "layout":[],
+              "css":[]
             }
           ]
         }

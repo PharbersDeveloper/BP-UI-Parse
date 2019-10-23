@@ -20,6 +20,7 @@ import BPDivider from "../widgets/divider/BPDivider"
 import BPInput from "../widgets/inputs/BPInput"
 import BPNavMenu from "../widgets/navs/BPNavMenu"
 import BPNavMenuItem from "../widgets/navs/BPNavMenuItem"
+import BPTabBar from "../widgets/navs/BPTabBar"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
 import BPStatus from "../widgets/status/BPStatus"
 import BPTag from "../widgets/tags/BPTag"
@@ -38,7 +39,7 @@ export default class BPEmberCtx extends BPCtx {
         phLogger.info("exec something with emberjs")
         this.projectName = projectName
         // const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
-        const output: string = "/Users/Simon/Desktop/ui-output"
+        const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
         this.output = output
     }
     public cmdStart() {
@@ -90,7 +91,8 @@ export default class BPEmberCtx extends BPCtx {
             new BPInput(this.output, this.projectName, routeName),
             new BPPushButton(this.output, this.projectName, routeName),
             new BPNavMenu(this.output, this.projectName, routeName),
-            new BPNavMenuItem(this.output, this.projectName, routeName)
+            new BPNavMenuItem(this.output, this.projectName, routeName),
+            new BPTabBar(this.output, this.projectName, routeName)
         ]
 
         return this.compTypeList

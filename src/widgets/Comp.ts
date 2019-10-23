@@ -10,6 +10,7 @@ export default class BPComp extends BPWidget {
     public text: string = ""
     public attrs?: any = {}
 
+    public components: BPComp[] = []
     public paint(ctx: BPCtx) {
         phLogger.info("alfred paint test")
     }

@@ -5,7 +5,7 @@ import { ParsePtCtxConf } from "./ParsePtCtxConf"
 
 @JsonObject("component")
 export class ParseCompConf {
-    @JsonProperty("attrs", Object)
+    @JsonProperty("attrs", Object, true)
     public attrs: Any = {}
 
     @JsonProperty("id", String)
