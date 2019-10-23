@@ -1,3 +1,5 @@
+/* status start */
+
 .status-default,
 .status-success,
 .status-removed,
@@ -70,6 +72,9 @@
   color: #172B4D;
 }
 
+/* status start */
+
+/* tag start */
 .tag-netural,
 .tag-blue,
 .tag-green,
@@ -152,3 +157,47 @@
   background: #FFC400;
   color: #172B4D;
 }
+
+/* tag end */
+
+/* avatar start */
+.avatar-x-small {
+  height: 16px;
+  width: 16px;
+}
+
+.avatar-small {
+  height: 24px;
+  width: 24px;
+}
+
+.avatar-medium {
+  height: 32px;
+  width: 32px;
+}
+
+.avatar-large {
+  height: 40px;
+  width: 40px;
+}
+
+
+.avatar-x-large {
+  height: 96px;
+  width: 96px;
+}
+
+
+.avatar-xx-large {
+  height: 128px;
+  width: 128px;
+}
+
+.avatar-circle {
+  border-radius: 50%;
+}
+
+.avatar-square {
+	border-radius: 4px;
+}
+/* avatar end */
