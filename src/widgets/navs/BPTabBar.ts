@@ -36,48 +36,23 @@ export default class BPTabBar extends BPWidget {
     }
 
     public paintShow(comp: BPComp) {
-            const insideComps = comp.components
+        const insideComps = comp.components
 
-            let showBody = ""
-            insideComps.forEach((icomp) => {
-                const navItem = new BPPushButton(this.output, this.projectName, this.routeName)
-                showBody += navItem.paintShow(icomp)
-            })
-            return  "{{#" + comp.name + "}}" + showBody + "{{/" + comp.name + "}}"
+        let showBody = ""
+        insideComps.forEach((icomp) => {
+            const navItem = new BPPushButton(this.output, this.projectName, this.routeName)
+            showBody += navItem.paintShow(icomp)
+        })
+        return "{{#" + comp.name + "}}" + showBody + "{{/" + comp.name + "}}"
     }
     public paintLogic(comp: BPComp) {
-        const fileData = "import Component from '@ember/component';" + "\r" +
-        "import layout from '../templates/components/" + comp.name + "';" + "\r" +
-         "\n" +
-        "export default Component.extend({" + "\r" +
-          "   layout," + "\r" +
-          "   tagName:'div'," + "\r" +
-          "   classNames:['" + comp.name + "']," + "\r" +
-          "   classNameBindings:['isColumn:flex-column']," + "\r" +
-          "   isColumn: false," + "\r" +
+        const fileDataStart = this.paintLoginStart(comp)
+        const fileDataEnd = this.paintLoginEnd()
+        const fileData = "   tagName:'div'," + "\r" +
+            "   classNames:['" + comp.name + "']," + "\r" +
+            "   classNameBindings:['isColumn:flex-column']," + "\r" +
+            "   isColumn: false," + "\r"
 
-        "});" + "\r"
-
-        return fileData
-    }
-    public paintStyle(comp: BPComp) {
-        // 该组件的 css 样式
-        let fileData = "." + comp.name + "{" + "\r" + "\n"
-        let styles: string = ""
-
-        comp.css.filter((item) => item.tp === "css").forEach((item) => {
-            const style = item.key + ": " + item.value + ";" + "\r"
-            styles = styles + style
-        })
-        fileData = fileData + styles + "\r" + "}" + "\r"
-
-        // 伪类
-        comp.css.filter((item) => item.tp !== "css").forEach((item) => {
-            let pseudoClass: string = "." + comp.name + ":" + item.tp + " {" + "\r" + "\n"
-            const pseudoStyle = item.key + ": " + item.value + ";" + "\r"
-            pseudoClass = pseudoClass + pseudoStyle + "\r" + "}" + "\r"
-            fileData += pseudoClass
-        })
-        return fileData
+        return fileDataStart + fileData + fileDataEnd
     }
 }

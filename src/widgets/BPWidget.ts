@@ -28,11 +28,53 @@ export abstract class BPWidget extends BPObject {
         phLogger.info("alfred paintShow test")
     }
 
+    public paintStyle(comp: BPComp) {
+
+        // 该组件的 css 样式
+        let fileData = "." + comp.name + "{" + "\r" + "\n"
+        let styles: string = ""
+
+        comp.css.filter((item) => item.tp === "css").forEach((item) => {
+            const style = item.key + ": " + item.value + ";" + "\r"
+            styles = styles + style
+        })
+        fileData = fileData + styles + "\r" + "}" + "\r"
+
+        // 伪类
+        comp.css.filter((item) => item.tp !== "css").forEach((item) => {
+            let pseudoClass: string = "." + comp.name + ":" + item.tp + " {" + "\r" + "\n"
+            const pseudoStyle = item.key + ": " + item.value + ";" + "\r"
+            pseudoClass = pseudoClass + pseudoStyle + "\r" + "}" + "\r"
+            fileData += pseudoClass
+        })
+        return fileData
+
+    }
+
     protected paint(ctx: BPCtx, comp?: BPComp) {
         phLogger.info("alfred paint test")
     }
 
     protected hitSize() {
         phLogger.info("alfred paint test")
+    }
+    public paintLogic(comp: BPComp) {
+        const fileDataStart = this.paintLoginStart(comp)
+        const fileDataEnd = this.paintLoginEnd()
+
+        const fileData = ""
+
+        return fileDataStart + fileData + fileDataEnd
+    }
+    public paintLoginStart(comp:BPComp) {
+        const fileData = "import Component from '@ember/component';" + "\r" +
+        "import layout from '../templates/components/" + comp.name + "';" + "\r" +
+         "\n" +
+        "export default Component.extend({" + "\r" +
+          "    layout," + "\r" 
+          return fileData
+    }
+    public paintLoginEnd() {
+          return "});" + "\r"
     }
 }

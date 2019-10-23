@@ -28,43 +28,18 @@ export default class BPPushButton extends BPWidget {
         return execList
     }
     public paintShow(comp: BPComp) {
-       return  "{{#" + comp.name + "}}" + comp.text + "{{/" + comp.name + "}}"
+        return "{{#" + comp.name + "}}" + comp.text + "{{/" + comp.name + "}}"
     }
     public paintLogic(comp: BPComp) {
-        const fileData = "import Component from '@ember/component';" + "\r" +
-        "import layout from '../templates/components/" + comp.name + "';" + "\r" +
-         "\n" +
-        "export default Component.extend({" + "\r" +
-          "    layout," + "\r" +
-          "    tagName:'button'," + "\r" +
-          "    classNames:['bp-push-button', '" + comp.name + "']," + "\r" +
-          "    content: 'default'," + "\r" +
-          "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
-          "    attributeBindings: ['disabled']," + "\r" +
-        "});" + "\r"
+        const fileDataStart = this.paintLoginStart(comp)
+        const fileDataEnd = this.paintLoginEnd()
 
-        return fileData
-    }
-    public paintStyle(comp: BPComp) {
+        const fileData = "    tagName:'button'," + "\r" +
+            "    classNames:['bp-push-button', '" + comp.name + "']," + "\r" +
+            "    content: 'default'," + "\r" +
+            "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
+            "    attributeBindings: ['disabled']," + "\r"
 
-        // 该组件的 css 样式
-        let fileData = "." + comp.name + "{" + "\r" + "\n"
-        let styles: string = ""
-
-        comp.css.filter((item) => item.tp === "css").forEach((item) => {
-            const style = item.key + ": " + item.value + ";" + "\r"
-            styles = styles + style
-        })
-        fileData = fileData + styles + "\r" + "}" + "\r"
-
-        // 伪类
-        comp.css.filter((item) => item.tp !== "css").forEach((item) => {
-            let pseudoClass: string = "." + comp.name + ":" + item.tp + " {" + "\r" + "\n"
-            const pseudoStyle = item.key + ": " + item.value + ";" + "\r"
-            pseudoClass = pseudoClass + pseudoStyle + "\r" + "}" + "\r"
-            fileData += pseudoClass
-        })
-        return fileData
-
+        return fileDataStart + fileData + fileDataEnd
     }
 }
