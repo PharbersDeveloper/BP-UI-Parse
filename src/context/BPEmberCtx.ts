@@ -21,6 +21,7 @@ import BPNavMenu from "../widgets/navs/BPNavMenu"
 import BPNavMenuItem from "../widgets/navs/BPNavMenuItem"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
 import BPStatus from "../widgets/status/BPStatus"
+import BPTag from "../widgets/tags/BPTag"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import BPCtx from "./BPCtx"
 
@@ -79,6 +80,7 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPTag(this.output, this.projectName, routeName),
             new BPStatus(this.output, this.projectName, routeName),
             new BPBadge(this.output, this.projectName, routeName),
             new BPScrollBar(this.output, this.projectName, routeName),

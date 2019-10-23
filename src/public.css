@@ -20,7 +20,6 @@
   color: #FFFFFF;
 }
 
-
 .status-success-subtle {
   background: #E2FFEE;
   color: #006644;
@@ -68,5 +67,88 @@
 
 .status-moved-bold {
   background: #FF8B00;
+  color: #172B4D;
+}
+
+.tag-netural,
+.tag-blue,
+.tag-green,
+.tag-purples,
+.tag-teals,
+.tag-red,
+.tag-yellow {
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.tag-netural-subtle {
+  background: #EBECF0;
+  color: #344563;
+}
+
+.tag-netural-bold {
+  background: #42526E;
+  color: #FFFFFF;
+}
+
+.tag-blue-subtle {
+  background: #C2DAFF;
+  color: #0049B0;
+}
+
+.tag-blue-bold {
+  background: #73ABFF;
+  color: #172B4D;
+}
+
+.tag-green-subtle {
+  background: #79F2C0;
+  color: #006644;
+}
+
+.tag-green-bold {
+  background: #57D9A3;
+  color: #172B4D;
+}
+
+.tag-purples-subtle {
+  background: #C0B6F2;
+  color: #403294;
+}
+
+.tag-purples-bold {
+  background: #998DD9;
+  color: #172B4D;
+}
+
+.tag-teals-subtle {
+  background: #79E2F2;
+  color: #344563;
+}
+
+.tag-teals-bold {
+  background: #00C7E6;
+  color: #172B4D;
+}
+
+.tag-red-subtle {
+  background: #FFBDAD;
+  color: #172B4D;
+}
+
+.tag-red-bold {
+  background: #FF8F73;
+  color: #172B4D;
+}
+
+.tag-yellow-subtle {
+  background: #FFE380;
+  color: #172B4D;
+}
+
+.tag-yellow-bold {
+  background: #FFC400;
   color: #172B4D;
 }
