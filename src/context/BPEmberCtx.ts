@@ -11,6 +11,7 @@ import { GenMWStylesExec } from "../bashexec/genMWStylesExec"
 import { RemoveFolderExec } from "../bashexec/removeFolderExec"
 import { SassyStyles } from "../bashexec/sassyStyles"
 import phLogger from "../logger/phLogger"
+import BPAvatar from "../widgets/avatars/BPAvatar"
 import BPBadge from "../widgets/badges/BPBadge"
 import { BPWidget } from "../widgets/BPWidget"
 import BPPushButton from "../widgets/buttons/BPPushButton"
@@ -20,6 +21,8 @@ import BPInput from "../widgets/inputs/BPInput"
 import BPNavMenu from "../widgets/navs/BPNavMenu"
 import BPNavMenuItem from "../widgets/navs/BPNavMenuItem"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
+import BPStatus from "../widgets/status/BPStatus"
+import BPTag from "../widgets/tags/BPTag"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import BPCtx from "./BPCtx"
 
@@ -78,6 +81,9 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPAvatar(this.output, this.projectName, routeName),
+            new BPTag(this.output, this.projectName, routeName),
+            new BPStatus(this.output, this.projectName, routeName),
             new BPBadge(this.output, this.projectName, routeName),
             new BPScrollBar(this.output, this.projectName, routeName),
             new BPDivider(this.output, this.projectName, routeName),

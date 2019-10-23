@@ -1,0 +1,375 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-status"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "status-route",
+      "path": "/status-route",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+
+      "components": [
+        {
+          "id": "test",
+          "type": "BPStatus",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-status-1",
+					"attrs": {
+						"value": "DEFAULT",
+						"infoType": "status-default", 
+						"bold": "fasle"
+					},
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            },
+						{
+							"k": "padding",
+							"v": "0 4px"
+						}
+          ]
+					},
+					{
+          "id": "test",
+          "type": "BPStatus",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-status-2",
+					"attrs": {
+						"value": "SUCCESS",
+						"infoType": "status-success", 
+						"bold": "fasle"
+					},
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            },
+						{
+							"k": "padding",
+							"v": "0 4px"
+						}
+          ]
+					},
+					{
+          "id": "test",
+          "type": "BPStatus",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-status-3",
+					"attrs": {
+						"value": "REMOVED",
+						"infoType": "status-removed", 
+						"bold": "fasle"
+					},
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            },
+						{
+							"k": "padding",
+							"v": "0 4px"
+						}
+          ]
+					},
+					{
+          "id": "test",
+          "type": "BPStatus",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-status-4",
+					"attrs": {
+						"value": "IN PROGRESS",
+						"infoType": "status-in-progress", 
+						"bold": "fasle"
+					},
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            },
+						{
+							"k": "padding",
+							"v": "0 4px"
+						}
+          ]
+					},
+					{
+          "id": "test",
+          "type": "BPStatus",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-status-5",
+					"attrs": {
+						"value": "NEW",
+						"infoType": "status-new", 
+						"bold": "fasle"
+					},
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            },
+						{
+							"k": "padding",
+							"v": "0 4px"
+						}
+          ]
+					},
+					{
+          "id": "test",
+          "type": "BPStatus",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-status-6",
+					"attrs": {
+						"value": "MOVED",
+						"infoType": "status-moved", 
+						"bold": "fasle"
+					},
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            },
+						{
+							"k": "padding",
+							"v": "0 4px"
+						}
+          ]
+					},
+					{
+          "id": "test",
+          "type": "BPStatus",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-status-7",
+					"attrs": {
+						"value": "DEFAULT",
+						"infoType": "status-default", 
+						"bold": "true"
+					},
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            },
+						{
+							"k": "padding",
+							"v": "0 4px"
+						}
+          ]
+					},
+					{
+          "id": "test",
+          "type": "BPStatus",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-status-8",
+					"attrs": {
+						"value": "SUCCESS",
+						"infoType": "status-success", 
+						"bold": "true"
+					},
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            },
+						{
+							"k": "padding",
+							"v": "0 4px"
+						}
+          ]
+					},
+					{
+          "id": "test",
+          "type": "BPStatus",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-status-9",
+					"attrs": {
+						"value": "REMOVED",
+						"infoType": "status-removed", 
+						"bold": "true"
+					},
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            },
+						{
+							"k": "padding",
+							"v": "0 4px"
+						}
+          ]
+					},
+					{
+          "id": "test",
+          "type": "BPStatus",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-status-10",
+					"attrs": {
+						"value": "IN PROGRESS",
+						"infoType": "status-in-progress", 
+						"bold": "true"
+					},
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            },
+						{
+							"k": "padding",
+							"v": "0 4px"
+						}
+          ]
+					},
+					{
+          "id": "test",
+          "type": "BPStatus",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-status-11",
+					"attrs": {
+						"value": "NEW",
+						"infoType": "status-new", 
+						"bold": "true"
+					},
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            },
+						{
+							"k": "padding",
+							"v": "0 4px"
+						}
+          ]
+					},
+					{
+          "id": "test",
+          "type": "BPStatus",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-status-12",
+					"attrs": {
+						"value": "MOVED",
+						"infoType": "status-moved", 
+						"bold": "true"
+					},
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            },
+						{
+							"k": "padding",
+							"v": "0 4px"
+						}
+          ]
+					}
+      ]
+    },
+    {
+      "id": "page with menu",
+      "type": "BPMainWindow",
+      "cat": "navigation",
+      "name":"navigation",
+      "path":"navigation",
+      "layout":[],
+      "css":[],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPNavMenu",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-nav-menu",
+					"attrs": {},
+          "css":[
+            {
+              "k":"color",
+              "v":"red"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import phLogger from "../../../logger/phLogger"
 import BPComp from "../../../widgets/Comp"
 import { BashExec } from "../.././bashexec"
 
-export class BadgeExec extends BashExec {
+export class AvatarExec extends BashExec {
     protected cmd = "ember"
     protected component: BPComp = null
     constructor(output: string, name: string, routeName: string, component: BPComp) {
@@ -23,19 +23,25 @@ export class BadgeExec extends BashExec {
     }
     // 根据 bppushbutton 之类的类，修改 components 的属性
     private async changeCompProperties(output: string, name: string) {
-
+        // phLogger.info(this.component.attrs)
+        // phLogger.info(this.component.attrs.bold)
+        // phLogger.info(this.component.attrs.bold === "fasle")
+        const srcLink = this.component.attrs.src
+        const sizeType = this.component.attrs.sizeType
+        const circleClass = this.component.attrs.circle === "true" ? "avatar-circle" : "avatar-square"
         const outputPath = output + "/" + name + "/addon/components/" + this.component.name + ".js"
         const fileData = "import Component from '@ember/component';" + "\r" +
-        "import layout from '../templates/components/" + this.component.name + "';" + "\r" +
-         "\n" +
-        "export default Component.extend({" + "\r" +
-          "   layout," + "\r" +
-          "   tagName:'button'," + "\r" +
-          "   classNames:['" + this.component.name + "']," + "\r" +
-          "   content: 'default'," + "\r" +
-          "classNameBindings: ['block:btn-block', 'type', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
-          "attributeBindings: ['disabled']," + "\r" +
-        "});" + "\r"
+            "import layout from '../templates/components/" + this.component.name + "';" + "\r" +
+            "\n" +
+            "export default Component.extend({" + "\r" +
+              "   layout," + "\r" +
+              "   tagName:'img'," + "\r" +
+              "   classNames:['avatar " + this.component.name + " " + sizeType + " " + circleClass + "']," + "\r" +
+              "   content: 'default'," + "\r" +
+              "		classNameBindings: ['type', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
+              "		attributeBindings: ['src']," + "\r" +
+              "		src: '" + srcLink  + "'," + "\r" +
+            "});" + "\r"
         fs.writeFileSync(outputPath, fileData)
 
     }
@@ -61,6 +67,11 @@ export class BadgeExec extends BashExec {
             pseudoClass = pseudoClass + pseudoStyle + "\r" + "}" + "\r"
             fileData += pseudoClass
         })
+
+        // fileData 包含一下public css
+        const publicCSS = fs.readFileSync("/Users/Simon/Desktop/BP-UI-Parse/src/public.css", "utf8")
+        // phLogger.info(publicCSS)
+        fileData += publicCSS
 
         const existFile: boolean = this.fsExistsSync(outputPath)
         if (!existFile) {
@@ -101,15 +112,7 @@ export class BadgeExec extends BashExec {
 
     private recursiveComponents(component: BPComp): string {
         let fileData: string = ""
-        let content = ""
-        // 之后改成 attrs 中的 value
-        if (component.name.indexOf("single") !== -1) {
-          content = "9"
-        } else if (component.name.indexOf("double") !== -1) {
-          content = "99"
-        } else if (component.name.indexOf("max") !== -1) {
-          content = "99+"
-        }
+        const content = component.attrs.value
 
         fileData = "{{#" + component.name + "}}" + content + "{{/" + component.name + "}}"
 

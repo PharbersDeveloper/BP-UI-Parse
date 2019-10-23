@@ -69,6 +69,7 @@ export default class BPApplication extends BPObject {
                 singleComp.css = icp.properties
                 singleComp.type = comp.type
                 singleComp.name = comp.name
+                singleComp.attrs = comp.attrs
 
                 components.push(singleComp)
             })
