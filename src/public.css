@@ -1,0 +1,72 @@
+.status-default,
+.status-success,
+.status-removed,
+.status-in-progress,
+.status-new,
+.status-moved {
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.status-default-subtle {
+  background: #DFE1E6;
+  color: #42526E;
+}
+
+.status-default-bold {
+  background: #42526E;
+  color: #FFFFFF;
+}
+
+
+.status-success-subtle {
+  background: #E2FFEE;
+  color: #006644;
+}
+
+.status-success-bold {
+  background: #00875A;
+  color: #FFFFFF;
+}
+
+.status-removed-subtle {
+  background: #FFEBE6;
+  color: #BF2600;
+}
+
+.status-removed-bold {
+  background: #DE350B;
+  color: #FFFFFF;
+}
+
+.status-in-progress-subtle {
+  background: #E1ECFF;
+  color: #2355A9;
+}
+
+.status-in-progress-bold {
+  background: #3172E0;
+  color: #FFFFFF;
+}
+
+.status-new-subtle {
+  background: #EAE6FF;
+  color: #403294;
+}
+
+.status-new-bold {
+  background: #5243AA;
+  color: #FFFFFF;
+}
+
+.status-moved-subtle {
+  background: #FFF0B3;
+  color: #172B4D;
+}
+
+.status-moved-bold {
+  background: #FF8B00;
+  color: #172B4D;
+}
