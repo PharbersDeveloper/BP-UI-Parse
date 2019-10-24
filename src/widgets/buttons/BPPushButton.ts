@@ -21,7 +21,7 @@ export default class BPPushButton extends BPWidget {
             pName: this.projectName,
             rName: this.routeName,
             showData: this.paintShow(comp),
-            styleData: this.paintStyle(comp)
+            styleData: this.paintStyle(comp) //  继承自 BPWidget 的方法
         }
         execList.push(new CompExec(options))
 
@@ -31,6 +31,7 @@ export default class BPPushButton extends BPWidget {
         return "{{#" + comp.name + "}}" + comp.text + "{{/" + comp.name + "}}"
     }
     public paintLogic(comp: BPComp) {
+        // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
 

@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-div"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "div-route",
+      "path": "/div-route",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+
+      "components": [
+        {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-div-default",
+          "css": [
+						{
+              "k": "box-sizing",
+              "v": "border-box"
+            },
+						{
+							"k": "border",
+							"v": "1px solid #36B37E"
+						}
+          ]
+					},
+					{
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-div-box",
+          "css": [
+            {
+              "k": "border",
+              "v": "1px solid #DE350B"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            },{
+              "k": "box-sizing",
+              "v": "border-box"
+            }, {
+							"k": "height",
+							"v": "400px"
+						}, {
+							"k": "width",
+							"v": "400px"
+						}
+          ],
+					"components": [
+						{
+              "id": "test",
+              "type": "BPDiv",
+              "cat":"test",
+              "text": "inner box",
+              "name":"bp-div-default",
+              "layout":[],
+              "css":[
+								{
+									"k": "border",
+									"v": "1px solid #36B37E"
+								}, {
+									"k": "border-radius",
+									"v": "4px"
+								},{
+									"k": "box-sizing",
+									"v": "border-box"
+								}, {
+									"k": "height",
+									"v": "100px"
+								}, {
+									"k": "width",
+									"v": "100px"
+								}
+							]
+            }, 
+						{
+              "id": "test",
+              "type": "BPDiv",
+              "cat":"test",
+              "text": "inner box",
+              "name":"bp-div-default",
+              "layout":[],
+              "css":[
+								{
+									"k": "border",
+									"v": "1px solid #36B37E"
+								}, {
+									"k": "border-radius",
+									"v": "4px"
+								},{
+									"k": "box-sizing",
+									"v": "border-box"
+								}, {
+									"k": "height",
+									"v": "100px"
+								}, {
+									"k": "width",
+									"v": "100px"
+								}
+							]
+            }
+					]
+        }
+      ]
+    },
+    {
+      "id": "page with menu",
+      "type": "BPMainWindow",
+      "cat": "navigation",
+      "name":"navigation",
+      "path":"navigation",
+      "layout":[],
+      "css":[],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPNavMenu",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-nav-menu",
+          "css":[
+            {
+              "k":"color",
+              "v":"red"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
