@@ -40,7 +40,7 @@ export default class BPEmberCtx extends BPCtx {
         phLogger.info("exec something with emberjs")
         this.projectName = projectName
         // const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
-        const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
+        const output: string = "/Users/Simon/Desktop/ui-output"
         this.output = output
     }
     public cmdStart() {
@@ -69,11 +69,29 @@ export default class BPEmberCtx extends BPCtx {
         // 4. 将执行命令抛出
         return this.runExec()
     }
+
+    /**
+     * getAllComponents
+     */
+    public getAllComponents(components: BPComp[]) {
+        let comps: BPComp[] = []
+
+        for (const element of components) {
+            comps.push(element)
+
+            const inner = this.getAllComponents(element.components)
+            comps = comps.concat(inner)
+
+        }
+        return comps
+    }
+
     public paintComps(components: BPComp[]) {
+        const curComps = this.getAllComponents(components)
         const compTypeList = this.compTypeList
         this.currentCompTypeList = []
-        for (let i = 0, len = components.length; i < len; i++) {
-            const component = components[i]
+        for (let i = 0, len = curComps.length; i < len; i++) {
+            const component = curComps[i]
 
             this.cmds.push(new EmberGenExec("component", component.name))
 
@@ -101,11 +119,14 @@ export default class BPEmberCtx extends BPCtx {
     }
 
     private showComp(components: BPComp[]) {
+        const curComps = this.getAllComponents(components)
+        phLogger.info(curComps)
+
         const currentCompTypeList = this.currentCompTypeList
         const that = this
 
         currentCompTypeList.forEach((item, index) => {
-            that.cmds.push(...item.paint(that, components[index]))
+            that.cmds.push(...item.paint(that, curComps[index]))
         })
     }
     private mwStyles(route: BPMainWindow) {

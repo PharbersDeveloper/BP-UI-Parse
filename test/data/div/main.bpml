@@ -32,23 +32,7 @@
       ],
 
       "components": [
-        {
-          "id": "test",
-          "type": "BPDiv",
-          "cat": "test",
-          "text": "simon test",
-          "name":"bp-div-default",
-          "css": [
-						{
-              "k": "box-sizing",
-              "v": "border-box"
-            },
-						{
-							"k": "border",
-							"v": "1px solid #36B37E"
-						}
-          ]
-					},
+        
 					{
           "id": "test",
           "type": "BPDiv",
