@@ -13,7 +13,7 @@ export default class BPMainWindow extends BPWidget {
     }
     public paint(ctx: BPCtx) {
         phLogger.info("alfred paint test")
-        phLogger.info(ctx)
+        // phLogger.info(ctx)
         const components: BPComp[] = this.components
         const firstCmds = ctx.cmdStart()
         const bodyCmds = ctx.paintMW(this, components)

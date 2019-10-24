@@ -13,6 +13,7 @@ import { SassyStyles } from "../bashexec/sassyStyles"
 import phLogger from "../logger/phLogger"
 import BPAvatar from "../widgets/avatars/BPAvatar"
 import BPBadge from "../widgets/badges/BPBadge"
+import BPItem from "../widgets/basic/BPItem"
 import { BPWidget } from "../widgets/BPWidget"
 import BPPushButton from "../widgets/buttons/BPPushButton"
 import BPComp from "../widgets/Comp"
@@ -21,7 +22,9 @@ import BPDivider from "../widgets/divider/BPDivider"
 import BPInput from "../widgets/inputs/BPInput"
 import BPNavMenu from "../widgets/navs/BPNavMenu"
 import BPNavMenuItem from "../widgets/navs/BPNavMenuItem"
+import BPStackLayout from "../widgets/navs/BPStackLayout"
 import BPTabBar from "../widgets/navs/BPTabBar"
+import BPTabButton from "../widgets/navs/BPTabButton"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
 import BPStatus from "../widgets/status/BPStatus"
 import BPTag from "../widgets/tags/BPTag"
@@ -39,8 +42,8 @@ export default class BPEmberCtx extends BPCtx {
         super()
         phLogger.info("exec something with emberjs")
         this.projectName = projectName
-        // const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
-        const output: string = "/Users/Simon/Desktop/ui-output"
+        const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
+        // const output: string = "/Users/Simon/Desktop/ui-output"
         this.output = output
     }
     public cmdStart() {
@@ -69,11 +72,30 @@ export default class BPEmberCtx extends BPCtx {
         // 4. 将执行命令抛出
         return this.runExec()
     }
+
+    /**
+     * getAllComponents
+     */
+    public getAllComponents(components: BPComp[]) {
+        let comps: BPComp[] = []
+
+        for (const element of components) {
+            comps.push(element)
+
+            const inner = this.getAllComponents(element.components)
+            comps = comps.concat(inner)
+
+        }
+        return comps
+    }
+
     public paintComps(components: BPComp[]) {
+        const curComps = this.getAllComponents(components)
+
         const compTypeList = this.compTypeList
         this.currentCompTypeList = []
-        for (let i = 0, len = components.length; i < len; i++) {
-            const component = components[i]
+        for (let i = 0, len = curComps.length; i < len; i++) {
+            const component = curComps[i]
 
             this.cmds.push(new EmberGenExec("component", component.name))
 
@@ -94,18 +116,27 @@ export default class BPEmberCtx extends BPCtx {
             new BPPushButton(this.output, this.projectName, routeName),
             new BPNavMenu(this.output, this.projectName, routeName),
             new BPNavMenuItem(this.output, this.projectName, routeName),
-            new BPTabBar(this.output, this.projectName, routeName)
+            new BPTabBar(this.output, this.projectName, routeName),
+            new BPItem(this.output, this.projectName, routeName),
+            new BPStackLayout(this.output, this.projectName, routeName),
+            new BPTabButton(this.output, this.projectName, routeName)
         ]
 
         return this.compTypeList
     }
 
     private showComp(components: BPComp[]) {
+        const curComps = this.getAllComponents(components)
+        phLogger.info(curComps.length)
+        phLogger.info(this.currentCompTypeList)
+
+        phLogger.info("+++++++++==========+++++++++")
+
         const currentCompTypeList = this.currentCompTypeList
         const that = this
 
         currentCompTypeList.forEach((item, index) => {
-            that.cmds.push(...item.paint(that, components[index]))
+            that.cmds.push(...item.paint(that, curComps[index]))
         })
     }
     private mwStyles(route: BPMainWindow) {

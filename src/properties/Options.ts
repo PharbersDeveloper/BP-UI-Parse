@@ -6,6 +6,7 @@ export interface IOptions {
     rName: string
     comp: BPComp
     logicData: string
+    hbsData?: string
     styleData: string
     showData: string
 }

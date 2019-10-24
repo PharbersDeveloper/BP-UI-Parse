@@ -2,7 +2,7 @@
 
 import * as fs from "fs"
 import phLogger from "../logger/phLogger"
-import {IOptions} from "../properties/Options"
+import { IOptions } from "../properties/Options"
 import { BashExec } from "./bashexec"
 
 export class CompExec extends BashExec {
@@ -16,6 +16,7 @@ export class CompExec extends BashExec {
     public async exec(callback: (code: number) => void) {
         this.changeCompProperties(this.options)
         this.addCompStyles(this.options)
+        this.changeHBSFile(this.options)
         this.showComponents(this.options)
         if (callback) {
             callback(0)
@@ -26,6 +27,14 @@ export class CompExec extends BashExec {
         const outputPath = options.output + "/" + options.pName + "/addon/components/" + options.comp.name + ".js"
 
         fs.writeFileSync(outputPath, options.logicData)
+    }
+    // 修改 handlebars
+    private async changeHBSFile(options: IOptions) {
+        const outputPath = options.output + "/" + options.pName + "/addon/templates/components/" + options.comp.name + ".hbs"
+
+        const hbsData = options.hbsData ? options.hbsData : "{{yield}}"
+
+        fs.writeFileSync(outputPath, hbsData)
     }
     // 生成 css 类
     private async addCompStyles(options: IOptions) {

@@ -24,14 +24,15 @@ export abstract class BPWidget extends BPObject {
         this.routeName = routeName
     }
     // 生成 展示用的 hbs 代码
-    public paintShow(comp: BPComp) {
+    public paintShow(comp: BPComp, ...rest: any[]) {
         phLogger.info("alfred paintShow test")
     }
 
-    public paintStyle(comp: BPComp) {
+    public paintStyle(comp: BPComp, prefix?: string) {
 
         // 该组件的 css 样式
-        let fileData = "." + comp.name + "{" + "\r" + "\n"
+        const className = "." + comp.name + "{" + "\r" + "\n"
+        let fileData = prefix ? "." + prefix + " " + className : className
         let styles: string = ""
 
         comp.css.filter((item) => item.tp === "css").forEach((item) => {
@@ -42,21 +43,20 @@ export abstract class BPWidget extends BPObject {
 
         // 伪类
         comp.css.filter((item) => item.tp !== "css").forEach((item) => {
-            let pseudoClass: string = "." + comp.name + ":" + item.tp + " {" + "\r" + "\n"
+            const pseudoClassName =  "." + comp.name + ":" + item.tp + " {" + "\r" + "\n"
+            let pseudoClass: string = prefix ? "." + prefix + " " + pseudoClassName : pseudoClassName
             const pseudoStyle = item.key + ": " + item.value + ";" + "\r"
             pseudoClass = pseudoClass + pseudoStyle + "\r" + "}" + "\r"
             fileData += pseudoClass
         })
-        return fileData
+        let insideCompsStyle = ""
+        if (Array.isArray(comp.components) && comp.components.length > 0) {
+            comp.components.forEach((icomp) => {
+                insideCompsStyle += this.paintStyle(icomp, comp.name)
+            })
+        }
+        return fileData + insideCompsStyle
 
-    }
-
-    protected paint(ctx: BPCtx, comp?: BPComp) {
-        phLogger.info("alfred paint test")
-    }
-
-    protected hitSize() {
-        phLogger.info("alfred paint test")
     }
     public paintLogic(comp: BPComp) {
         const fileDataStart = this.paintLoginStart(comp)
@@ -66,15 +66,23 @@ export abstract class BPWidget extends BPObject {
 
         return fileDataStart + fileData + fileDataEnd
     }
-    public paintLoginStart(comp:BPComp) {
+    public paintLoginStart(comp: BPComp) {
         const fileData = "import Component from '@ember/component';" + "\r" +
-        "import layout from '../templates/components/" + comp.name + "';" + "\r" +
-         "\n" +
-        "export default Component.extend({" + "\r" +
-          "    layout," + "\r" 
-          return fileData
+            "import layout from '../templates/components/" + comp.name + "';" + "\r"
+            // "\n" +
+            // "export default Component.extend({" + "\r" +
+            // "    layout," + "\r"
+        return fileData
     }
     public paintLoginEnd() {
-          return "});" + "\r"
+        return "});" + "\r"
+    }
+
+    protected paint(ctx: BPCtx, comp?: BPComp) {
+        phLogger.info("alfred paint test")
+    }
+
+    protected hitSize() {
+        phLogger.info("alfred paint test")
     }
 }

@@ -48,10 +48,13 @@ export default class BPTabBar extends BPWidget {
     public paintLogic(comp: BPComp) {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
-        const fileData = "   tagName:'div'," + "\r" +
-            "   classNames:['" + comp.name + "']," + "\r" +
-            "   classNameBindings:['isColumn:flex-column']," + "\r" +
-            "   isColumn: false," + "\r"
+        const fileData = "\n" +
+            "export default Component.extend({" + "\r" +
+            "    layout," + "\r" +
+            "    tagName:'div'," + "\r" +
+            "    classNames:['" + comp.name + "']," + "\r" +
+            "    classNameBindings:['isColumn:flex-column']," + "\r" +
+            "    isColumn: false," + "\r"
 
         return fileDataStart + fileData + fileDataEnd
     }
