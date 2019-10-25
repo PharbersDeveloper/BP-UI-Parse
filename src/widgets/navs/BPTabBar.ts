@@ -5,8 +5,8 @@ import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
 import { IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
-import BPPushButton from "../buttons/BPPushButton"
 import BPComp from "../Comp"
+import BPTabButton from "./BPTabButton"
 
 export default class BPTabBar extends BPWidget {
     public currentIndex: number = 0
@@ -24,6 +24,7 @@ export default class BPTabBar extends BPWidget {
 
         const options: IOptions = {
             comp,
+            hbsData: this.paintHBS(),
             logicData: this.paintLogic(comp),
             output: this.output,
             pName: this.projectName,
@@ -39,11 +40,11 @@ export default class BPTabBar extends BPWidget {
         const insideComps = comp.components
 
         let showBody = ""
-        insideComps.forEach((icomp) => {
-            const navItem = new BPPushButton(this.output, this.projectName, this.routeName)
-            showBody += navItem.paintShow(icomp)
+        insideComps.forEach((icomp, i) => {
+            const navItem = new BPTabButton(this.output, this.projectName, this.routeName)
+            showBody += navItem.paintShow(icomp, i, "tab.currentIndex")
         })
-        return "{{#" + comp.name + "}}" + showBody + "{{/" + comp.name + "}}"
+        return "{{#" + comp.name + " as |tab|}}" + showBody + "{{/" + comp.name + "}}"
     }
     public paintLogic(comp: BPComp) {
         const fileDataStart = this.paintLoginStart(comp)
@@ -54,8 +55,12 @@ export default class BPTabBar extends BPWidget {
             "    tagName:'div'," + "\r" +
             "    classNames:['" + comp.name + "']," + "\r" +
             "    classNameBindings:['isColumn:flex-column']," + "\r" +
-            "    isColumn: false," + "\r"
+            "    isColumn: false," + "\r" +
+            "    currentIndex: 0" + "\r"
 
         return fileDataStart + fileData + fileDataEnd
     }
+    public paintHBS() {
+        return "{{yield (hash currentIndex=currentIndex)}}"
+     }
 }

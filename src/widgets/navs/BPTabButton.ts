@@ -37,7 +37,7 @@ export default class BPTabButton extends BPPushButton {
             "export default Component.extend({" + "\r" +
             "    layout," + "\r" +
             "    tagName:'button'," + "\r" +
-            "    classNames:['" + comp.name + "']," + "\r" +
+            "    classNames:['bp-push-button','" + comp.name + "']," + "\r" +
             "    classNameBindings: ['isActive:tab-active']," + "\r" +
             "    attributeBindings: ['disabled']," + "\r" +
             "    disabled: false," + "\r" +

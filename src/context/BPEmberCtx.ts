@@ -1,6 +1,7 @@
 "use strict"
 
 // import { EmberAddonExec } from "../bashexec/addonExec"
+import {AddBaseClass} from "../bashexec/addBaseClass"
 import { EmberAddonExec } from "../bashexec/addonExec"
 import { BashSpwanCmds } from "../bashexec/bashcmdlst"
 import { CdExec } from "../bashexec/cdExec"
@@ -69,6 +70,7 @@ export default class BPEmberCtx extends BPCtx {
         // 生成公有样式 scss 变量，为以后的插件使用 scss 作准备。
         // this.generaSassyStyles()
         this.mwStyles(route)
+        this.moveBaseClass()
         // 4. 将执行命令抛出
         return this.runExec()
     }
@@ -76,26 +78,26 @@ export default class BPEmberCtx extends BPCtx {
     /**
      * getAllComponents
      */
-    public getAllComponents(components: BPComp[]) {
-        let comps: BPComp[] = []
+    // public getAllComponents(components: BPComp[]) {
+    //     let comps: BPComp[] = []
 
-        for (const element of components) {
-            comps.push(element)
+    //     for (const element of components) {
+    //         comps.push(element)
 
-            const inner = this.getAllComponents(element.components)
-            comps = comps.concat(inner)
+    //         const inner = this.getAllComponents(element.components)
+    //         comps = comps.concat(inner)
 
-        }
-        return comps
-    }
+    //     }
+    //     return comps
+    // }
 
     public paintComps(components: BPComp[]) {
-        const curComps = this.getAllComponents(components)
+        // const curComps = this.getAllComponents(components)
 
         const compTypeList = this.compTypeList
         this.currentCompTypeList = []
-        for (let i = 0, len = curComps.length; i < len; i++) {
-            const component = curComps[i]
+        for (let i = 0, len = components.length; i < len; i++) {
+            const component = components[i]
 
             this.cmds.push(new EmberGenExec("component", component.name))
 
@@ -126,17 +128,13 @@ export default class BPEmberCtx extends BPCtx {
     }
 
     private showComp(components: BPComp[]) {
-        const curComps = this.getAllComponents(components)
-        phLogger.info(curComps.length)
-        phLogger.info(this.currentCompTypeList)
-
-        phLogger.info("+++++++++==========+++++++++")
+        // const curComps = this.getAllComponents(components)
 
         const currentCompTypeList = this.currentCompTypeList
         const that = this
 
         currentCompTypeList.forEach((item, index) => {
-            that.cmds.push(...item.paint(that, curComps[index]))
+            that.cmds.push(...item.paint(that, components[index]))
         })
     }
     private mwStyles(route: BPMainWindow) {
@@ -144,6 +142,9 @@ export default class BPEmberCtx extends BPCtx {
     }
     private generaSassyStyles() {
         this.cmds.push(new SassyStyles(this.output, this.projectName))
+    }
+    private moveBaseClass() {
+        this.cmds.push(new AddBaseClass(this.output, this.projectName))
     }
     private runExec() {
         return this.cmds
