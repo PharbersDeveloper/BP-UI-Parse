@@ -19,12 +19,12 @@ export class SassyStyles extends BashExec {
             platforms: {
               scss: {
                 buildPath: outputPath + "/" + projectName + "/addon/styles/",
+                // buildPath: outputPath + "/build/",
                 files: [{
                     destination: "variables.scss",
                     format: "scss/variables"
                   }],
                 transformGroup: "scss"
-
               }
             },
             source: ["src/scssStyles/**/*.json"]

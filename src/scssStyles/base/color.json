@@ -1,0 +1,19 @@
+{
+    "color": {
+        "neutrals": {
+            "n900": {
+                "value": "#091E42"
+            }
+        },
+        "primary": {
+            "b500":{
+                "value":"blue"
+            }
+        },
+        "semantic": {
+            "red":{
+                "value":"red"
+            }
+        }
+    }
+}

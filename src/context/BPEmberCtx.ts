@@ -68,7 +68,7 @@ export default class BPEmberCtx extends BPCtx {
         // 3. 重写文件，将上面的组件进行展示
         this.showComp(components)
         // 生成公有样式 scss 变量，为以后的插件使用 scss 作准备。
-        // this.generaSassyStyles()
+        this.generaSassyStyles()
         this.mwStyles(route)
         this.moveBaseClass()
         // 4. 将执行命令抛出
@@ -148,6 +148,5 @@ export default class BPEmberCtx extends BPCtx {
     }
     private runExec() {
         return this.cmds
-        // this.cmdlst.exec()
     }
 }
