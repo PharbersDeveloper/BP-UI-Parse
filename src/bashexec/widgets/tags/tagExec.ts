@@ -23,9 +23,6 @@ export class TagExec extends BashExec {
     }
     // 根据 bppushbutton 之类的类，修改 components 的属性
     private async changeCompProperties(output: string, name: string) {
-        // phLogger.info(this.component.attrs)
-        // phLogger.info(this.component.attrs.bold)
-        // phLogger.info(this.component.attrs.bold === "fasle")
 
         const infoType = this.component.attrs.infoType
         const infoClass = this.component.attrs.bold === "fasle" ? infoType + "-subtle" : infoType + "-bold"
@@ -68,8 +65,7 @@ export class TagExec extends BashExec {
         })
 
         // fileData 包含一下public css
-        const publicCSS = fs.readFileSync("/Users/Simon/Desktop/BP-UI-Parse/src/public.css", "utf8")
-        phLogger.info(publicCSS)
+        const publicCSS = fs.readFileSync(process.argv[1] + "/src/public.css", "utf8")
         fileData += publicCSS
 
         const existFile: boolean = this.fsExistsSync(outputPath)

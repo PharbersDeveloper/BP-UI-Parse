@@ -19,8 +19,6 @@ export default class BPAvatar extends BPWidget {
   }
   public paint(ctx: BPCtx, comp: BPComp) {
     const execList: any[] = []
-    phLogger.info(this.projectName)
-    phLogger.info(this.routeName)
 
     execList.push(new AvatarExec(this.output, this.projectName, this.routeName, comp))
 

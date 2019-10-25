@@ -1,0 +1,780 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "common",
+      "path": "common",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "column"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },{
+          "k": "height",
+          "v": "auto"
+        }
+      ],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-push-button",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "min-width",
+              "v": "80px"
+            },
+            {
+              "k": "background",
+              "v": "rgba(9,30,66,0.04)"
+            },{
+              "k": "font-size",
+              "v": "14px"
+            },{
+              "k": "color",
+              "v": "#505F79"
+            },{
+              "k": "text-align",
+              "v": "center"
+            },{
+              "k":"display",
+              "v":"flex"
+            },{
+              "k":"align-items",
+              "v":"center"
+            },{
+              "k": "height",
+              "v": "32px"
+            },{
+              "k": "padding",
+              "v": "0 12px"
+            },{
+              "k": "border",
+              "v": "0"
+            },{
+              "k": "border-radius",
+              "v": "4px"
+            },{
+              "k": "cursor",
+              "v": "pointer"
+            },{
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            },{
+              "k": "background",
+              "v": "#E1ECFF",
+              "tp": "active"
+            },{
+              "k": "color",
+              "v": "#3172E0",
+              "tp": "active"
+            }
+          ]
+        },{
+          "id": "nav",
+          "type": "BPNavMenuItem",
+          "cat": "basic",
+          "text": "nav item text",
+          "name": "bp-nav-menu-item",
+          "layout": [
+            {
+              "k": "display",
+              "v": "flex"
+            },{
+              "k": "flex-direction",
+              "v": "row"
+            }
+          ],
+          "css": [
+            {
+              "k": "display",
+              "v": "flex"
+            },{
+              "k": "flex-direction",
+              "v": "row"
+            },{
+              "k": "width",
+              "v": "208px"
+            },{
+              "k": "box-sizing",
+              "v": "border-box"
+            },{
+              "k": "font-size",
+              "v": "14px"
+            },{
+              "k": "color",
+              "v": "#505F79"
+            },{
+              "k": "justify-content",
+              "v": "center"
+            },{
+              "k": "align-items",
+              "v": "center"
+            },{
+              "k": "height",
+              "v": "40px"
+            },{
+              "k": "padding",
+              "v": "0 12px"
+            },{
+              "k": "border",
+              "v": "0"
+            },{
+              "k": "border-radius",
+              "v": "3px"
+            },{
+              "k": "cursor",
+              "v": "pointer"
+            },{
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "test",
+          "text": "alfred test subtle",
+          "name":"bp-push-button-subtle",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "min-width",
+              "v": "80px"
+            },{
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "background",
+              "v": "transparent"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }, {
+              "k": "background",
+              "v": "#E1ECFF",
+              "tp": "active"
+            }, {
+              "k": "color",
+              "v": "#3172E0",
+              "tp": "active"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPItem",
+          "cat": "test",
+          "text": "alfred test item",
+          "name":"bp-item",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "height",
+              "v": "auto"
+            }, {
+              "k": "background",
+              "v": "transparent"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPTabButton",
+          "cat": "test",
+          "text": "alfred test bp-tab-button",
+          "name":"bp-tab-button",
+          "css": [
+            {
+              "k":"position",
+              "v":"relative"
+            }, {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "height",
+              "v": "24px"
+            }, {
+              "k": "background",
+              "v": "transparent"
+            }, {
+              "k":"color",
+              "v":"#505F79"
+            }, {
+              "k":"padding",
+              "v":0
+            },{
+              "k":"display",
+              "v":"flex"
+            },{
+              "k":"align-items",
+              "v":"center"
+            },{
+              "k":"margin-right",
+              "v":"16px"
+            },{
+              "k":"border",
+              "v":"0"
+            },{
+              "k":"min-width",
+              "v":"auto"
+            },{
+              "k": "color",
+              "v": "#3172E0",
+              "tp": "hover"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPAvatar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-avatar-1",
+          "attrs": {
+            "sizeType": "avatar-x-small", 
+            "circle": "true",
+            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+          },
+          "css": [
+            {
+              "k": "width",
+              "v": "32px"
+            },
+            {
+              "k": "height",
+              "v": "32px"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPAvatar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-avatar-2",
+          "attrs": {
+            "sizeType": "avatar-small", 
+            "circle": "true",
+            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+          },
+          "css": [
+            {
+              "k": "width",
+              "v": "32px"
+            },{
+              "k": "height",
+              "v": "32px"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPAvatar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-avatar-3",
+          "attrs": {
+            "sizeType": "avatar-medium", 
+            "circle": "true",
+            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+          },
+          "css": [
+            {
+              "k": "width",
+              "v": "32px"
+            },{
+              "k": "height",
+              "v": "32px"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPAvatar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-avatar-4",
+          "attrs": {
+            "sizeType": "avatar-large", 
+            "circle": "true",
+            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+          },
+          "css": [
+            {
+              "k": "width",
+              "v": "32px"
+            },
+            {
+              "k": "height",
+              "v": "32px"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPAvatar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-avatar-5",
+          "attrs": {
+            "sizeType": "avatar-x-large", 
+            "circle": "true",
+            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+          },
+          "css": [
+            {
+              "k": "width",
+              "v": "32px"
+            },
+            {
+              "k": "height",
+              "v": "32px"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPAvatar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-avatar-6",
+          "attrs": {
+            "sizeType": "avatar-xx-large", 
+            "circle": "true",
+            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+          },
+          "css": [
+            {
+              "k": "width",
+              "v": "32px"
+            },
+            {
+              "k": "height",
+              "v": "32px"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPAvatar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-avatar-7",
+          "attrs": {
+            "sizeType": "avatar-x-small", 
+            "circle": "false",
+            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+          },
+          "css": [
+            {
+              "k": "width",
+              "v": "32px"
+            },
+            {
+              "k": "height",
+              "v": "32px"
+            }
+          ]
+          },
+          {
+          "id": "test",
+          "type": "BPAvatar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-avatar-8",
+          "attrs": {
+            "sizeType": "avatar-small", 
+            "circle": "false",
+            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+          },
+          "css": [
+            {
+              "k": "width",
+              "v": "32px"
+            },
+            {
+              "k": "height",
+              "v": "32px"
+            }
+          ]
+          },
+          {
+          "id": "test",
+          "type": "BPAvatar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-avatar-9",
+          "attrs": {
+            "sizeType": "avatar-medium", 
+            "circle": "false",
+            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+          },
+          "css": [
+            {
+              "k": "width",
+              "v": "32px"
+            },
+            {
+              "k": "height",
+              "v": "32px"
+            }
+          ]
+          },
+          {
+          "id": "test",
+          "type": "BPAvatar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-avatar-10",
+          "attrs": {
+            "sizeType": "avatar-large", 
+            "circle": "false",
+            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+          },
+          "css": [
+            {
+              "k": "width",
+              "v": "32px"
+            },
+            {
+              "k": "height",
+              "v": "32px"
+            }
+          ]
+          },
+          {
+          "id": "test",
+          "type": "BPAvatar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-avatar-11",
+          "attrs": {
+            "sizeType": "avatar-x-large", 
+            "circle": "false",
+            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+          },
+          "css": [
+            {
+              "k": "width",
+              "v": "32px"
+            },
+            {
+              "k": "height",
+              "v": "32px"
+            }
+          ]
+          },
+          {
+          "id": "test",
+          "type": "BPAvatar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-avatar-12",
+          "attrs": {
+            "sizeType": "avatar-xx-large",
+            "circle": "false",
+            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+          },
+          "css": [
+            {
+              "k": "width",
+              "v": "32px"
+            },
+            {
+              "k": "height",
+              "v": "32px"
+            }
+          ]
+        }
+      ]
+    },{
+      "id": "page with menu",
+      "type": "BPMainWindow",
+      "cat": "navigation",
+      "name":"navigation",
+      "path":"navigation",
+      "layout":[
+        {
+          "k":"width",
+          "v":"100%"
+        },{
+          "k":"height",
+          "v":"400px"
+        }
+      ],
+      "css":[],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPTabBar",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-tab-bar",
+          "layout":[],
+          "css":[
+            {
+              "k":"box-sizing",
+              "v":"border-box"
+            },
+            {
+              "k":"display",
+              "v":"flex"
+            },{
+              "k":"flex-direction",
+              "v":"row"
+            },{
+              "k":"width",
+              "v":"100%"
+            },{
+              "k":"height",
+              "v":"26px"
+            },{
+              "k":"border-bottom",
+              "v":"1px solid rgba(9,30,66,0.08)"
+            }
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPTabButton",
+              "cat":"test",
+              "text": "nav button 1",
+              "name":"bp-tab-button",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPTabButton",
+              "cat":"test",
+              "text": "nav button 2",
+              "name":"bp-tab-button",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPTabButton",
+              "cat":"test",
+              "text": "nav button 3",
+              "name":"bp-tab-button",
+              "layout":[],
+              "css":[
+                {
+                  "k": "width",
+                  "v": "auto"
+                },{
+                  "k": "height",
+                  "v": "24px"
+                }
+              ]
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPStackLayout",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-stack-layout",
+          "layout":[],
+          "css":[
+            {
+              "k":"width",
+              "v":"100%"
+            },{
+              "k":"height",
+              "v":"auto"
+            }
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPItem",
+              "cat":"test",
+              "text": "stack layout item 1",
+              "name":"bp-item",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPItem",
+              "cat":"test",
+              "text": "stack layout item 2",
+              "name":"bp-item",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPItem",
+              "cat":"test",
+              "text": "stack layout item 3",
+              "name":"bp-item",
+              "layout":[],
+              "css":[
+                {
+                  "k":"width",
+                  "v":"100%"
+                },{
+                  "k":"height",
+                  "v":"200px"
+                },{
+                  "k":"padding",
+                  "v":0
+                }]
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPTabBar",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-tab-bar",
+          "layout":[],
+          "css":[
+            {
+              "k":"box-sizing",
+              "v":"border-box"
+            },
+            {
+              "k":"display",
+              "v":"flex"
+            },{
+              "k":"flex-direction",
+              "v":"row"
+            },{
+              "k":"width",
+              "v":"100%"
+            },{
+              "k":"height",
+              "v":"26px"
+            },{
+              "k":"border-bottom",
+              "v":"1px solid rgba(9,30,66,0.08)"
+            }
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPTabButton",
+              "cat":"test",
+              "text": "tab item 0",
+              "name":"bp-tab-button",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPTabButton",
+              "cat":"test",
+              "text": "this is tab item 1",
+              "name":"bp-tab-button",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPTabButton",
+              "cat":"test",
+              "text": "item2",
+              "name":"bp-tab-button",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPTabButton",
+              "cat":"test",
+              "text": "last item",
+              "name":"bp-tab-button",
+              "layout":[],
+              "css":[
+                {
+                  "k": "width",
+                  "v": "auto"
+                },{
+                  "k": "height",
+                  "v": "24px"
+                }
+              ]
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPStackLayout",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-stack-layout",
+          "layout":[],
+          "css":[
+            {
+              "k":"width",
+              "v":"100%"
+            },{
+              "k":"height",
+              "v":"auto"
+            }
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPItem",
+              "cat":"test",
+              "text": "stack layout item 0",
+              "name":"bp-item",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPItem",
+              "cat":"test",
+              "text": "stack layout item 1",
+              "name":"bp-item",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPItem",
+              "cat":"test",
+              "text": "stack layout item 2",
+              "name":"bp-item",
+              "layout":[],
+              "css":[]
+            },{
+              "id": "test",
+              "type": "BPItem",
+              "cat":"test",
+              "text": "stack layout item 3",
+              "name":"bp-item",
+              "layout":[],
+              "css":[
+                {
+                  "k":"width",
+                  "v":"100%"
+                },{
+                  "k":"height",
+                  "v":"200px"
+                },{
+                  "k":"padding",
+                  "v":0
+                }]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
