@@ -78,7 +78,7 @@ export abstract class BPWidget extends BPObject {
         return "});" + "\r"
     }
 
-    protected paint(ctx: BPCtx, comp?: BPComp) {
+    protected paint(ctx: BPCtx, comp?: BPComp, isShow?: boolean) {
         phLogger.info("alfred paint test")
     }
 

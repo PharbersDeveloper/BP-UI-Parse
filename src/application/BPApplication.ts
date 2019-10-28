@@ -21,8 +21,8 @@ export default class BPApplication extends BPObject {
 
     public run(args: string[]) {
         // const projectPath = args[1] + "/test/data/buttons" // TODO: 解析工作
-        const projectPath = args[1] + "/test/data/totalComps" // TODO: 解析工作
-        const inputPath = projectPath + "/total.bpml"
+        const projectPath = args[1] + "/test/data/navs" // TODO: 解析工作
+        const inputPath = projectPath + "/nav.bpml"
         const jsonConvert: JsonConvert = new JsonConvert()
         const inputFileData = fs.readFileSync(inputPath, "utf8")
         const appContent = jsonConvert.deserializeObject(JSON.parse(inputFileData), ParseBPML)
@@ -75,12 +75,14 @@ export default class BPApplication extends BPObject {
         comps.forEach((comp) => {
             const singleComp = new BPComp()
             const icp = new BPThemeProperty()
-            comp.css.forEach((c) => icp.resetProperty(c.k, c.v, c.tp, c.pe))
+            const compCss = comp.css || []
+            compCss.forEach((c) => icp.resetProperty(c.k, c.v, c.tp, c.pe))
             singleComp.css = icp.properties
             singleComp.type = comp.type
             singleComp.name = comp.name
-            singleComp.text = comp.text
+            singleComp.text = comp.text || ""
             singleComp.attrs = comp.attrs
+            singleComp.cat = comp.cat || "1"
             singleComp.components = this.deepParseComp(comp.components)
 
             components.push(singleComp)

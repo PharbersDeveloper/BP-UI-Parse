@@ -524,108 +524,84 @@
       "css":[],
       "components": [
         {
-          "id": "test",
-          "type": "BPTabBar",
+          "id":"bp-item",
+          "type": "BPItem",
           "cat": "test",
-          "text": "alfred test",
-          "name":"bp-tab-bar",
+          "text": "test",
+          "name": "bp-item",
           "layout":[],
-          "css":[
-            {
-              "k":"box-sizing",
-              "v":"border-box"
-            },
-            {
-              "k":"display",
-              "v":"flex"
-            },{
-              "k":"flex-direction",
-              "v":"row"
-            },{
-              "k":"width",
-              "v":"100%"
-            },{
-              "k":"height",
-              "v":"26px"
-            },{
-              "k":"border-bottom",
-              "v":"1px solid rgba(9,30,66,0.08)"
-            }
-          ],
+          "css":[],
           "components": [
             {
               "id": "test",
-              "type": "BPTabButton",
-              "cat":"test",
-              "text": "nav button 1",
-              "name":"bp-tab-button",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPTabButton",
-              "cat":"test",
-              "text": "nav button 2",
-              "name":"bp-tab-button",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPTabButton",
-              "cat":"test",
-              "text": "nav button 3",
-              "name":"bp-tab-button",
+              "type": "BPTabBar",
+              "cat": "test",
+              "text": "alfred test",
+              "name":"bp-tab-bar",
               "layout":[],
               "css":[
                 {
-                  "k": "width",
-                  "v": "auto"
+                  "k":"box-sizing",
+                  "v":"border-box"
+                },
+                {
+                  "k":"display",
+                  "v":"flex"
                 },{
-                  "k": "height",
-                  "v": "24px"
+                  "k":"flex-direction",
+                  "v":"row"
+                },{
+                  "k":"width",
+                  "v":"100%"
+                },{
+                  "k":"height",
+                  "v":"26px"
+                },{
+                  "k":"border-bottom",
+                  "v":"1px solid rgba(9,30,66,0.08)"
+                }
+              ],
+              "components": [
+                {
+                  "id": "test",
+                  "type": "BPTabButton",
+                  "cat":"test",
+                  "text": "nav button 1",
+                  "name":"bp-tab-button",
+                  "layout":[],
+                  "css":[]
+                },{
+                  "id": "test",
+                  "type": "BPTabButton",
+                  "cat":"test",
+                  "text": "nav button 2",
+                  "name":"bp-tab-button",
+                  "layout":[],
+                  "css":[]
+                },{
+                  "id": "test",
+                  "type": "BPTabButton",
+                  "cat":"test",
+                  "text": "nav button 3",
+                  "name":"bp-tab-button",
+                  "layout":[],
+                  "css":[
+                    {
+                      "k": "width",
+                      "v": "auto"
+                    },{
+                      "k": "height",
+                      "v": "24px"
+                    }
+                  ]
                 }
               ]
-            }
-          ]
-        },{
-          "id": "test",
-          "type": "BPStackLayout",
-          "cat": "test",
-          "text": "alfred test",
-          "name":"bp-stack-layout",
-          "layout":[],
-          "css":[
-            {
-              "k":"width",
-              "v":"100%"
-            },{
-              "k":"height",
-              "v":"auto"
-            }
-          ],
-          "components": [
-            {
-              "id": "test",
-              "type": "BPItem",
-              "cat":"test",
-              "text": "stack layout item 1",
-              "name":"bp-item",
-              "layout":[],
-              "css":[]
             },{
               "id": "test",
-              "type": "BPItem",
-              "cat":"test",
-              "text": "stack layout item 2",
-              "name":"bp-item",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPItem",
-              "cat":"test",
-              "text": "stack layout item 3",
-              "name":"bp-item",
+              "type": "BPStackLayout",
+              "cat": "test",
+              "text": "alfred test",
+              "name":"bp-stack-layout",
               "layout":[],
               "css":[
                 {
@@ -633,144 +609,46 @@
                   "v":"100%"
                 },{
                   "k":"height",
-                  "v":"200px"
-                },{
-                  "k":"padding",
-                  "v":0
-                }]
-            }
-          ]
-        },{
-          "id": "test",
-          "type": "BPTabBar",
-          "cat": "test",
-          "text": "alfred test",
-          "name":"bp-tab-bar",
-          "layout":[],
-          "css":[
-            {
-              "k":"box-sizing",
-              "v":"border-box"
-            },
-            {
-              "k":"display",
-              "v":"flex"
-            },{
-              "k":"flex-direction",
-              "v":"row"
-            },{
-              "k":"width",
-              "v":"100%"
-            },{
-              "k":"height",
-              "v":"26px"
-            },{
-              "k":"border-bottom",
-              "v":"1px solid rgba(9,30,66,0.08)"
-            }
-          ],
-          "components": [
-            {
-              "id": "test",
-              "type": "BPTabButton",
-              "cat":"test",
-              "text": "tab item 0",
-              "name":"bp-tab-button",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPTabButton",
-              "cat":"test",
-              "text": "this is tab item 1",
-              "name":"bp-tab-button",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPTabButton",
-              "cat":"test",
-              "text": "item2",
-              "name":"bp-tab-button",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPTabButton",
-              "cat":"test",
-              "text": "last item",
-              "name":"bp-tab-button",
-              "layout":[],
-              "css":[
+                  "v":"auto"
+                }
+              ],
+              "components": [
                 {
-                  "k": "width",
-                  "v": "auto"
+                  "id": "test",
+                  "type": "BPItem",
+                  "cat":"test",
+                  "text": "stack layout item 1",
+                  "name":"bp-item",
+                  "layout":[],
+                  "css":[]
                 },{
-                  "k": "height",
-                  "v": "24px"
+                  "id": "test",
+                  "type": "BPItem",
+                  "cat":"test",
+                  "text": "stack layout item 2",
+                  "name":"bp-item",
+                  "layout":[],
+                  "css":[]
+                },{
+                  "id": "test",
+                  "type": "BPItem",
+                  "cat":"test",
+                  "text": "stack layout item 3",
+                  "name":"bp-item",
+                  "layout":[],
+                  "css":[
+                    {
+                      "k":"width",
+                      "v":"100%"
+                    },{
+                      "k":"height",
+                      "v":"200px"
+                    },{
+                      "k":"padding",
+                      "v":0
+                    }]
                 }
               ]
-            }
-          ]
-        },{
-          "id": "test",
-          "type": "BPStackLayout",
-          "cat": "test",
-          "text": "alfred test",
-          "name":"bp-stack-layout",
-          "layout":[],
-          "css":[
-            {
-              "k":"width",
-              "v":"100%"
-            },{
-              "k":"height",
-              "v":"auto"
-            }
-          ],
-          "components": [
-            {
-              "id": "test",
-              "type": "BPItem",
-              "cat":"test",
-              "text": "stack layout item 0",
-              "name":"bp-item",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPItem",
-              "cat":"test",
-              "text": "stack layout item 1",
-              "name":"bp-item",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPItem",
-              "cat":"test",
-              "text": "stack layout item 2",
-              "name":"bp-item",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPItem",
-              "cat":"test",
-              "text": "stack layout item 3",
-              "name":"bp-item",
-              "layout":[],
-              "css":[
-                {
-                  "k":"width",
-                  "v":"100%"
-                },{
-                  "k":"height",
-                  "v":"200px"
-                },{
-                  "k":"padding",
-                  "v":0
-                }]
             }
           ]
         }

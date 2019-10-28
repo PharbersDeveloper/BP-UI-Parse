@@ -8,16 +8,20 @@ import { BashExec } from "./bashexec"
 export class CompExec extends BashExec {
     protected cmd = "ember"
     private options: IOptions = null
+    private isShow: boolean = false
 
-    constructor(options: IOptions) {
+    constructor(options: IOptions, isShow: boolean) {
         super()
         this.options = options
+        this.isShow = isShow
     }
     public async exec(callback: (code: number) => void) {
         this.changeCompProperties(this.options)
         this.addCompStyles(this.options)
         this.changeHBSFile(this.options)
-        this.showComponents(this.options)
+        if (this.isShow) {
+            this.showComponents(this.options)
+        }
         if (callback) {
             callback(0)
         }
