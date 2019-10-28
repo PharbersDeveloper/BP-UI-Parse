@@ -24,8 +24,8 @@ export class StatusExec extends BashExec {
     // 根据 bppushbutton 之类的类，修改 components 的属性
     private async changeCompProperties(output: string, name: string) {
 
-        const infoType = this.component.attrs.infoType
-        const infoClass = this.component.attrs.bold === "fasle" ? infoType + "-subtle" : infoType + "-bold"
+        // const infoType = this.component.attrs.infoType
+        // const infoClass = this.component.attrs.bold === "fasle" ? infoType + "-subtle" : infoType + "-bold"
         const outputPath = output + "/" + name + "/addon/components/" + this.component.name + ".js"
         const fileData = "import Component from '@ember/component';" + "\r" +
         "import layout from '../templates/components/" + this.component.name + "';" + "\r" +
@@ -33,7 +33,7 @@ export class StatusExec extends BashExec {
         "export default Component.extend({" + "\r" +
           "   layout," + "\r" +
           "   tagName:'span'," + "\r" +
-          "   classNames:['" + this.component.name + " " + infoType + " " + infoClass + "']," + "\r" +
+          "   classNames:['" + this.component.name + "']," + "\r" +
           "   content: 'default'," + "\r" +
           "classNameBindings: ['type', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
           "attributeBindings: ['disabled']," + "\r" +

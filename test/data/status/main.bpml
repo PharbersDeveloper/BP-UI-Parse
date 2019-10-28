@@ -37,12 +37,10 @@
           "type": "BPStatus",
           "cat": "test",
           "text": "simon test",
-          "name":"bp-status-1",
-					"attrs": {
-						"value": "DEFAULT",
-						"infoType": "status-default", 
-						"bold": "fasle"
-					},
+          "name":"bp-status-default-subtle",
+          "attrs": {
+            "value": "DEFAULT"
+          },
           "css": [
             {
               "k": "width",
@@ -52,23 +50,45 @@
               "k": "height",
               "v": "16px"
             },
-						{
-							"k": "padding",
-							"v": "0 4px"
-						}
+            {
+              "k": "padding",
+              "v": "0 4px"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "background",
+              "v": "#DFE1E6"
+            },
+            {
+              "k": "color",
+              "v": "#42526E"
+            }
           ]
-					},
-					{
+          },
+          {
           "id": "test",
           "type": "BPStatus",
           "cat": "test",
           "text": "simon test",
-          "name":"bp-status-2",
-					"attrs": {
-						"value": "SUCCESS",
-						"infoType": "status-success", 
-						"bold": "fasle"
-					},
+          "name":"bp-status-success-subtle",
+          "attrs": {
+            "value": "SUCCESS"
+          },
           "css": [
             {
               "k": "width",
@@ -78,23 +98,45 @@
               "k": "height",
               "v": "16px"
             },
-						{
-							"k": "padding",
-							"v": "0 4px"
-						}
+            {
+              "k": "padding",
+              "v": "0 4px"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "background",
+              "v": "#E2FFEE"
+            },
+            {
+              "k": "color",
+              "v": "#006644"
+            }
           ]
-					},
-					{
+          },
+          {
           "id": "test",
           "type": "BPStatus",
           "cat": "test",
           "text": "simon test",
-          "name":"bp-status-3",
-					"attrs": {
-						"value": "REMOVED",
-						"infoType": "status-removed", 
-						"bold": "fasle"
-					},
+          "name":"bp-status-removed-subtle",
+          "attrs": {
+            "value": "REMOVED"
+          },
           "css": [
             {
               "k": "width",
@@ -104,23 +146,45 @@
               "k": "height",
               "v": "16px"
             },
-						{
-							"k": "padding",
-							"v": "0 4px"
-						}
+            {
+              "k": "padding",
+              "v": "0 4px"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "background",
+              "v": "#FFEBE6"
+            },
+            {
+              "k": "color",
+              "v": "#BF2600"
+            }
           ]
-					},
-					{
+          },
+          {
           "id": "test",
           "type": "BPStatus",
           "cat": "test",
           "text": "simon test",
-          "name":"bp-status-4",
-					"attrs": {
-						"value": "IN PROGRESS",
-						"infoType": "status-in-progress", 
-						"bold": "fasle"
-					},
+          "name":"bp-status-progress-subtle",
+          "attrs": {
+            "value": "IN PROGRESS"
+          },
           "css": [
             {
               "k": "width",
@@ -130,23 +194,45 @@
               "k": "height",
               "v": "16px"
             },
-						{
-							"k": "padding",
-							"v": "0 4px"
-						}
+            {
+              "k": "padding",
+              "v": "0 4px"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "background",
+              "v": "#E1ECFF"
+            },
+            {
+              "k": "color",
+              "v": "#2355A9"
+            }
           ]
-					},
-					{
+          },
+          {
           "id": "test",
           "type": "BPStatus",
           "cat": "test",
           "text": "simon test",
-          "name":"bp-status-5",
-					"attrs": {
-						"value": "NEW",
-						"infoType": "status-new", 
-						"bold": "fasle"
-					},
+          "name":"bp-status-new-subtle",
+          "attrs": {
+            "value": "NEW"
+          },
           "css": [
             {
               "k": "width",
@@ -156,23 +242,45 @@
               "k": "height",
               "v": "16px"
             },
-						{
-							"k": "padding",
-							"v": "0 4px"
-						}
+            {
+              "k": "padding",
+              "v": "0 4px"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "background",
+              "v": "#EAE6FF"
+            },
+            {
+              "k": "color",
+              "v": "#403294"
+            }
           ]
-					},
-					{
+          },
+          {
           "id": "test",
           "type": "BPStatus",
           "cat": "test",
           "text": "simon test",
-          "name":"bp-status-6",
-					"attrs": {
-						"value": "MOVED",
-						"infoType": "status-moved", 
-						"bold": "fasle"
-					},
+          "name":"bp-status-moved-subtle",
+          "attrs": {
+            "value": "MOVED"
+          },
           "css": [
             {
               "k": "width",
@@ -182,23 +290,45 @@
               "k": "height",
               "v": "16px"
             },
-						{
-							"k": "padding",
-							"v": "0 4px"
-						}
+            {
+              "k": "padding",
+              "v": "0 4px"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "background",
+              "v": "#FFF0B3"
+            },
+            {
+              "k": "color",
+              "v": "#172B4D"
+            }
           ]
-					},
-					{
+          },
+          {
           "id": "test",
           "type": "BPStatus",
           "cat": "test",
           "text": "simon test",
-          "name":"bp-status-7",
-					"attrs": {
-						"value": "DEFAULT",
-						"infoType": "status-default", 
-						"bold": "true"
-					},
+          "name":"bp-status-default-bold",
+          "attrs": {
+            "value": "DEFAULT"
+          },
           "css": [
             {
               "k": "width",
@@ -208,23 +338,45 @@
               "k": "height",
               "v": "16px"
             },
-						{
-							"k": "padding",
-							"v": "0 4px"
-						}
+            {
+              "k": "padding",
+              "v": "0 4px"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "background",
+              "v": "#42526E"
+            },
+            {
+              "k": "color",
+              "v": "#FFFFFF"
+            }
           ]
-					},
-					{
+          },
+          {
           "id": "test",
           "type": "BPStatus",
           "cat": "test",
           "text": "simon test",
-          "name":"bp-status-8",
-					"attrs": {
-						"value": "SUCCESS",
-						"infoType": "status-success", 
-						"bold": "true"
-					},
+          "name":"bp-status-success-bold",
+          "attrs": {
+            "value": "SUCCESS"
+          },
           "css": [
             {
               "k": "width",
@@ -234,23 +386,45 @@
               "k": "height",
               "v": "16px"
             },
-						{
-							"k": "padding",
-							"v": "0 4px"
-						}
+            {
+              "k": "padding",
+              "v": "0 4px"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "background",
+              "v": "#00875A"
+            },
+            {
+              "k": "color",
+              "v": "#FFFFFF"
+            }
           ]
-					},
-					{
+          },
+          {
           "id": "test",
           "type": "BPStatus",
           "cat": "test",
           "text": "simon test",
-          "name":"bp-status-9",
-					"attrs": {
-						"value": "REMOVED",
-						"infoType": "status-removed", 
-						"bold": "true"
-					},
+          "name":"bp-status-removed-bold",
+          "attrs": {
+            "value": "REMOVED"
+          },
           "css": [
             {
               "k": "width",
@@ -260,23 +434,45 @@
               "k": "height",
               "v": "16px"
             },
-						{
-							"k": "padding",
-							"v": "0 4px"
-						}
+            {
+              "k": "padding",
+              "v": "0 4px"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "background",
+              "v": "#DE350B"
+            },
+            {
+              "k": "color",
+              "v": "#FFFFFF"
+            }
           ]
-					},
-					{
+          },
+          {
           "id": "test",
           "type": "BPStatus",
           "cat": "test",
           "text": "simon test",
-          "name":"bp-status-10",
-					"attrs": {
-						"value": "IN PROGRESS",
-						"infoType": "status-in-progress", 
-						"bold": "true"
-					},
+          "name":"bp-status-progress-bold",
+          "attrs": {
+            "value": "IN PROGRESS"
+          },
           "css": [
             {
               "k": "width",
@@ -286,23 +482,45 @@
               "k": "height",
               "v": "16px"
             },
-						{
-							"k": "padding",
-							"v": "0 4px"
-						}
+            {
+              "k": "padding",
+              "v": "0 4px"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "background",
+              "v": "#3172E0"
+            },
+            {
+              "k": "color",
+              "v": "#FFFFFF"
+            }
           ]
-					},
-					{
+          },
+          {
           "id": "test",
           "type": "BPStatus",
           "cat": "test",
           "text": "simon test",
-          "name":"bp-status-11",
-					"attrs": {
-						"value": "NEW",
-						"infoType": "status-new", 
-						"bold": "true"
-					},
+          "name":"bp-status-new-bold",
+          "attrs": {
+            "value": "NEW"
+          },
           "css": [
             {
               "k": "width",
@@ -312,23 +530,47 @@
               "k": "height",
               "v": "16px"
             },
-						{
-							"k": "padding",
-							"v": "0 4px"
-						}
+            {
+              "k": "padding",
+              "v": "0 4px"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "background",
+              "v": "#5243AA"
+            },
+            {
+              "k": "color",
+              "v": "#FFFFFF"
+            }
           ]
-					},
-					{
+          },
+          {
           "id": "test",
           "type": "BPStatus",
           "cat": "test",
           "text": "simon test",
-          "name":"bp-status-12",
-					"attrs": {
-						"value": "MOVED",
-						"infoType": "status-moved", 
-						"bold": "true"
-					},
+          "name":"bp-status-moved-bold",
+          "attrs": {
+            "value": "MOVED",
+            "infoType": "status-moved", 
+            "bold": "true"
+          },
           "css": [
             {
               "k": "width",
@@ -338,12 +580,36 @@
               "k": "height",
               "v": "16px"
             },
-						{
-							"k": "padding",
-							"v": "0 4px"
-						}
+            {
+              "k": "padding",
+              "v": "0 4px"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "background",
+              "v": "#FF8B00"
+            },
+            {
+              "k": "color",
+              "v": "#172B4D"
+            }
           ]
-					}
+          }
       ]
     },
     {
@@ -361,7 +627,7 @@
           "cat": "test",
           "text": "alfred test",
           "name":"bp-nav-menu",
-					"attrs": {},
+          "attrs": {},
           "css":[
             {
               "k":"color",
