@@ -12,7 +12,7 @@ export default class BPStackLayout extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
         super(output, name, routeName)
     }
-    public paint(ctx: BPCtx, comp: BPComp) {
+    public paint(ctx: BPCtx, comp: BPComp, isShow: boolean = false) {
         const execList: any[] = []
 
         const options: IOptions = {
@@ -25,7 +25,7 @@ export default class BPStackLayout extends BPWidget {
             showData: this.paintShow(comp),
             styleData: this.paintStyle(comp),
         }
-        execList.push(new CompExec(options))
+        execList.push(new CompExec(options, isShow))
 
         return execList
     }

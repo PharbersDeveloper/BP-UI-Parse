@@ -31,7 +31,7 @@ export abstract class BPWidget extends BPObject {
     public paintStyle(comp: BPComp, prefix?: string) {
 
         // 该组件的 css 样式
-        const className = "." + comp.name + "{" + "\r" + "\n"
+        const className = "." + comp.name + " {" + "\r" + "\n"
         let fileData = prefix ? "." + prefix + " " + className : className
         let styles: string = ""
 
@@ -39,7 +39,7 @@ export abstract class BPWidget extends BPObject {
             const style = item.key + ": " + item.value + ";" + "\r"
             styles = styles + style
         })
-        fileData = fileData + styles + "\r" + "}" + "\r"
+        fileData = comp.css.length > 0 ? fileData + styles + "\r" + "}" + "\r" : ""
 
         // 伪类
         comp.css.filter((item) => item.tp !== "css").forEach((item) => {
@@ -51,7 +51,7 @@ export abstract class BPWidget extends BPObject {
         })
         let insideCompsStyle = ""
         if (Array.isArray(comp.components) && comp.components.length > 0) {
-            comp.components.forEach((icomp) => {
+            comp.components.filter((item) => item.css.length > 0).forEach((icomp) => {
                 insideCompsStyle += this.paintStyle(icomp, comp.name)
             })
         }
@@ -78,7 +78,7 @@ export abstract class BPWidget extends BPObject {
         return "});" + "\r"
     }
 
-    protected paint(ctx: BPCtx, comp?: BPComp) {
+    protected paint(ctx: BPCtx, comp?: BPComp, isShow?: boolean) {
         phLogger.info("alfred paint test")
     }
 

@@ -4,11 +4,13 @@ import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
 import { IOptions } from "../../properties/Options"
+import BPItem from "../basic/BPItem"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
-import BPTabButton from "./BPTabButton"
+import BPStackLayout from "./BPStackLayout"
+import BPTabBar from "./BPTabBar"
 
-export default class BPTabBar extends BPWidget {
+export default class BPTab extends BPItem {
     public currentIndex: number = 0
 
     constructor(output: string, name: string, routeName: string) {
@@ -24,7 +26,6 @@ export default class BPTabBar extends BPWidget {
 
         const options: IOptions = {
             comp,
-            hbsData: this.paintHBS(),
             logicData: this.paintLogic(comp),
             output: this.output,
             pName: this.projectName,
@@ -40,11 +41,15 @@ export default class BPTabBar extends BPWidget {
         const insideComps = comp.components
 
         let showBody = ""
-        insideComps.forEach((icomp, i) => {
-            const navItem = new BPTabButton(this.output, this.projectName, this.routeName)
-            showBody += navItem.paintShow(icomp, i, "tab.currentIndex")
-        })
-        return "{{#" + comp.name + " as |tab|}}" + showBody + "{{/" + comp.name + "}}"
+        // insideComps.forEach((icomp, i) => {
+        const tabBar = new BPTabBar(this.output, this.projectName, this.routeName)
+        const stackLayout = new BPStackLayout(this.output, this.projectName, this.routeName)
+
+        showBody += tabBar.paintShow(insideComps[0])
+        showBody += stackLayout.paintShow(insideComps[1])
+
+        // })
+        return "{{#" + comp.name + "}}" + showBody + "{{/" + comp.name + "}}"
     }
     public paintLogic(comp: BPComp) {
         const fileDataStart = this.paintLoginStart(comp)
@@ -54,8 +59,6 @@ export default class BPTabBar extends BPWidget {
             "    layout," + "\r" +
             "    tagName:'div'," + "\r" +
             "    classNames:['" + comp.name + "']," + "\r" +
-            "    classNameBindings:['isColumn:flex-column']," + "\r" +
-            "    isColumn: false," + "\r" +
             "    currentIndex: 0" + "\r"
 
         return fileDataStart + fileData + fileDataEnd

@@ -11,10 +11,14 @@ export class ParseCompConf {
     @JsonProperty("id", String)
     public id: string = ""
 
+    @JsonProperty("cat", String, true)
+    public cat: string = "1"
+    // 默认为“1” 代表已经存在的组件
+
     @JsonProperty("type", String)
     public type: string = ""
 
-    @JsonProperty("text", String)
+    @JsonProperty("text", String, true)
     public text: string = ""
 
     @JsonProperty("name", String)

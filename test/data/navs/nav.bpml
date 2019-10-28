@@ -49,246 +49,151 @@
       "css":[],
       "components": [
         {
-          "id": "test",
-          "type": "BPNavMenu",
-          "cat": "test",
-          "text": "alfred test",
-          "name":"bp-nav-menu",
-          "layout":[],
+          "id": "tab",
+          "type": "BPTab",
+          "name": "bp-tab",
+          "cat": "0",
           "css":[
             {
-              "k":"display",
-              "v":"flex"
-            },{
-              "k":"flex-direction",
-              "v":"row"
-            },{
-              "k":"justify-content",
-              "v":"space-around"
-            },{
-              "k":"width",
+              "k": "width",
               "v":"100%"
             },{
-              "k":"height",
-              "v":"100%"
+              "k": "height",
+              "v": "200px"
             }
           ],
           "components": [
             {
               "id": "test",
-              "type": "BPPushButton",
-              "cat":"test",
-              "text": "nav button 1",
-              "name":"bp-push-button",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPPushButton",
-              "cat":"test",
-              "text": "nav button 2",
-              "name":"bp-push-button",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPPushButton",
-              "cat":"test",
-              "text": "nav button 3",
-              "name":"bp-push-button",
+              "type": "BPTabBar",
+              "cat": "0",
+              "text": "alfred test",
+              "name":"bp-tab-bar",
               "layout":[],
               "css":[
                 {
-                  "k": "width",
-                  "v": "auto"
-                },
-                {
-                  "k": "min-width",
-                  "v": "80px"
-                },
-                {
-                  "k": "background",
-                  "v": "rgba(9,30,66,0.04)"
-                },
-                {
-                  "k": "font-size",
-                  "v": "14px"
-                },
-                {
-                  "k": "color",
-                  "v": "#505F79"
-                },
-                {
-                  "k": "text-align",
-                  "v": "center"
-                },
-                {
-                  "k": "line-height",
-                  "v": "32px"
-                }, {
-                  "k": "height",
-                  "v": "32px"
-                }, {
-                  "k": "padding",
-                  "v": "0 12px"
-                }, {
-                  "k": "border",
-                  "v": "0"
-                }, {
-                  "k": "border-radius",
-                  "v": "4px"
-                }, {
-                  "k": "cursor",
-                  "v": "pointer"
-                }, {
-                  "k": "background",
-                  "v": "rgba(9,30,66,0.08)",
-                  "tp": "hover"
-                }, {
-                  "k": "background",
-                  "v": "#E1ECFF",
-                  "tp": "active"
-                }, {
-                  "k": "color",
-                  "v": "#3172E0",
-                  "tp": "active"
-                }
-              ]
-            }
-          ]
-        },{
-          "id": "test",
-          "type": "BPTabBar",
-          "cat": "test",
-          "text": "alfred test",
-          "name":"bp-tab-bar",
-          "layout":[],
-          "css":[
-            {
-              "k":"display",
-              "v":"flex"
-            },{
-              "k":"flex-direction",
-              "v":"row"
-            },{
-              "k":"width",
-              "v":"100%"
-            },{
-              "k":"height",
-              "v":"32px"
-            },{
-              "k":"border-bottom",
-              "v":"1px solid rgba(9,30,66,0.08)"
-            }
-          ],
-          "components": [
-            {
-              "id": "test",
-              "type": "BPTabButton",
-              "cat":"test",
-              "text": "nav button 1",
-              "name":"bp-tab-button",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPTabButton",
-              "cat":"test",
-              "text": "nav button 2",
-              "name":"bp-tab-button",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPTabButton",
-              "cat":"test",
-              "text": "nav button 3",
-              "name":"bp-tab-button",
-              "layout":[],
-              "css":[
-                {
-                  "k": "width",
-                  "v": "auto"
-                },{
-                  "k": "height",
-                  "v": "24px"
-                }, {
-                  "k": "background",
-                  "v": "transparent"
-                }, {
-                  "k":"color",
-                  "v":"#505F79"
-                }, {
-                  "k":"padding",
-                  "v":0
-                },{
                   "k":"display",
                   "v":"flex"
                 },{
-                  "k":"aligh-items",
-                  "v":"center"
+                  "k":"flex-direction",
+                  "v":"row"
                 },{
-                  "k":"margin-right",
-                  "v":"16px"
+                  "k":"width",
+                  "v":"100%"
                 },{
-                  "k": "color",
-                  "v": "#3172E0",
-                  "tp": "hover"
+                  "k":"height",
+                  "v":"24px"
+                },{
+                  "k":"border-bottom",
+                  "v":"1px solid rgba(9,30,66,0.08)"
+                }
+              ],
+              "components": [
+                {
+                  "id": "test",
+                  "type": "BPTabButton",
+                  "cat":"1",
+                  "text": "nav button 1",
+                  "name":"bp-tab-button",
+                  "layout":[],
+                  "css":[]
+                },{
+                  "id": "test",
+                  "type": "BPTabButton",
+                  "cat":"1",
+                  "text": "nav button 2",
+                  "name":"bp-tab-button",
+                  "layout":[],
+                  "css":[]
+                },{
+                  "id": "test",
+                  "type": "BPTabButton",
+                  "cat":"0",
+                  "text": "nav button 3",
+                  "name":"bp-tab-button",
+                  "layout":[],
+                  "css":[
+                    {
+                      "k": "position",
+                      "v": "relative"
+                    },{
+                      "k": "width",
+                      "v": "auto"
+                    },{
+                      "k": "height",
+                      "v": "24px"
+                    }, {
+                      "k": "background",
+                      "v": "transparent"
+                    }, {
+                      "k":"color",
+                      "v":"#505F79"
+                    }, {
+                      "k":"padding",
+                      "v":0
+                    },{
+                      "k":"display",
+                      "v":"flex"
+                    },{
+                      "k":"align-items",
+                      "v":"center"
+                    },{
+                      "k":"margin-right",
+                      "v":"16px"
+                    },{
+                      "k": "color",
+                      "v": "#3172E0",
+                      "tp": "hover"
+                    }
+                  ]
                 }
               ]
-            }
-          ]
-        },{
-          "id": "test",
-          "type": "BPStackLayout",
-          "cat": "test",
-          "text": "alfred test",
-          "name":"bp-stack-layout",
-          "layout":[],
-          "css":[
-            {
-              "k":"width",
-              "v":"100%"
-            },{
-              "k":"height",
-              "v":"auto"
-            }
-          ],
-          "components": [
-            {
-              "id": "test",
-              "type": "BPItem",
-              "cat":"test",
-              "text": "stack layout item 1",
-              "name":"bp-item",
-              "layout":[],
-              "css":[]
             },{
               "id": "test",
-              "type": "BPItem",
-              "cat":"test",
-              "text": "stack layout item 2",
-              "name":"bp-item",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPItem",
-              "cat":"test",
-              "text": "stack layout item 3",
-              "name":"bp-item",
-              "layout":[],
+              "type": "BPStackLayout",
+              "cat": "0",
+              "name":"bp-stack-layout",
               "css":[
                 {
                   "k":"width",
                   "v":"100%"
                 },{
                   "k":"height",
-                  "v":"200px"
+                  "v":"auto"
+                }
+              ],
+              "components": [
+                {
+                  "id": "test",
+                  "type": "BPItem",
+                  "cat":"1",
+                  "text": "stack layout item 1",
+                  "name":"bp-item"
                 },{
-                  "k":"padding",
-                  "v":0
-                }]
+                  "id": "test",
+                  "type": "BPItem",
+                  "cat":"1",
+                  "text": "stack layout item 2",
+                  "name":"bp-item"
+                },{
+                  "id": "test",
+                  "type": "BPItem",
+                  "cat":"0",
+                  "text": "stack layout item 3",
+                  "name":"bp-item",
+                  "css":[
+                    {
+                      "k":"width",
+                      "v":"100%"
+                    },{
+                      "k":"height",
+                      "v":"200px"
+                    },{
+                      "k":"padding",
+                      "v":0
+                    }]
+                }
+              ]
             }
           ]
         }

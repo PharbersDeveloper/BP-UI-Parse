@@ -24,6 +24,7 @@ import BPInput from "../widgets/inputs/BPInput"
 import BPNavMenu from "../widgets/navs/BPNavMenu"
 import BPNavMenuItem from "../widgets/navs/BPNavMenuItem"
 import BPStackLayout from "../widgets/navs/BPStackLayout"
+import BPTab from "../widgets/navs/BPTab"
 import BPTabBar from "../widgets/navs/BPTabBar"
 import BPTabButton from "../widgets/navs/BPTabButton"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
@@ -31,7 +32,6 @@ import BPStatus from "../widgets/status/BPStatus"
 import BPTag from "../widgets/tags/BPTag"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import BPCtx from "./BPCtx"
-
 export default class BPEmberCtx extends BPCtx {
     public type: string = "ember"
     private cmds: any[] = []
@@ -68,7 +68,7 @@ export default class BPEmberCtx extends BPCtx {
         // 3. 重写文件，将上面的组件进行展示
         this.showComp(components)
         // 生成公有样式 scss 变量，为以后的插件使用 scss 作准备。
-        this.generaSassyStyles()
+        // this.generaSassyStyles()
         this.mwStyles(route)
         this.moveBaseClass()
         // 4. 将执行命令抛出
@@ -78,26 +78,28 @@ export default class BPEmberCtx extends BPCtx {
     /**
      * getAllComponents
      */
-    // public getAllComponents(components: BPComp[]) {
-    //     let comps: BPComp[] = []
+    public getAllComponents(components: BPComp[]) {
+        let comps: BPComp[] = []
 
-    //     for (const element of components) {
-    //         comps.push(element)
+        for (const element of components) {
+            if (element.cat === "0") {
+                comps.push(element)
+            }
 
-    //         const inner = this.getAllComponents(element.components)
-    //         comps = comps.concat(inner)
+            const inner = this.getAllComponents(element.components)
+            comps = comps.concat(inner)
 
-    //     }
-    //     return comps
-    // }
+        }
+        return comps
+    }
 
     public paintComps(components: BPComp[]) {
-        // const curComps = this.getAllComponents(components)
+        const curComps = this.getAllComponents(components)
 
         const compTypeList = this.compTypeList
         this.currentCompTypeList = []
-        for (let i = 0, len = components.length; i < len; i++) {
-            const component = components[i]
+        for (let i = 0, len = curComps.length; i < len; i++) {
+            const component = curComps[i]
 
             this.cmds.push(new EmberGenExec("component", component.name))
 
@@ -121,20 +123,29 @@ export default class BPEmberCtx extends BPCtx {
             new BPTabBar(this.output, this.projectName, routeName),
             new BPItem(this.output, this.projectName, routeName),
             new BPStackLayout(this.output, this.projectName, routeName),
-            new BPTabButton(this.output, this.projectName, routeName)
+            new BPTabButton(this.output, this.projectName, routeName),
+            new BPTab(this.output, this.projectName, routeName)
+
         ]
 
         return this.compTypeList
     }
 
     private showComp(components: BPComp[]) {
-        // const curComps = this.getAllComponents(components)
-
+        const curComps = this.getAllComponents(components).filter((comp) => comp.css.length > 0)
+        const showComps: string[] = components.map((comp) => comp.type)
         const currentCompTypeList = this.currentCompTypeList
         const that = this
 
+        curComps.forEach((cp) => {
+            phLogger.info("=========----------")
+            phLogger.info(cp.type)
+            phLogger.info(cp.css)
+        })
         currentCompTypeList.forEach((item, index) => {
-            that.cmds.push(...item.paint(that, components[index]))
+            const curComp = curComps[index]
+            const isShowComp: boolean = showComps.includes(curComp.type)
+            that.cmds.push(...item.paint(that, curComps[index], isShowComp))
         })
     }
     private mwStyles(route: BPMainWindow) {
