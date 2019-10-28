@@ -132,11 +132,16 @@ export default class BPEmberCtx extends BPCtx {
     }
 
     private showComp(components: BPComp[]) {
-        const curComps = this.getAllComponents(components)
+        const curComps = this.getAllComponents(components).filter((comp) => comp.css.length > 0)
         const showComps: string[] = components.map((comp) => comp.type)
         const currentCompTypeList = this.currentCompTypeList
         const that = this
 
+        curComps.forEach((cp) => {
+            phLogger.info("=========----------")
+            phLogger.info(cp.type)
+            phLogger.info(cp.css)
+        })
         currentCompTypeList.forEach((item, index) => {
             const curComp = curComps[index]
             const isShowComp: boolean = showComps.includes(curComp.type)

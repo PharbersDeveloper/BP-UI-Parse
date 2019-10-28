@@ -4,12 +4,13 @@ import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
 import { IOptions } from "../../properties/Options"
+import BPItem from "../basic/BPItem"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 import BPStackLayout from "./BPStackLayout"
 import BPTabBar from "./BPTabBar"
 
-export default class BPTab extends BPWidget {
+export default class BPTab extends BPItem {
     public currentIndex: number = 0
 
     constructor(output: string, name: string, routeName: string) {

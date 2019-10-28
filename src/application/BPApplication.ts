@@ -77,7 +77,7 @@ export default class BPApplication extends BPObject {
             const icp = new BPThemeProperty()
             const compCss = comp.css || []
             compCss.forEach((c) => icp.resetProperty(c.k, c.v, c.tp, c.pe))
-            singleComp.css = icp.properties
+            singleComp.css = compCss.length > 0 ? icp.properties : []
             singleComp.type = comp.type
             singleComp.name = comp.name
             singleComp.text = comp.text || ""

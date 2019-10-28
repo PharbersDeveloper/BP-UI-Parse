@@ -2,12 +2,11 @@
     display: none;
 }
 .tab-active {
-    color: #3172E0;
+    color: #3172E0 !important;
 }
 .tab-active::after {
     position: absolute;
-    position: absolute;
-    bottom: -2px;
+    bottom: -1px;
     left: 0;
     content: "";
     width: 100%;

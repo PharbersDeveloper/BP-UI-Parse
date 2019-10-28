@@ -49,114 +49,6 @@
       "css":[],
       "components": [
         {
-          "id": "test",
-          "type": "BPNavMenu",
-          "cat": "0",
-          "text": "alfred test",
-          "name":"bp-nav-menu",
-          "layout":[],
-          "css":[
-            {
-              "k":"display",
-              "v":"flex"
-            },{
-              "k":"flex-direction",
-              "v":"row"
-            },{
-              "k":"justify-content",
-              "v":"space-around"
-            },{
-              "k":"width",
-              "v":"100%"
-            },{
-              "k":"height",
-              "v":"100%"
-            }
-          ],
-          "components": [
-            {
-              "id": "test",
-              "type": "BPPushButton",
-              "cat":"1",
-              "text": "nav button 1",
-              "name":"bp-push-button",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPPushButton",
-              "cat":"1",
-              "text": "nav button 2",
-              "name":"bp-push-button",
-              "layout":[],
-              "css":[]
-            },{
-              "id": "test",
-              "type": "BPPushButton",
-              "cat":"0",
-              "text": "nav button 3",
-              "name":"bp-push-button",
-              "layout":[],
-              "css":[
-                {
-                  "k": "width",
-                  "v": "auto"
-                },
-                {
-                  "k": "min-width",
-                  "v": "80px"
-                },
-                {
-                  "k": "background",
-                  "v": "rgba(9,30,66,0.04)"
-                },
-                {
-                  "k": "font-size",
-                  "v": "14px"
-                },
-                {
-                  "k": "color",
-                  "v": "#505F79"
-                },
-                {
-                  "k": "text-align",
-                  "v": "center"
-                },
-                {
-                  "k": "line-height",
-                  "v": "32px"
-                }, {
-                  "k": "height",
-                  "v": "32px"
-                }, {
-                  "k": "padding",
-                  "v": "0 12px"
-                }, {
-                  "k": "border",
-                  "v": "0"
-                }, {
-                  "k": "border-radius",
-                  "v": "4px"
-                }, {
-                  "k": "cursor",
-                  "v": "pointer"
-                }, {
-                  "k": "background",
-                  "v": "rgba(9,30,66,0.08)",
-                  "tp": "hover"
-                }, {
-                  "k": "background",
-                  "v": "#E1ECFF",
-                  "tp": "active"
-                }, {
-                  "k": "color",
-                  "v": "#3172E0",
-                  "tp": "active"
-                }
-              ]
-            }
-          ]
-        },{
           "id": "tab",
           "type": "BPTab",
           "name": "bp-tab",
@@ -190,7 +82,7 @@
                   "v":"100%"
                 },{
                   "k":"height",
-                  "v":"32px"
+                  "v":"24px"
                 },{
                   "k":"border-bottom",
                   "v":"1px solid rgba(9,30,66,0.08)"
@@ -222,6 +114,9 @@
                   "layout":[],
                   "css":[
                     {
+                      "k": "position",
+                      "v": "relative"
+                    },{
                       "k": "width",
                       "v": "auto"
                     },{
@@ -240,7 +135,7 @@
                       "k":"display",
                       "v":"flex"
                     },{
-                      "k":"aligh-items",
+                      "k":"align-items",
                       "v":"center"
                     },{
                       "k":"margin-right",
