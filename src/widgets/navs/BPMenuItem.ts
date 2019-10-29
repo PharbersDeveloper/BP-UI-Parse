@@ -17,6 +17,7 @@ export default class BPMenuItem extends BPPushButton {
 
         const options: IOptions = {
             comp,
+            hbsData: this.paintHBS(),
             logicData: this.paintLogic(comp),
             output: this.output,
             pName: this.projectName,
@@ -50,7 +51,9 @@ export default class BPMenuItem extends BPPushButton {
     public paintShow(comp: BPComp, i?: number, cI?: string | number) {
         const index = i ? i : 0
         const curIn = cI ? cI : 0
-        return "{{#" + comp.name + "}}{{svg-jar '" + comp.icon + "'  width='24px' height='24px' class='icon'}}<span>"
-        + comp.text + "</span>{{/" + comp.name + "}}"
+        return "{{" + comp.name + " icon='" + comp.icon + "' text='" + comp.text + "'}}"
     }
+    public paintHBS() {
+        return "{{svg-jar icon width='24px' height='24px' class='icon'}}<span>{{text}}</span>"
+     }
 }
