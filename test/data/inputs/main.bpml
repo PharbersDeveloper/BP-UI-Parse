@@ -35,7 +35,7 @@
         {
           "id": "test",
           "type": "BPInput",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-input-default",
           "css": [
@@ -82,7 +82,7 @@
 					},{
           "id": "test",
           "type": "BPInput",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-input-danger",
           "css": [
@@ -124,7 +124,7 @@
         },{
           "id": "test",
           "type": "BPInput",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-input-success",
           "css": [
@@ -166,7 +166,7 @@
         },{
           "id": "test",
           "type": "BPInput",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-input-warning",
           "css": [
@@ -208,9 +208,12 @@
         }, {
           "id": "test",
           "type": "BPInput",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-input-disabled",
+          "attrs": {
+            "disabled": "true"
+          },
           "css": [
 						{
               "k": "width",
@@ -253,9 +256,12 @@
         },{
           "id": "test",
           "type": "BPInput",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-input-placeholder",
+          "attrs":{
+            "placeholder": "input here" 
+          },
           "css": [
             {
               "k": "width",
@@ -312,7 +318,7 @@
         {
           "id": "test",
           "type": "BPNavMenu",
-          "cat": "test",
+          "cat": "0",
           "text": "alfred test",
           "name":"bp-nav-menu",
           "css":[

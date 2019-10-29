@@ -35,56 +35,58 @@
         {
           "id": "test",
           "type": "BPAvatar",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
-          "name":"bp-avatar-1",
+          "name":"bp-avatar-x-small-circle",
           "attrs": {
-            "sizeType": "avatar-x-small", 
-            "circle": "true",
             "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
           },
           "css": [
             {
               "k": "width",
-              "v": "32px"
+              "v": "16px"
             },
             {
               "k": "height",
-              "v": "32px"
+              "v": "16px"
+            },
+            {
+              "k": "border-radius",
+              "v": "50%"
             }
           ]
           },
           {
           "id": "test",
           "type": "BPAvatar",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
-          "name":"bp-avatar-2",
+          "name":"bp-avatar-small-circle",
           "attrs": {
-            "sizeType": "avatar-small", 
-            "circle": "true",
             "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
           },
           "css": [
             {
               "k": "width",
-              "v": "32px"
+              "v": "24px"
             },
             {
               "k": "height",
-              "v": "32px"
+              "v": "24px"
+            },
+            {
+              "k": "border-radius",
+              "v": "50%"
             }
           ]
           },
           {
           "id": "test",
           "type": "BPAvatar",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
-          "name":"bp-avatar-3",
+          "name":"bp-avatar-medium-circle",
           "attrs": {
-            "sizeType": "avatar-medium", 
-            "circle": "true",
             "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
           },
           "css": [
@@ -95,128 +97,140 @@
             {
               "k": "height",
               "v": "32px"
+            },
+            {
+              "k": "border-radius",
+              "v": "50%"
             }
           ]
           },
           {
           "id": "test",
           "type": "BPAvatar",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
-          "name":"bp-avatar-4",
+          "name":"bp-avatar-large-circle",
           "attrs": {
-            "sizeType": "avatar-large", 
-            "circle": "true",
             "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
           },
           "css": [
             {
               "k": "width",
-              "v": "32px"
+              "v": "40px"
             },
             {
               "k": "height",
-              "v": "32px"
+              "v": "40px"
+            },
+            {
+              "k": "border-radius",
+              "v": "50%"
             }
           ]
           },
           {
           "id": "test",
           "type": "BPAvatar",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
-          "name":"bp-avatar-5",
+          "name":"bp-avatar-x-large-circle",
           "attrs": {
-            "sizeType": "avatar-x-large", 
-            "circle": "true",
             "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
           },
           "css": [
             {
               "k": "width",
-              "v": "32px"
+              "v": "96px"
             },
             {
               "k": "height",
-              "v": "32px"
+              "v": "96px"
+            },
+            {
+              "k": "border-radius",
+              "v": "50%"
             }
           ]
           },
           {
           "id": "test",
           "type": "BPAvatar",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
-          "name":"bp-avatar-6",
+          "name":"bp-avatar-xx-large",
           "attrs": {
-            "sizeType": "avatar-xx-large", 
-            "circle": "true",
             "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
           },
           "css": [
             {
               "k": "width",
-              "v": "32px"
+              "v": "128px"
             },
             {
               "k": "height",
-              "v": "32px"
+              "v": "128px"
+            },
+            {
+              "k": "border-radius",
+              "v": "50%"
             }
           ]
           },
           {
           "id": "test",
           "type": "BPAvatar",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
-          "name":"bp-avatar-7",
+          "name":"bp-avatar-x-small-square",
           "attrs": {
-            "sizeType": "avatar-x-small", 
-            "circle": "false",
             "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
           },
           "css": [
             {
               "k": "width",
-              "v": "32px"
+              "v": "16px"
             },
             {
               "k": "height",
-              "v": "32px"
+              "v": "16px"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
             }
           ]
           },
           {
           "id": "test",
           "type": "BPAvatar",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
-          "name":"bp-avatar-8",
+          "name":"bp-avatar-small-square",
           "attrs": {
-            "sizeType": "avatar-small", 
-            "circle": "false",
             "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
           },
           "css": [
             {
               "k": "width",
-              "v": "32px"
+              "v": "24px"
             },
             {
               "k": "height",
-              "v": "32px"
+              "v": "24px"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
             }
           ]
           },
           {
           "id": "test",
           "type": "BPAvatar",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
-          "name":"bp-avatar-9",
+          "name":"bp-avatar-medium-square",
           "attrs": {
-            "sizeType": "avatar-medium", 
-            "circle": "false",
             "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
           },
           "css": [
@@ -227,72 +241,82 @@
             {
               "k": "height",
               "v": "32px"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
             }
           ]
           },
           {
           "id": "test",
           "type": "BPAvatar",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
-          "name":"bp-avatar-10",
+          "name":"bp-avatar-large-square",
           "attrs": {
-            "sizeType": "avatar-large", 
-            "circle": "false",
             "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
           },
           "css": [
             {
               "k": "width",
-              "v": "32px"
+              "v": "40px"
             },
             {
               "k": "height",
-              "v": "32px"
+              "v": "40px"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
             }
           ]
           },
           {
           "id": "test",
           "type": "BPAvatar",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
-          "name":"bp-avatar-11",
+          "name":"bp-avatar-x-large-square",
           "attrs": {
-            "sizeType": "avatar-x-large", 
-            "circle": "false",
             "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
           },
           "css": [
             {
               "k": "width",
-              "v": "32px"
+              "v": "96px"
             },
             {
               "k": "height",
-              "v": "32px"
+              "v": "96px"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
             }
           ]
           },
           {
           "id": "test",
           "type": "BPAvatar",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
-          "name":"bp-avatar-12",
+          "name":"bp-avatar-xx-large-square",
           "attrs": {
-            "sizeType": "avatar-xx-large",
-            "circle": "false",
             "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
           },
           "css": [
             {
               "k": "width",
-              "v": "32px"
+              "v": "128px"
             },
             {
               "k": "height",
-              "v": "32px"
+              "v": "128px"
+            },
+            {
+              "k": "border-radius",
+              "v": "4px"
             }
           ]
           }
@@ -310,7 +334,7 @@
         {
           "id": "test",
           "type": "BPNavMenu",
-          "cat": "test",
+          "cat": "0",
           "text": "alfred test",
           "name":"bp-nav-menu",
           "attrs": {},

@@ -35,7 +35,7 @@
         {
           "id": "test",
           "type": "BPDivider",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-divider-default",
           "css": [

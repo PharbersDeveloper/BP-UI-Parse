@@ -1,26 +1,57 @@
 "use strict"
 
-import { InputExec } from "../../bashexec/widgets/inputs/inputExec"
-
+// import { InputExec } from "../../bashexec/widgets/inputs/inputExec"
+import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
+import { IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 export default class BPInput extends BPWidget {
-  // private output: string = ""
-  // private projectName: string = ""
-  // private routeName: string = ""
+    constructor(output: string, name: string, routeName: string) {
+        super(output, name, routeName)
+    }
+    public paint(ctx: BPCtx, comp: BPComp, isShow: boolean) {
+        const execList: any[] = []
 
-  constructor(output: string, name: string, routeName: string) {
-    super(output, name, routeName)
-    // this.output = output
-    // this.projectName = name
-    // this.routeName = routeName
-  }
-  public paint(ctx: BPCtx, comp: BPComp) {
-    const execList: any[] = []
-    execList.push(new InputExec(this.output, this.projectName, this.routeName, comp))
+        const options: IOptions = {
+                comp,
+                logicData: this.paintLogic(comp), // js
+                output: this.output,
+                pName: this.projectName,
+                rName: this.routeName,
+                showData: this.paintShow(comp), // hbs
+                styleData: this.paintStyle(comp) //  继承自 BPWidget 的方法, css
+        }
+        execList.push(new CompExec(options, isShow))
 
-    return execList
-  }
+        return execList
+        }
+    public paintShow(comp: BPComp) {
+        return "{{#" + comp.name + "}}" + comp.text + "{{/" + comp.name + "}}"
+    }
+    public paintLogic(comp: BPComp) {
+        // 继承自 BPWidget 的方法
+
+        const placeHolder = comp.attrs.placeholder || ""
+        const disabled = comp.attrs.disabled || "false"
+        const fileDataStart = this.paintLoginStart(comp)
+        const fileDataEnd = this.paintLoginEnd()
+
+        let fileData = "\n" +
+            "export default Component.extend({" + "\r" +
+            "    layout," + "\r" +
+            "    tagName:'input'," + "\r" +
+            "    classNames:['" + comp.name + "']," + "\r" +
+            "    content: 'default'," + "\r" +
+            "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
+            "    attributeBindings: ['disabled', 'placeHolder']," + "\r" +
+            "    placeHolder: '" + placeHolder + "',\r"
+
+        if (disabled === "true") {
+            fileData = fileData + "disabled: '" + disabled + "'\r"
+        }
+
+        return fileDataStart + fileData + fileDataEnd
+    }
 }
