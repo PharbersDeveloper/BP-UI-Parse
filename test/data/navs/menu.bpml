@@ -1,0 +1,198 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "common",
+      "path": "common",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+      "components": []
+    },{
+      "id": "page with menu",
+      "type": "BPMainWindow",
+      "cat": "navigation",
+      "name":"navigation",
+      "path":"navigation",
+      "layout":[
+        {
+          "k":"width",
+          "v":"100%"
+        },{
+          "k":"height",
+          "v":"400px"
+        }
+      ],
+      "css":[],
+      "components": [
+        {
+            "id": "test",
+            "type": "BPMenu",
+            "cat": "0",
+            "name":"bp-menu",
+            "layout":[],
+            "css":[
+                {
+                    "k":"width",
+                    "v":"208px"
+                },{
+                    "k":"height",
+                    "v":"auto"
+                },{
+                    "k":"padding",
+                    "v":"0"
+                },{
+                    "k":"margin",
+                    "v":"0"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPMenuItem",
+                    "cat": "1",
+                    "text": "menu item zero",
+                    "icon": "home-filled",
+                    "name":"bp-menu-item"
+                },{
+                    "id": "test",
+                    "type": "BPMenuItem",
+                    "cat":"1",
+                    "text": "menuItem 1",
+                    "icon": "marketplace",
+                    "name":"bp-menu-item"
+                },{
+                    "id": "test",
+                    "type": "BPMenuItem",
+                    "cat":"1",
+                    "text": "sub menu 2",
+                    "icon": "male",
+                    "name":"bp-menu-item"
+                },{
+                    "id": "test",
+                    "type": "BPSubMenu",
+                    "cat":"0",
+                    "text": "menu button 3",
+                    "icon": "point",
+                    "name":"bp-sub-menu",
+                    "layout":[],
+                    "css":[
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },{
+                            "k": "min-height",
+                            "v": "40px"
+                        },{
+                            "k": "height",
+                            "v": "auto"
+                        },{
+                            "k":"color",
+                            "v":"#505F79"
+                        },{
+                            "k": "padding",
+                            "v": "0 12px"
+                        },{
+                            "k":"display",
+                            "v":"flex"
+                        },{
+                            "k":"flex-direction",
+                            "v":"column"
+                        },{
+                            "k":"justify-content",
+                            "v":"center"
+                        },{
+                            "k":"align-items",
+                            "v":"flex-start"
+                        },{
+                            "k": "color",
+                            "v": "#3172E0",
+                            "tp": "hover"
+                        }
+                    ],
+                    "components": [
+                        {
+                            "id": "test",
+                            "type": "BPMenuItem",
+                            "cat": "1",
+                            "text": "menu item first",
+                            "name":"bp-menu-item",
+                            "layout":[],
+                            "css":[]
+                        },{
+                            "id": "test",
+                            "type": "BPMenuItem",
+                            "cat": "0",
+                            "text": "second menu item",
+                            "name":"bp-menu-item",
+                            "layout":[],
+                            "css":[
+                                {
+                                    "k":"width",
+                                    "v":"100%"
+                                },{
+                                    "k":"height",
+                                    "v":"40px"
+                                },{
+                                    "k":"display",
+                                    "v":"flex"
+                                },{
+                                    "k":"align-items",
+                                    "v":"center"
+                                },{
+                                    "k": "cursor",
+                                    "v": "pointer"
+                                },{
+                                    "k": "padding",
+                                    "v": "0 12px"
+                                },{
+                                    "k":"color",
+                                    "v":"#505F79"
+                                },{
+                                    "k": "box-sizing",
+                                    "v": "border-box"
+                                },{
+                                    "k": "color",
+                                    "v": "#3172E0",
+                                    "tp": "hover"
+                                }
+                            ]
+                        }
+                    ]
+                },{
+                    "id": "test",
+                    "type": "BPMenuItem",
+                    "cat":"1",
+                    "text": "NavigationThird",
+                    "icon": "target",
+                    "name":"bp-menu-item"
+                }
+            ]
+        }
+      ]
+    }
+  ]
+}

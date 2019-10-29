@@ -3,6 +3,7 @@
 // import { EmberAddonExec } from "../bashexec/addonExec"
 import {AddBaseClass} from "../bashexec/addBaseClass"
 import { EmberAddonExec } from "../bashexec/addonExec"
+import {AddSvgFiles} from "../bashexec/addSvgFiles"
 import { BashSpwanCmds } from "../bashexec/bashcmdlst"
 import { CdExec } from "../bashexec/cdExec"
 import { EmberGenExec } from "../bashexec/emberGenExec"
@@ -21,10 +22,10 @@ import BPComp from "../widgets/Comp"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
 import BPInput from "../widgets/inputs/BPInput"
-import BPLabel from "../widgets/label/BPLabel"
-import BPNavMenu from "../widgets/navs/BPNavMenu"
-import BPNavMenuItem from "../widgets/navs/BPNavMenuItem"
+import BPMenu from "../widgets/navs/BPMenu"
+import BPMenuItem from "../widgets/navs/BPMenuItem"
 import BPStackLayout from "../widgets/navs/BPStackLayout"
+import BPSubMenu from "../widgets/navs/BPSubMenu"
 import BPTab from "../widgets/navs/BPTab"
 import BPTabBar from "../widgets/navs/BPTabBar"
 import BPTabButton from "../widgets/navs/BPTabButton"
@@ -34,6 +35,7 @@ import BPStatus from "../widgets/status/BPStatus"
 import BPTag from "../widgets/tags/BPTag"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import BPCtx from "./BPCtx"
+
 export default class BPEmberCtx extends BPCtx {
     public type: string = "ember"
     private cmds: any[] = []
@@ -59,7 +61,9 @@ export default class BPEmberCtx extends BPCtx {
         ]
     }
     public cmdEnd() {
-        return [new EmberYarnExec("remove", "ember-cli-htmlbars"), new EmberInstallDepExec("ember-cli-htmlbars@3.0.0", "-S")]
+        return [new EmberYarnExec("remove", "ember-cli-htmlbars"), new EmberInstallDepExec("ember-cli-htmlbars@3.0.0", "-S"),
+                new EmberInstallDepExec("ember-svg-jar", "-S")]
+
     }
     public paintMW(route: BPMainWindow, components: BPComp[]) {
         this.genCompTypeList(route.routeName)
@@ -124,14 +128,14 @@ export default class BPEmberCtx extends BPCtx {
             new BPDivider(this.output, this.projectName, routeName),
             new BPInput(this.output, this.projectName, routeName),
             new BPPushButton(this.output, this.projectName, routeName),
-            new BPNavMenu(this.output, this.projectName, routeName),
-            new BPNavMenuItem(this.output, this.projectName, routeName),
+            new BPMenu(this.output, this.projectName, routeName),
+            new BPSubMenu(this.output, this.projectName, routeName),
+            new BPMenuItem(this.output, this.projectName, routeName),
             new BPTabBar(this.output, this.projectName, routeName),
             new BPItem(this.output, this.projectName, routeName),
             new BPStackLayout(this.output, this.projectName, routeName),
             new BPTabButton(this.output, this.projectName, routeName),
             new BPTab(this.output, this.projectName, routeName)
-
         ]
 
         return this.compTypeList
@@ -143,14 +147,10 @@ export default class BPEmberCtx extends BPCtx {
         const currentCompTypeList = this.currentCompTypeList
         const that = this
 
-        curComps.forEach((cp) => {
-            phLogger.info("=========----------")
-            phLogger.info(cp.type)
-            phLogger.info(cp.css)
-        })
         currentCompTypeList.forEach((item, index) => {
             const curComp = curComps[index]
             const isShowComp: boolean = showComps.includes(curComp.type)
+
             that.cmds.push(...item.paint(that, curComps[index], isShowComp))
         })
     }
@@ -161,7 +161,8 @@ export default class BPEmberCtx extends BPCtx {
         this.cmds.push(new SassyStyles(this.output, this.projectName))
     }
     private moveBaseClass() {
-        this.cmds.push(new AddBaseClass(this.output, this.projectName))
+        this.cmds.push(new AddBaseClass(this.output, this.projectName),
+            new AddSvgFiles(this.output, this.projectName))
     }
     private runExec() {
         return this.cmds
