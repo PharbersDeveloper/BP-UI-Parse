@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-radio"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "radio",
+      "path": "/radio",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "column"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPRadio",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-resting",
+          "css": [
+          ]
+        },
+				{
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-label",
+          "css": [
+          ],
+					"layout": [
+						{
+							"k": "display",
+							"v": "flex"
+						},{
+							"k": "flex-direction",
+							"v": "row"
+						}
+					],
+					"components": [
+						{
+							"id": "test",
+							"type": "BPRadio",
+							"cat": "0",
+							"text": "",
+							"name":"bp-radio-a",
+							"attrs": {
+								"id": "withLabelRadio"
+							},
+							"css": [
+							]
+						},
+						{
+							"id": "test",
+							"type": "BPLabel",
+							"cat": "0",
+							"text": "label radio",
+							"name":"bp-label-a",
+							"attrs": {
+								"for": "withLabelRadio"
+							},
+							"css": [	
+							]
+						}
+					]
+        }
+      ]
+    },
+    {
+      "id": "page with menu",
+      "type": "BPMainWindow",
+      "cat": "0",
+      "name":"navigation",
+      "path":"navigation",
+      "layout":[],
+      "css":[],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPNavMenu",
+          "cat": "0",
+          "text": "alfred test",
+          "name":"bp-nav-menu",
+          "css":[
+            {
+              "k":"color",
+              "v":"red"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

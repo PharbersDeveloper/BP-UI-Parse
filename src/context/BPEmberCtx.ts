@@ -21,12 +21,14 @@ import BPComp from "../widgets/Comp"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
 import BPInput from "../widgets/inputs/BPInput"
+import BPLabel from "../widgets/label/BPLabel"
 import BPNavMenu from "../widgets/navs/BPNavMenu"
 import BPNavMenuItem from "../widgets/navs/BPNavMenuItem"
 import BPStackLayout from "../widgets/navs/BPStackLayout"
 import BPTab from "../widgets/navs/BPTab"
 import BPTabBar from "../widgets/navs/BPTabBar"
 import BPTabButton from "../widgets/navs/BPTabButton"
+import BPRadio from "../widgets/radio/BPRadio"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
 import BPStatus from "../widgets/status/BPStatus"
 import BPTag from "../widgets/tags/BPTag"
@@ -82,8 +84,10 @@ export default class BPEmberCtx extends BPCtx {
         let comps: BPComp[] = []
 
         for (const element of components) {
-            if (element.cat === "0") {
-                comps.push(element)
+            // if (element.cat === "0") {
+            //     comps.push(element)
+            // }
+            comps.push(element)
             }
 
             const inner = this.getAllComponents(element.components)
@@ -109,6 +113,8 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPRadio(this.output, this.projectName, routeName),
+            new BPLabel(this.output, this.projectName, routeName),
             new BPDiv(this.output, this.projectName, routeName),
             new BPAvatar(this.output, this.projectName, routeName),
             new BPTag(this.output, this.projectName, routeName),
@@ -132,7 +138,7 @@ export default class BPEmberCtx extends BPCtx {
     }
 
     private showComp(components: BPComp[]) {
-        const curComps = this.getAllComponents(components).filter((comp) => comp.css.length > 0)
+        const curComps = this.getAllComponents(components).filter((comp) => comp.cat === "0")
         const showComps: string[] = components.map((comp) => comp.type)
         const currentCompTypeList = this.currentCompTypeList
         const that = this
