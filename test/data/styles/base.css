@@ -13,3 +13,14 @@
     height: 2px;
     background: #3172E0;
 }
+.bp-submenu-title {
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+.menu-sub {
+    padding-left: 40px;
+}
+.icon {
+    padding-right: 12px;
+}

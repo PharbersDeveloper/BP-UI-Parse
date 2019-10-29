@@ -13,13 +13,16 @@ export class ParseCompConf {
 
     @JsonProperty("cat", String, true)
     public cat: string = "1"
-    // 默认为“1” 代表已经存在的组件
+    // 默认为“1” 代表已经存在的组件,"0"代表组件需要生成
 
     @JsonProperty("type", String)
     public type: string = ""
 
     @JsonProperty("text", String, true)
     public text: string = ""
+
+    @JsonProperty("icon", String, true)
+    public icon: string = ""
 
     @JsonProperty("name", String)
     public name: string = ""
