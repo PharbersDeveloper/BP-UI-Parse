@@ -35,8 +35,8 @@
         {
           "id": "test",
           "type": "BPBadge",
-          "cat": "test",
-          "text": "alfred test",
+          "cat": "0",
+          "text": "9",
           "name":"bp-badge-single",
           "css": [
             {
@@ -71,13 +71,16 @@
             }, {
               "k": "border-radius",
               "v": "8px"
+            }, {
+              "k": "padding",
+              "v": "0 4px"
             }
           ]
         },{
           "id": "test",
           "type": "BPBadge",
-          "cat": "test",
-          "text": "alfred test primary",
+          "cat": "0",
+          "text": "99",
           "name":"bp-badge-double",
           "css": [
             {
@@ -112,13 +115,16 @@
             }, {
               "k": "border-radius",
               "v": "8px"
+            },{
+              "k": "padding",
+              "v": "0 4px"
             }
           ]
         },{
           "id": "test",
           "type": "BPBadge",
-          "cat": "test",
-          "text": "alfred test danger",
+          "cat": "0",
+          "text": "99+",
           "name":"bp-badge-max",
           "css": [
             {
@@ -153,6 +159,9 @@
             }, {
               "k": "border-radius",
               "v": "8px"
+            },{
+              "k": "padding",
+              "v": "0 4px"
             }
           ]
         }

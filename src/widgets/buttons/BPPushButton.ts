@@ -16,12 +16,12 @@ export default class BPPushButton extends BPWidget {
 
         const options: IOptions = {
             comp,
-            logicData: this.paintLogic(comp),
+            logicData: this.paintLogic(comp), // js
             output: this.output,
             pName: this.projectName,
             rName: this.routeName,
-            showData: this.paintShow(comp),
-            styleData: this.paintStyle(comp) //  继承自 BPWidget 的方法
+            showData: this.paintShow(comp), // hbs
+            styleData: this.paintStyle(comp) //  继承自 BPWidget 的方法, css
         }
         execList.push(new CompExec(options, isShow))
 

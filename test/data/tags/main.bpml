@@ -39,7 +39,6 @@
           "text": "simon test",
           "name":"bp-tag-netural-subtle",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -87,7 +86,6 @@
           "text": "simon test",
           "name":"bp-tag-blue-subtle",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -135,7 +133,6 @@
           "text": "simon test",
           "name":"bp-tag-green-subtle",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -183,7 +180,6 @@
           "text": "simon test",
           "name":"bp-tag-purples-subtle",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -231,7 +227,6 @@
           "text": "simon test",
           "name":"bp-tag-teals-subtle",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -279,7 +274,6 @@
           "text": "simon test",
           "name":"bp-tag-red-subtle",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -327,7 +321,6 @@
           "text": "simon test",
           "name":"bp-tag-yellow-subtle",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -375,7 +368,6 @@
           "text": "simon test",
           "name":"bp-tag-netural-bold",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -423,7 +415,6 @@
           "text": "simon test",
           "name":"bp-tag-blue-bold",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -471,7 +462,6 @@
           "text": "simon test",
           "name":"bp-tag-green-bold",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -519,7 +509,6 @@
           "text": "simon test",
           "name":"bp-tag-purples-bold",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -567,7 +556,6 @@
           "text": "simon test",
           "name":"bp-tag-teals-bold",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -615,7 +603,6 @@
           "text": "simon test",
           "name":"bp-tag-red-bold",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
@@ -663,7 +650,6 @@
           "text": "simon test",
           "name":"bp-tag-yellow-bold",
 					"attrs": {
-						"value": "Epic tag"
 					},
           "css": [
             {
