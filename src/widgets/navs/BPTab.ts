@@ -63,7 +63,4 @@ export default class BPTab extends BPItem {
 
         return fileDataStart + fileData + fileDataEnd
     }
-    public paintHBS() {
-        return "{{yield (hash currentIndex=currentIndex)}}"
-     }
 }
