@@ -31,6 +31,116 @@
         }
       ],
       "components": [
+        {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-disabled",
+          "css": [
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPRadio",
+              "cat": "0",
+              "text": "",
+              "name":"bp-radio-single-a",
+              "attrs": {
+                "id": "singleRadioA",
+                "name": "",
+                "disabled": "true"
+              },
+              "css": [
+              ]
+            },
+            {
+              "id": "test",
+              "type": "BPLabel",
+              "cat": "0",
+              "text": "Option",
+              "name":"bp-label-single-a",
+              "attrs": {
+                "for": "singleRadioA"
+              },
+              "css": [	
+              ]
+            }
+          ]
+        },
+        {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-rest",
+          "css": [
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPRadio",
+              "cat": "0",
+              "text": "",
+              "name":"bp-radio-single-b",
+              "attrs": {
+                "id": "singleRadioB",
+                "name": ""
+              },
+              "css": [
+              ]
+            },
+            {
+              "id": "test",
+              "type": "BPLabel",
+              "cat": "0",
+              "text": "Option",
+              "name":"bp-label-single-b",
+              "attrs": {
+                "for": "singleRadioB"
+              },
+              "css": [	
+              ]
+            }
+          ]
+        },
+        {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-checked",
+          "css": [
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPRadio",
+              "cat": "0",
+              "text": "",
+              "name":"bp-radio-single-c",
+              "attrs": {
+                "id": "singleRadioC",
+                "name": "",
+                "checked": "true"
+              },
+              "css": [
+              ]
+            },
+            {
+              "id": "test",
+              "type": "BPLabel",
+              "cat": "0",
+              "text": "Option",
+              "name":"bp-label-single-c",
+              "attrs": {
+                "for": "singleRadioC"
+              },
+              "css": [	
+              ]
+            }
+          ]
+        },
 				{
           "id": "test",
           "type": "BPDiv",
