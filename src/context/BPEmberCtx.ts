@@ -1,9 +1,9 @@
 "use strict"
 
 // import { EmberAddonExec } from "../bashexec/addonExec"
-import {AddBaseClass} from "../bashexec/addBaseClass"
+import { AddBaseClass } from "../bashexec/addBaseClass"
 import { EmberAddonExec } from "../bashexec/addonExec"
-import {AddSvgFiles} from "../bashexec/addSvgFiles"
+import { AddSvgFiles } from "../bashexec/addSvgFiles"
 import { BashSpwanCmds } from "../bashexec/bashcmdlst"
 import { CdExec } from "../bashexec/cdExec"
 import { EmberGenExec } from "../bashexec/emberGenExec"
@@ -67,7 +67,7 @@ export default class BPEmberCtx extends BPCtx {
     }
     public cmdEnd() {
         return [new EmberYarnExec("remove", "ember-cli-htmlbars"), new EmberInstallDepExec("ember-cli-htmlbars@3.0.0", "-S"),
-                new EmberInstallDepExec("ember-svg-jar", "-S")]
+        new EmberInstallDepExec("ember-svg-jar", "-S")]
 
     }
     public paintMW(route: BPMainWindow, components: BPComp[]) {
@@ -93,10 +93,10 @@ export default class BPEmberCtx extends BPCtx {
         let comps: BPComp[] = []
 
         for (const element of components) {
-            // if (element.cat === "0") {
-            //     comps.push(element)
-            // }
-            comps.push(element)
+            if (element.cat === "0") {
+                comps.push(element)
+            }
+            // comps.push(element)
             // }
 
             const inner = this.getAllComponents(element.components)
@@ -114,7 +114,7 @@ export default class BPEmberCtx extends BPCtx {
         for (let i = 0, len = curComps.length; i < len; i++) {
             const component = curComps[i]
 
-            this.cmds.push(new EmberGenExec("component", component.name))
+            this.cmds.push(new EmberGenExec("component", component.name))   // 会重复生成某一组件，需要在
 
             this.currentCompTypeList.push(compTypeList.find((x) => x.constructor.name === component.type))
         }
@@ -151,16 +151,17 @@ export default class BPEmberCtx extends BPCtx {
     }
 
     private showComp(components: BPComp[]) {
-        const curComps = this.getAllComponents(components).filter((comp) => comp.cat === "0")
-        const showComps: string[] = components.map((comp) => comp.name)
+        const curComps = this.getAllComponents(components)
+        const showComps: string[] = components.map((comp) => comp.type)
         const currentCompTypeList = this.currentCompTypeList
         const that = this
+        const uniqCompList = [...new Set(currentCompTypeList)]
 
-        currentCompTypeList.forEach((item, index) => {
-            const curComp = curComps[index]
-            const isShowComp: boolean = showComps.includes(curComp.name)
-
-            that.cmds.push(...item.paint(that, curComps[index], isShowComp))
+        // phLogger.info(curComps)
+        curComps.forEach((item) => {
+            const isShowComp: boolean = showComps.includes(item.type)
+            const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
+            that.cmds.push(...paintComp.paint(that, item, isShowComp))
         })
     }
     private mwStyles(route: BPMainWindow) {

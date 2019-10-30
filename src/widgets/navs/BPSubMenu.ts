@@ -20,6 +20,7 @@ export default class BPSubMenu extends BPWidget {
 
         const options: IOptions = {
             comp,
+            hbsData: this.paintHBS(),
             logicData: this.paintLogic(comp),
             output: this.output,
             pName: this.projectName,
@@ -70,4 +71,7 @@ export default class BPSubMenu extends BPWidget {
         }
         return menuItem.paintShow(comp)
     }
+    public paintHBS() {
+        return "{{yield}}"
+     }
 }
