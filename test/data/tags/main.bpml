@@ -35,7 +35,7 @@
         {
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-netural-subtle",
 					"attrs": {
@@ -82,7 +82,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-blue-subtle",
 					"attrs": {
@@ -129,7 +129,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-green-subtle",
 					"attrs": {
@@ -176,7 +176,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-purples-subtle",
 					"attrs": {
@@ -223,7 +223,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-teals-subtle",
 					"attrs": {
@@ -270,7 +270,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-red-subtle",
 					"attrs": {
@@ -317,7 +317,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-yellow-subtle",
 					"attrs": {
@@ -364,7 +364,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-netural-bold",
 					"attrs": {
@@ -411,7 +411,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-blue-bold",
 					"attrs": {
@@ -458,7 +458,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-green-bold",
 					"attrs": {
@@ -505,7 +505,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-purples-bold",
 					"attrs": {
@@ -552,7 +552,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-teals-bold",
 					"attrs": {
@@ -599,7 +599,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-red-bold",
 					"attrs": {
@@ -646,7 +646,7 @@
 					{
           "id": "test",
           "type": "BPTag",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-tag-yellow-bold",
 					"attrs": {
@@ -704,7 +704,7 @@
         {
           "id": "test",
           "type": "BPNavMenu",
-          "cat": "test",
+          "cat": "0",
           "text": "alfred test",
           "name":"bp-nav-menu",
 					"attrs": {},
