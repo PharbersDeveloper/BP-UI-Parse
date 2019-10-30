@@ -21,6 +21,7 @@ import BPPushButton from "../widgets/buttons/BPPushButton"
 import BPComp from "../widgets/Comp"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
+import BPSelect from "../widgets/dropdown/BPSelect"
 import BPInput from "../widgets/inputs/BPInput"
 import BPLabel from "../widgets/label/BPLabel"
 import BPMenu from "../widgets/navs/BPMenu"
@@ -36,6 +37,8 @@ import BPStatus from "../widgets/status/BPStatus"
 import BPTag from "../widgets/tags/BPTag"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import BPCtx from "./BPCtx"
+
+import BPOption from "../widgets/dropdown/BPOption"
 
 export default class BPEmberCtx extends BPCtx {
     public type: string = "ember"
@@ -93,6 +96,7 @@ export default class BPEmberCtx extends BPCtx {
             //     comps.push(element)
             // }
             comps.push(element)
+            // }
 
             const inner = this.getAllComponents(element.components)
             comps = comps.concat(inner)
@@ -135,7 +139,10 @@ export default class BPEmberCtx extends BPCtx {
             new BPItem(this.output, this.projectName, routeName),
             new BPStackLayout(this.output, this.projectName, routeName),
             new BPTabButton(this.output, this.projectName, routeName),
-            new BPTab(this.output, this.projectName, routeName)
+            new BPTab(this.output, this.projectName, routeName),
+            new BPSelect(this.output, this.projectName, routeName),
+            new BPOption(this.output, this.projectName, routeName)
+
         ]
 
         return this.compTypeList

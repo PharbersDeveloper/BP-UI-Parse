@@ -1,0 +1,146 @@
+{
+    "meta": {
+        "paint": [
+            "ember"
+        ],
+        "name": "refactoring-code"
+    },
+    "routers": [
+        {
+            "id": "page main window",
+            "type": "BPMainWindow",
+            "cat": "main-window",
+            "name": "common",
+            "path": "common",
+            "layout": [
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "flex-direction",
+                    "v": "row"
+                }
+            ],
+            "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "300px"
+                }
+            ],
+            "components": []
+        },
+        {
+            "id": "page with menu",
+            "type": "BPMainWindow",
+            "cat": "dropdown",
+            "name": "dropdown",
+            "path": "dropdown",
+            "layout": [
+                {
+                    "k": "width",
+                    "v": "100px"
+                },
+                {
+                    "k": "height",
+                    "v": "400px"
+                }
+            ],
+            "css": [],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPSelect",
+                    "cat": "0",
+                    "name": "bp-select",
+                    "layout": [],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },{
+                            "k": "height",
+                            "v": "40px"
+                        },{
+                            "k": "padding",
+                            "v": "0"
+                        },{
+                            "k": "margin",
+                            "v": "0"
+                        },{
+                            "k": "position",
+                            "v": "relative"
+                        },{
+                            "k": "cursor",
+                            "v": "pointer"
+                        },{
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        },{
+                            "k": "background",
+                            "v": "rgba(9,30,66,0.04)"
+                        },{
+                            "k": "border-radius",
+                            "v": "4px"
+                        }
+                    ],
+                    "components": [
+                        {
+                            "id": "test",
+                            "type": "BPOption",
+                            "cat": "1",
+                            "text": "option 1",
+                            "icon": "home-filled",
+                            "name": "bp-option"
+                        },
+                        {
+                            "id": "test",
+                            "type": "BPOption",
+                            "cat": "1",
+                            "text": "menuItem 1",
+                            "icon": "marketplace",
+                            "name": "bp-option"
+                        },
+                        {
+                            "id": "test",
+                            "type": "BPOption",
+                            "cat": "0",
+                            "text": "sub menu 2",
+                            "icon": "male",
+                            "name": "bp-option",
+                            "css": [
+                                {
+                                    "k":"width",
+                                    "v":"100%"
+                                },{
+                                    "k": "height",
+                                    "v": "32px"
+                                },{
+                                    "k": "color",
+                                    "v": "#344563"
+                                },{
+                                    "k": "display",
+                                    "v": "flex"
+                                },{
+                                    "k": "padding",
+                                    "v": "0 16px"
+                                },{
+                                    "k": "align-items",
+                                    "v": "center"
+                                },{
+                                    "k": "background-color",
+                                    "v": "#EBECF0",
+                                    "tp": "hover"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
