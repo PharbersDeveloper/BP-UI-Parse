@@ -18,6 +18,7 @@ import BPBadge from "../widgets/badges/BPBadge"
 import BPItem from "../widgets/basic/BPItem"
 import { BPWidget } from "../widgets/BPWidget"
 import BPPushButton from "../widgets/buttons/BPPushButton"
+import BPCheckbox from "../widgets/checkbox/BPCheckbox"
 import BPComp from "../widgets/Comp"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
@@ -121,6 +122,7 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPCheckbox(this.output, this.projectName, routeName),
             new BPRadio(this.output, this.projectName, routeName),
             new BPLabel(this.output, this.projectName, routeName),
             new BPDiv(this.output, this.projectName, routeName),

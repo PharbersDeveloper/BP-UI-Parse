@@ -7,7 +7,7 @@ import phLogger from "../../logger/phLogger"
 import { IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
-export default class BPRadio extends BPWidget {
+export default class BPCheckbox extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
             super(output, name, routeName)
         }
@@ -32,10 +32,10 @@ export default class BPRadio extends BPWidget {
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
-        const radioId = comp.attrs.id
-        const radioName = comp.attrs.name
-        const radioCheck = comp.attrs.checked
-        const radioDisable = comp.attrs.disabled
+        const checkboxId = comp.attrs.id
+        const checkboxName = comp.attrs.name
+        const checkboxCheck = comp.attrs.checked
+        const checkboxDisable = comp.attrs.disabled
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
 
@@ -47,15 +47,15 @@ export default class BPRadio extends BPWidget {
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
             "    attributeBindings: ['type', 'id', 'name', 'checked', 'disabled']," + "\r" +
-            "    type: 'radio'," + "\r" +
-            "    id: '" + radioId + "'," + "\r" +
-            "    name: '" + radioName + "'," + "\r"
+            "    type: 'checkbox'," + "\r" +
+            "    id: '" + checkboxId + "'," + "\r" +
+            "    name: '" + checkboxName + "'," + "\r"
 
-        if (radioCheck === "true") {
+        if (checkboxCheck === "true") {
                 fileData = fileData + "    checked: 'true',\r"
             }
 
-        if (radioDisable === "true") {
+        if (checkboxDisable === "true") {
                 fileData = fileData + "    disabled: 'true',\r"
             }
 

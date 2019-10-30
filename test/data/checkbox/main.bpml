@@ -1,0 +1,268 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-checkbox"
+  },
+
+  "routers": [
+    {
+		"id": "page main window",
+		"type": "BPMainWindow",
+		"cat": "main-window",
+		"name": "checkbox",
+		"path": "/checkbox",
+		"layout": [
+			{
+			"k": "display",
+			"v": "flex"
+			},{
+			"k": "flex-direction",
+			"v": "column"
+			}
+		],
+		"css": [
+			{
+			"k": "width",
+			"v": "100%"
+			},
+			{
+			"k": "height",
+			"v": "300px"
+			}
+		],
+		"components": [
+			{
+			"id": "test",
+			"type": "BPDiv",
+			"cat": "0",
+			"text": "",
+			"name":"bp-checkbox-rest",
+			"css": [
+			],
+			"components": [
+				{
+				"id": "test",
+				"type": "BPCheckbox",
+				"cat": "0",
+				"text": "",
+				"name":"bp-checkbox-single-c",
+				"attrs": {
+					"id": "singleCheckboxC",
+					"disabled": "",
+					"checked": ""
+				},
+				"css": [
+				]
+				},
+				{
+				"id": "test",
+				"type": "BPLabel",
+				"cat": "0",
+				"text": "Unchecked",
+				"name":"bp-checkbox-label-single-c",
+				"attrs": {
+					"for": "singleCheckboxC"
+				},
+				"css": [	
+				]
+				}
+			]
+        },
+        {
+			"id": "test",
+			"type": "BPDiv",
+			"cat": "0",
+			"text": "",
+			"name":"bp-checkbox-disabled",
+			"css": [
+			],
+			"components": [
+				{
+				"id": "test",
+				"type": "BPCheckbox",
+				"cat": "0",
+				"text": "",
+				"name":"bp-checkbox-single-a",
+				"attrs": {
+					"id": "singleCheckboxA",
+					"disabled": "true"
+				},
+				"css": [
+				]
+				},
+				{
+				"id": "test",
+				"type": "BPLabel",
+				"cat": "0",
+				"text": "Disabled",
+				"name":"bp-checkbox-label-single-a",
+				"attrs": {
+					"for": "singleCheckboxA"
+				},
+				"css": [	
+				]
+				}
+			]
+        },
+        {
+			"id": "test",
+			"type": "BPDiv",
+			"cat": "0",
+			"text": "",
+			"name":"bp-checkbox-checked",
+			"css": [
+			],
+			"components": [
+				{
+				"id": "test",
+				"type": "BPCheckbox",
+				"cat": "0",
+				"text": "",
+				"name":"bp-checkbox-single-b",
+				"attrs": {
+					"id": "singleCheckboxB",
+					"name": "",
+					"checked": "true"
+				},
+				"css": [
+				]
+				},
+				{
+				"id": "test",
+				"type": "BPLabel",
+				"cat": "0",
+				"text": "Checked",
+				"name":"bp-checkbox-label-single-b",
+				"attrs": {
+					"for": "singleCheckboxB"
+				},
+				"css": [	
+				]
+            }
+          ]
+        },
+        {
+			"id": "test",
+			"type": "BPDiv",
+			"cat": "0",
+			"text": "",
+			"name":"bp-checkbox-group-v",
+			"css": [
+				{
+					"k": "display",
+					"v": "flex"
+				},{
+					"k": "flex-direction",
+					"v": "column"
+				},
+				{
+					"k": "width",
+					"v": "200px"
+				}
+			],
+		  	"components": [
+				{
+				"id": "test",
+				"type": "BPDiv",
+				"cat": "0",
+				"name": "bp-div-row",
+				"components": [
+				{
+					"id": "test",
+					"type": "BPCheckbox",
+					"cat": "0",
+					"text": "",
+					"name":"bp-vgroup-checkbox-a",
+					"attrs": {
+						"id": "groupVcheckboxA",
+						"name": "groupV"
+					},
+					"css": [
+					]
+				},
+				{
+					"id": "test",
+					"type": "BPLabel",
+					"cat": "0",
+					"text": "Group Option A",
+					"name":"bp-checkbox-vgroup-label-a",
+					"attrs": {
+						"for": "groupVcheckboxA"
+					},
+					"css": [	
+					]
+				}
+              ]
+				},
+				{
+				"id": "test",
+				"type": "BPDiv",
+				"cat": "0",
+				"name": "bp-div-row",
+				"components": [
+					{
+					"id": "test",
+					"type": "BPCheckbox",
+					"cat": "0",
+					"text": "",
+					"name":"bp-vgroup-checkbox-b",
+					"attrs": {
+						"id": "groupVcheckboxB",
+						"name": "groupV"
+					},
+					"css": [
+					]
+					},
+					{
+					"id": "test",
+					"type": "BPLabel",
+					"cat": "0",
+					"text": "Group Option B",
+					"name":"bp-checkbox-vgroup-label-b",
+					"attrs": {
+						"for": "groupVcheckboxB"
+					},
+					"css": [	
+					]
+					}
+				]
+				},
+				{
+				"id": "test",
+				"type": "BPDiv",
+				"cat": "0",
+				"name": "bp-div-row",
+				"components": [
+					{
+					"id": "test",
+					"type": "BPCheckbox",
+					"cat": "0",
+					"text": "",
+					"name":"bp-vgroup-checkbox-c",
+					"attrs": {
+						"id": "groupVcheckboxC",
+						"name": "groupV"
+					},
+					"css": [
+					]
+					},
+					{
+					"id": "test",
+					"type": "BPLabel",
+					"cat": "0",
+					"text": "Group Option C",
+					"name":"bp-checkbox-vgroup-label-c",
+					"attrs": {
+						"for": "groupVcheckboxC"
+					},
+					"css": [	
+					]
+					}
+				]
+				}
+			]
+        }
+      ]
+    }
+  ]
+}
