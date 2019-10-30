@@ -22,6 +22,7 @@ import BPComp from "../widgets/Comp"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
 import BPInput from "../widgets/inputs/BPInput"
+import BPLabel from "../widgets/label/BPLabel"
 import BPMenu from "../widgets/navs/BPMenu"
 import BPMenuItem from "../widgets/navs/BPMenuItem"
 import BPStackLayout from "../widgets/navs/BPStackLayout"
@@ -92,7 +93,6 @@ export default class BPEmberCtx extends BPCtx {
             //     comps.push(element)
             // }
             comps.push(element)
-            }
 
             const inner = this.getAllComponents(element.components)
             comps = comps.concat(inner)
@@ -143,13 +143,13 @@ export default class BPEmberCtx extends BPCtx {
 
     private showComp(components: BPComp[]) {
         const curComps = this.getAllComponents(components).filter((comp) => comp.cat === "0")
-        const showComps: string[] = components.map((comp) => comp.type)
+        const showComps: string[] = components.map((comp) => comp.name)
         const currentCompTypeList = this.currentCompTypeList
         const that = this
 
         currentCompTypeList.forEach((item, index) => {
             const curComp = curComps[index]
-            const isShowComp: boolean = showComps.includes(curComp.type)
+            const isShowComp: boolean = showComps.includes(curComp.name)
 
             that.cmds.push(...item.paint(that, curComps[index], isShowComp))
         })

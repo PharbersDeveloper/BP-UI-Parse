@@ -35,7 +35,7 @@
         {
           "id": "test",
           "type": "BPStatus",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-status-default-subtle",
           "attrs": {
@@ -83,7 +83,7 @@
           {
           "id": "test",
           "type": "BPStatus",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-status-success-subtle",
           "attrs": {
@@ -131,7 +131,7 @@
           {
           "id": "test",
           "type": "BPStatus",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-status-removed-subtle",
           "attrs": {
@@ -179,7 +179,7 @@
           {
           "id": "test",
           "type": "BPStatus",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-status-progress-subtle",
           "attrs": {
@@ -227,7 +227,7 @@
           {
           "id": "test",
           "type": "BPStatus",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-status-new-subtle",
           "attrs": {
@@ -275,7 +275,7 @@
           {
           "id": "test",
           "type": "BPStatus",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-status-moved-subtle",
           "attrs": {
@@ -323,7 +323,7 @@
           {
           "id": "test",
           "type": "BPStatus",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-status-default-bold",
           "attrs": {
@@ -371,7 +371,7 @@
           {
           "id": "test",
           "type": "BPStatus",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-status-success-bold",
           "attrs": {
@@ -419,7 +419,7 @@
           {
           "id": "test",
           "type": "BPStatus",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-status-removed-bold",
           "attrs": {
@@ -467,7 +467,7 @@
           {
           "id": "test",
           "type": "BPStatus",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-status-progress-bold",
           "attrs": {
@@ -515,7 +515,7 @@
           {
           "id": "test",
           "type": "BPStatus",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-status-new-bold",
           "attrs": {
@@ -563,7 +563,7 @@
           {
           "id": "test",
           "type": "BPStatus",
-          "cat": "test",
+          "cat": "0",
           "text": "simon test",
           "name":"bp-status-moved-bold",
           "attrs": {
@@ -624,7 +624,7 @@
         {
           "id": "test",
           "type": "BPNavMenu",
-          "cat": "test",
+          "cat": "0",
           "text": "alfred test",
           "name":"bp-nav-menu",
           "attrs": {},

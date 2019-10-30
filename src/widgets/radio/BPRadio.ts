@@ -33,6 +33,7 @@ export default class BPRadio extends BPWidget {
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
         const radioId = comp.attrs.id
+        const radioName = comp.attrs.name
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
 
@@ -43,9 +44,10 @@ export default class BPRadio extends BPWidget {
             "    classNames:['" + comp.name + "']," + "\r" +
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
-            "    attributeBindings: ['type', 'id']," + "\r" +
+            "    attributeBindings: ['type', 'id', 'name']," + "\r" +
             "    type: 'radio'," + "\r" +
-            "    id: '" + radioId + "'," + "\r"
+            "    id: '" + radioId + "'," + "\r" +
+            "    name: '" + radioName + "'," + "\r"
 
         return fileDataStart + fileData + fileDataEnd
     }
