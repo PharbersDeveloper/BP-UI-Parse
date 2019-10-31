@@ -36,6 +36,7 @@ import BPRadio from "../widgets/radio/BPRadio"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
 import BPStatus from "../widgets/status/BPStatus"
 import BPTag from "../widgets/tags/BPTag"
+import BPTextarea from "../widgets/textarea/BPTextarea"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import BPCtx from "./BPCtx"
 
@@ -123,6 +124,7 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPTextarea(this.output, this.projectName, routeName),
             new BPCheckbox(this.output, this.projectName, routeName),
             new BPRadio(this.output, this.projectName, routeName),
             new BPLabel(this.output, this.projectName, routeName),
@@ -158,7 +160,6 @@ export default class BPEmberCtx extends BPCtx {
         const that = this
         const uniqCompList = [...new Set(currentCompTypeList)]
 
-        // phLogger.info(curComps)
         curComps.forEach((item) => {
             const isShowComp: boolean = showComps.includes(item.name)
             const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
