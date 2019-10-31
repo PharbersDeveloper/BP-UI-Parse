@@ -23,15 +23,22 @@ export default class BPOption extends BPMenuItem {
             "    tagName:'li'," + "\r" +
             "    classNames:['" + comp.name + "']," + "\r" +
             "    attributeBindings: ['disabled']," + "\r" +
-            "    disabled: false," + "\r"
+            "    classNameBindings: ['isChoosed:option-active']," + "\r" +
+            "    disabled: false," + "\r" +
+            "    onClick() {}," + "\r" +
+            "    click() {" + "\r" +
+            "        this.onClick(this.text)" + "\r" +
+            "    }," + "\r" +
+            "    isChoosed: computed('choosedValue',function() {" + "\r" +
+            "        return this.text === this.choosedValue" + "\r" +
+            "    })" + "\r"
 
         return fileDataStart + fileData + fileDataEnd
     }
-    // public paintShow(comp: BPComp, i?: number, cI?: string | number) {
-    //     const index = i ? i : 0
-    //     const curIn = cI ? cI : 0
-    //     return "{{" + comp.name + " icon='" + comp.icon + "' text='" + comp.text + "'}}"
-    // }
+    public paintShow(comp: BPComp, yi?: number|string) {
+        return "{{" + comp.name + " icon='" + comp.icon + "' text='" + comp.text + "'" +
+            " onClick=(action " + yi + ".onChange) choosedValue=" + yi + ".val}}"
+    }
     // public paintHBS() {
     //     return "{{svg-jar icon width='24px' height='24px' class='icon'}}<span>{{text}}</span>"
     //  }

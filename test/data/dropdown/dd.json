@@ -47,7 +47,7 @@
                 },
                 {
                     "k": "height",
-                    "v": "400px"
+                    "v": "auto"
                 }
             ],
             "css": [],
@@ -137,6 +137,43 @@
                                     "tp": "hover"
                                 }
                             ]
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPSelect",
+                    "cat": "1",
+                    "name": "bp-select",
+                    "layout": [],
+                    "attrs":{
+                        "disabled":false,
+                        "choosedValue": "place hold from json"
+                    },
+                    "components": [
+                        {
+                            "id": "test",
+                            "type": "BPOption",
+                            "cat": "1",
+                            "text": "🍊橘子🍊",
+                            "icon": "home-filled",
+                            "name": "bp-option"
+                        },
+                        {
+                            "id": "test",
+                            "type": "BPOption",
+                            "cat": "1",
+                            "text": "🍎苹果🍎",
+                            "icon": "marketplace",
+                            "name": "bp-option"
+                        },
+                        {
+                            "id": "test",
+                            "type": "BPOption",
+                            "cat": "1",
+                            "text": "🍌香蕉🍌",
+                            "icon": "male",
+                            "name": "bp-option"
                         }
                     ]
                 }
