@@ -157,22 +157,12 @@ export default class BPEmberCtx extends BPCtx {
         const that = this
         const uniqCompList = [...new Set(currentCompTypeList)]
 
-        // phLogger.info(curComps.length)
-        // phLogger.info(showComps.length)
-        // phLogger.info(currentCompTypeList.length)
-        // currentCompTypeList.forEach((ele) => {
-        //     phLogger.info(ele.constructor.name)
-        // })
-        // phLogger.info("-------===========----------")
         curComps.forEach((item) => {
-            // const isShowComp: boolean = showComps.includes(item.type)
             showComps.forEach((sc, i) => {
                 const isShow: boolean = sc === item.type
                 const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
                 that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))
             })
-            // const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
-            // that.cmds.push(...paintComp.paint(that, item, isShowComp))
         })
     }
     private mwStyles(route: BPMainWindow) {
