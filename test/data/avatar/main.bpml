@@ -34,7 +34,7 @@
       "components": [
         {
           "id": "test",
-          "type": "BPAvatar",
+          "type": "BPImg",
           "cat": "0",
           "text": "simon test",
           "name":"bp-avatar-x-small-circle",
@@ -58,7 +58,7 @@
           },
           {
           "id": "test",
-          "type": "BPAvatar",
+          "type": "BPImg",
           "cat": "0",
           "text": "simon test",
           "name":"bp-avatar-small-circle",
@@ -82,7 +82,7 @@
           },
           {
           "id": "test",
-          "type": "BPAvatar",
+          "type": "BPImg",
           "cat": "0",
           "text": "simon test",
           "name":"bp-avatar-medium-circle",
@@ -106,7 +106,7 @@
           },
           {
           "id": "test",
-          "type": "BPAvatar",
+          "type": "BPImg",
           "cat": "0",
           "text": "simon test",
           "name":"bp-avatar-large-circle",
@@ -130,7 +130,7 @@
           },
           {
           "id": "test",
-          "type": "BPAvatar",
+          "type": "BPImg",
           "cat": "0",
           "text": "simon test",
           "name":"bp-avatar-x-large-circle",
@@ -154,7 +154,7 @@
           },
           {
           "id": "test",
-          "type": "BPAvatar",
+          "type": "BPImg",
           "cat": "0",
           "text": "simon test",
           "name":"bp-avatar-xx-large",
@@ -178,7 +178,7 @@
           },
           {
           "id": "test",
-          "type": "BPAvatar",
+          "type": "BPImg",
           "cat": "0",
           "text": "simon test",
           "name":"bp-avatar-x-small-square",
@@ -202,7 +202,7 @@
           },
           {
           "id": "test",
-          "type": "BPAvatar",
+          "type": "BPImg",
           "cat": "0",
           "text": "simon test",
           "name":"bp-avatar-small-square",
@@ -226,7 +226,7 @@
           },
           {
           "id": "test",
-          "type": "BPAvatar",
+          "type": "BPImg",
           "cat": "0",
           "text": "simon test",
           "name":"bp-avatar-medium-square",
@@ -250,7 +250,7 @@
           },
           {
           "id": "test",
-          "type": "BPAvatar",
+          "type": "BPImg",
           "cat": "0",
           "text": "simon test",
           "name":"bp-avatar-large-square",
@@ -274,7 +274,7 @@
           },
           {
           "id": "test",
-          "type": "BPAvatar",
+          "type": "BPImg",
           "cat": "0",
           "text": "simon test",
           "name":"bp-avatar-x-large-square",
@@ -298,7 +298,7 @@
           },
           {
           "id": "test",
-          "type": "BPAvatar",
+          "type": "BPImg",
           "cat": "0",
           "text": "simon test",
           "name":"bp-avatar-xx-large-square",
@@ -320,31 +320,6 @@
             }
           ]
           }
-      ]
-    },
-    {
-      "id": "page with menu",
-      "type": "BPMainWindow",
-      "cat": "navigation",
-      "name":"navigation",
-      "path":"navigation",
-      "layout":[],
-      "css":[],
-      "components": [
-        {
-          "id": "test",
-          "type": "BPNavMenu",
-          "cat": "0",
-          "text": "alfred test",
-          "name":"bp-nav-menu",
-          "attrs": {},
-          "css":[
-            {
-              "k":"color",
-              "v":"red"
-            }
-          ]
-        }
       ]
     }
   ]

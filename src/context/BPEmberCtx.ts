@@ -13,7 +13,6 @@ import { GenMWStylesExec } from "../bashexec/genMWStylesExec"
 import { RemoveFolderExec } from "../bashexec/removeFolderExec"
 import { SassyStyles } from "../bashexec/sassyStyles"
 import phLogger from "../logger/phLogger"
-import BPAvatar from "../widgets/avatars/BPAvatar"
 import BPBadge from "../widgets/badges/BPBadge"
 import BPItem from "../widgets/basic/BPItem"
 import { BPWidget } from "../widgets/BPWidget"
@@ -23,6 +22,7 @@ import BPComp from "../widgets/Comp"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
 import BPSelect from "../widgets/dropdown/BPSelect"
+import BPImg from "../widgets/img/BPImg"
 import BPInput from "../widgets/inputs/BPInput"
 import BPLabel from "../widgets/label/BPLabel"
 import BPMenu from "../widgets/navs/BPMenu"
@@ -129,7 +129,7 @@ export default class BPEmberCtx extends BPCtx {
             new BPRadio(this.output, this.projectName, routeName),
             new BPLabel(this.output, this.projectName, routeName),
             new BPDiv(this.output, this.projectName, routeName),
-            new BPAvatar(this.output, this.projectName, routeName),
+            new BPImg(this.output, this.projectName, routeName),
             new BPTag(this.output, this.projectName, routeName),
             new BPStatus(this.output, this.projectName, routeName),
             new BPBadge(this.output, this.projectName, routeName),

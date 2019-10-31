@@ -7,7 +7,7 @@ import phLogger from "../../logger/phLogger"
 import { IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
-export default class BPAvatar extends BPWidget {
+export default class BPImg extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
         super(output, name, routeName)
     }
