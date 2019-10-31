@@ -108,3 +108,53 @@ input[type="radio"]:disabled:checked+label::before {
     box-shadow: 0 4px 8px -2px rgba(9, 30, 66, 0.25);
     border-radius: 3px;
 }
+
+input[type="checkbox"]+label::before {
+    content: "\a0";
+    /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    margin-right: .2em;
+    border-radius: .2em;
+    text-indent: .15em;
+    margin: 6px;
+    line-height: .65;
+    /*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
+    background-image: url("/hospital-unchecked.svg");
+    background-size: 12px 12px;
+}
+
+input[type="checkbox"]:checked+label::before {
+    content: " ";
+    margin: 6px;
+    background-image: url("/hospital-checked.svg");
+    background-size: 12px 12px;
+}
+
+input[type="checkbox"]:checked:disabled+label::before {
+    content: " ";
+    margin: 6px;
+    background-image: url("/hospital-checked-disabled.svg");
+    background-size: 12px 12px;
+}
+
+input[type="checkbox"]:disabled+label::before {
+    content: " ";
+    height: 12px;
+    width: 12px;
+    background: #F4F5F7;
+    border-radius: 2px;
+    margin: 6px;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+input[type="checkbox"]+label {
+    font-size: 14px;
+    color: #344563;
+}

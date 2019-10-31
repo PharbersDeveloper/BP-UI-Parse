@@ -141,6 +141,44 @@
             }
           ]
         },
+		{
+			"id": "test",
+			"type": "BPDiv",
+			"cat": "0",
+			"text": "",
+			"name":"bp-checkbox-checked-disabled",
+			"css": [
+			],
+			"components": [
+				{
+				"id": "test",
+				"type": "BPCheckbox",
+				"cat": "0",
+				"text": "",
+				"name":"bp-checkbox-single-d",
+				"attrs": {
+					"id": "singleCheckboxD",
+					"name": "",
+					"checked": "true",
+					"disabled": "true"
+				},
+				"css": [
+				]
+				},
+				{
+				"id": "test",
+				"type": "BPLabel",
+				"cat": "0",
+				"text": "Checked Disabled",
+				"name":"bp-checkbox-label-single-d",
+				"attrs": {
+					"for": "singleCheckboxD"
+				},
+				"css": [	
+				]
+            }
+          ]
+        },
         {
 			"id": "test",
 			"type": "BPDiv",
