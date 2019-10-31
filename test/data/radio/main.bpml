@@ -58,7 +58,7 @@
               "id": "test",
               "type": "BPLabel",
               "cat": "0",
-              "text": "Option",
+              "text": "Disabled",
               "name":"bp-label-single-a",
               "attrs": {
                 "for": "singleRadioA"
@@ -94,7 +94,7 @@
               "id": "test",
               "type": "BPLabel",
               "cat": "0",
-              "text": "Option",
+              "text": "Resting",
               "name":"bp-label-single-b",
               "attrs": {
                 "for": "singleRadioB"
@@ -131,7 +131,7 @@
               "id": "test",
               "type": "BPLabel",
               "cat": "0",
-              "text": "Option",
+              "text": "Checked",
               "name":"bp-label-single-c",
               "attrs": {
                 "for": "singleRadioC"
@@ -176,7 +176,7 @@
 							"id": "test",
 							"type": "BPLabel",
 							"cat": "0",
-							"text": "Option",
+							"text": "Option A",
 							"name":"bp-hgroup-label-a",
 							"attrs": {
 								"for": "groupHRadioA"
@@ -201,7 +201,7 @@
 							"id": "test",
 							"type": "BPLabel",
 							"cat": "0",
-							"text": "Option",
+							"text": "Option B",
 							"name":"bp-hgroup-label-b",
 							"attrs": {
 								"for": "groupHRadioB"
@@ -226,7 +226,7 @@
 							"id": "test",
 							"type": "BPLabel",
 							"cat": "0",
-							"text": "Option",
+							"text": "Option C",
 							"name":"bp-hgroup-label-c",
 							"attrs": {
 								"for": "groupHRadioC"
@@ -275,7 +275,7 @@
                   "id": "test",
                   "type": "BPLabel",
                   "cat": "0",
-                  "text": "Option",
+                  "text": "Option A",
                   "name":"bp-vgroup-label-a",
                   "attrs": {
                     "for": "groupVRadioA"
@@ -308,7 +308,7 @@
                   "id": "test",
                   "type": "BPLabel",
                   "cat": "0",
-                  "text": "Option",
+                  "text": "Option B",
                   "name":"bp-vgroup-label-b",
                   "attrs": {
                     "for": "groupVRadioB"
@@ -341,7 +341,7 @@
                   "id": "test",
                   "type": "BPLabel",
                   "cat": "0",
-                  "text": "Option",
+                  "text": "Option C",
                   "name":"bp-vgroup-label-c",
                   "attrs": {
                     "for": "groupVRadioC"

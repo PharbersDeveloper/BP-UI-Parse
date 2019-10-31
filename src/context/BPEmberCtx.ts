@@ -117,6 +117,7 @@ export default class BPEmberCtx extends BPCtx {
             this.cmds.push(new EmberGenExec("component", component.name))   // 会重复生成某一组件，需要在
 
             this.currentCompTypeList.push(compTypeList.find((x) => x.constructor.name === component.type))
+            // 把最外层的组件 放进 currentComp... 里面
         }
     }
     private genCompTypeList(routeName: string) {
@@ -152,17 +153,19 @@ export default class BPEmberCtx extends BPCtx {
 
     private showComp(components: BPComp[]) {
         const curComps = this.getAllComponents(components)
-        const showComps: string[] = components.map((comp) => comp.type)
+        const showComps: string[] = components.map((comp) => comp.name)
         const currentCompTypeList = this.currentCompTypeList
         const that = this
         const uniqCompList = [...new Set(currentCompTypeList)]
 
         // phLogger.info(curComps)
         curComps.forEach((item) => {
-            const isShowComp: boolean = showComps.includes(item.type)
+            const isShowComp: boolean = showComps.includes(item.name)
             const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
             that.cmds.push(...paintComp.paint(that, item, isShowComp))
         })
+        // 每一个 BPxxxx 类有自己的paint方法
+        // paint 方法返回 compExec 类的执行方法 exec
     }
     private mwStyles(route: BPMainWindow) {
         this.cmds.push(new GenMWStylesExec(this.output, this.projectName, route))

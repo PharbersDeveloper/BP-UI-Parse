@@ -1,9 +1,11 @@
 .d-none {
     display: none;
 }
+
 .tab-active {
     color: #3172E0 !important;
 }
+
 .tab-active::after {
     position: absolute;
     bottom: -1px;
@@ -13,14 +15,70 @@
     height: 2px;
     background: #3172E0;
 }
+
 .bp-submenu-title {
     display: flex;
     height: 40px;
     align-items: center;
 }
+
 .menu-sub {
     padding-left: 40px;
 }
+
 .icon {
     padding-right: 12px;
+}
+
+input[type="radio"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+input[type="radio"]+label::before {
+    content: "\a0";
+    /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    margin: 6px;
+    border-radius: 50%;
+    border: 1px solid #DFE1E6;
+    line-height: 1;
+}
+
+input[type="radio"]:checked+label::before {
+    background: #ffffff;
+    border: 4px solid #3172E0;
+    height: 4px;
+    width: 4px;
+    background-clip: content-box;
+}
+
+input[type="radio"]:disabled+label::before {
+    content: "\a0";
+    /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    margin: 6px;
+    border-radius: 50%;
+    background: #F4F5F7;
+    border: 1px solid #F4F5F7;
+    line-height: 1;
+}
+
+input[type="radio"]:disabled:checked+label::before {
+    content: "\a0";
+    /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    width: 4px;
+    height: 4px;
+    margin: 6px;
+    border-radius: 50%;
+    background: #A5ADBA;
+    border: 4px solid #F4F5F7;
 }
