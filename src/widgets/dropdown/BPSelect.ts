@@ -20,6 +20,7 @@ export default class BPSelect extends BPWidget {
 
         const options: IOptions = {
             comp,
+            hbsData: this.paintHBS(),
             logicData: this.paintLogic(comp),
             output: this.output,
             pName: this.projectName,
@@ -42,7 +43,14 @@ export default class BPSelect extends BPWidget {
             "    classNames:['" + comp.name + "']," + "\r" +
             "    classNameBindings: ['isActive:menu-active']," + "\r" +
             "    attributeBindings: ['disabled']," + "\r" +
-            "    disabled: false," + "\r"
+            "    disabled: false," + "\r" +
+            "    chooseValue: '请选择'," + "\r"  +
+            "    show: false," + "\r" + 
+            "    actions: {" + "\r" + 
+            "        toggleShow() {" + "\r" + 
+            "            this.toggleProperty('show')" + "\r" + 
+            "        }," + "\r" + 
+            "}" + "\r"
 
         return fileDataStart + fileData + fileDataEnd
     }
@@ -50,16 +58,22 @@ export default class BPSelect extends BPWidget {
         const iComps = comp.components
         const index = i ? i : 0
         const curIn = cI ? cI : 0
-        const option = new BPOption(this.output, this.projectName, this.routeName)
+        const menuItem = new BPOption(this.output, this.projectName, this.routeName)
 
         const showStart = "{{#" + comp.name + "}}" + "\r"
         const showEnd = "\r" + "{{/" + comp.name + "}}\r\n"
         let showBody = "<ul class='bp-option-group'>" + "\r\n"
 
         iComps.forEach((item) => {
-            showBody += option.paintShow(item) + "\r\n"
+            showBody += menuItem.paintShow(item) + "\r\n"
         })
         return showStart + showBody + "</ul>\r\n" + showEnd
 
+    }
+
+    public paintHBS() {
+        const selectTitle = "<div class='bp-select-title' {{action 'toggleShow'}}><span>{{chooseValue}}</span>" +
+        "{{svg-jar 'down' width='24px' height='24px' class='icon'}}</div>"
+        return selectTitle + "{{#if show}}{{yield}}{{/if}}"
     }
 }
