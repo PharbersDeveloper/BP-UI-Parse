@@ -64,6 +64,14 @@
                 "for": "singleRadioA"
               },
               "css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
               ]
             }
           ]
@@ -100,6 +108,14 @@
                 "for": "singleRadioB"
               },
               "css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
               ]
             }
           ]
@@ -137,6 +153,60 @@
                 "for": "singleRadioC"
               },
               "css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-disabled-checked",
+          "css": [
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPRadio",
+              "cat": "0",
+              "text": "",
+              "name":"bp-radio-single-d",
+              "attrs": {
+                "id": "singleRadioD",
+                "name": "",
+                "disabled": "true",
+                "checked": "true"
+              },
+              "css": [
+              ]
+            },
+            {
+              "id": "test",
+              "type": "BPLabel",
+              "cat": "0",
+              "text": "Disabled Checked",
+              "name":"bp-label-single-d",
+              "attrs": {
+                "for": "singleRadioD"
+              },
+              "css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
               ]
             }
           ]
@@ -182,6 +252,14 @@
 								"for": "groupHRadioA"
 							},
 							"css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
 							]
 						},
             {
@@ -206,7 +284,15 @@
 							"attrs": {
 								"for": "groupHRadioB"
 							},
-							"css": [	
+							"css": [
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
 							]
 						},
             {
@@ -231,7 +317,15 @@
 							"attrs": {
 								"for": "groupHRadioC"
 							},
-							"css": [	
+							"css": [
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
 							]
 						}
 					]
@@ -280,7 +374,15 @@
                   "attrs": {
                     "for": "groupVRadioA"
                   },
-                  "css": [	
+                  "css": [
+                    {
+                      "k": "font-size",
+                      "v": "14px"
+                    },
+                    {
+                      "k": "color",
+                      "v": "#344563"
+                    }
                   ]
                 }
               ]
@@ -313,7 +415,15 @@
                   "attrs": {
                     "for": "groupVRadioB"
                   },
-                  "css": [	
+                  "css": [
+                    {
+                      "k": "font-size",
+                      "v": "14px"
+                    },
+                    {
+                      "k": "color",
+                      "v": "#344563"
+                    }
                   ]
                 }
               ]
@@ -346,7 +456,15 @@
                   "attrs": {
                     "for": "groupVRadioC"
                   },
-                  "css": [	
+                  "css": [
+                    {
+                      "k": "font-size",
+                      "v": "14px"
+                    },
+                    {
+                      "k": "color",
+                      "v": "#344563"
+                    }
                   ]
                 }
               ]
