@@ -36,44 +36,69 @@ export default class BPSelect extends BPWidget {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
 
-        const fileData = "import { computed } from '@ember/object';" + "\r" +
-            "\n" +
-            "export default Component.extend({" + "\r" +
+        const fileData = "export default Component.extend({" + "\r" +
             "    layout," + "\r" +
             "    classNames:['" + comp.name + "']," + "\r" +
-            "    classNameBindings: ['isActive:menu-active']," + "\r" +
-            "    attributeBindings: ['disabled']," + "\r" +
+            "    classNameBindings: ['disabled:select-disabled']," + "\r" +
+            "    attributeBindings: ['tabIndex']," + "\r" +
             "    disabled: false," + "\r" +
-            "    chooseValue: '请选择'," + "\r"  +
-            "    show: false," + "\r" + 
-            "    actions: {" + "\r" + 
-            "        toggleShow() {" + "\r" + 
-            "            this.toggleProperty('show')" + "\r" + 
-            "        }," + "\r" + 
-            "}" + "\r"
+            "    choosedValue: '请选择'," + "\r" +
+            "    show: false," + "\r" +
+            "    tabIndex: '1'," + "\r" +
+            "    defaultValue: ''," + "\r" +
+            "    focusOut() {" + "\r" +
+            "        this.set('show',false)" + "\r" +
+            "    }," + "\r" +
+            "    onChange() {}," + "\r" +
+            "    actions: {" + "\r" +
+            "        toggleShow() {" + "\r" +
+            "            if(!this.disabled) {" + "\r" +
+            "               this.toggleProperty('show')" + "\r" +
+            "            }" + "\r" +
+            "        }," + "\r" +
+            "        change(text) {" + "\r" +
+            "             this.set('choosedValue',text);" + "\r" +
+            "             this.onChange(text)" + "\r" +
+            "             this.set('show',false)" + "\r" +
+            "         }" + "\r" +
+            "    }," + "\r" +
+            "    didInsertElement() {" + "\r" +
+            "        this._super(...arguments);" + "\r" +
+            "        if(this.defaultValue) {" + "\r" +
+            "            this.set('choosedValue',this.defaultValue)" + "\r" +
+            "        }" + "\r" +
+            "    }"
 
-        return fileDataStart + fileData + fileDataEnd
+        return fileDataStart + "\r\n" + fileData + fileDataEnd
     }
     public paintShow(comp: BPComp, i?: number, cI?: string | number) {
         const iComps = comp.components
         const index = i ? i : 0
         const curIn = cI ? cI : 0
         const menuItem = new BPOption(this.output, this.projectName, this.routeName)
-
-        const showStart = "{{#" + comp.name + "}}" + "\r"
-        const showEnd = "\r" + "{{/" + comp.name + "}}\r\n"
-        let showBody = "<ul class='bp-option-group'>" + "\r\n"
+        // TODO 可选参数
+        const {choosedValue, disabled} = comp.attrs
+        const cVal: string = choosedValue ? choosedValue : "请选择"
+        const showStart = "{{#" + comp.name + " choosedValue='" + cVal + "' as |s|}}" + "\r"
+        const showEnd = "{{/" + comp.name + "}}\r\n"
+        let showBody = ""
 
         iComps.forEach((item) => {
-            showBody += menuItem.paintShow(item) + "\r\n"
+            showBody += menuItem.paintShow(item, "s") + "\r\n"
         })
-        return showStart + showBody + "</ul>\r\n" + showEnd
+        return showStart + showBody + showEnd
 
     }
 
     public paintHBS() {
-        const selectTitle = "<div class='bp-select-title' {{action 'toggleShow'}}><span>{{chooseValue}}</span>" +
-        "{{svg-jar 'down' width='24px' height='24px' class='icon'}}</div>"
-        return selectTitle + "{{#if show}}{{yield}}{{/if}}"
+        const selectTitle = "<div class='bp-select-title' {{action 'toggleShow'}}><span>{{choosedValue}}</span>" +
+            "{{svg-jar 'down' width='24px' height='24px' class='icon'}}</div>" +
+            "<ul class={{if show 'bp-option-group' 'd-none'}}>" +
+            "{{yield (hash" +
+            "    onChange=(action 'change')" +
+            "   val=choosedValue)}}" +
+            "</ul>"
+
+        return selectTitle
     }
 }

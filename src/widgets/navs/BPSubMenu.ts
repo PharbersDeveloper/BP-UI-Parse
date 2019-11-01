@@ -45,9 +45,13 @@ export default class BPSubMenu extends BPWidget {
             "    classNameBindings: ['isActive:menu-active']," + "\r" +
             "    attributeBindings: ['disabled']," + "\r" +
             "    disabled: false," + "\r" +
-            "    isActive: computed('currentIndex',function() {" + "\r" +
-            "        return this.currentIndex === this.index" + "\r" +
-            "    })" + "\r"
+            "   text: ''," + "\r" +
+            "   show: false," + "\r" +
+            "   actions: {" + "\r" +
+            "       toggleShow() {" + "\r" +
+            "           this.toggleProperty('show')" + "\r" +
+            "       }" + "\r" +
+            "   }" + "\r"
 
         return fileDataStart + fileData + fileDataEnd
     }
@@ -58,20 +62,25 @@ export default class BPSubMenu extends BPWidget {
         const menuItem = new BPMenuItem(this.output, this.projectName, this.routeName)
 
         if (iComps.length > 0 ) {
-            const showStart = "{{#" + comp.name + "}}" + "\r"
+            const showStart = "{{#" + comp.name + " text='" + comp.text + "'}}" + "\r"
             const showEnd = "\r" + "{{/" + comp.name + "}}\r\n"
-            let showBody = "<div class='bp-submenu-title'>{{svg-jar '" + comp.icon +
-            "'  width='24px' height='24px' class='icon'}}<span>" + comp.text +
-            "</span></div>" + "<ul class='menu-sub'>" + "\r\n"
+            let showBody: string = ""
 
             iComps.forEach((item) => {
                 showBody += menuItem.paintShow(item) + "\r\n"
             })
-            return showStart + showBody + "</ul>\r\n" + showEnd
+            return showStart + showBody + showEnd
         }
         return menuItem.paintShow(comp)
     }
     public paintHBS() {
-        return "{{yield}}"
+        // return "{{yield}}"
+        const data = "<div class='bp-submenu-title'  {{action 'toggleShow'}}>" + "\r\n" +
+            "{{svg-jar 'point' width='24px' height='24px' class='icon'}}" + "\r\n" +
+            "<span>{{text}}</span>" + "\r\n" +
+            "</div>" + "\r\n" +
+            "<ul class={{if show 'menu-sub' 'd-none'}}>{{yield}}</ul>" + "\r\n"
+
+        return data
      }
 }

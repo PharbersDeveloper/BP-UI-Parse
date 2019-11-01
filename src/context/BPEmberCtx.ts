@@ -163,9 +163,11 @@ export default class BPEmberCtx extends BPCtx {
         const uniqCompList = [...new Set(currentCompTypeList)]
 
         curComps.forEach((item) => {
-            const isShowComp: boolean = showComps.includes(item.name)
-            const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
-            that.cmds.push(...paintComp.paint(that, item, isShowComp))
+            showComps.forEach((sc, i) => {
+                const isShow: boolean = sc === item.type
+                const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
+                that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))
+            })
         })
         // 每一个 BPxxxx 类有自己的paint方法
         // paint 方法返回 compExec 类的执行方法 exec

@@ -48,7 +48,7 @@ export default class BPMenuItem extends BPPushButton {
 
         return fileDataStart + fileData + fileDataEnd
     }
-    public paintShow(comp: BPComp, i?: number, cI?: string | number) {
+    public paintShow(comp: BPComp, i?: number | string, cI?: string | number) {
         const index = i ? i : 0
         const curIn = cI ? cI : 0
         return "{{" + comp.name + " icon='" + comp.icon + "' text='" + comp.text + "'}}"
