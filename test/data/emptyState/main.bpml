@@ -17,7 +17,7 @@
 			"v": "flex"
 			},{
 			"k": "flex-direction",
-			"v": "row"
+			"v": "column"
 			}
 		],
 		"css": [
@@ -31,7 +31,7 @@
 			}
 		],
       	"components": [
-			{
+		{
 			"id": "test",
 			"type": "BPDiv",
 			"cat": "0",
@@ -102,7 +102,7 @@
 						},
 						{
 							"k": "padding",
-							"v": "24px 0 16px 0"
+							"v": "24px 0 0 0"
 						},
 						{
 							"k": "width",
@@ -132,6 +132,14 @@
 						{
 							"k": "width",
 							"v": "312px"
+						},
+						{
+							"k": "padding",
+							"v": "16px 0 24px 0"
+						},
+						{
+							"k": "text-align",
+							"v": "center"
 						}
 					]
 				},
@@ -148,7 +156,7 @@
 						},
 						{
 							"k": "padding",
-							"v": "24px 0"
+							"v": "0 0 24px 0"
 						},
 						{
 							"k": "display",
@@ -262,7 +270,224 @@
 				}
 				
 			]
+		},
+		{
+			"id": "test",
+			"type": "BPDiv",
+			"cat": "0",
+			"text": "simon test",
+			"name":"bp-empty-state-link",
+			"css": [
+			{
+				"k": "width",
+				"v": "100%"
+			},
+			{
+				"k": "height",
+				"v": "348px"
+			}, {
+				"k": "display",
+				"v": "flex"
+			}, {
+				"k": "flex-direction",
+				"v": "column"
+			}, {
+				"k": "align-items",
+				"v": "center"
 			}
+			],
+			"components": [
+				{
+					"id": "test",
+					"type": "BPImg",
+					"cat": "1",
+					"text": "",
+					"name":"bp-empty-state-default-img",
+					"css": [
+						{
+						"k": "width",
+						"v": "160px"
+						},
+						{
+						"k": "height",
+						"v": "160px"
+						},
+						{
+							"k": "background",
+							"v": "#A1C6E7"
+						}
+					],
+					"attrs":{
+						"src": ""
+					}
+				},
+				{
+					"id": "test",
+					"type": "BPDiv",
+					"cat": "2",
+					"text": "Create or import a repository",
+					"name":"bp-empty-state-default-title",
+					"css": [
+						{
+							"k": "box-sizing",
+							"v": "content-box"
+						},
+						{
+						"k": "font-size",
+						"v": "20px"
+						},
+						{
+						"k": "color",
+						"v": "#172B4D"
+						},
+						{
+							"k": "padding",
+							"v": "24px 0 0 0"
+						},
+						{
+							"k": "width",
+							"v": "fit-content"
+						}
+					]
+				},
+				{
+					"id": "test",
+					"type": "BPDiv",
+					"cat": "1",
+					"text": "Thanks for choosing Bitbucket. Your next steps are to put some bits in your bucket.",
+					"name":"bp-empty-state-default-desc",
+					"css": [
+						{
+							"k": "box-sizing",
+							"v": "content-box"
+						},
+						{
+						"k": "font-size",
+						"v": "14px"
+						},
+						{
+						"k": "color",
+						"v": "#172B4D"
+						},
+						{
+							"k": "width",
+							"v": "312px"
+						},
+						{
+							"k": "padding",
+							"v": "16px 0 24px"
+						},
+						{
+							"k": "text-align",
+							"v": "center"
+						}
+					]
+				},
+				{
+					"id": "test",
+					"type": "BPLink",
+					"cat": "0",
+					"text": "Learn how",
+					"name":"bp-empty-state-default-link-a",
+					"css": [
+						{
+							"k": "padding",
+							"v": "0 0 24px 0"
+						}
+					],
+					"attrs": {
+						"href": "#"
+					}
+				}
+				
+			]
+		},
+		{
+			"id": "test",
+			"type": "BPDiv",
+			"cat": "0",
+			"text": "simon test",
+			"name":"bp-empty-state-description",
+			"css": [
+			{
+				"k": "width",
+				"v": "100%"
+			},
+			{
+				"k": "height",
+				"v": "240px"
+			}, {
+				"k": "display",
+				"v": "flex"
+			}, {
+				"k": "flex-direction",
+				"v": "column"
+			}, {
+				"k": "align-items",
+				"v": "center"
+			}
+			],
+			"components": [
+				{
+					"id": "test",
+					"type": "BPImg",
+					"cat": "1",
+					"text": "",
+					"name":"bp-empty-state-default-img",
+					"css": [
+						{
+						"k": "width",
+						"v": "160px"
+						},
+						{
+						"k": "height",
+						"v": "160px"
+						},
+						{
+							"k": "background",
+							"v": "#A1C6E7"
+						}
+					],
+					"attrs":{
+						"src": ""
+					}
+				},
+				{
+					"id": "test",
+					"type": "BPDiv",
+					"cat": "1",
+					"text": "Thanks for choosing Bitbucket. Your next steps are to put some bits in your bucket.",
+					"name":"bp-empty-state-default-desc",
+					"css": [
+						{
+							"k": "box-sizing",
+							"v": "content-box"
+						},
+						{
+						"k": "font-size",
+						"v": "14px"
+						},
+						{
+						"k": "color",
+						"v": "#172B4D"
+						},
+						{
+							"k": "width",
+							"v": "312px"
+						},
+						{
+							"k": "padding",
+							"v": "16px 0 24px 0"
+						},
+						{
+							"k": "text-align",
+							"v": "center"
+						}
+					]
+				}
+				
+			]
+		}
       ]
     }
   ]
