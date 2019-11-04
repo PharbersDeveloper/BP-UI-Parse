@@ -13,7 +13,6 @@ import { GenMWStylesExec } from "../bashexec/genMWStylesExec"
 import { RemoveFolderExec } from "../bashexec/removeFolderExec"
 import { SassyStyles } from "../bashexec/sassyStyles"
 import phLogger from "../logger/phLogger"
-import BPAvatar from "../widgets/avatars/BPAvatar"
 import BPBadge from "../widgets/badges/BPBadge"
 import BPItem from "../widgets/basic/BPItem"
 import { BPWidget } from "../widgets/BPWidget"
@@ -23,8 +22,10 @@ import BPComp from "../widgets/Comp"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
 import BPSelect from "../widgets/dropdown/BPSelect"
+import BPImg from "../widgets/img/BPImg"
 import BPInput from "../widgets/inputs/BPInput"
 import BPLabel from "../widgets/label/BPLabel"
+import BPLink from "../widgets/link/BPLink"
 import BPMenu from "../widgets/navs/BPMenu"
 import BPMenuItem from "../widgets/navs/BPMenuItem"
 import BPStackLayout from "../widgets/navs/BPStackLayout"
@@ -36,6 +37,7 @@ import BPRadio from "../widgets/radio/BPRadio"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
 import BPStatus from "../widgets/status/BPStatus"
 import BPTag from "../widgets/tags/BPTag"
+import BPTextarea from "../widgets/textarea/BPTextarea"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import BPCtx from "./BPCtx"
 
@@ -117,16 +119,19 @@ export default class BPEmberCtx extends BPCtx {
             this.cmds.push(new EmberGenExec("component", component.name))   // 会重复生成某一组件，需要在
 
             this.currentCompTypeList.push(compTypeList.find((x) => x.constructor.name === component.type))
+            // 把最外层的组件 放进 currentComp... 里面
         }
     }
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPLink(this.output, this.projectName, routeName),
+            new BPTextarea(this.output, this.projectName, routeName),
             new BPCheckbox(this.output, this.projectName, routeName),
             new BPRadio(this.output, this.projectName, routeName),
             new BPLabel(this.output, this.projectName, routeName),
             new BPDiv(this.output, this.projectName, routeName),
-            new BPAvatar(this.output, this.projectName, routeName),
+            new BPImg(this.output, this.projectName, routeName),
             new BPTag(this.output, this.projectName, routeName),
             new BPStatus(this.output, this.projectName, routeName),
             new BPBadge(this.output, this.projectName, routeName),
@@ -152,7 +157,7 @@ export default class BPEmberCtx extends BPCtx {
 
     private showComp(components: BPComp[]) {
         const curComps = this.getAllComponents(components)
-        const showComps: string[] = components.map((comp) => comp.type)
+        const showComps: string[] = components.map((comp) => comp.name)
         const currentCompTypeList = this.currentCompTypeList
         const that = this
         const uniqCompList = [...new Set(currentCompTypeList)]
@@ -164,6 +169,8 @@ export default class BPEmberCtx extends BPCtx {
                 that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))
             })
         })
+        // 每一个 BPxxxx 类有自己的paint方法
+        // paint 方法返回 compExec 类的执行方法 exec
     }
     private mwStyles(route: BPMainWindow) {
         this.cmds.push(new GenMWStylesExec(this.output, this.projectName, route))

@@ -58,12 +58,20 @@
               "id": "test",
               "type": "BPLabel",
               "cat": "0",
-              "text": "Option",
+              "text": "Disabled",
               "name":"bp-label-single-a",
               "attrs": {
                 "for": "singleRadioA"
               },
               "css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
               ]
             }
           ]
@@ -94,12 +102,20 @@
               "id": "test",
               "type": "BPLabel",
               "cat": "0",
-              "text": "Option",
+              "text": "Resting",
               "name":"bp-label-single-b",
               "attrs": {
                 "for": "singleRadioB"
               },
               "css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
               ]
             }
           ]
@@ -131,12 +147,66 @@
               "id": "test",
               "type": "BPLabel",
               "cat": "0",
-              "text": "Option",
+              "text": "Checked",
               "name":"bp-label-single-c",
               "attrs": {
                 "for": "singleRadioC"
               },
               "css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-disabled-checked",
+          "css": [
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPRadio",
+              "cat": "0",
+              "text": "",
+              "name":"bp-radio-single-d",
+              "attrs": {
+                "id": "singleRadioD",
+                "name": "",
+                "disabled": "true",
+                "checked": "true"
+              },
+              "css": [
+              ]
+            },
+            {
+              "id": "test",
+              "type": "BPLabel",
+              "cat": "0",
+              "text": "Disabled Checked",
+              "name":"bp-label-single-d",
+              "attrs": {
+                "for": "singleRadioD"
+              },
+              "css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
               ]
             }
           ]
@@ -176,12 +246,20 @@
 							"id": "test",
 							"type": "BPLabel",
 							"cat": "0",
-							"text": "Option",
+							"text": "Option A",
 							"name":"bp-hgroup-label-a",
 							"attrs": {
 								"for": "groupHRadioA"
 							},
 							"css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
 							]
 						},
             {
@@ -201,12 +279,20 @@
 							"id": "test",
 							"type": "BPLabel",
 							"cat": "0",
-							"text": "Option",
+							"text": "Option B",
 							"name":"bp-hgroup-label-b",
 							"attrs": {
 								"for": "groupHRadioB"
 							},
-							"css": [	
+							"css": [
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
 							]
 						},
             {
@@ -226,12 +312,20 @@
 							"id": "test",
 							"type": "BPLabel",
 							"cat": "0",
-							"text": "Option",
+							"text": "Option C",
 							"name":"bp-hgroup-label-c",
 							"attrs": {
 								"for": "groupHRadioC"
 							},
-							"css": [	
+							"css": [
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
 							]
 						}
 					]
@@ -275,12 +369,20 @@
                   "id": "test",
                   "type": "BPLabel",
                   "cat": "0",
-                  "text": "Option",
+                  "text": "Option A",
                   "name":"bp-vgroup-label-a",
                   "attrs": {
                     "for": "groupVRadioA"
                   },
-                  "css": [	
+                  "css": [
+                    {
+                      "k": "font-size",
+                      "v": "14px"
+                    },
+                    {
+                      "k": "color",
+                      "v": "#344563"
+                    }
                   ]
                 }
               ]
@@ -308,12 +410,20 @@
                   "id": "test",
                   "type": "BPLabel",
                   "cat": "0",
-                  "text": "Option",
+                  "text": "Option B",
                   "name":"bp-vgroup-label-b",
                   "attrs": {
                     "for": "groupVRadioB"
                   },
-                  "css": [	
+                  "css": [
+                    {
+                      "k": "font-size",
+                      "v": "14px"
+                    },
+                    {
+                      "k": "color",
+                      "v": "#344563"
+                    }
                   ]
                 }
               ]
@@ -341,12 +451,20 @@
                   "id": "test",
                   "type": "BPLabel",
                   "cat": "0",
-                  "text": "Option",
+                  "text": "Option C",
                   "name":"bp-vgroup-label-c",
                   "attrs": {
                     "for": "groupVRadioC"
                   },
-                  "css": [	
+                  "css": [
+                    {
+                      "k": "font-size",
+                      "v": "14px"
+                    },
+                    {
+                      "k": "color",
+                      "v": "#344563"
+                    }
                   ]
                 }
               ]

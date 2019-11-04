@@ -1,12 +1,23 @@
 * {
     box-sizing: border-box;
 }
+
+a {
+    font-size: 14px;
+    color: #3172E0;
+    line-height: 32px;
+    text-decoration: none;
+    text-align: center;
+}
+
 .d-none {
     display: none;
 }
+
 .tab-active {
     color: #3172E0 !important;
 }
+
 .tab-active::after {
     position: absolute;
     bottom: -1px;
@@ -16,18 +27,80 @@
     height: 2px;
     background: #3172E0;
 }
+
 .bp-submenu-title {
     display: flex;
     height: 40px;
     align-items: center;
     cursor: pointer;
 }
+
 .menu-sub {
     padding-left: 40px;
 }
+
 .icon {
     margin-right: 12px;
 }
+
+input[type="radio"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+input[type="radio"]+label {
+    font-size: 14px;
+    color: #344563;
+}
+
+input[type="radio"]+label::before {
+    content: "\a0";
+    /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    margin: 6px;
+    border-radius: 50%;
+    border: 1px solid #DFE1E6;
+    line-height: 1;
+}
+
+input[type="radio"]:checked+label::before {
+    background: #ffffff;
+    border: 4px solid #3172E0;
+    height: 4px;
+    width: 4px;
+    background-clip: content-box;
+}
+
+input[type="radio"]:disabled+label::before {
+    content: "\a0";
+    /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    margin: 6px;
+    border-radius: 50%;
+    background: #F4F5F7;
+    border: 1px solid #F4F5F7;
+    line-height: 1;
+}
+
+input[type="radio"]:disabled:checked+label::before {
+    content: "\a0";
+    /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    width: 4px;
+    height: 4px;
+    margin: 6px;
+    border-radius: 50%;
+    background: #A5ADBA;
+    border: 4px solid #F4F5F7;
+}
+
 .bp-select-title {
     height: 100%;
     width: 100%;
@@ -36,11 +109,12 @@
     padding: 0 8px;
     justify-content: space-between;
 }
+
 .bp-option-group {
     margin: 0;
     padding: 4px 0;
     background: #FFFFFF;
-    box-shadow: 0 4px 8px -2px rgba(9,30,66,0.25);
+    box-shadow: 0 4px 8px -2px rgba(9, 30, 66, 0.25);
     border-radius: 3px;
 }
 .bp-select:focus {
@@ -52,4 +126,54 @@
 }
 .option-active .icon path {
     fill: #fff;
+}
+
+input[type="checkbox"]+label::before {
+    content: "\a0";
+    /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    margin-right: .2em;
+    border-radius: .2em;
+    text-indent: .15em;
+    margin: 6px;
+    line-height: .65;
+    /*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
+    background-image: url("/hospital-unchecked.svg");
+    background-size: 12px 12px;
+}
+
+input[type="checkbox"]:checked+label::before {
+    content: " ";
+    margin: 6px;
+    background-image: url("/hospital-checked.svg");
+    background-size: 12px 12px;
+}
+
+input[type="checkbox"]:checked:disabled+label::before {
+    content: " ";
+    margin: 6px;
+    background-image: url("/hospital-checked-disabled.svg");
+    background-size: 12px 12px;
+}
+
+input[type="checkbox"]:disabled+label::before {
+    content: " ";
+    height: 12px;
+    width: 12px;
+    background: #F4F5F7;
+    border-radius: 2px;
+    margin: 6px;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+input[type="checkbox"]+label {
+    font-size: 14px;
+    color: #344563;
 }
