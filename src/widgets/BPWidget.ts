@@ -35,20 +35,39 @@ export abstract class BPWidget extends BPObject {
         let fileData = prefix ? "." + prefix + " " + className : className
         let styles: string = ""
 
-        comp.css.filter((item) => item.tp === "css").forEach((item) => {
+        comp.css.filter((item) => item.tp === "css" && item.pe === "css").forEach((item) => {
             const style = item.key + ": " + item.value + ";" + "\r"
             styles = styles + style
         })
         fileData = comp.css.length > 0 ? fileData + styles + "\r" + "}" + "\r" : ""
 
         // 伪类
-        comp.css.filter((item) => item.tp !== "css").forEach((item) => {
+        comp.css.filter((item) => item.tp !== "css" && item.pe === "css").forEach((item) => {
             const pseudoClassName =  "." + comp.name + ":" + item.tp + " {" + "\r" + "\n"
             let pseudoClass: string = prefix ? "." + prefix + " " + pseudoClassName : pseudoClassName
             const pseudoStyle = item.key + ": " + item.value + ";" + "\r"
             pseudoClass = pseudoClass + pseudoStyle + "\r" + "}" + "\r"
             fileData += pseudoClass
         })
+
+        // 伪元素 pseudu element
+        comp.css.filter((item) => item.pe !== "css" && item.tp === "css").forEach((item) => {
+            const pseudoEleName =  "." + comp.name + "::" + item.pe + " {" + "\r" + "\n"
+            let pseudoEle: string = prefix ? "." + prefix + " " + pseudoEleName : pseudoEleName
+            const pseudoStyle = item.key + ": " + item.value + ";" + "\r"
+            pseudoEle = pseudoEle + pseudoStyle + "\r" + "}" + "\r"
+            fileData += pseudoEle
+        })
+
+        // 伪类 + 伪元素
+        comp.css.filter((item) => item.pe !== "css" && item.tp !== "css").forEach((item) => {
+            const pseudoEleName =  "." + comp.name + ":" + item.tp + "::" + item.pe + " {" + "\r" + "\n"
+            let pseudoEle: string = prefix ? "." + prefix + " " + pseudoEleName : pseudoEleName
+            const pseudoStyle = item.key + ": " + item.value + ";" + "\r"
+            pseudoEle = pseudoEle + pseudoStyle + "\r" + "}" + "\r"
+            fileData += pseudoEle
+        })
+
         let insideCompsStyle = ""
         if (Array.isArray(comp.components) && comp.components.length > 0) {
             comp.components.filter((item) => item.css.length > 0).forEach((icomp) => {
