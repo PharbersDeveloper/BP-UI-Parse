@@ -32,7 +32,8 @@ export default class BPTooltip extends BPWidget {
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
-        const href = comp.attrs.href
+        // const tooltipClass = comp.attrs.tooltipExtraClass
+        const baseClass = comp.attrs.baseClass
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
 
@@ -40,7 +41,7 @@ export default class BPTooltip extends BPWidget {
             "export default Component.extend({" + "\r" +
             "    layout," + "\r" +
             "    tagName:'div'," + "\r" +
-            "    classNames:['" + comp.name + "']," + "\r" +
+            "    classNames:['" + comp.name + " " + baseClass + "']," + "\r" +
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
             "    attributeBindings: ['']," + "\r"

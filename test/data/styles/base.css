@@ -177,3 +177,15 @@ input[type="checkbox"]+label {
     font-size: 14px;
     color: #344563;
 }
+
+/* tooltip 通用样式 */
+.tooltip:hover::after {
+    background: #172B4D;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #FFFFFF;
+    line-height: 20px;
+    display: block;
+    position: relative;
+    padding: 0 4px;
+}
