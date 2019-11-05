@@ -43,6 +43,18 @@ a {
     margin-right: 12px;
 }
 
+.icon-white path{    
+    fill: #FFFFFF;
+}
+
+.icon-warning path {
+    fill: #505F79;
+}
+
+.icon-pointer {
+    cursor: pointer;
+}
+
 input[type="radio"] {
     position: absolute;
     clip: rect(0, 0, 0, 0);
@@ -188,4 +200,16 @@ input[type="checkbox"]+label {
     display: block;
     position: relative;
     padding: 0 4px;
+}
+
+.flex-alian-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.toast-inline-link {
+    color: inherit;
+    margin-left: 10px;
+    text-decoration: underline;
 }
