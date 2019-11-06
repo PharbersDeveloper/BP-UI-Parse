@@ -70,7 +70,7 @@ export default class BPEmberCtx extends BPCtx {
     }
     public cmdEnd() {
         return [
-            new EmberYarnExec("remove", "ember-cli-htmlbars"), 
+            new EmberYarnExec("remove", "ember-cli-htmlbars"),
             new EmberInstallDepExec("ember-cli-htmlbars@3.0.0", "-S"),
             new EmberInstallDepExec("ember-svg-jar", "-S"),
             new EmberInstallDepExec("ember-cli-echarts")

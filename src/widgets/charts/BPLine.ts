@@ -17,7 +17,7 @@ export default class BPLine extends BPChart {
 
         const options: IOptions = {
             comp,
-            // hbsData: this.paintHBS(),
+            hbsData: this.paintHBS(),
             logicData: this.paintLogic(comp),
             output: this.output,
             pName: this.projectName,
@@ -29,29 +29,4 @@ export default class BPLine extends BPChart {
 
         return execList
     }
-    // public paintLogic(comp: BPComp) {
-    //     const fileDataStart = this.paintLoginStart(comp)
-    //     const fileDataEnd = this.paintLoginEnd()
-
-    //     const fileData = "export default Component.extend({" + "\r" +
-    //         "    layout," + "\r" +
-    //         "    classNames:['" + comp.name + "']," + "\r" +
-    //         "    classNameBindings: ['disabled:select-disabled']," + "\r" +
-    //         "    disabled: false," + "\r" +
-    //         "    didInsertElement() {" + "\r" +
-    //         "        this._super(...arguments);" + "\r" +
-    //         "        if(this.defaultValue) {" + "\r" +
-    //         "            this.set('choosedValue',this.defaultValue)" + "\r" +
-    //         "        }" + "\r" +
-    //         "    }"
-
-    //     return fileDataStart + "\r\n" + fileData + fileDataEnd
-    // }
-
-    // public paintHBS() {
-    //     const selectTitle = "{{yield}}" +
-    //         "</ul>"
-
-    //     return selectTitle
-    // }
 }

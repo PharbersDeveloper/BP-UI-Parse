@@ -33,22 +33,13 @@ export default class BPChart extends BPWidget {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
 
-        // const fileData = "export default Component.extend({" + "\r" +
-        //     "    layout," + "\r" +
-        //     "    classNames:['" + comp.name + "']," + "\r" +
-        //     "    disabled: false," + "\r" +
-        //     "    didInsertElement() {" + "\r" +
-        //     "        this._super(...arguments);" + "\r" +
-        //     "        if(this.defaultValue) {" + "\r" +
-        //     "            this.set('choosedValue',this.defaultValue)" + "\r" +
-        //     "        }" + "\r" +
-        //     "    }"
         const fileData = `import { isEmpty, typeOf } from '@ember/utils';
                 import { isArray } from '@ember/array';
                 import echarts from 'echarts';
                 import $ from 'jquery';
                 import { inject as service } from '@ember/service';
                 import { later } from '@ember/runloop';
+
                 export default Component.extend({
                     layout,
                     tagName: '',
@@ -69,9 +60,9 @@ export default class BPChart extends BPWidget {
                             zlevel: 0
                         });
                     },
-                    getChartIns() {` +" \r" + 
-                    "    const selector = `#${this.get('eid')}`,"+" \r" + 
-                    `        $el = $(selector),
+                    getChartIns() {` + " \r" +
+            "    const selector = `#${this.get('eid')}`," + " \r" +
+            `        $el = $(selector),
                             echartInstance = echarts.getInstanceByDom($el[0]);
                         return echartInstance;
                     },
@@ -89,9 +80,9 @@ export default class BPChart extends BPWidget {
                                 ['Walnut Brownie', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
                             ]
                             resolve(chartData)
-                        })`+" \r" + 
-                    "        // this.get('ajax').request(`${qa}`, {"+" \r" + 
-                    `       //     method: 'GET',
+                        })` + " \r" +
+            "        // this.get('ajax').request(`${qa}`, {" + " \r" +
+            `       //     method: 'GET',
                             //     data: cond.queryBody
                             // })
                             .then(data => {
@@ -100,19 +91,19 @@ export default class BPChart extends BPWidget {
                     },
                     updateChartData(chartConfig, chartData) {
                         let isLines = chartConfig.series.every((ele) => ele.type === 'line');
-                
+
                         if (!isLines) {
                             this.reGenerateChart(chartConfig, chartData);
                         } else {
                             // TODO 这里可以改一下
                             let linesPanelConfig = this.calculateLinesNumber(chartConfig, chartData);
-                
+
                             this.reGenerateChart(linesPanelConfig, chartData);
                         }
                         this.dataReady(chartData, chartConfig);
-                
+
                         const echartInit = this.getChartIns();
-                
+
                         echartInit.hideLoading();
                     },
                     calculateLinesNumber(panelConfig, chartData) {
@@ -121,7 +112,7 @@ export default class BPChart extends BPWidget {
                             series = [...Array(linesNumber)].map(() => {
                                 return lineConfig;
                             });
-                
+
                         panelConfig.series = series;
                         return panelConfig;
                     },
@@ -213,15 +204,16 @@ export default class BPChart extends BPWidget {
                                                 type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
                                             },
                                             //TODO 可配置的 formatter
-                                            formatter: function (params) {`+" \r" + 
-                "                                let title = `<h6>${params[0].axisValue}</h6>`,"+" \r" + 
-                `                                    content = params.map(ele => {
+                                            formatter: function (params) {` + " \r" +
+            "                                let title = `<h6>${params[0].axisValue}</h6>`," + " \r" +
+            `                                    content = params.map(ele => {
 
-                                                        let value = ele.value[ele.seriesIndex + 1]`+" \r" + 
-                
-                "                                        return `<div>${ele.marker} ${ele.seriesName} ${value}%</div>`"+" \r" + 
+                                                        let value = ele.value[ele.seriesIndex + 1]` + " \r" +
 
-                `                                    })
+            "                                        return `<div>${ele.marker} ${ele.seriesName}` +" + "\r" +
+            "                                            `${value}%</div>`" + " \r" +
+
+            `                                    })
 
                                                 return title + content.join('')
                                             },
@@ -265,10 +257,7 @@ export default class BPChart extends BPWidget {
                                     }
                                 })
                         }, 2000)
-                    }
-                });`
-
-
+                    }`
 
         return fileDataStart + "\r\n" + fileData + fileDataEnd
     }
@@ -276,6 +265,7 @@ export default class BPChart extends BPWidget {
         const iComps = comp.components
         const index = i ? i : 0
         const curIn = cI ? cI : 0
+
         // TODO 可选参数
         const showStart = "{{#" + comp.name + "}}" + "\r"
         const showEnd = "{{/" + comp.name + "}}\r\n"
@@ -283,13 +273,12 @@ export default class BPChart extends BPWidget {
 
         return showStart + showBody + showEnd
     }
-
     public paintHBS() {
-        const chartHbs = "{{echarts-chart classNames='chart-container'" + "\r\n" +
-        "    elementId=eid" + "\r\n" +
-        "    option=result"  + "\r\n" +
-        "    onChartReady=(action onChartReady)" + "\r\n" +
-        "    opts=opts}}" + "\r\n"
+        const chartHbs = `{{echarts-chart classNames='chart-container'` + "\r\n" +
+            `    elementId=eid` + "\r\n" +
+            `    option=result` + "\r\n" +
+            `    onChartReady=(action onChartReady)` + "\r\n" +
+            `    opts=opts}}` + "\r\n"
 
         return chartHbs
     }

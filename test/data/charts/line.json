@@ -3,7 +3,7 @@
         "paint": [
             "ember"
         ],
-        "name": "refactoring-code"
+        "name": "refactoring-code-chart"
     },
     "routers": [
         {
@@ -25,7 +25,7 @@
             "css": [],
             "components": [
                 {
-                    "id": "test",
+                    "id": "te地方st",
                     "type": "BPLine",
                     "cat": "0",
                     "name": "bp-line",
