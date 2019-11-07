@@ -34,244 +34,129 @@ export default class BPChart extends BPWidget {
         const fileDataEnd = this.paintLoginEnd()
 
         const fileData = `import { isEmpty, typeOf } from '@ember/utils';
-                import { isArray } from '@ember/array';
-                import echarts from 'echarts';
-                import $ from 'jquery';
-                import { inject as service } from '@ember/service';
-                import { later } from '@ember/runloop';
+        import { isArray } from '@ember/array';
+        import echarts from 'echarts';
+        import $ from 'jquery';
+        import { inject as service } from '@ember/service';
 
-                export default Component.extend({
-                    layout,
-                    tagName: '',
-                    ajax: service(),
-                    init() {
-                        this._super(...arguments);
-                        this.set('result', {});
-                        this.set('opts', {
-                            renderer: 'canvas' // canvas of svg
-                        });
-                    },
-                    onChartReady(chart) {
-                        chart.showLoading({
-                            text: '加载中...',
-                            color: '#FFAB00',
-                            textColor: '#fff',
-                            maskColor: 'rgba(9,30,66,0.54)',
-                            zlevel: 0
-                        });
-                    },
-                    getChartIns() {` + " \r" +
-            "    const selector = `#${this.get('eid')}`," + " \r" +
-            `        $el = $(selector),
-                            echartInstance = echarts.getInstanceByDom($el[0]);
-                        return echartInstance;
-                    },
-                    generateChartOption(chartConfig, condition) {
-                        this.queryData(chartConfig, condition);
-                    },
-                    queryData(chartConfig, cond) {
-                        let qa = cond.queryAddress;
-                        new Promise(resolve => {
-                            let chartData = [
-                                ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
-                                ['Matcha Latte', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
-                                ['Milk Tea', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
-                                ['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
-                                ['Walnut Brownie', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
-                            ]
-                            resolve(chartData)
-                        })` + " \r" +
-            "        // this.get('ajax').request(`${qa}`, {" + " \r" +
-            `       //     method: 'GET',
-                            //     data: cond.queryBody
-                            // })
-                            .then(data => {
-                                this.updateChartData(chartConfig, data);
-                            });
-                    },
-                    updateChartData(chartConfig, chartData) {
-                        let isLines = chartConfig.series.every((ele) => ele.type === 'line');
+        export default Component.extend({
+            layout,
+            tagName: '',
+            ajax: service(),
+            init() {
+                this._super(...arguments);
+                this.set('result', {});
+                this.set('opts', {
+                    renderer: 'canvas' // canvas of svg
+                });
+            },
+            onChartReady(chart) {
+                chart.showLoading({
+                    text: '加载中...',
+                    color: '#FFAB00',
+                    textColor: '#fff',
+                    maskColor: 'rgba(9,30,66,0.54)',
+                    zlevel: 0
+                });
+            },
+            getChartIns() {
+                const selector = '#' + this.get('eid'),
+                    $el = $(selector),
+                    echartInstance = echarts.getInstanceByDom($el[0]);
+                return echartInstance;
+            },
+            generateChartOption(chartConfig, condition) {
+                this.queryData(chartConfig, condition);
+            },
+            queryData(chartConfig, cond) {
+                const body = cond.queryBody
+                const qa = cond.queryAddress;
 
-                        if (!isLines) {
-                            this.reGenerateChart(chartConfig, chartData);
-                        } else {
-                            // TODO 这里可以改一下
-                            let linesPanelConfig = this.calculateLinesNumber(chartConfig, chartData);
+                // body['chartId'] = this.chartId;
 
-                            this.reGenerateChart(linesPanelConfig, chartData);
-                        }
-                        this.dataReady(chartData, chartConfig);
+                this.get('ajax').request(qa, {
+                    method: 'POST',
+                    data: JSON.stringify(body),
+                    dataType: 'json'
+                }).then(data => {
+                    window.console.log(data)
+                    this.updateChartData(chartConfig, data);
+                });
+            },
+            updateChartData(chartConfig, chartData) {
+                let isLines = chartConfig.series.every((ele) => ele.type === 'line');
 
-                        const echartInit = this.getChartIns();
+                if (!isLines) {
+                    this.reGenerateChart(chartConfig, chartData);
+                } else {
+                    // TODO 这里可以改一下
+                    let linesPanelConfig = this.calculateLinesNumber(chartConfig, chartData);
 
-                        echartInit.hideLoading();
-                    },
-                    calculateLinesNumber(panelConfig, chartData) {
-                        let linesNumber = chartData[0].length - 1,
-                            lineConfig = isArray(panelConfig.series) ? panelConfig.series[0] : panelConfig.series,
-                            series = [...Array(linesNumber)].map(() => {
-                                return lineConfig;
-                            });
+                    this.reGenerateChart(linesPanelConfig, chartData);
+                }
+                this.dataReady(chartData, chartConfig);
 
-                        panelConfig.series = series;
-                        return panelConfig;
-                    },
-                    reGenerateChart(option, chartData) {
-                        const opts = this.get('opts'),
-                            echartInstance = this.getChartIns();
+                const echartInit = this.getChartIns();
 
-                        let chartOption = null;
+                echartInit.hideLoading();
+            },
+            calculateLinesNumber(panelConfig, chartData) {
+                let linesNumber = chartData[0].length - 1,
+                    lineConfig = isArray(panelConfig.series) ? panelConfig.series[0] : panelConfig.series,
+                    series = [...Array(linesNumber)].map(() => {
+                        return lineConfig;
+                    });
 
-                        if (isEmpty(option)) {
-                            echartInstance.setOption({}, opts);
-                            return;
-                        }
+                panelConfig.series = series;
+                return panelConfig;
+            },
+            reGenerateChart(option, chartData) {
+                const opts = this.get('opts'),
+                    echartInstance = this.getChartIns();
 
-                        echartInstance.clear();
-                        chartOption = this.optionWithDate(option, chartData);
-                        echartInstance.setOption(chartOption, opts);
-                    },
-                    optionWithDate(option, data) {
-                        option.dataset = { source: data };
-                        return option;
-                    },
-                    dataReady(chartData, panelConfig) {
-                        this.onDataReady(chartData, panelConfig);
-                    },
-                    onDataReady() { },
-                    didReceiveAttrs() {
-                        this._super(...arguments);
-                    },
-                    didInsertElement() {
-                        this._super(...arguments);
-                        // 发送请求，请求 chart‘s config
-                        const that = this;
-                        const chartId = 'line-demo';
+                let chartOption = null;
 
-                        later(function () {
-                            new Promise(resolve => {
-                                let chartConfig = {
-                                    id: 'line-demo',
-                                    config: {
-                                        color: ['#57D9A3', '#FF8B00', '#FFE380', '#8777D9'],
-                                        xAxis: {
-                                            show: true,
-                                            type: 'category',
-                                            name: '',
-                                            axisTick: {
-                                                show: true,
-                                                alignWithLabel: true
-                                            },
-                                            axisLine: {
-                                                show: true,
-                                                lineStyle: {
-                                                    type: 'solid',
-                                                    color: '#DFE1E6'
-                                                }
-                                            },
-                                            axisLabel: {
-                                                show: true,
-                                                color: '#7A869A',
-                                                fontSize: 14,
-                                                lineHeight: 20
-                                            }
-                                        },
-                                        yAxis: {
-                                            show: true,
-                                            type: 'value',
-                                            axisLine: {
-                                                show: false
-                                            },
-                                            axisTick: {
-                                                show: false
-                                            },
-                                            axisLabel: {
-                                                show: true,
-                                                color: '#7A869A'
-                                            },
-                                            splitLine: {
-                                                show: true,
-                                                lineStyle: {
-                                                    type: 'dotted',
-                                                    color: '#DFE1E6'
-                                                }
-                                            }
-                                        },
-                                        tooltip: {
-                                            show: true,
-                                            trigger: 'axis',
-                                            axisPointer: { // 坐标轴指示器，坐标轴触发有效
-                                                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-                                            },
-                                            //TODO 可配置的 formatter
-                                            formatter: function (params) {` + " \r" +
-            "                                let title = `<h6>${params[0].axisValue}</h6>`," + " \r" +
-            `                                    content = params.map(ele => {
+                if (isEmpty(option)) {
+                    echartInstance.setOption({}, opts);
+                    return;
+                }
 
-                                                        let value = ele.value[ele.seriesIndex + 1]` + " \r" +
-
-            "                                        return `<div>${ele.marker} ${ele.seriesName}` +" + "\r" +
-            "                                            `${value}%</div>`" + " \r" +
-
-            `                                    })
-
-                                                return title + content.join('')
-                                            },
-                                            backgroundColor: 'rgba(9,30,66,0.54)'
-                                        },
-                                        legend: {
-                                            show: true,
-                                            x: 'center',
-                                            y: 'top',
-                                            orient: 'horizontal',
-                                            textStyle: {
-                                                fontSize: 14,
-                                                color: '#7A869A'
-                                            }
-                                        },
-                                        series: [{
-                                            type: 'line'
-                                        }, {
-                                            type: 'line'
-                                        }, {
-                                            type: 'line'
-                                        }, {
-                                            type: 'line'
-                                        }]
-                                    },
-                                    condition: {
-                                        queryAddress: '',
-                                        queryBody: 'select * from some_table'
-                                    }
-
-                                };
-                                resolve(chartConfig)
-                            })
-                                // that.get('ajax').request('somehost', {
-                                //     method: 'GET',
-                                //     data: chartId
-                                // })
-                                .then(data => {
-                                    if (!isEmpty(data.id) && !isEmpty(data.condition)) {
-                                        that.generateChartOption(data.config, data.condition);
-                                    }
-                                })
-                        }, 2000)
-                    }`
+                echartInstance.clear();
+                chartOption = this.optionWithDate(option, chartData);
+                echartInstance.setOption(chartOption, opts);
+            },
+            optionWithDate(option, data) {
+                option.dataset = { source: data };
+                return option;
+            },
+            dataReady(chartData, panelConfig) {
+                this.onDataReady(chartData, panelConfig);
+            },
+            onDataReady() { },
+            didReceiveAttrs() {
+                this._super(...arguments);
+            },
+            didInsertElement() {
+                this._super(...arguments);
+                // 发送请求，请求 chart‘s config
+                const chartId = this.eid;
+                this.set('chartId', chartId)
+                this.get('ajax').request('http://127.0.0.1:5555/lineConfig', {
+                    method: 'GET',
+                    data: chartId
+                }).then(data => {
+                    if (!isEmpty(data.id) && !isEmpty(data.condition)) {
+                        this.generateChartOption(data.config, data.condition);
+                    }
+                })
+            }`
 
         return fileDataStart + "\r\n" + fileData + fileDataEnd
     }
-    public paintShow(comp: BPComp, i?: number, cI?: string | number) {
-        const iComps = comp.components
-        const index = i ? i : 0
-        const curIn = cI ? cI : 0
+    public paintShow(comp: BPComp) {
+        const showStart = "{{" + comp.name + " eid='" + comp.id + "'}}"
 
-        // TODO 可选参数
-        const showStart = "{{#" + comp.name + "}}" + "\r"
-        const showEnd = "{{/" + comp.name + "}}\r\n"
-        const showBody = ""
-
-        return showStart + showBody + showEnd
+        return showStart
     }
     public paintHBS() {
         const chartHbs = `{{echarts-chart classNames='chart-container'` + "\r\n" +

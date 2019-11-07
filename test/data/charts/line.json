@@ -25,7 +25,7 @@
             "css": [],
             "components": [
                 {
-                    "id": "te地方st",
+                    "id": "line-demo-first001",
                     "type": "BPLine",
                     "cat": "0",
                     "name": "bp-line",
