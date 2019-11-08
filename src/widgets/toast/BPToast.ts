@@ -82,7 +82,7 @@ export default class BPToast extends BPWidget {
         if (comp.name.indexOf("container") === -1) {
             let clickPart = ""
             let linkPart = ""
-            const iconColor = comp.icon === "warning" ? "icon-warning" : "icon-white"
+            const iconColor = comp.icon === "warning" ? "icon-toast-warning" : "icon-white"
 
             if (comp.attrs.clickEvent === "true") {
                 const crossColor = comp.icon === "warning" ? "icon-warning-cross" : "icon-white"

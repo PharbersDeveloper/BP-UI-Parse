@@ -26,6 +26,7 @@ import BPImg from "../widgets/img/BPImg"
 import BPInput from "../widgets/inputs/BPInput"
 import BPLabel from "../widgets/label/BPLabel"
 import BPLink from "../widgets/link/BPLink"
+import BPModal from "../widgets/modal/BPModal"
 import BPMenu from "../widgets/navs/BPMenu"
 import BPMenuItem from "../widgets/navs/BPMenuItem"
 import BPStackLayout from "../widgets/navs/BPStackLayout"
@@ -127,6 +128,7 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPModal(this.output, this.projectName, routeName),
             new BPToast(this.output, this.projectName, routeName),
             new BPTooltip(this.output, this.projectName, routeName),
             new BPLink(this.output, this.projectName, routeName),
