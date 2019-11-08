@@ -22,7 +22,7 @@ export default class BPApplication extends BPObject {
     public run(args: string[]) {
         // const projectPath = args[1] + "/test/data/buttons" // TODO: 解析工作
         const projectPath = args[1] + "/test/data/charts" // TODO: 解析工作
-        const inputPath = projectPath + "/line.json"
+        const inputPath = projectPath + "/charts.json"
         const jsonConvert: JsonConvert = new JsonConvert()
         const inputFileData = fs.readFileSync(inputPath, "utf8")
         const appContent = jsonConvert.deserializeObject(JSON.parse(inputFileData), ParseBPML)

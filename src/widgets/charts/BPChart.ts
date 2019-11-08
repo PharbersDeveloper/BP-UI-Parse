@@ -154,7 +154,7 @@ export default class BPChart extends BPWidget {
         return fileDataStart + "\r\n" + fileData + fileDataEnd
     }
     public paintShow(comp: BPComp) {
-        const showStart = "{{" + comp.name + " eid='" + comp.id + "'}}"
+        const showStart = "<div class='chart-container'>{{" + comp.name + " eid='" + comp.id + "'}}</div>"
 
         return showStart
     }
