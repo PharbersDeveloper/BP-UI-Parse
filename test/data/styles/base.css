@@ -230,6 +230,9 @@ input[type="checkbox"]+label {
     position: relative;
     padding: 0 4px;
 }
+.chart-container {
+    height: 400px;
+}
 
 .flex-alian-center {
     display: flex;

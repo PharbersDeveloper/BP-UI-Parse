@@ -17,10 +17,13 @@ import BPBadge from "../widgets/badges/BPBadge"
 import BPItem from "../widgets/basic/BPItem"
 import { BPWidget } from "../widgets/BPWidget"
 import BPPushButton from "../widgets/buttons/BPPushButton"
+import BPBar from "../widgets/charts/BPBar"
+import BPLine from "../widgets/charts/BPLine"
 import BPCheckbox from "../widgets/checkbox/BPCheckbox"
 import BPComp from "../widgets/Comp"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
+import BPOption from "../widgets/dropdown/BPOption"
 import BPSelect from "../widgets/dropdown/BPSelect"
 import BPImg from "../widgets/img/BPImg"
 import BPInput from "../widgets/inputs/BPInput"
@@ -43,8 +46,6 @@ import BPToast from "../widgets/toast/BPToast"
 import BPTooltip from "../widgets/tooltip/BPTooltip"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import BPCtx from "./BPCtx"
-
-import BPOption from "../widgets/dropdown/BPOption"
 
 export default class BPEmberCtx extends BPCtx {
     public type: string = "ember"
@@ -71,8 +72,15 @@ export default class BPEmberCtx extends BPCtx {
         ]
     }
     public cmdEnd() {
-        return [new EmberYarnExec("remove", "ember-cli-htmlbars"), new EmberInstallDepExec("ember-cli-htmlbars@3.0.0", "-S"),
-        new EmberInstallDepExec("ember-svg-jar", "-S")]
+        return [
+            new EmberYarnExec("remove", "ember-cli-htmlbars"),
+            new EmberInstallDepExec("ember-cli-htmlbars@3.0.0", "-S"),
+            new EmberInstallDepExec("ember-svg-jar", "-S"),
+            new EmberInstallDepExec("ember-cli-echarts"),
+            new EmberInstallDepExec("@ember/jquery"),
+            new EmberInstallDepExec("@ember/optional-features"),
+            new EmberInstallDepExec("jquery-integration", "-D", "feature:enable")
+        ]
 
     }
     public paintMW(route: BPMainWindow, components: BPComp[]) {
@@ -154,8 +162,9 @@ export default class BPEmberCtx extends BPCtx {
             new BPTabButton(this.output, this.projectName, routeName),
             new BPTab(this.output, this.projectName, routeName),
             new BPSelect(this.output, this.projectName, routeName),
-            new BPOption(this.output, this.projectName, routeName)
-
+            new BPOption(this.output, this.projectName, routeName),
+            new BPLine(this.output, this.projectName, routeName),
+            new BPBar(this.output, this.projectName, routeName)
         ]
 
         return this.compTypeList

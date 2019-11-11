@@ -5,6 +5,7 @@ import phLogger from "../logger/phLogger"
 import { BPWidget } from "./BPWidget"
 
 export default class BPComp extends BPWidget {
+    public id: string = ""
     public type: string = ""
     public name: string = ""
     public text?: string = ""
