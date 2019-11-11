@@ -35,6 +35,8 @@ export default class BPDiv extends BPWidget {
 
             let showBody = ""
             insideComps.forEach((icomp) => {
+                // const type = icomp.type
+                // 识别子组件的类型后生成对应的组件，div 中应该包含多种类型组件
                 const innerDiv = new BPDiv(this.output, this.projectName, this.routeName)
                 showBody += innerDiv.paintShow(icomp)
             })

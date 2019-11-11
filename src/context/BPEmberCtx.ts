@@ -37,6 +37,7 @@ import BPSubMenu from "../widgets/navs/BPSubMenu"
 import BPTab from "../widgets/navs/BPTab"
 import BPTabBar from "../widgets/navs/BPTabBar"
 import BPTabButton from "../widgets/navs/BPTabButton"
+import BPPopover from "../widgets/popover/BPPopover"
 import BPRadio from "../widgets/radio/BPRadio"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
 import BPStatus from "../widgets/status/BPStatus"
@@ -58,8 +59,8 @@ export default class BPEmberCtx extends BPCtx {
         super()
         phLogger.info("exec something with emberjs")
         this.projectName = projectName
-        const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
-        // const output: string = "/Users/Simon/Desktop/ui-output"
+        // const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
+        const output: string = "/Users/Simon/Desktop/ui-output"
         this.output = output
     }
     public cmdStart() {
@@ -136,6 +137,7 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPPopover(this.output, this.projectName, routeName),
             new BPModal(this.output, this.projectName, routeName),
             new BPToast(this.output, this.projectName, routeName),
             new BPTooltip(this.output, this.projectName, routeName),

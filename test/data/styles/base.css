@@ -80,6 +80,10 @@ button {
     fill: #DE350B;
 }
 
+.icon-info path {
+    fill: #3172E0;
+}
+
 .icon-pointer {
     cursor: pointer;
 }
@@ -441,4 +445,147 @@ input[type="checkbox"]+label {
     outline: none;
     width: auto;
     margin: 4px;
+}
+
+/* popover通用样式 */
+.popover-container {
+    position: relative;
+}
+
+.popover {
+    width: 320px;
+    padding: 16px;
+    background: #FFFFFF;
+    box-shadow: 0 0 1px 0 rgba(9,30,66,0.12), 0 8px 16px -4px rgba(9,30,66,0.25);
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.popover-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popover-title {
+    font-size: 14px;
+    color: #172B4D;
+    text-align: left;
+    font-weight: 500;
+}
+
+.popover-desc {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #344563;
+}
+
+.popover-footer {
+    margin-top: 8px;
+}
+
+.popover-footer a {
+    text-align: left;
+}
+
+.popover-footer button {
+    text-align: right;
+    height: 24px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    color: #505F79;
+    text-align: center;
+    line-height: 24px;
+    position: relative;
+    left: 125px;
+    border-radius: 4px;
+}
+
+.popover-footer button:last-child {
+    background: rgba(9,30,66,0.04);
+}
+
+.popover-triangle {
+    height: 12px;
+    width: 12px;
+    transform: rotate(45deg);
+    background: #FFFFFF;
+}
+
+.popover-triangle-left {
+    left: 314px;
+    top: 50%;
+    margin-top: -6px;
+    position: absolute;
+}
+
+.popover-triangle-left-top {
+    left: 314px;
+    top: 16px;
+    position: absolute;
+}
+
+.popover-triangle-left-bottom {
+    left: 314px;
+    bottom: 16px;
+    position: absolute;
+}
+
+.popover-triangle-bottom {
+    position: absolute;
+    top: -6px;
+    left: 152px;
+}
+
+.popover-triangle-bottom-left {
+    position: absolute;
+    top: -6px;
+    left: 16px;
+}
+
+.popover-triangle-bottom-right {
+    position: absolute;
+    top: -6px;
+    left: 288px;                                                                                                                                                                                                                                                   x;
+}
+
+.popover-triangle-top {
+    position: absolute;
+    left: 152px;
+    bottom: -6px;
+}
+
+.popover-triangle-top-left {
+    position: absolute;
+    left: 16px;
+    bottom: -6px;
+}
+
+.popover-triangle-top-right {
+    position: absolute;
+    left: 288px;
+    bottom: -6px;
+}
+
+.popover-triangle-right {
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    margin-top: -6px;
+}
+
+.popover-triangle-right-top {
+    position: absolute;
+    left: -6px;
+    top: 16px;
+}
+
+.popover-triangle-right-bottom {
+    position: absolute;
+    left: -6px;
+    bottom: 16px;
 }

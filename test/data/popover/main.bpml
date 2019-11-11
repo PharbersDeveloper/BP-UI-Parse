@@ -1,0 +1,232 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-popover"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "popover",
+      "path": "/popover",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "column"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "auto"
+        }
+      ],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPPopover",
+          "cat": "0",
+          "text": "",
+          "name":"bp-popover-top",
+          "css": [
+                {
+                    "k": "margin",
+                    "v": "20px"
+                },
+                {
+                    "k": "height",
+                    "v": "200px"
+                },
+                {
+                    "k": "width",
+                    "v": "400px"
+                }
+          ],
+          "components": [],
+          "attrs": {
+              "placement": "top",
+              "title": "Waring",
+              "messageState": "warning",
+              "desc": "This is a very long long long long long error message description",
+              "actions": "",
+              "dismiss": ""
+          }
+		},
+        {
+          "id": "test",
+          "type": "BPPopover",
+          "cat": "0",
+          "text": "",
+          "name":"bp-popover-bottom",
+          "css": [
+                {
+                    "k": "margin",
+                    "v": "20px"
+                },
+                {
+                    "k": "height",
+                    "v": "200px"
+                },
+                {
+                    "k": "width",
+                    "v": "400px"
+                }
+          ],
+          "components": [],
+          "attrs": {
+              "placement": "bottom",
+              "title": "Waring",
+              "messageState": "warning",
+              "desc": "This is a very long long long long long error message description",
+              "actions": "",
+              "dismiss": "true"
+          }
+		},
+        {
+          "id": "test",
+          "type": "BPPopover",
+          "cat": "0",
+          "text": "",
+          "name":"bp-popover-right",
+          "css": [
+                {
+                    "k": "margin",
+                    "v": "20px"
+                },
+                {
+                    "k": "height",
+                    "v": "200px"
+                },
+                {
+                    "k": "width",
+                    "v": "400px"
+                }
+          ],
+          "components": [],
+          "attrs": {
+              "placement": "bottom",
+              "title": "Error",
+              "messageState": "error",
+              "desc": "This is a very long long long long long error message description",
+              "actions": "",
+              "dismiss": "true",
+              "link": {
+                  "name": "link",
+                  "href": "#"
+              }
+          }
+		},
+        {
+          "id": "test",
+          "type": "BPPopover",
+          "cat": "0",
+          "text": "",
+          "name":"bp-popover-left",
+          "css": [
+                {
+                    "k": "margin",
+                    "v": "20px"
+                },
+                {
+                    "k": "height",
+                    "v": "200px"
+                },
+                {
+                    "k": "width",
+                    "v": "400px"
+                }
+          ],
+          "components": [],
+          "attrs": {
+              "placement": "bottom",
+              "title": "Info",
+              "messageState": "info",
+              "desc": "This is a very long long long long long error message description",
+              "actions": "",
+              "dismiss": "true",
+              "actions": "true"
+          }
+        },
+        {
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "0",
+          "text": "simon test",
+          "name":"bp-popover-button",
+          "css": [
+                {
+                    "k": "margin",
+                    "v": "20px"
+                },
+                {
+                    "k": "height",
+                    "v": "32px"
+                },
+                {
+                    "k": "width",
+                    "v": "80px"
+                },
+                {
+                    "k": "position",
+                    "v": "relative"
+                },
+                {
+                    "k": "border",
+                    "v":"none"
+                },
+                {
+                    "k": "background",
+                    "v": "rgba(49,114,224,1)"
+                },
+                {
+                    "k": "color",
+                    "v": "#FFFFFF"
+                }
+          ],
+          "components": [
+              {
+                "id": "test",
+                "type": "BPPopover",
+                "cat": "0",
+                "text": "",
+                "name":"bp-popover-left-left",
+                "css": [
+                        {
+                            "k": "height",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "width",
+                            "v": "330px"
+                        },
+                        {
+                            "k": "position",
+                            "v": "absolute"
+                        }
+                ],
+                "components": [],
+                "attrs": {
+                    "placement": "bottom",
+                    "title": "Warning",
+                    "messageState": "warning",
+                    "desc": "This is a very long long long long long error message description",
+                    "actions": "",
+                    "dismiss": "true",
+                    "actions": "true"
+                }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
