@@ -247,6 +247,43 @@ input[type="checkbox"]+label {
     fill: #505F79;
 }
 
+/* toast 通用样式 */
+
+.toast {
+    width: 320px;
+    height: 56px;
+    line-height: 14px;
+    font-size: 14px;
+    padding: 16px;
+    border-radius: 3px;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.toast-success {
+    color: #FFFFFF;
+    background: #00865a;
+}
+
+.toast-warning {
+    color: #172B4D;
+    background: #FFAB00;
+}
+
+.toast-error {
+    color: #FFFFFF;
+    background: #DE350B;
+}
+
+.toast-info {
+    color: #FFFFFF;
+    background: #42516E;
+}
 /* modal 通用样式  */
 .modal-container {
     width: 100vw;
