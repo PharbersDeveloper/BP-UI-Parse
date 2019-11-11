@@ -19,6 +19,8 @@ import { BPWidget } from "../widgets/BPWidget"
 import BPPushButton from "../widgets/buttons/BPPushButton"
 import BPBar from "../widgets/charts/BPBar"
 import BPLine from "../widgets/charts/BPLine"
+import BPPie from "../widgets/charts/BPPie"
+import BPScatter from "../widgets/charts/BPScatter"
 import BPCheckbox from "../widgets/checkbox/BPCheckbox"
 import BPComp from "../widgets/Comp"
 import BPDiv from "../widgets/div/BPDiv"
@@ -160,7 +162,10 @@ export default class BPEmberCtx extends BPCtx {
             new BPSelect(this.output, this.projectName, routeName),
             new BPOption(this.output, this.projectName, routeName),
             new BPLine(this.output, this.projectName, routeName),
-            new BPBar(this.output, this.projectName, routeName)
+            new BPBar(this.output, this.projectName, routeName),
+            new BPPie(this.output, this.projectName, routeName),
+            new BPScatter(this.output, this.projectName, routeName)
+
         ]
 
         return this.compTypeList

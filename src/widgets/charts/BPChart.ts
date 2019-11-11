@@ -141,7 +141,7 @@ export default class BPChart extends BPWidget {
                 // 发送请求，请求 chart‘s config
                 const chartId = this.eid;
                 this.set('chartId', chartId)
-                this.get('ajax').request('http://127.0.0.1:5555/lineConfig', {
+                this.get('ajax').request('http://127.0.0.1:5555/chartsConfig', {
                     method: 'GET',
                     data: chartId
                 }).then(data => {
@@ -154,7 +154,7 @@ export default class BPChart extends BPWidget {
         return fileDataStart + "\r\n" + fileData + fileDataEnd
     }
     public paintShow(comp: BPComp) {
-        const showStart = "<div class='chart-container'>{{" + comp.name + " eid='" + comp.id + "'}}</div>"
+        const showStart = "<section class='chart-container'>{{" + comp.name + " eid='" + comp.id + "'}}</section>"
 
         return showStart
     }
@@ -167,4 +167,5 @@ export default class BPChart extends BPWidget {
 
         return chartHbs
     }
+    
 }

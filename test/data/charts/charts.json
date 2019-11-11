@@ -51,8 +51,12 @@
                             "v": "border-box"
                         }
                     ]
-                },
-                {
+                },{
+                    "id": "line-demo-second001",
+                    "type": "BPLine",
+                    "name": "bp-line",
+                    "layout": []
+                },{
                     "id": "bar-demo-first001",
                     "type": "BPBar",
                     "cat": "0",
@@ -80,10 +84,69 @@
                         }
                     ]
                 },{
-                    "id": "line-demo-second001",
-                    "type": "BPLine",
-                    "name": "bp-line",
+                    "id": "bar-demo-second001",
+                    "type": "BPBar",
+                    "name": "bp-bar",
                     "layout": []
+                },{
+                    "id": "pie-demo-first001",
+                    "type": "BPPie",
+                    "cat": "0",
+                    "name": "bp-pie",
+                    "layout": [],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },{
+                            "k": "height",
+                            "v": "400px"
+                        },{
+                            "k": "padding",
+                            "v": "0"
+                        },{
+                            "k": "margin",
+                            "v": "0"
+                        },{
+                            "k": "position",
+                            "v": "relative"
+                        },{
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ]
+                },{
+                    "id": "pie-demo-second001",
+                    "type": "BPPie",
+                    "name": "bp-pie",
+                    "layout": []
+                },{
+                    "id": "scatter-demo-first001",
+                    "type": "BPScatter",
+                    "cat": "0",
+                    "name": "bp-scatter",
+                    "layout": [],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },{
+                            "k": "height",
+                            "v": "400px"
+                        },{
+                            "k": "padding",
+                            "v": "0"
+                        },{
+                            "k": "margin",
+                            "v": "0"
+                        },{
+                            "k": "position",
+                            "v": "relative"
+                        },{
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ]
                 }
             ]
         }
