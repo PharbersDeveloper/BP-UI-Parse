@@ -39,9 +39,11 @@ export default class BPToast extends BPWidget {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
+        const toastTypeClass =  comp.attrs.type ? "toast-" + comp.attrs.type : ""
         let toggleShow = ""
         let positionParam = "    positionalParams: ['toastDisappear']," + "\r"
         let toggleShowFunc = ""
+        let toastClass = "toast"
 
         // toast container
         if (comp.components.length !== 0) {
@@ -54,13 +56,14 @@ export default class BPToast extends BPWidget {
             toggleShowFunc = "toastDisappear(name) {" + "\r" +
                              "    this.set(name, false)" + "\r" +
                              "}," + "\r"
+            toastClass = ""
         }
 
         let fileData = "\n" +
             "export default Component.extend({" + "\r" +
             "    layout," + "\r" +
             "    tagName:'div'," + "\r" +
-            "    classNames:['" + comp.name + "']," + "\r" +
+            "    classNames:['" + comp.name + " " + toastClass + " " + toastTypeClass + "']," + "\r" +
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
             "    attributeBindings: ['']," + "\r" + toggleShow + positionParam +

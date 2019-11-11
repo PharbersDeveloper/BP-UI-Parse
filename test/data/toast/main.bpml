@@ -61,53 +61,11 @@
                     "name":"bp-tosat-success",
                     "icon": "check-circle",
                     "css": [
-                        {
-                        "k": "width",
-                        "v": "320px"
-                        }, {
-                        "k": "height",
-                        "v": "56px"
-                        }, {
-                            "k": "color",
-                            "v": "#FFFFFF"
-                        },{
-                        "k": "line-height",
-                        "v": "14px"
-                        },{
-                        "k": "font-size",
-                        "v": "14px"
-                        }, {
-                        "k": "padding",
-                        "v": "16px"
-                        }, {
-                        "k": "border-radius",
-                        "v": "3px"
-                        }, {
-                            "k": "position",
-                            "v": "relative"
-                        }, {
-                            "k": "background",
-                            "v": "#00865a"
-                        }, {
-                            "k": "margin-right",
-                            "v": "auto"
-                        }, {
-                            "k": "margin-left",
-                            "v": "auto"
-                        }, {
-                            "k": "display",
-                            "v": "flex"
-                        }, {
-                            "k": "flex-direction",
-                            "v": "row"
-                        }, {
-                            "k": "align-items",
-                            "v": "center"
-                        }, {
-                            "k": "margin-bottom",
-                            "v": "6px"
-                        }
-                    ]
+                        
+                    ],
+                    "attrs": {
+                        "type": "success"
+                    }
                 },
                 {
                     "id": "test",
@@ -117,58 +75,11 @@
                     "name":"bp-tosat-success-click",
                     "icon": "check-circle",
                     "css": [
-                        {
-                        "k": "width",
-                        "v": "320px"
-                        }, {
-                        "k": "height",
-                        "v": "56px"
-                        }, {
-                            "k": "color",
-                            "v": "#FFFFFF"
-                        },{
-                        "k": "line-height",
-                        "v": "14px"
-                        },{
-                        "k": "font-size",
-                        "v": "14px"
-                        }, {
-                        "k": "padding",
-                        "v": "16px"
-                        }, {
-                        "k": "border-radius",
-                        "v": "3px"
-                        }, {
-                            "k": "position",
-                            "v": "relative"
-                        }, {
-                            "k": "background",
-                            "v": "#00865a"
-                        }, {
-                            "k": "margin-right",
-                            "v": "auto"
-                        }, {
-                            "k": "margin-left",
-                            "v": "auto"
-                        }, {
-                            "k": "display",
-                            "v": "flex"
-                        }, {
-                            "k": "flex-direction",
-                            "v": "row"
-                        }, {
-                            "k": "align-items",
-                            "v": "center"
-                        }, {
-                            "k": "margin-bottom",
-                            "v": "6px"
-                        }, {
-                            "k": "justify-content",
-                            "v": "space-between"
-                        }
+                    
                     ],
                     "attrs": {
-                        "clickEvent": "true"
+                        "clickEvent": "true",
+                        "type": "success"
                     }
                 },
                 {
@@ -179,53 +90,11 @@
                     "name":"bp-tosat-warning",
                     "icon": "warning",
                     "css": [
-                        {
-                            "k": "width",
-                            "v": "320px"
-                        }, {
-                            "k": "height",
-                            "v": "56px"
-                        }, {
-                            "k": "color",
-                            "v": "#172B4D"
-                        },{
-                            "k": "line-height",
-                            "v": "14px"
-                        },{
-                            "k": "font-size",
-                            "v": "14px"
-                        }, {
-                            "k": "padding",
-                            "v": "16px"
-                        }, {
-                            "k": "border-radius",
-                            "v": "3px"
-                        }, {
-                            "k": "position",
-                            "v": "relative"
-                        }, {
-                            "k": "background",
-                            "v": "#FFAB00"
-                        }, {
-                            "k": "margin-right",
-                            "v": "auto"
-                        }, {
-                            "k": "margin-left",
-                            "v": "auto"
-                        }, {
-                            "k": "display",
-                            "v": "flex"
-                        }, {
-                            "k": "flex-direction",
-                            "v": "row"
-                        }, {
-                            "k": "align-items",
-                            "v": "center"
-                        }, {
-                            "k": "margin-bottom",
-                            "v": "6px"
-                        }
-                    ]
+                       
+                    ],
+                    "attrs": {
+                        "type": "warning"
+                    }
                 },
                 {
                     "id": "test",
@@ -235,62 +104,14 @@
                     "name":"bp-tosat-warning-click",
                     "icon": "warning",
                     "css": [
-                        {
-                            "k": "width",
-                            "v": "320px"
-                        }, {
-                            "k": "height",
-                            "v": "56px"
-                        }, {
-                            "k": "color",
-                            "v": "#172B4D"
-                        },{
-                            "k": "line-height",
-                            "v": "14px"
-                        },{
-                            "k": "font-size",
-                            "v": "14px"
-                        }, {
-                            "k": "padding",
-                            "v": "16px"
-                        }, {
-                            "k": "border-radius",
-                            "v": "3px"
-                        }, {
-                            "k": "position",
-                            "v": "relative"
-                        }, {
-                            "k": "background",
-                            "v": "#FFAB00"
-                        }, {
-                            "k": "margin-right",
-                            "v": "auto"
-                        }, {
-                            "k": "margin-left",
-                            "v": "auto"
-                        }, {
-                            "k": "display",
-                            "v": "flex"
-                        }, {
-                            "k": "flex-direction",
-                            "v": "row"
-                        }, {
-                            "k": "align-items",
-                            "v": "center"
-                        }, {
-                            "k": "margin-bottom",
-                            "v": "6px"
-                        }, {
-                            "k": "justify-content",
-                            "v": "space-between"
-                        }
                     ],
                     "attrs": {
                         "clickEvent": "true",
                         "link": {
                             "href": "#",
                             "name": "inline link"
-                        }
+                        },
+                        "type": "warning"
                     }
                 },
                 {
@@ -301,53 +122,11 @@
                     "name":"bp-tosat-error",
                     "icon": "error",
                     "css": [
-                        {
-                            "k": "width",
-                            "v": "320px"
-                        }, {
-                            "k": "height",
-                            "v": "56px"
-                        }, {
-                            "k": "color",
-                            "v": "#FFFFFF"
-                        },{
-                            "k": "line-height",
-                            "v": "14px"
-                        },{
-                            "k": "font-size",
-                            "v": "14px"
-                        }, {
-                            "k": "padding",
-                            "v": "16px"
-                        }, {
-                            "k": "border-radius",
-                            "v": "3px"
-                        }, {
-                            "k": "position",
-                            "v": "relative"
-                        }, {
-                            "k": "background",
-                            "v": "#DE350B"
-                        }, {
-                            "k": "margin-right",
-                            "v": "auto"
-                        }, {
-                            "k": "margin-left",
-                            "v": "auto"
-                        }, {
-                            "k": "display",
-                            "v": "flex"
-                        }, {
-                            "k": "flex-direction",
-                            "v": "row"
-                        }, {
-                            "k": "align-items",
-                            "v": "center"
-                        }, {
-                            "k": "margin-bottom",
-                            "v": "6px"
-                        }
-                    ]
+                        
+                    ],
+                    "attrs": {
+                        "type": "error"
+                    }
                 },
                 {
                     "id": "test",
@@ -357,58 +136,11 @@
                     "name":"bp-tosat-error-click",
                     "icon": "error",
                     "css": [
-                        {
-                            "k": "width",
-                            "v": "320px"
-                        }, {
-                            "k": "height",
-                            "v": "56px"
-                        }, {
-                            "k": "color",
-                            "v": "#FFFFFF"
-                        },{
-                            "k": "line-height",
-                            "v": "14px"
-                        },{
-                            "k": "font-size",
-                            "v": "14px"
-                        }, {
-                            "k": "padding",
-                            "v": "16px"
-                        }, {
-                            "k": "border-radius",
-                            "v": "3px"
-                        }, {
-                            "k": "position",
-                            "v": "relative"
-                        }, {
-                            "k": "background",
-                            "v": "#DE350B"
-                        }, {
-                            "k": "margin-right",
-                            "v": "auto"
-                        }, {
-                            "k": "margin-left",
-                            "v": "auto"
-                        }, {
-                            "k": "display",
-                            "v": "flex"
-                        }, {
-                            "k": "flex-direction",
-                            "v": "row"
-                        }, {
-                            "k": "align-items",
-                            "v": "center"
-                        }, {
-                            "k": "margin-bottom",
-                            "v": "6px"
-                        }, {
-                            "k": "justify-content",
-                            "v": "space-between"
-                        }
+                        
                     ],
                     "attrs": {
-                        "clickEvent": "true"
+                        "clickEvent": "true",
+                        "type": "error"
                     }
                 },
                 {
@@ -419,58 +151,14 @@
                     "name":"bp-tosat-info",
                     "icon": "info",
                     "css": [
-                        {
-                            "k": "width",
-                            "v": "320px"
-                        }, {
-                            "k": "height",
-                            "v": "56px"
-                        }, {
-                            "k": "color",
-                            "v": "#FFFFFF"
-                        },{
-                            "k": "line-height",
-                            "v": "14px"
-                        },{
-                            "k": "font-size",
-                            "v": "14px"
-                        }, {
-                            "k": "padding",
-                            "v": "16px"
-                        }, {
-                            "k": "border-radius",
-                            "v": "3px"
-                        }, {
-                            "k": "position",
-                            "v": "relative"
-                        }, {
-                            "k": "background",
-                            "v": "#42516E"
-                        }, {
-                            "k": "margin-right",
-                            "v": "auto"
-                        }, {
-                            "k": "margin-left",
-                            "v": "auto"
-                        }, {
-                            "k": "display",
-                            "v": "flex"
-                        }, {
-                            "k": "flex-direction",
-                            "v": "row"
-                        }, {
-                            "k": "align-items",
-                            "v": "center"
-                        }, {
-                            "k": "margin-bottom",
-                            "v": "6px"
-                        }
+                       
                     ],
                     "attrs": {
                         "link": {
                             "href": "#",
                             "name": "inline link"
-                        }
+                        },
+                        "type": "info"
                     }
                 },
                 {
@@ -481,62 +169,15 @@
                     "name":"bp-tosat-info-click",
                     "icon": "info",
                     "css": [
-                        {
-                            "k": "width",
-                            "v": "320px"
-                        }, {
-                            "k": "height",
-                            "v": "56px"
-                        }, {
-                            "k": "color",
-                            "v": "#FFFFFF"
-                        },{
-                            "k": "line-height",
-                            "v": "14px"
-                        },{
-                            "k": "font-size",
-                            "v": "14px"
-                        }, {
-                            "k": "padding",
-                            "v": "16px"
-                        }, {
-                            "k": "border-radius",
-                            "v": "3px"
-                        }, {
-                            "k": "position",
-                            "v": "relative"
-                        }, {
-                            "k": "background",
-                            "v": "#42516E"
-                        }, {
-                            "k": "margin-right",
-                            "v": "auto"
-                        }, {
-                            "k": "margin-left",
-                            "v": "auto"
-                        }, {
-                            "k": "display",
-                            "v": "flex"
-                        }, {
-                            "k": "flex-direction",
-                            "v": "row"
-                        }, {
-                            "k": "align-items",
-                            "v": "center"
-                        }, {
-                            "k": "margin-bottom",
-                            "v": "6px"
-                        }, {
-                            "k": "justify-content",
-                            "v": "space-between"
-                        }
+                        
                     ],
                     "attrs": {
                         "clickEvent": "true",
                         "link": {
                             "href": "#",
                             "name": "inline link"
-                        }
+                        },
+                        "type": "info"
                     }
                 }
             ]
