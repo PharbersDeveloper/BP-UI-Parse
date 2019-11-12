@@ -29,4 +29,36 @@ export default class BPScatter extends BPChart {
 
         return execList
     }
+    public depLogic() {
+        return `reGenerateChart(option, chartData) {
+            const opts = this.get('opts'),
+                echartInstance = this.getChartIns();
+
+            let chartOption = null;
+
+            if (isEmpty(option)) {
+                echartInstance.setOption({}, opts);
+                return;
+            }
+
+            echartInstance.clear();
+            chartOption = this.optionWithData(option, chartData);
+            echartInstance.setOption(chartOption, opts);
+        },
+        optionWithData(option, data) {
+            option.dataset = { source: data };
+            if(option.series.some(item => item.symbolSize)) {
+                // TODO some code
+            } else {
+                const series = option.series.map(ele=> {
+                    ele.symbolSize = function (data) {
+                        return Math.sqrt(data[2]) / 5e2;
+                    }
+                    return ele
+                })
+                option.series = series
+            }
+            return option;
+        },` + this.dataChange()
+    }
 }

@@ -29,4 +29,35 @@ export default class BPLine extends BPChart {
 
         return execList
     }
+    public updateChart() {
+        return `updateChartData(chartConfig, chartData) {
+            let isLines = chartConfig.series.every((ele) => ele.type === 'line');
+
+            if (!isLines) {
+                this.reGenerateChart(chartConfig, chartData);
+            } else {
+                // TODO 这里可以改一下
+                let linesPanelConfig = this.calculateLinesNumber(chartConfig, chartData);
+
+                this.reGenerateChart(linesPanelConfig, chartData);
+            }
+            this.dataReady(chartData, chartConfig);
+
+            const echartInit = this.getChartIns();
+
+            echartInit.hideLoading();
+        },` + this.calcLinesNumber() + this.depLogic()
+    }
+    private calcLinesNumber() {
+        return 	`calculateLinesNumber(panelConfig, chartData) {
+            let linesNumber = chartData[0].length - 1,
+                lineConfig = isArray(panelConfig.series) ? panelConfig.series[0] : panelConfig.series,
+                series = [...Array(linesNumber)].map(() => {
+                    return lineConfig;
+                });
+
+            panelConfig.series = series;
+            return panelConfig;
+        },`
+    }
 }
