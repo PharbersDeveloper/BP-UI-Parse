@@ -19,6 +19,15 @@ button {
     cursor: pointer;
 }
 
+input[type="text"] {
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #42526E;
+    outline: none;
+    border: 1px solid #DFE1E6;
+}
+
 /* 滚动条样式设置 */
 ::-webkit-scrollbar {
     width: 4px;
@@ -81,6 +90,10 @@ button {
 }
 
 .icon-info path {
+    fill: #3172E0;
+}
+
+.icon-info-filled path {
     fill: #3172E0;
 }
 
@@ -448,8 +461,29 @@ input[type="checkbox"]+label {
 }
 
 /* popover通用样式 */
-.popover-container {
+
+.popover-wrapper {
     position: relative;
+    width: fit-content;
+    margin: 24px;
+}
+
+.popover-wrapper .popover-btn{
+    height: 32px;
+    line-height: 32px;
+    background: #505F79;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+
+.popover-container {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 999
 }
 
 .popover {

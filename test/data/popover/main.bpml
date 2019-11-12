@@ -17,7 +17,7 @@
           "v": "flex"
         },{
           "k": "flex-direction",
-          "v": "column"
+          "v": "row"
         }
       ],
       "css": [
@@ -35,21 +35,56 @@
           "id": "test",
           "type": "BPPopover",
           "cat": "0",
-          "text": "",
+          "text": "top",
           "name":"bp-popover-top",
           "css": [
                 {
-                    "k": "margin",
-                    "v": "20px"
-                },
-                {
-                    "k": "height",
-                    "v": "200px"
-                },
-                {
-                    "k": "width",
-                    "v": "400px"
-                }
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "min-width",
+              "v": "80px"
+            },
+            {
+              "k": "background",
+              "v": "rgba(9,30,66,0.04)"
+            },
+            {
+              "k": "font-size",
+              "v": "14px"
+            },
+            {
+              "k": "color",
+              "v": "#505F79"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "0 12px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "cursor",
+              "v": "pointer"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }
           ],
           "components": [],
           "attrs": {
@@ -65,25 +100,60 @@
           "id": "test",
           "type": "BPPopover",
           "cat": "0",
-          "text": "",
-          "name":"bp-popover-bottom",
+          "text": "right",
+          "name":"bp-popover-right",
           "css": [
-                {
-                    "k": "margin",
-                    "v": "20px"
-                },
-                {
-                    "k": "height",
-                    "v": "200px"
-                },
-                {
-                    "k": "width",
-                    "v": "400px"
-                }
+                 {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "min-width",
+              "v": "80px"
+            },
+            {
+              "k": "background",
+              "v": "rgba(9,30,66,0.04)"
+            },
+            {
+              "k": "font-size",
+              "v": "14px"
+            },
+            {
+              "k": "color",
+              "v": "#505F79"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "0 12px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "cursor",
+              "v": "pointer"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }
           ],
           "components": [],
           "attrs": {
-              "placement": "bottom",
+              "placement": "right",
               "title": "Waring",
               "messageState": "warning",
               "desc": "This is a very long long long long long error message description",
@@ -95,21 +165,56 @@
           "id": "test",
           "type": "BPPopover",
           "cat": "0",
-          "text": "",
-          "name":"bp-popover-right",
+          "text": "bottom",
+          "name":"bp-popover-bottom",
           "css": [
                 {
-                    "k": "margin",
-                    "v": "20px"
-                },
-                {
-                    "k": "height",
-                    "v": "200px"
-                },
-                {
-                    "k": "width",
-                    "v": "400px"
-                }
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "min-width",
+              "v": "80px"
+            },
+            {
+              "k": "background",
+              "v": "rgba(9,30,66,0.04)"
+            },
+            {
+              "k": "font-size",
+              "v": "14px"
+            },
+            {
+              "k": "color",
+              "v": "#505F79"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "0 12px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "cursor",
+              "v": "pointer"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }
           ],
           "components": [],
           "attrs": {
@@ -129,25 +234,60 @@
           "id": "test",
           "type": "BPPopover",
           "cat": "0",
-          "text": "",
+          "text": "left",
           "name":"bp-popover-left",
           "css": [
                 {
-                    "k": "margin",
-                    "v": "20px"
-                },
-                {
-                    "k": "height",
-                    "v": "200px"
-                },
-                {
-                    "k": "width",
-                    "v": "400px"
-                }
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "min-width",
+              "v": "80px"
+            },
+            {
+              "k": "background",
+              "v": "rgba(9,30,66,0.04)"
+            },
+            {
+              "k": "font-size",
+              "v": "14px"
+            },
+            {
+              "k": "color",
+              "v": "#505F79"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "0 12px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "cursor",
+              "v": "pointer"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }
           ],
           "components": [],
           "attrs": {
-              "placement": "bottom",
+              "placement": "left",
               "title": "Info",
               "messageState": "info",
               "desc": "This is a very long long long long long error message description",
@@ -158,73 +298,23 @@
         },
         {
           "id": "test",
-          "type": "BPPushButton",
+          "type": "BPPopover",
           "cat": "0",
-          "text": "simon test",
-          "name":"bp-popover-button",
+          "text": "",
+          "name":"bp-popover-top-input",
           "css": [
-                {
-                    "k": "margin",
-                    "v": "20px"
-                },
-                {
-                    "k": "height",
-                    "v": "32px"
-                },
-                {
-                    "k": "width",
-                    "v": "80px"
-                },
-                {
-                    "k": "position",
-                    "v": "relative"
-                },
-                {
-                    "k": "border",
-                    "v":"none"
-                },
-                {
-                    "k": "background",
-                    "v": "rgba(49,114,224,1)"
-                },
-                {
-                    "k": "color",
-                    "v": "#FFFFFF"
-                }
           ],
-          "components": [
-              {
-                "id": "test",
-                "type": "BPPopover",
-                "cat": "0",
-                "text": "",
-                "name":"bp-popover-left-left",
-                "css": [
-                        {
-                            "k": "height",
-                            "v": "auto"
-                        },
-                        {
-                            "k": "width",
-                            "v": "330px"
-                        },
-                        {
-                            "k": "position",
-                            "v": "absolute"
-                        }
-                ],
-                "components": [],
-                "attrs": {
-                    "placement": "bottom",
-                    "title": "Warning",
-                    "messageState": "warning",
-                    "desc": "This is a very long long long long long error message description",
-                    "actions": "",
-                    "dismiss": "true",
-                    "actions": "true"
-                }
-            }
-          ]
+          "components": [],
+          "attrs": {
+              "placement": "left",
+              "title": "Info",
+              "messageState": "info-filled",
+              "desc": "This is a very long long long long long error message description",
+              "actions": "",
+              "dismiss": "true",
+              "actions": "true",
+              "input": "true"
+          }
         }
       ]
     }
