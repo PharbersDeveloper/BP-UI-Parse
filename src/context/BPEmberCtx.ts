@@ -38,6 +38,7 @@ import BPTab from "../widgets/navs/BPTab"
 import BPTabBar from "../widgets/navs/BPTabBar"
 import BPTabButton from "../widgets/navs/BPTabButton"
 import BPPopover from "../widgets/popover/BPPopover"
+import BPProcessTracker from "../widgets/progressTracker/BPProcessTracker"
 import BPRadio from "../widgets/radio/BPRadio"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
 import BPStatus from "../widgets/status/BPStatus"
@@ -137,6 +138,7 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPProcessTracker(this.output, this.projectName, routeName),
             new BPPopover(this.output, this.projectName, routeName),
             new BPModal(this.output, this.projectName, routeName),
             new BPToast(this.output, this.projectName, routeName),

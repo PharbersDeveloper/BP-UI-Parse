@@ -623,3 +623,73 @@ input[type="checkbox"]+label {
     left: -6px;
     bottom: 16px;
 }
+
+
+/* progress-trackerTrackr 通用样式 */
+.progress-tracker-container {
+    width: fit-content;
+    height: 88px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.progress-tracker-line {
+    margin: 0 55px;
+    background: #3172E0;
+    border-radius: 24px;
+    height: 8px;
+    /* width: 170px; */
+    z-index: 99;
+}
+
+.progress-tracker-step {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.progress-tracker-step span {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    margin-right: 40px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 24px;
+    position: relative;
+}
+
+.progress-tracker-step-cur {
+    color: #3172E0;
+}
+
+.progress-tracker-step-visited {
+    color: #172B4D;
+}
+
+.progress-tracker-step-disabled {
+    color: #B3BAC5;
+}
+
+.progress-tracker-step-unvisited {
+    color: #5E6C84;
+}
+
+
+.progress-tracker-step span::before {
+    content: " ";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #97A0AF;
+    position: absolute;
+    right: 56px;
+    top: -16px;
+    z-index: 0;
+}
+
+.progress-tracker-step span:last-child {
+    margin-right: 0;
+}

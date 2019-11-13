@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-process-tracker"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "process-tracker",
+      "path": "/process-tracker",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPProgressTracker",
+          "cat": "0",
+          "text": "simon test",
+          "name":"bp-process-tracker",
+          "css": [
+            {
+                "k": "width",
+                "v": "400px"
+            },
+            {
+                "k": "height",
+                "v": "400px"
+            },
+            {
+                "k": "display",
+                "v": "flex"
+            },
+            {
+                "k": "flex-direction",
+                "v": "row"
+            }
+          ],
+          "attrs": {
+              "allStep": 7,
+              "curStep": 3,
+              "disableStep": "[4, 5]",
+              "stepText": "['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5', 'Step 6', 'Step 7']"
+          }
+		}
+      ]
+    }
+  ]
+}
