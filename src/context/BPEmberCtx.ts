@@ -18,6 +18,7 @@ import BPItem from "../widgets/basic/BPItem"
 import { BPWidget } from "../widgets/BPWidget"
 import BPPushButton from "../widgets/buttons/BPPushButton"
 import BPBar from "../widgets/charts/BPBar"
+import BPChina from "../widgets/charts/BPChina"
 import BPLine from "../widgets/charts/BPLine"
 import BPPie from "../widgets/charts/BPPie"
 import BPScatter from "../widgets/charts/BPScatter"
@@ -164,7 +165,8 @@ export default class BPEmberCtx extends BPCtx {
             new BPLine(this.output, this.projectName, routeName),
             new BPBar(this.output, this.projectName, routeName),
             new BPPie(this.output, this.projectName, routeName),
-            new BPScatter(this.output, this.projectName, routeName)
+            new BPScatter(this.output, this.projectName, routeName),
+            new BPChina(this.output, this.projectName, routeName)
 
         ]
 

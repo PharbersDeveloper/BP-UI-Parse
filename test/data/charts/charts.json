@@ -3,7 +3,7 @@
         "paint": [
             "ember"
         ],
-        "name": "refactoring-code-chart"
+        "name": "refactoring-code-chart-second"
     },
     "routers": [
         {
@@ -125,6 +125,33 @@
                     "type": "BPScatter",
                     "cat": "0",
                     "name": "bp-scatter",
+                    "layout": [],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },{
+                            "k": "height",
+                            "v": "400px"
+                        },{
+                            "k": "padding",
+                            "v": "0"
+                        },{
+                            "k": "margin",
+                            "v": "0"
+                        },{
+                            "k": "position",
+                            "v": "relative"
+                        },{
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ]
+                },{
+                    "id": "china-demo-first001",
+                    "type": "BPChina",
+                    "cat": "0",
+                    "name": "bp-china",
                     "layout": [],
                     "css": [
                         {

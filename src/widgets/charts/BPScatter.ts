@@ -29,6 +29,36 @@ export default class BPScatter extends BPChart {
 
         return execList
     }
+    public updateChart() {
+        return `updateChartData(chartConfig, chartData) {
+            let scatterPanelConfig = this.calcScatterNumber(chartConfig, chartData);
+
+            this.reGenerateChart(scatterPanelConfig, chartData);
+
+            this.dataReady(chartData, chartConfig);
+
+            const echartInit = this.getChartIns();
+
+            echartInit.hideLoading();
+        },
+        calcScatterNumber(panelConfig, chartData) {
+            let numbers = chartData.length - 1,
+                config = isArray(panelConfig.series) ? panelConfig.series[0] : panelConfig.series,
+                series = [...Array(numbers)].map((ele,index) => {
+                    let eleConfig = JSON.parse(JSON.stringify(config));
+
+                    eleConfig.encode.y = index+1
+                    eleConfig.symbolSize = function (data) {
+
+                        return data[index+1]/5
+                    }
+                    return eleConfig;
+                });
+
+            panelConfig.series = series;
+            return panelConfig;
+        },` + this.depLogic()
+    }
     public depLogic() {
         return `reGenerateChart(option, chartData) {
             const opts = this.get('opts'),

@@ -57,10 +57,11 @@ export default class BPChart extends BPWidget {
     }
     public importString() {
         return `import { isEmpty, typeOf } from '@ember/utils';
-        import { isArray } from '@ember/array';
+        import { isArray,A } from '@ember/array';
         import echarts from 'echarts';
         import $ from 'jquery';
-        import { inject as service } from '@ember/service';`
+        import { inject as service } from '@ember/service';
+        import { all } from 'rsvp';`
     }
     public basicStrHead() {
         return `export default Component.extend({`
@@ -68,7 +69,9 @@ export default class BPChart extends BPWidget {
     public basicProp() {
         return `layout,
                 tagName: '',
-                ajax: service(),`
+                ajax: service(),
+                confReqAdd: "http://127.0.0.1:5555",
+                xValues: A([]),`
     }
     public lifeCycleHooks() {
         return `init() {
@@ -83,10 +86,10 @@ export default class BPChart extends BPWidget {
         },
         didInsertElement() {
             this._super(...arguments);
-            // 发送请求，请求 chart‘s config
+
             const chartId = this.eid;
             this.set('chartId', chartId)
-            this.get('ajax').request('http://127.0.0.1:5555/chartsConfig', {
+            this.get('ajax').request(this.confReqAdd+'/chartsConfig', {
                 method: 'GET',
                 data: chartId
             }).then(data => {
@@ -105,18 +108,56 @@ export default class BPChart extends BPWidget {
             return echartInstance;
         },
         generateChartOption(chartConfig, cond) {
-            const body = cond.queryBody
-            const qa = cond.queryAddress;
+            const queryConfig = cond.query
+            const qa = queryConfig.address;
+            const queryXSql = queryConfig.xSql;
+            const queryDimensionSql = queryConfig.dimensionSql;
+            const queryChartSql = queryConfig.chartSql;
+            const ajax = this.ajax;
+            const ec = cond.encode;
+            let getXValues = null;
+            let chartData = []
 
-            this.get('ajax').request(qa, {
-                method: 'POST',
-                data: JSON.stringify(body),
-                dataType: 'json'
-            }).then(data => {
-                window.console.log(data)
-                this.updateChartData(chartConfig, data);
-            });
-        },` +"\r\n" + this.updateChart()
+            if (isEmpty(this.xValues)) {
+                getXValues = this.get('ajax').request(qa + '?tag=array', {
+                    method: 'POST',
+                    data: JSON.stringify({"sql":queryXSql}),
+                    dataType: 'json'
+                })
+            } else {
+                getXValues = new Promise(resolve => {
+                    resolve(this.xValues)
+                })
+            }
+            getXValues.then(data => {
+                this.set("xValues", data)
+                chartData.push(data)
+                // query dimension
+                return ajax.request(qa + '?tag=array', {
+                    method: 'POST',
+                    data: JSON.stringify({"sql":queryDimensionSql}),
+                    dataType: 'json'
+                }).then(data => {
+                    return all(data.map(ele => {
+                        let reqBody = {
+                            "sql": queryChartSql.replace(ec.placeHolder, ele),
+                            "x-values": this.xValues
+                        }
+                        return ajax.request(qa + '?tag=chart&x-axis='+ec.x+'&y-axis='+ec.y+'&dimensionKeys='+ec.dimension, {
+                            method: 'POST',
+                            data: JSON.stringify(reqBody),
+                            dataType: 'json'
+                        })
+                    }))
+                }).then(data => {
+                    data.forEach(ele => {
+                        chartData.push(ele[1])
+                    })
+                    chartData[0].unshift(ec.x)
+                    this.updateChartData(chartConfig, chartData);
+                })
+            })
+        },` + "\r\n" + this.updateChart()
     }
     public updateChart() {
         return `updateChartData(chartConfig, chartData) {

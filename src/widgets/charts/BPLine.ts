@@ -29,18 +29,27 @@ export default class BPLine extends BPChart {
 
         return execList
     }
+    public importString() {
+        return `import { isEmpty, typeOf } from '@ember/utils';
+        import { isArray } from '@ember/array';
+        import echarts from 'echarts';
+        import $ from 'jquery';
+        import { inject as service } from '@ember/service';
+        import { all } from 'rsvp';`
+    }
+    public basicProp() {
+        return `layout,
+                tagName: '',
+                ajax: service(),
+                confReqAdd: "http://127.0.0.1:5555",`
+    }
+
     public updateChart() {
         return `updateChartData(chartConfig, chartData) {
-            let isLines = chartConfig.series.every((ele) => ele.type === 'line');
+            let linesPanelConfig = this.calculateLinesNumber(chartConfig, chartData);
 
-            if (!isLines) {
-                this.reGenerateChart(chartConfig, chartData);
-            } else {
-                // TODO 这里可以改一下
-                let linesPanelConfig = this.calculateLinesNumber(chartConfig, chartData);
+            this.reGenerateChart(linesPanelConfig, chartData);
 
-                this.reGenerateChart(linesPanelConfig, chartData);
-            }
             this.dataReady(chartData, chartConfig);
 
             const echartInit = this.getChartIns();
