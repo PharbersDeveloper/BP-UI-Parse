@@ -29,10 +29,10 @@ export default class BPToast extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
-        if (comp.components.length === 0) {
-            return "{{#" + comp.name + " toastDisappear=(action 'toastDisappear') }}" + "{{/" + comp.name + "}}"
-            // toast 子组件绑定函数
-        }
+        // if (comp.components.length === 0) {
+        //     return "{{#" + comp.name + " toastDisappear=(action 'toastDisappear') }}" + "{{/" + comp.name + "}}"
+        //     // toast 子组件绑定函数
+        // }
         return "{{#" + comp.name + "}}" + "{{/" + comp.name + "}}"
     }
     public paintLogic(comp: BPComp) {
@@ -107,7 +107,9 @@ export default class BPToast extends BPWidget {
                 let showBody = ""
                 insideComps.forEach((icomp) => {
                     const innerToast = new BPToast(this.output, this.projectName, this.routeName)
-                    showBody +=  "{{#if " + this.transName(icomp.name) + "}}" + innerToast.paintShow(icomp) + "{{/if}}"
+                    showBody +=  "{{#if " + this.transName(icomp.name) + "}}" +
+                        "{{#" + icomp.name + " toastDisappear=(action 'toastDisappear') }}" +
+                         "{{/" + icomp.name + "}}" + "{{/if}}"
                 })
                 return showBody
             }
