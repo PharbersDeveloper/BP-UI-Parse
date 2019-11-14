@@ -47,11 +47,12 @@ export default class BPChart extends BPWidget {
         return showStart
     }
     public paintHBS() {
-        const chartHbs = `{{echarts-chart classNames='chart-container'` + "\r\n" +
-            `    elementId=eid` + "\r\n" +
-            `    option=result` + "\r\n" +
-            `    onChartReady=(action onChartReady)` + "\r\n" +
-            `    opts=opts}}` + "\r\n"
+        const chartHbs = `{{echarts-chart classNames='chart-container'
+                elementId=eid
+                option=result
+                onChartReady=(action onChartReady)
+                opts=opts
+                onEvents=onEvents}}` + "\r\n"
 
         return chartHbs
     }
@@ -61,7 +62,8 @@ export default class BPChart extends BPWidget {
         import echarts from 'echarts';
         import $ from 'jquery';
         import { inject as service } from '@ember/service';
-        import { all } from 'rsvp';`
+        import { all } from 'rsvp';
+        import EmberObject from '@ember/object';`
     }
     public basicStrHead() {
         return `export default Component.extend({`

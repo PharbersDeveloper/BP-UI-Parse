@@ -3,7 +3,7 @@
         "paint": [
             "ember"
         ],
-        "name": "refactoring-code-chart-second"
+        "name": "refactoring-code-chart"
     },
     "routers": [
         {
@@ -52,11 +52,6 @@
                         }
                     ]
                 },{
-                    "id": "line-demo-second001",
-                    "type": "BPLine",
-                    "name": "bp-line",
-                    "layout": []
-                },{
                     "id": "bar-demo-first001",
                     "type": "BPBar",
                     "cat": "0",
@@ -84,11 +79,6 @@
                         }
                     ]
                 },{
-                    "id": "bar-demo-second001",
-                    "type": "BPBar",
-                    "name": "bp-bar",
-                    "layout": []
-                },{
                     "id": "pie-demo-first001",
                     "type": "BPPie",
                     "cat": "0",
@@ -115,11 +105,6 @@
                             "v": "border-box"
                         }
                     ]
-                },{
-                    "id": "pie-demo-second001",
-                    "type": "BPPie",
-                    "name": "bp-pie",
-                    "layout": []
                 },{
                     "id": "scatter-demo-first001",
                     "type": "BPScatter",

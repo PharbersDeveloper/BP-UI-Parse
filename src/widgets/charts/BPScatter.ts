@@ -46,11 +46,13 @@ export default class BPScatter extends BPChart {
                 config = isArray(panelConfig.series) ? panelConfig.series[0] : panelConfig.series,
                 series = [...Array(numbers)].map((ele,index) => {
                     let eleConfig = JSON.parse(JSON.stringify(config));
-
+                    let item = chartData[index+1][0];
                     eleConfig.encode.y = index+1
                     eleConfig.symbolSize = function (data) {
-
                         return data[index+1]/5
+                    }
+                    eleConfig.label.emphasis.formatter = function (data) {
+                        return item +" : " +data.value[index+1];
                     }
                     return eleConfig;
                 });
