@@ -693,3 +693,105 @@ input[type="checkbox"]+label {
 .progress-tracker-step span:last-child {
     margin-right: 0;
 }
+
+/*spinner 通用样式*/
+
+.spinner-container {
+    position: absolute;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+
+.spinner-background-gray {
+    background: rgba(9,30,66,0.55);
+}
+
+.spinner-background-white {
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.full-window-spinner {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.item-spinner {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.spinner-animate svg{
+    -webkit-animation: spinnerAnimate 1s linear infinite;
+    animation: spinnerAnimate 1s linear infinite;
+}
+
+@-webkit-keyframes spinnerAnimate {
+    0%{ -webkit-transform: rotate(0deg);}
+    50%{ -webkit-transform: rotate(180deg);}
+    100%{ -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spinnerAnimate {
+    0%{ transform: rotate(0deg);}
+    50%{ transform: rotate(180deg);}
+    100%{ transform: rotate(360deg);}
+}
+
+
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    align-items: center;
+    font-size: 14px;
+    color: #505F79;
+}
+
+.pagination svg {
+    margin: 0;
+    cursor: pointer;
+}
+
+.pagination span {
+    height: 24px;
+    width: 24px;
+}
+
+.pagination-able svg path {
+    fill: #505F79;
+}
+
+.pagination-unable svg path {
+    fill: #B3BAC5;;
+}
+
+.pagination-page {
+    letter-spacing: 0;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+
+}
+
+.pagination-active {
+    background: #505F79;
+    border-radius: 3px;
+    color: white;
+    margin: 0 4px;
+}

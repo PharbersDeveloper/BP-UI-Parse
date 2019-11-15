@@ -37,6 +37,7 @@ import BPSubMenu from "../widgets/navs/BPSubMenu"
 import BPTab from "../widgets/navs/BPTab"
 import BPTabBar from "../widgets/navs/BPTabBar"
 import BPTabButton from "../widgets/navs/BPTabButton"
+import BPPagination from "../widgets/pagination/BPPagination"
 import BPPopover from "../widgets/popover/BPPopover"
 import BPProcessTracker from "../widgets/progressTracker/BPProcessTracker"
 import BPRadio from "../widgets/radio/BPRadio"
@@ -82,7 +83,8 @@ export default class BPEmberCtx extends BPCtx {
             new EmberInstallDepExec("ember-cli-echarts"),
             new EmberInstallDepExec("@ember/jquery"),
             new EmberInstallDepExec("@ember/optional-features"),
-            new EmberInstallDepExec("jquery-integration", "-D", "feature:enable")
+            new EmberInstallDepExec("jquery-integration", "-D", "feature:enable"),
+            new EmberInstallDepExec("ember-truth-helpers")
         ]
 
     }
@@ -139,6 +141,7 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPPagination(this.output, this.projectName, routeName),
             new BPSpinner(this.output, this.projectName, routeName),
             new BPProcessTracker(this.output, this.projectName, routeName),
             new BPPopover(this.output, this.projectName, routeName),
