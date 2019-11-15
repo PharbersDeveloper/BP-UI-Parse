@@ -84,15 +84,37 @@ export default class BPChina extends BPChart {
         onDataReady() { },
         onEvents: EmberObject.create({
             click(param, echart) {
-                if(param.name === "浙江") {
+                if (param.name === "浙江") {
                     echart.setOption({
-                        geo:{map:param.name},
-                        series: [{map: param.name}]
+                        geo: { map: param.name },
+                        series: [{ map: param.name }],
+                        dataset: {source: [
+                            ['宁波市',6409],
+                            ['绍兴市',6000],
+                            ['金华市',6818],
+                            ['温州市',6408],
+                            ['湖州市',6410]
+                        ]}
                     })
+                } else if(param.name === "湖州市") {
+                    $.get('http://127.0.0.1:5555/huzhou', function (huzhou) {
+                        echarts.registerMap('湖州市', huzhou);
+                        echart.setOption({
+                            geo: {
+                                map: "湖州市"
+                            },
+                            series: [{
+                                map: '湖州市'
+                            }]
+                        });
+                    });
                 } else {
                     echart.setOption({
-                        geo:{map:"china"},
-                        series: [{map: "china"}]
+                        geo: { map: "china" },
+                        series: [{ map: "china" }],
+                        dataset: {source: [
+                            ['浙江',32045]
+                        ]}
                     })
                 }
             },
