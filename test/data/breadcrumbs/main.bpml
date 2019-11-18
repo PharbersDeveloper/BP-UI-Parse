@@ -36,7 +36,7 @@
           "type": "BPBreadcrumbs",
           "cat": "0",
           "text": "simon test",
-          "name":"bp-pagination",
+          "name":"bp-breadcrumbs",
           "css": [
           ],
           "attrs": {

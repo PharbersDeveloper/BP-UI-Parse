@@ -806,9 +806,19 @@ input[type="checkbox"]+label {
 
 .breadcrumbs-container div {
     display: inline-block;
-    margin: 0 24px 0 8px;
+    margin: 0 16px 0 0;
     font-weight: 500;
+    cursor: pointer;
 }
+
+.breadcrumbs-container div a {
+    color: #6B778C;
+}
+
+.breadcrumbs-container span {
+    margin: 0 4px;
+}
+
 
 .breadcrumbs-show {
     cursor: pointer;

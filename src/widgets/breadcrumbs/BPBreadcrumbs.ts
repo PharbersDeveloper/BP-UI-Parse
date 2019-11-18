@@ -39,6 +39,7 @@ export default class BPBreadcrumbs extends BPWidget {
 
         const fileData = "\n" +
             "import {computed} from '@ember/object';" + "\r" +
+            "import { A } from '@ember/array';" + "\r" +
             "export default Component.extend({" + "\r" +
             "    layout," + "\r" +
             "    tagName:'div'," + "\r" +
@@ -46,7 +47,18 @@ export default class BPBreadcrumbs extends BPWidget {
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
             "    attributeBindings: ['']," + "\r" +
-            // "    contentArray: '" + contentArray + "]," + "\r" +
+            "    contents: '" + comp.attrs.contents + "'," + "\r" +
+            "    contentsArray: computed('this.contents', function() { " + "\r" +
+            "        let arr = this.contents.split(',')" + "\r" +
+            "        let objArr = []" + "\r" +
+            "        arr.forEach(it => { " + "\r" +
+            "            let o = {}" + "\r" +
+            "            o.name = it" + "\r" +
+            "            o.href = 'index'" + "\r" +
+            "            objArr.push(o)" + "\r" +
+            "        })" + "\r" +
+            "        return A(objArr)" + "\r" +
+            "    })," + "\r" +
             "    showAll: false," + "\r" +
             "    actions: { " + "\r" +
             "        toggleShowAll() { " + "\r" +
@@ -64,18 +76,19 @@ export default class BPBreadcrumbs extends BPWidget {
         const arrayContent = comp.attrs.contents.split(",")
         const len = arrayContent.length
         if (len > 5) {
-            contentPart = "<div>" + arrayContent[0] + "</div>"
-            contentPart += "<span>/</span>" + "\r" +
-                        "<span onclick={{action 'toggleShowAll'}} class='breadcrumbs-show'>... </span>" + "\r" +
+            contentPart = "<div>{{#link-to content.href}}{{contentsArray.firstObject.name}}{{/link-to}}</div>"
+            contentPart += "<span>/</span>" +
+                        "<span onclick={{action 'toggleShowAll'}} class='breadcrumbs-show'>...</span>" +
                         "<span>/</span>"
-            contentPart += "<div>" + arrayContent[len - 1] + "</div>"
+            contentPart += "<div>{{#link-to content.href}}{{contentsArray.lastObject.name}}{{/link-to}}</div>"
         }
-        for (let i = 0; i < len; i++) {
-            contentAll += "<div>" + arrayContent[i] + "</div>"
-            if (i !== len - 1) {
-                contentAll += "<span>/</span>"
-            }
-        }
+
+        contentAll = "{{#each contentsArray as |content|}}" + "\r" +
+                    "    <div> {{#link-to content.href}}{{content.name}} {{/link-to}}</div>" + "\r" +
+                    "    {{#if (not-eq content.name contentsArray.lastObject.name)}}" + "\r" +
+                    "        <span>/</span>" + "\r" +
+                    "    {{/if}}" + "\r" +
+                    "{{/each}}"
 
         content = "{{#if showAll}}" + "\r" +
                 contentAll + "\r" +
