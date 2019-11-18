@@ -795,3 +795,21 @@ input[type="checkbox"]+label {
     color: white;
     margin: 0 4px;
 }
+
+.breadcrumbs-container {
+    max-width: 560px;
+    height: max-content;
+    font-size: 12px;    
+    color: #6B778C;
+    line-height: 16px;
+}
+
+.breadcrumbs-container div {
+    display: inline-block;
+    margin: 0 24px 0 8px;
+    font-weight: 500;
+}
+
+.breadcrumbs-show {
+    cursor: pointer;
+}

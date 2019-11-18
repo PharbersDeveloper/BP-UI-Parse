@@ -16,6 +16,7 @@ import phLogger from "../logger/phLogger"
 import BPBadge from "../widgets/badges/BPBadge"
 import BPItem from "../widgets/basic/BPItem"
 import { BPWidget } from "../widgets/BPWidget"
+import BPBreadcrumbs from "../widgets/breadcrumbs/BPBreadcrumbs"
 import BPPushButton from "../widgets/buttons/BPPushButton"
 import BPBar from "../widgets/charts/BPBar"
 import BPLine from "../widgets/charts/BPLine"
@@ -141,6 +142,7 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPBreadcrumbs(this.output, this.projectName, routeName),
             new BPPagination(this.output, this.projectName, routeName),
             new BPSpinner(this.output, this.projectName, routeName),
             new BPProcessTracker(this.output, this.projectName, routeName),
