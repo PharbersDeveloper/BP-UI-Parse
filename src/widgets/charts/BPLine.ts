@@ -29,4 +29,44 @@ export default class BPLine extends BPChart {
 
         return execList
     }
+    public importString() {
+        return `import { isEmpty, typeOf } from '@ember/utils';
+        import { isArray } from '@ember/array';
+        import echarts from 'echarts';
+        import $ from 'jquery';
+        import { inject as service } from '@ember/service';
+        import { all } from 'rsvp';`
+    }
+    public basicProp() {
+        return `layout,
+                tagName: '',
+                ajax: service(),
+                confReqAdd: "http://127.0.0.1:5555",`
+    }
+
+    public updateChart() {
+        return `updateChartData(chartConfig, chartData) {
+            let linesPanelConfig = this.calculateLinesNumber(chartConfig, chartData);
+
+            this.reGenerateChart(linesPanelConfig, chartData);
+
+            this.dataReady(chartData, chartConfig);
+
+            const echartInit = this.getChartIns();
+
+            echartInit.hideLoading();
+        },` + this.calcLinesNumber() + this.depLogic()
+    }
+    private calcLinesNumber() {
+        return 	`calculateLinesNumber(panelConfig, chartData) {
+            let linesNumber = chartData[0].length - 1,
+                lineConfig = isArray(panelConfig.series) ? panelConfig.series[0] : panelConfig.series,
+                series = [...Array(linesNumber)].map(() => {
+                    return lineConfig;
+                });
+
+            panelConfig.series = series;
+            return panelConfig;
+        },`
+    }
 }

@@ -33,138 +33,180 @@ export default class BPChart extends BPWidget {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
 
-        const fileData = `import { isEmpty, typeOf } from '@ember/utils';
-        import { isArray } from '@ember/array';
-        import echarts from 'echarts';
-        import $ from 'jquery';
-        import { inject as service } from '@ember/service';
-
-        export default Component.extend({
-            layout,
-            tagName: '',
-            ajax: service(),
-            init() {
-                this._super(...arguments);
-                this.set('result', {});
-                this.set('opts', {
-                    renderer: 'canvas' // canvas of svg
-                });
-            },
-            onChartReady(chart) {
-                chart.showLoading({
-                    text: '加载中...',
-                    color: '#FFAB00',
-                    textColor: '#fff',
-                    maskColor: 'rgba(9,30,66,0.54)',
-                    zlevel: 0
-                });
-            },
-            getChartIns() {
-                const selector = '#' + this.get('eid'),
-                    $el = $(selector),
-                    echartInstance = echarts.getInstanceByDom($el[0]);
-                return echartInstance;
-            },
-            generateChartOption(chartConfig, condition) {
-                this.queryData(chartConfig, condition);
-            },
-            queryData(chartConfig, cond) {
-                const body = cond.queryBody
-                const qa = cond.queryAddress;
-
-                // body['chartId'] = this.chartId;
-
-                this.get('ajax').request(qa, {
-                    method: 'POST',
-                    data: JSON.stringify(body),
-                    dataType: 'json'
-                }).then(data => {
-                    window.console.log(data)
-                    this.updateChartData(chartConfig, data);
-                });
-            },
-            updateChartData(chartConfig, chartData) {
-                let isLines = chartConfig.series.every((ele) => ele.type === 'line');
-
-                if (!isLines) {
-                    this.reGenerateChart(chartConfig, chartData);
-                } else {
-                    // TODO 这里可以改一下
-                    let linesPanelConfig = this.calculateLinesNumber(chartConfig, chartData);
-
-                    this.reGenerateChart(linesPanelConfig, chartData);
-                }
-                this.dataReady(chartData, chartConfig);
-
-                const echartInit = this.getChartIns();
-
-                echartInit.hideLoading();
-            },
-            calculateLinesNumber(panelConfig, chartData) {
-                let linesNumber = chartData[0].length - 1,
-                    lineConfig = isArray(panelConfig.series) ? panelConfig.series[0] : panelConfig.series,
-                    series = [...Array(linesNumber)].map(() => {
-                        return lineConfig;
-                    });
-
-                panelConfig.series = series;
-                return panelConfig;
-            },
-            reGenerateChart(option, chartData) {
-                const opts = this.get('opts'),
-                    echartInstance = this.getChartIns();
-
-                let chartOption = null;
-
-                if (isEmpty(option)) {
-                    echartInstance.setOption({}, opts);
-                    return;
-                }
-
-                echartInstance.clear();
-                chartOption = this.optionWithDate(option, chartData);
-                echartInstance.setOption(chartOption, opts);
-            },
-            optionWithDate(option, data) {
-                option.dataset = { source: data };
-                return option;
-            },
-            dataReady(chartData, panelConfig) {
-                this.onDataReady(chartData, panelConfig);
-            },
-            onDataReady() { },
-            didReceiveAttrs() {
-                this._super(...arguments);
-            },
-            didInsertElement() {
-                this._super(...arguments);
-                // 发送请求，请求 chart‘s config
-                const chartId = this.eid;
-                this.set('chartId', chartId)
-                this.get('ajax').request('http://127.0.0.1:5555/lineConfig', {
-                    method: 'GET',
-                    data: chartId
-                }).then(data => {
-                    if (!isEmpty(data.id) && !isEmpty(data.condition)) {
-                        this.generateChartOption(data.config, data.condition);
-                    }
-                })
-            }`
+        const fileData = this.importString() + "\r\n" +
+            this.basicStrHead() + "\r\n" +
+            this.basicProp() + "\r\n" +
+            this.lifeCycleHooks() + "\r\n" +
+            this.mainLogic() + "\r\n"
 
         return fileDataStart + "\r\n" + fileData + fileDataEnd
     }
     public paintShow(comp: BPComp) {
-        const showStart = "<div class='chart-container'>{{" + comp.name + " eid='" + comp.id + "'}}</div>"
+        const showStart = "<section class='chart-container'>{{" + comp.name + " eid='" + comp.id + "'}}</section>"
 
         return showStart
     }
     public paintHBS() {
-        const chartHbs = `{{echarts-chart classNames='chart-container'` + "\r\n" +
-            `    elementId=eid` + "\r\n" +
-            `    option=result` + "\r\n" +
-            `    onChartReady=(action onChartReady)` + "\r\n" +
-            `    opts=opts}}` + "\r\n"
+        const chartHbs = `{{echarts-chart classNames='chart-container'
+                elementId=eid
+                option=result
+                onChartReady=(action onChartReady)
+                opts=opts
+                onEvents=onEvents}}` + "\r\n"
 
         return chartHbs
+    }
+    public importString() {
+        return `import { isEmpty, typeOf } from '@ember/utils';
+        import { isArray,A } from '@ember/array';
+        import echarts from 'echarts';
+        import $ from 'jquery';
+        import { inject as service } from '@ember/service';
+        import { all } from 'rsvp';
+        import EmberObject from '@ember/object';`
+    }
+    public basicStrHead() {
+        return `export default Component.extend({`
+    }
+    public basicProp() {
+        return `layout,
+                tagName: '',
+                ajax: service(),
+                confReqAdd: "http://127.0.0.1:5555",
+                xValues: A([]),`
+    }
+    public lifeCycleHooks() {
+        return `init() {
+            this._super(...arguments);
+            this.set('result', {});
+            this.set('opts', {
+                renderer: 'canvas' // canvas of svg
+            });
+        },
+        didReceiveAttrs() {
+            this._super(...arguments);
+        },
+        didInsertElement() {
+            this._super(...arguments);
+
+            const chartId = this.eid;
+            this.set('chartId', chartId)
+            this.get('ajax').request(this.confReqAdd+'/chartsConfig', {
+                method: 'GET',
+                data: chartId
+            }).then(data => {
+                if (!isEmpty(data.id) && !isEmpty(data.condition)) {
+                    this.generateChartOption(data.config, data.condition);
+                }
+            })
+        },`
+    }
+    public mainLogic() {
+        return `
+        getChartIns() {
+            const selector = '#' + this.get('eid'),
+                $el = $(selector),
+                echartInstance = echarts.getInstanceByDom($el[0]);
+            return echartInstance;
+        },
+        generateChartOption(chartConfig, cond) {
+            const queryConfig = cond.query
+            const qa = queryConfig.address;
+            const queryXSql = queryConfig.xSql;
+            const queryDimensionSql = queryConfig.dimensionSql;
+            const queryChartSql = queryConfig.chartSql;
+            const ajax = this.ajax;
+            const ec = cond.encode;
+            let getXValues = null;
+            let chartData = []
+
+            if (isEmpty(this.xValues)) {
+                getXValues = this.get('ajax').request(qa + '?tag=array', {
+                    method: 'POST',
+                    data: JSON.stringify({"sql":queryXSql}),
+                    dataType: 'json'
+                })
+            } else {
+                getXValues = new Promise(resolve => {
+                    resolve(this.xValues)
+                })
+            }
+            getXValues.then(data => {
+                this.set("xValues", data)
+                chartData.push(data)
+                // query dimension
+                return ajax.request(qa + '?tag=array', {
+                    method: 'POST',
+                    data: JSON.stringify({"sql":queryDimensionSql}),
+                    dataType: 'json'
+                }).then(data => {
+                    return all(data.map(ele => {
+                        let reqBody = {
+                            "sql": queryChartSql.replace(ec.placeHolder, ele),
+                            "x-values": this.xValues
+                        }
+                        return ajax.request(qa + '?tag=chart&x-axis='+ec.x+'&y-axis='+ec.y+'&dimensionKeys='+ec.dimension, {
+                            method: 'POST',
+                            data: JSON.stringify(reqBody),
+                            dataType: 'json'
+                        })
+                    }))
+                }).then(data => {
+                    data.forEach(ele => {
+                        chartData.push(ele[1])
+                    })
+                    chartData[0].unshift(ec.x)
+                    this.updateChartData(chartConfig, chartData);
+                })
+            })
+        },` + "\r\n" + this.updateChart()
+    }
+    public updateChart() {
+        return `updateChartData(chartConfig, chartData) {
+                    this.reGenerateChart(chartConfig, chartData);
+
+                    this.dataReady(chartData, chartConfig);
+
+                    const echartInit = this.getChartIns();
+
+                    echartInit.hideLoading();
+                },` + this.depLogic()
+    }
+    public depLogic() {
+        return `reGenerateChart(option, chartData) {
+            const opts = this.get('opts'),
+                echartInstance = this.getChartIns();
+
+            let chartOption = null;
+
+            if (isEmpty(option)) {
+                echartInstance.setOption({}, opts);
+                return;
+            }
+
+            echartInstance.clear();
+            chartOption = this.optionWithData(option, chartData);
+            echartInstance.setOption(chartOption, opts);
+        },
+        optionWithData(option, data) {
+            option.dataset = { source: data };
+            return option;
+        },` + this.dataChange()
+    }
+    public dataChange() {
+        return `
+        onChartReady(chart) {
+            chart.showLoading({
+                text: '加载中...',
+                color: '#FFAB00',
+                textColor: '#fff',
+                maskColor: 'rgba(9,30,66,0.54)',
+                zlevel: 0
+            });
+        },
+        dataReady(chartData, panelConfig) {
+            this.onDataReady(chartData, panelConfig);
+        },
+        onDataReady() { },`
     }
 }
