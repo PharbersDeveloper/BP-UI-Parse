@@ -48,6 +48,7 @@ import BPRadio from "../widgets/radio/BPRadio"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
 import BPSpinner from "../widgets/spinner/BPSpinner"
 import BPStatus from "../widgets/status/BPStatus"
+import BPTable from "../widgets/table/BPTable"
 import BPTag from "../widgets/tags/BPTag"
 import BPTextarea from "../widgets/textarea/BPTextarea"
 import BPToast from "../widgets/toast/BPToast"
@@ -88,7 +89,9 @@ export default class BPEmberCtx extends BPCtx {
             new EmberInstallDepExec("@ember/jquery"),
             new EmberInstallDepExec("@ember/optional-features"),
             new EmberInstallDepExec("jquery-integration", "-D", "feature:enable"),
-            new EmberInstallDepExec("ember-truth-helpers")
+            new EmberInstallDepExec("ember-truth-helpers"),
+            new EmberInstallDepExec("ember-table"),
+            new EmberInstallDepExec("ember-ajax")
         ]
 
     }
@@ -145,6 +148,7 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPTable(this.output, this.projectName, routeName),
             new BPBreadcrumbs(this.output, this.projectName, routeName),
             new BPPagination(this.output, this.projectName, routeName),
             new BPSpinner(this.output, this.projectName, routeName),

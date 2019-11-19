@@ -1,0 +1,89 @@
+{
+    "meta": {
+        "paint": [
+            "ember"
+        ],
+        "name": "refactoring-code-table"
+    },
+    "routers": [
+        {
+            "id": "page with table",
+            "type": "BPMainWindow",
+            "cat": "table",
+            "name": "table",
+            "path": "table",
+            "layout": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "100%"
+                }
+            ],
+            "css": [],
+            "components": [
+                {
+                    "id": "table-demo",
+                    "type": "BPTable",
+                    "cat": "0",
+                    "name": "bp-table-demo",
+                    "layout": [],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "800px"
+                        },{
+                            "k": "height",
+                            "v": "400px"
+                        },{
+                            "k": "padding",
+                            "v": "0"
+                        },{
+                            "k": "margin",
+                            "v": "0"
+                        },{
+                            "k": "position",
+                            "v": "relative"
+                        },{
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ]
+                },
+                {
+                    "id": "table-border-demo",
+                    "type": "BPTable",
+                    "cat": "0",
+                    "name": "bp-border-table-demo",
+                    "layout": [],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "800px"
+                        },{
+                            "k": "height",
+                            "v": "400px"
+                        },{
+                            "k": "padding",
+                            "v": "0"
+                        },{
+                            "k": "position",
+                            "v": "relative"
+                        },{
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }, {
+                            "k": "margin-top",
+                            "v": "30px"
+                        }
+                    ],
+                    "attrs": {
+                        "border": "true"
+                    }
+                }
+            ]
+        }
+    ]
+}

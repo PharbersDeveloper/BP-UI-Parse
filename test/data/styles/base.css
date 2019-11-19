@@ -823,3 +823,52 @@ input[type="checkbox"]+label {
 .breadcrumbs-show {
     cursor: pointer;
 }
+
+/*table 样式*/
+
+table th {
+    font-size: 12px;
+    color: #6B778C;
+    text-align: left;
+    padding: 8px;
+    background: #ffffff;
+}
+
+table thead th {
+    top: 0px !important;
+}
+
+
+table tbody tr:hover {
+    background: #ededf1;
+}
+
+table tbody tr {
+    background: #ffffff;
+}
+
+table tbody td {   
+    font-size: 14px;
+    color: #344563;
+    padding: 16px 8px;
+    background: inherit;
+}
+
+.border-table table tbody td {
+    border-top: 1px solid rgba(9,30,66,0.08);
+}
+
+table th .et-sort-indicator::before {
+    display: inline-block;
+    border: none;
+    line-height: 1;
+    content: '\25be';
+}
+
+table th .is-descending::before{
+    transform: rotate(0);
+}
+
+table th .is-ascending::before {
+    transform: rotate(180deg);
+}
