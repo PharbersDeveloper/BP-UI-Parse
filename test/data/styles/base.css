@@ -40,7 +40,7 @@ input[type="text"] {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(9,30,66,0.71);
+    background: rgba(9,30,66,0.25);
     border-radius: 10px;
 }
 

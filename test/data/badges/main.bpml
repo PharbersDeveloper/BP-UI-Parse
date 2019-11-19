@@ -73,7 +73,7 @@
               "v": "8px"
             }, {
               "k": "padding",
-              "v": "0 4px"
+              "v": "0 6px"
             }
           ]
         },{
@@ -117,7 +117,7 @@
               "v": "8px"
             },{
               "k": "padding",
-              "v": "0 4px"
+              "v": "0 6px"
             }
           ]
         },{
@@ -161,7 +161,128 @@
               "v": "8px"
             },{
               "k": "padding",
-              "v": "0 4px"
+              "v": "0 6px"
+            }
+          ]
+        },
+        {
+          "id": "test",
+          "type": "BPBadge",
+          "cat": "0",
+          "text": "12",
+          "name":"bp-badge-default",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "background",
+              "v": "#DFE1E6"
+            },
+            {
+              "k": "font-size",
+              "v": "12px"
+            },
+            {
+              "k": "color",
+              "v": "#253858"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "16px"
+            }, {
+              "k": "height",
+              "v": "16px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "8px"
+            },{
+              "k": "padding",
+              "v": "0 6px"
+            }
+          ]
+        },
+            {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "12",
+          "name":"bp-badge-primiry-inverse-div",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "background",
+              "v": "#3172E0"
+            },
+            {
+              "k": "height",
+              "v": "16px"
+            }
+          ],
+          "components": [
+             {
+            "id": "test",
+            "type": "BPBadge",
+            "cat": "0",
+            "text": "12",
+            "name":"bp-badge-primiry-inverse",
+            "css": [
+                {
+                  "k": "width",
+                  "v": "auto"
+                },
+                {
+                  "k": "background",
+                  "v": "#FFFFFF"
+                },
+                {
+                  "k": "font-size",
+                  "v": "12px"
+                },
+                {
+                  "k": "color",
+                  "v": "#3172E0"
+                },
+                {
+                  "k": "text-align",
+                  "v": "center"
+                },
+                {
+                  "k": "line-height",
+                  "v": "16px"
+                }, {
+                  "k": "height",
+                  "v": "16px"
+                }, {
+                  "k": "border",
+                  "v": "0"
+                }, {
+                  "k": "border-radius",
+                  "v": "8px"
+                },{
+                  "k": "padding",
+                  "v": "0 6px"
+                },
+                {
+                  "k": "position",
+                  "v": "relative"
+                },
+                {
+                  "k": "top",
+                  "v": "-5px"
+                }
+              ]
             }
           ]
         }
