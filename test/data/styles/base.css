@@ -872,3 +872,43 @@ table th .is-descending::before{
 table th .is-ascending::before {
     transform: rotate(180deg);
 }
+
+/* SpotLight */
+
+.spotlight-item {
+    border: 2px solid #6554C0;
+    box-shadow: 0 0 0 6px rgba(101,84,192,0.40);
+    border-radius: 4px;
+}
+
+.spotlight {
+    height: max-content;
+    width: 320px;
+    background: #6554C0;
+    border-radius: 4px;
+    padding: 16px;
+    position: absolute;
+    color: rgba(255,255,255,0.95);
+    top: 0;
+    left: 0;
+}
+
+.spotlight div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.spotlight p {
+    margin-top: 0;
+}
+
+.spotlight button {
+    height: 32px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.95);
+    text-align: left;
+    background: rgba(9,30,66,0.08);
+    border-radius: 4px;
+    padding: 0 16px;
+    outline: none;
+}

@@ -7,7 +7,7 @@ import phLogger from "../../logger/phLogger"
 import { IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
-export default class BPPopover extends BPWidget {
+export default class BPSpotlight extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
             super(output, name, routeName)
         }
@@ -37,25 +37,76 @@ export default class BPPopover extends BPWidget {
         const fileDataEnd = this.paintLoginEnd()
 
         let fileData = "\n" +
-            "export default Component.extend({" + "\r" +
-            "    layout," + "\r" +
-            "    tagName:'div'," + "\r" +
-            "    classNames:['']," + "\r" +
-            // "    classNames:['" + comp.name + "']," + "\r" +
-            "    content: 'default'," + "\r" +
-            "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
-            "    attributeBindings: ['']," + "\r" +
-            "    popoverPlace: '" + comp.attrs.placement + "'," + "\r" +
-            "    actions: {" + "\r"
+            `export default Component.extend({
+                layout,
+                tagName:'div',
+                classNames:[''],
+                classNames:['${comp.name}'],
+                content: 'default',
+                classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only'],
+                attributeBindings: [''],
+                popoverPlace: '${ comp.attrs.placement}',
+                didInsertElement() {
+                    this._super(...arguments);
 
-        fileData = fileData + "dismiss(event) { " + "\r" +
-                "    let ev = event || window.event" + "\r" +
-                "    let cur = ev.target" + "\r" +
-                "    while(cur.parentElement.classList.value.indexOf('popover-container') === -1) {" + "\r" +
-                "        cur = cur.parentElement" + "\r" +
-                "    }" + "\r" +
-                "    cur.parentElement.style.display = 'none'" + "\r" +
-                "},"
+                    const element = Array.from(document.getElementsByClassName("${comp.name}"))[0]
+                    const needSpotlightItem = element.previousElementSibling
+                    const spotlight = element.childNodes[0]
+                    const eleHeight = needSpotlightItem.offsetHeight
+                    const eleWidth = needSpotlightItem.offsetWidth
+                    const spotHeight = spotlight.offsetHeight
+                    const spotWidth = spotlight.offsetWidth
+                    const spotPlace = "${comp.attrs.placement}"
+
+                    switch(spotPlace) {
+                        case 'right':
+                            spotlight.style.transform =  'translate3d(' + ( eleWidth + 15 ) + 'px, ' + ((eleHeight-spotHeight) / 2) + 'px, 0px' +')'
+                            break
+                        case 'right-top':
+                            spotlight.style.transform =  'translate3d(' + ( eleWidth + 15 ) + 'px, 0px, 0px' +')'
+                            break
+                        case 'right-bottom':
+                            spotlight.style.transform =  'translate3d(' + ( eleWidth + 15 ) + 'px, ' + (eleHeight-spotHeight) + 'px, 0px' +')'
+                            break
+                        case 'left':
+                            spotlight.style.transform =  'translate3d(' + (-15-spotWidth) + 'px, ' + ((eleHeight-spotHeight) / 2) + 'px, 0px' +')'
+                            break
+                        case 'left-top':
+                            spotlight.style.transform =  'translate3d(' + (-15-spotWidth) + 'px, 0px, 0px' +')'
+                            break
+                        case 'left-bottom':
+                            spotlight.style.transform =  'translate3d(' + (-15-spotWidth) + 'px, ' + (eleHeight-spotHeight) + 'px, 0px' +')'
+                            break
+                        case 'top':
+                            spotlight.style.transform =  'translate3d(' +((eleWidth-spotWidth)/2)+ 'px, ' + (-15-spotHeight) + 'px, 0px' +')'
+                            break
+                        case 'top-right':
+                            spotlight.style.transform =  'translate3d(' + (eleWidth-spotWidth) + 'px, ' + (-15-spotHeight) + 'px, 0px' +')'
+                            break
+                        case 'top-left':
+                            spotlight.style.transform =  'translate3d( 0px, ' + (-15-spotHeight) + 'px, 0px' +')'
+                            break
+                        case 'bottom':
+                            spotlight.style.transform =  'translate3d(' +((eleWidth-spotWidth)/2)+ 'px, ' + (eleHeight + 15) + 'px, 0px' +')'
+                            break
+                        case 'bottom-right':
+                            spotlight.style.transform =  'translate3d(' + (eleWidth-spotWidth) + 'px, ' + (eleHeight + 15) + 'px, 0px' +')'
+                            break
+                        case 'bottom-left':
+                            spotlight.style.transform =  'translate3d( 0px, ' + (eleHeight + 15) + 'px, 0px' +')'
+                            break
+                        default:
+                            break
+                    }
+                },
+                actions: {`
+
+        fileData = fileData + "\r" +
+            `dismissSpotlight(event) {
+                let arr = Array.from(document.getElementsByClassName("spotlight-item"))
+                arr[0].classList.remove("spotlight-item")
+                arr[0].nextElementSibling.style.display = "none"
+            },`
 
         fileData = fileData +
                 "togglePopover(event) { " + "\r" +
@@ -118,50 +169,12 @@ export default class BPPopover extends BPWidget {
     }
 
     public paintHBS(comp: BPComp) {
-        const position = "popover-triangle-" + comp.attrs.placement
-        let icon = ""
-        let dismiss = ""
-        let link = ""
-        let actions = ""
-        let popoverToggle = "<button onclick={{action 'togglePopover'}} class='" + comp.name + "'>" + comp.text + "</button>"
-
-        if (comp.attrs.messageState) {
-            icon = "<span>{{svg-jar '" + comp.attrs.messageState +
-                    "' width='24px' height='24px' class='icon icon-pointer icon-" + comp.attrs.messageState + "' }}</span>"
-        }
-
-        if (comp.attrs.dismiss === "true") {
-            dismiss = "<span onclick={{action 'dismiss'}}>{{svg-jar 'cross' width='24px' height='24px' class='icon-pointer' }}</span>"
-        }
-
-        if (comp.attrs.link) {
-            link = "<a href='" + comp.attrs.link.href + "'>" + comp.attrs.link.name + "</a>"
-        }
-
-        if (comp.attrs.actions === "true") {
-            actions = "<button onclick={{action 'dismiss'}}>Cancel</button><button>Confirm</button>"
-        }
-
-        if (comp.attrs.input === "true") {
-            popoverToggle = "<input type='text' onclick={{action 'togglePopover'}} class='" + comp.name + "'>"
-        }
-
-        return  "<div class='popover-wrapper'>" + popoverToggle + "\r" +
-                "<div class='popover-container'>" + "\r" +
-                "<div class='popover'>" + "\r" +
-                icon + "\r" +
-                "<div class='popover-content'>" + "\r" +
-                "<div class='popover-head'>" + "\r" +
-                "<div class='popover-title'>" + comp.attrs.title + "</div>" + "\r" +
-                dismiss + "\r" +
-                "</div>" + "\r" +
-                "<div class='popover-desc'>" + comp.attrs.desc + "</div>" + "\r" +
-                "<div class='popover-footer'>" + link + actions  + "</div>" +
-                "</div>" + "\r" +
-                "</div>" + "\r" +
-                "<div class='popover-triangle " + position + "'></div>" +
-                "</div>" + "\r" +
-                "</div>"
+        return  `<div class="spotlight">
+        <p>${comp.attrs.text}</p>
+            <div>
+                <button {{action 'dismissSpotlight'}}> Got it </button>
+            </div>
+        </div>`
     }
 
     public transName(name: string) {

@@ -50,12 +50,13 @@ export default class BPDiv extends BPWidget {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
+        const specialClass = comp.attrs.specialClass ? comp.attrs.specialClass : ""
 
         const fileData = "\n" +
             "export default Component.extend({" + "\r" +
             "    layout," + "\r" +
             "    tagName:'div'," + "\r" +
-            "    classNames:['" + comp.name + "']," + "\r" +
+            "    classNames:['" + comp.name + "', '" + specialClass + "']," + "\r" +
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'rseverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
             "    attributeBindings: ['disabled']," + "\r"

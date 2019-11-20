@@ -301,7 +301,7 @@
           "type": "BPPopover",
           "cat": "0",
           "text": "",
-          "name":"bp-popover-top-input",
+          "name":"bp-popover-left-input",
           "css": [
           ],
           "components": [],
