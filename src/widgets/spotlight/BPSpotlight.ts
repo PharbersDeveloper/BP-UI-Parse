@@ -35,20 +35,30 @@ export default class BPSpotlight extends BPWidget {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
+        const nextStep = comp.attrs.text.length > 1 ? true : false
+        let textContent = "["
+        comp.attrs.text.forEach((it: string) => {
+            textContent += "'" + it + "',"
+        })
+        textContent = textContent.substring(0, textContent.length - 1)
+        textContent += "]"
 
         let fileData = "\n" +
             `export default Component.extend({
                 layout,
                 tagName:'div',
                 classNames:[''],
-                classNames:['${comp.name}'],
+                curText: 0,
+                showCcurText: 1,
+                nextStep: ${nextStep},
+                classNames: ['${comp.name}'],
                 content: 'default',
                 classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only'],
                 attributeBindings: [''],
                 popoverPlace: '${ comp.attrs.placement}',
-                didInsertElement() {
-                    this._super(...arguments);
-
+                showSpotlightFlag: true,
+                textContent: ${textContent},
+                showSpotlight(flag) {
                     const element = Array.from(document.getElementsByClassName("${comp.name}"))[0]
                     const needSpotlightItem = element.previousElementSibling
                     const spotlight = element.childNodes[0]
@@ -98,70 +108,36 @@ export default class BPSpotlight extends BPWidget {
                         default:
                             break
                     }
+                    if (!flag) {
+                        spotlight.style.display = "none"
+                        needSpotlightItem.classList.remove("spotlight-item")
+                    }
+                },
+                didInsertElement() {
+                    this._super(...arguments);
+
+                    this.showSpotlight(this.showSpotlightFlag)
+                    if(this.curText === this.textContent.length - 1)  {
+                        this.set("nextStep", false)
+                    }
                 },
                 actions: {`
 
         fileData = fileData + "\r" +
             `dismissSpotlight(event) {
-                let arr = Array.from(document.getElementsByClassName("spotlight-item"))
-                arr[0].classList.remove("spotlight-item")
-                arr[0].nextElementSibling.style.display = "none"
-            },`
-
-        fileData = fileData +
-                "togglePopover(event) { " + "\r" +
-                "    let ev = event || window.event" + "\r" +
-                "    let popover = ev.target.nextElementSibling" + "\r" +
-                "    if (popover.style.display === 'none' || !popover.style.display) { " + "\r" +
-                "        popover.style.display = 'block'" + "\r" +
-                "    } else { " + "\r" +
-                "        popover.style.display = 'none'" + "\r" +
-                "    }" + "\r" +
-                "    let btnWidth = ev.target.offsetWidth" + "\r" +
-                "    let btnHeight = ev.target.offsetHeight" + "\r" +
-                "    let popoverHeight = popover.offsetHeight" + "\r" +
-                "    let popoverWeight = popover.offsetWidth" + "\r" +
-                "    switch(this.popoverPlace) { " + "\r" +
-                "        case 'right':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ( btnWidth + 20 ) + 'px, ' + ((btnHeight-popoverHeight) / 2) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'right-top':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ( btnWidth + 20 ) + 'px, ' + (btnHeight / 2 - 24) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'right-bottom':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ( btnWidth + 20 ) + 'px, ' + (btnHeight/2-24-popoverHeight) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'left':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + (-20-popoverWeight) + 'px, ' + ((btnHeight-popoverHeight)/2) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'left-top':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + (-20-popoverWeight) + 'px, ' + (btnHeight / 2 - 24) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'left-bottom':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + (-20-popoverWeight) + 'px, ' + (btnHeight/2-24-popoverHeight) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'top':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ((btnWidth-popoverWeight)/2) + 'px, ' + (-20-popoverHeight) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'top-right':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ( 20 + btnWidth/2 - popoverWeight) + 'px, ' + (-20-popoverHeight) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'top-left':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ((btnWidth/2 - 30)) + 'px, ' + (-20-popoverHeight) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'bottom':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ((btnWidth-popoverWeight)/2) + 'px, ' + (btnHeight + 20) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'bottom-right':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ( 20 + btnWidth/2 - popoverWeight) + 'px, ' + (btnHeight + 20) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'bottom-left':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ((btnWidth/2 - 30)) + 'px, ' + (btnHeight + 20) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        default:" + "\r" +
-                "            break" + "\r" +
-                "    }" + "\r" +
-                "}"
+                let ev = event || window.event
+                let curSpotlight = ev.target.parentNode.parentNode
+                let item = curSpotlight.parentNode.previousElementSibling
+                item.classList.remove("spotlight-item")
+                curSpotlight.style.display = "none"
+            },
+            nextSTep() {
+                this.set("curText", Math.min(this.curText + 1, this.textContent.length - 1))
+                this.set("showCcurText", Math.min(this.showCcurText + 1, this.textContent.length))
+                if(this.curText === this.textContent.length - 1)  {
+                    this.set("nextStep", false)
+                }
+            }`
 
         fileData = fileData  + "}"
 
@@ -169,20 +145,25 @@ export default class BPSpotlight extends BPWidget {
     }
 
     public paintHBS(comp: BPComp) {
+        const secondaryButton = comp.attrs.secondaryButton === "true" ?
+        "<button {{action 'dismissSpotlight'}} class='secondary-btn'> 跳过 </button>" : ""
+
+        const title = comp.attrs.title ? `<h3>${comp.attrs.title}</h3>` : ""
+
         return  `<div class="spotlight">
-        <p>${comp.attrs.text}</p>
+        ${title}
+        <p>{{get textContent curText}}</p>
             <div>
+                {{#if (gt textContent.length 1)}}
+                <span>{{showCcurText}}/{{textContent.length}}</span>
+                {{/if}}
+                ${secondaryButton}
+                {{#if nextStep}}
+                <button {{action 'nextSTep'}}> 下一步 </button>
+                {{else}}
                 <button {{action 'dismissSpotlight'}}> Got it </button>
+                {{/if}}
             </div>
         </div>`
-    }
-
-    public transName(name: string) {
-        const arr = name.split("-")
-        for (let i = 0; i < arr.length; i++) {
-            const [first, ...rest] = arr[i]
-            arr[i] = first.toUpperCase() + rest.join("")
-        }
-        return arr.join("")
     }
 }

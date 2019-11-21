@@ -896,6 +896,7 @@ table th .is-ascending::before {
 .spotlight div {
     display: flex;
     justify-content: flex-end;
+    position: relative;
 }
 
 .spotlight p {
@@ -911,4 +912,24 @@ table th .is-ascending::before {
     border-radius: 4px;
     padding: 0 16px;
     outline: none;
+}
+
+.spotlight span {
+    position: absolute;
+    left: 0px;
+    bottom: 5px;
+}
+
+.spotlight .secondary-btn {
+    margin-right: 4px;
+    border: none;
+    background: transparent;
+     margin-right: 4px;
+}
+
+.spotlight h3 {
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-top: 0px;
+    margin-bottom: 8px;
 }

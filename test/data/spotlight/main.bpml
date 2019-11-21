@@ -87,8 +87,10 @@
                     
                 ],
                 "attrs": {
-                    "placement": "top",
-                    "text": "Help or  instruction text goes here.Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+                    "secondaryButton": "true",
+                    "title": "Title test",
+                    "placement": "right",
+                    "text": ["1. Help or  instruction text goes here.Lorem ipsum dolor sit amet, consectetur adipisicing elit.", "2. Help or  instruction text goes here.Lorem ipsum dolor sit amet, consectetur adipisicing elit."]
                 }
               }
           ]
