@@ -43,7 +43,7 @@ import BPTabBar from "../widgets/navs/BPTabBar"
 import BPTabButton from "../widgets/navs/BPTabButton"
 import BPPagination from "../widgets/pagination/BPPagination"
 import BPPopover from "../widgets/popover/BPPopover"
-import BPProcessTracker from "../widgets/progressTracker/BPProcessTracker"
+import BPProgressTracker from "../widgets/progressTracker/BPProgressTracker"
 import BPRadio from "../widgets/radio/BPRadio"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
 import BPSpinner from "../widgets/spinner/BPSpinner"
@@ -154,7 +154,7 @@ export default class BPEmberCtx extends BPCtx {
             new BPBreadcrumbs(this.output, this.projectName, routeName),
             new BPPagination(this.output, this.projectName, routeName),
             new BPSpinner(this.output, this.projectName, routeName),
-            new BPProcessTracker(this.output, this.projectName, routeName),
+            new BPProgressTracker(this.output, this.projectName, routeName),
             new BPPopover(this.output, this.projectName, routeName),
             new BPModal(this.output, this.projectName, routeName),
             new BPToast(this.output, this.projectName, routeName),

@@ -35,6 +35,12 @@ export default class BPProgressTracker extends BPWidget {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
+        let stepText = "["
+        comp.attrs.stepText.forEach((it: string) => {
+            stepText += "'" + it + "',"
+        })
+        stepText.substring(0, stepText.length - 1)
+        stepText += "]"
 
         const fileData = "\n" +
             "import {computed} from '@ember/object';" + "\r" +
@@ -46,8 +52,8 @@ export default class BPProgressTracker extends BPWidget {
             "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
             "    attributeBindings: ['']," + "\r" +
             "    curStep: " + comp.attrs.curStep + "," + "\r" +
-            "    stepText: " + comp.attrs.stepText + "," + "\r" +
-            "    disabled: " + comp.attrs.disableStep + "," + "\r" +
+            "    stepText: " + stepText + "," + "\r" +
+            "    disabled: [" + comp.attrs.disableStep + "]," + "\r" +
             "    lineWidth: computed('this.curStep', function() { " + "\r" +
             "        let width = this.curStep * 170" + "\r" +
             "        if (this.curStep === 0) { " + "\r" +
@@ -77,20 +83,6 @@ export default class BPProgressTracker extends BPWidget {
     }
 
     public paintHBS(comp: BPComp) {
-        // let step = ""
-        const lineWidth = (comp.attrs.curStep - 1) * 170
-        // for (let i = 1; i <= comp.attrs.allStep; i ++) {
-        //     let color = "progress-tracker-step-unvisited"
-        //     if (comp.attrs.curStep === i) {
-        //         color = "progress-tracker-step-cur"
-        //     } else if (i < comp.attrs.curStep) {
-        //         color = "progress-tracker-step-visited"
-        //     } else if (comp.attrs.disableStep.includes(i)) {
-        //         color = "progress-tracker-step-disabled"
-        //     }
-        //     step += "<span class='" + color + "'>" + comp.attrs.stepText[i - 1] + "</span>"
-        // }
-
         const step = "{{#each this.stepText as |step index| }}" + "\r" +
                 "   <span class={{get computeStepClass index}}>{{step}}</span>" + "\r" +
                 "{{/each}}"

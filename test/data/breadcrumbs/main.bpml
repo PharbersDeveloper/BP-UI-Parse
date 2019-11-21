@@ -40,10 +40,8 @@
           "css": [
           ],
           "attrs": {
-              "contents": "Nucleus space, Pages, ADG3 - New site, design.atlassian.com content, Product design (draft), Patterns design (draft)",
-              "length": 6
-          }
-		}
+              "contents": ["Nucleus space, Pages", "ADG3 - New site", "design.atlassian.com content", "Product design (draft)", "Patterns design (draft)"]          }
+		    }
       ]
     }
   ]

@@ -35,7 +35,12 @@ export default class BPBreadcrumbs extends BPWidget {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
-        // const contentArray = comp.attrs.contents.split(",")
+        let contentArray = "["
+        comp.attrs.contents.forEach((it: string) => {
+            contentArray += "'" + it + "',"
+        })
+        contentArray.substring(0, contentArray.length - 1)
+        contentArray += "]"
 
         const fileData = "\n" +
             "import {computed} from '@ember/object';" + "\r" +
@@ -47,9 +52,9 @@ export default class BPBreadcrumbs extends BPWidget {
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
             "    attributeBindings: ['']," + "\r" +
-            "    contents: '" + comp.attrs.contents + "'," + "\r" +
+            "    contents: " + contentArray + "," + "\r" +
             "    contentsArray: computed('this.contents', function() { " + "\r" +
-            "        let arr = this.contents.split(',')" + "\r" +
+            "        let arr = this.contents" + "\r" +
             "        let objArr = []" + "\r" +
             "        arr.forEach(it => { " + "\r" +
             "            let o = {}" + "\r" +
@@ -73,15 +78,14 @@ export default class BPBreadcrumbs extends BPWidget {
         let content = ""
         let contentAll = ""
         let contentPart = ""
-        const arrayContent = comp.attrs.contents.split(",")
+        const arrayContent = comp.attrs.contents
         const len = arrayContent.length
-        if (len > 5) {
-            contentPart = "<div>{{#link-to content.href}}{{contentsArray.firstObject.name}}{{/link-to}}</div>"
-            contentPart += "<span>/</span>" +
-                        "<span onclick={{action 'toggleShowAll'}} class='breadcrumbs-show'>...</span>" +
-                        "<span>/</span>"
-            contentPart += "<div>{{#link-to content.href}}{{contentsArray.lastObject.name}}{{/link-to}}</div>"
-        }
+
+        contentPart = "<div>{{#link-to content.href}}{{contentsArray.firstObject.name}}{{/link-to}}</div>"
+        contentPart += "<span>/</span>" +
+                    "<span onclick={{action 'toggleShowAll'}} class='breadcrumbs-show'>...</span>" +
+                    "<span>/</span>"
+        contentPart += "<div>{{#link-to content.href}}{{contentsArray.lastObject.name}}{{/link-to}}</div>"
 
         contentAll = "{{#each contentsArray as |content|}}" + "\r" +
                     "    <div> {{#link-to content.href}}{{content.name}} {{/link-to}}</div>" + "\r" +
