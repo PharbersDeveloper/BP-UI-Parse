@@ -16,6 +16,7 @@ export default class BPTooltip extends BPWidget {
 
         const options: IOptions = {
                 comp,
+                hbsData: this.paintHBS(comp),
                 logicData: this.paintLogic(comp), // js
                 output: this.output,
                 pName: this.projectName,
@@ -47,5 +48,11 @@ export default class BPTooltip extends BPWidget {
             "    attributeBindings: ['']," + "\r"
 
         return fileDataStart + fileData + fileDataEnd
+    }
+
+    public paintHBS(comp: BPComp) {
+        if (comp.icon) {
+            return "{{svg-jar '" + comp.icon + "' width='24px' height='24px' class='icon-pointer' }}"
+        }
     }
 }
