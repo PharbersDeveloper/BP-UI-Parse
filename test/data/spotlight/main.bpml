@@ -56,7 +56,7 @@
                 "type": "BPDiv",
                 "cat": "0",
                 "text": "Laura Sofía Ureña",
-                "name":"bp-textare",
+                "name":"bp-spotlight-item",
                 "css": [
                     {
                         "k": "width",

@@ -115,22 +115,7 @@
                 "text": "simon test",
                 "name":"bp-spinner-full-window",
                 "css": [
-                    {
-                        "k": "position",
-                        "v": "absolute"
-                    },
-                    {
-                        "k": "width",
-                        "v": "100%"
-                    },
-                    {
-                        "k": "height",
-                        "v": "100%"
-                    },
-                    {
-                        "k": "background",
-                        "v": "transparent"
-                    }
+                   
                 ],
                 "attrs": {
                     "size": "small",
@@ -214,22 +199,7 @@
                 "text": "simon test",
                 "name":"bp-spinner-portion",
                 "css": [
-                    {
-                        "k": "position",
-                        "v": "absolute"
-                    },
-                    {
-                        "k": "width",
-                        "v": "100%"
-                    },
-                    {
-                        "k": "height",
-                        "v": "100%"
-                    },
-                    {
-                        "k": "background",
-                        "v": "transparent"
-                    }
+                    
                 ],
                 "attrs": {
                     "size": "large",

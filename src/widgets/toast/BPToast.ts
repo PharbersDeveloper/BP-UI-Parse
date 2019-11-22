@@ -29,10 +29,6 @@ export default class BPToast extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
-        // if (comp.components.length === 0) {
-        //     return "{{#" + comp.name + " toastDisappear=(action 'toastDisappear') }}" + "{{/" + comp.name + "}}"
-        //     // toast 子组件绑定函数
-        // }
         return "{{#" + comp.name + "}}" + "{{/" + comp.name + "}}"
     }
     public paintLogic(comp: BPComp) {
@@ -46,7 +42,7 @@ export default class BPToast extends BPWidget {
         let toastClass = "toast"
 
         // toast container
-        if (comp.components.length !== 0) {
+        if (comp.attrs.container === "true") {
             comp.components.forEach((icomp) => {
                 toggleShow += "    " + this.transName(icomp.name) + ": true," + "\r"
             })
@@ -82,7 +78,8 @@ export default class BPToast extends BPWidget {
     }
 
     public paintHBS(comp: BPComp) {
-        if (comp.name.indexOf("container") === -1) {
+        // toast 本身
+        if (comp.attrs.container !== "true") {
             let clickPart = ""
             let linkPart = ""
             const iconColor = comp.icon === "warning" ? "icon-toast-warning" : "icon-white"
@@ -100,6 +97,7 @@ export default class BPToast extends BPWidget {
             return  "<div class='flex-alian-center'>{{svg-jar '" + comp.icon + "' width='24px' height='24px' class='icon " + iconColor + "'}}" +
                 comp.text  + linkPart + "</div>" + clickPart
         } else {
+            // toast 的 container
             const insideComps = comp.components
 
             if (insideComps.length !== 0) {

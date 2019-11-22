@@ -304,6 +304,7 @@ input[type="checkbox"]+label {
     color: #FFFFFF;
     background: #42516E;
 }
+
 /* modal 通用样式  */
 .modal-container {
     width: 100vw;
@@ -462,21 +463,6 @@ input[type="checkbox"]+label {
 
 /* popover通用样式 */
 
-.popover-wrapper {
-    position: relative;
-    width: fit-content;
-    margin: 24px;
-}
-
-.popover-wrapper .popover-btn{
-    height: 32px;
-    line-height: 32px;
-    background: #505F79;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    outline: none;
-}
 
 .popover-container {
     position: absolute;
@@ -537,6 +523,7 @@ input[type="checkbox"]+label {
     position: relative;
     left: 125px;
     border-radius: 4px;
+    outline: none;
 }
 
 .popover-footer button:last-child {
@@ -751,7 +738,7 @@ input[type="checkbox"]+label {
     100%{ transform: rotate(360deg);}
 }
 
-
+/*pagination style*/
 
 .pagination {
     display: flex;

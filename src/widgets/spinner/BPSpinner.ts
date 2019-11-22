@@ -41,7 +41,7 @@ export default class BPSpinner extends BPWidget {
             "export default Component.extend({" + "\r" +
             "    layout," + "\r" +
             "    tagName:'div'," + "\r" +
-            "    classNames:['" + comp.name +  "']," + "\r" +
+            "    classNames:['" + comp.name +  "', 'spinner-container']," + "\r" +
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
             "    attributeBindings: ['']," + "\r" +
