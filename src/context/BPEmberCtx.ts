@@ -29,6 +29,7 @@ import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
 import BPOption from "../widgets/dropdown/BPOption"
 import BPSelect from "../widgets/dropdown/BPSelect"
+import BPEmptyState from "../widgets/emptyState/BPEmptyState"
 import BPImg from "../widgets/img/BPImg"
 import BPInput from "../widgets/inputs/BPInput"
 import BPLabel from "../widgets/label/BPLabel"
@@ -149,6 +150,7 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPEmptyState(this.output, this.projectName, routeName),
             new BPSpotlight(this.output, this.projectName, routeName),
             new BPTable(this.output, this.projectName, routeName),
             new BPBreadcrumbs(this.output, this.projectName, routeName),

@@ -33,7 +33,7 @@
       	"components": [
 		{
 			"id": "test",
-			"type": "BPDiv",
+			"type": "BPEmptyState",
 			"cat": "0",
 			"text": "simon test",
 			"name":"bp-empty-state-default",
@@ -45,235 +45,19 @@
 			{
 				"k": "height",
 				"v": "348px"
-			}, {
-				"k": "display",
-				"v": "flex"
-			}, {
-				"k": "flex-direction",
-				"v": "column"
-			}, {
-				"k": "align-items",
-				"v": "center"
 			}
 			],
-			"components": [
-				{
-					"id": "test",
-					"type": "BPImg",
-					"cat": "0",
-					"text": "",
-					"name":"bp-empty-state-default-img",
-					"css": [
-						{
-						"k": "width",
-						"v": "160px"
-						},
-						{
-						"k": "height",
-						"v": "160px"
-						},
-						{
-							"k": "background",
-							"v": "#A1C6E7"
-						}
-					],
-					"attrs":{
-						"src": ""
-					}
-				},
-				{
-					"id": "test",
-					"type": "BPDiv",
-					"cat": "0",
-					"text": "Create or import a repository",
-					"name":"bp-empty-state-default-title",
-					"css": [
-						{
-							"k": "box-sizing",
-							"v": "content-box"
-						},
-						{
-						"k": "font-size",
-						"v": "20px"
-						},
-						{
-						"k": "color",
-						"v": "#172B4D"
-						},
-						{
-							"k": "padding",
-							"v": "24px 0 0 0"
-						},
-						{
-							"k": "width",
-							"v": "fit-content"
-						}
-					]
-				},
-				{
-					"id": "test",
-					"type": "BPDiv",
-					"cat": "0",
-					"text": "Thanks for choosing Bitbucket. Your next steps are to put some bits in your bucket.",
-					"name":"bp-empty-state-default-desc",
-					"css": [
-						{
-							"k": "box-sizing",
-							"v": "content-box"
-						},
-						{
-						"k": "font-size",
-						"v": "14px"
-						},
-						{
-						"k": "color",
-						"v": "#172B4D"
-						},
-						{
-							"k": "width",
-							"v": "312px"
-						},
-						{
-							"k": "padding",
-							"v": "16px 0 24px 0"
-						},
-						{
-							"k": "text-align",
-							"v": "center"
-						}
-					]
-				},
-				{
-					"id": "test",
-					"type": "BPDiv",
-					"cat": "0",
-					"text": "",
-					"name":"bp-empty-state-default-buttons",
-					"css": [
-						{
-							"k": "box-sizing",
-							"v": "content-box"
-						},
-						{
-							"k": "padding",
-							"v": "0 0 24px 0"
-						},
-						{
-							"k": "display",
-							"v": "flex"
-						},
-						{
-							"k": "flex-direction",
-							"v": "row"
-						},
-						{
-							"k": "width",
-							"v": "100%"
-						},
-						{
-							"k": "height",
-							"v": "32px"
-						},
-						{
-							"k": "justify-content",
-							"v": "center"
-						}
-					],
-					"components": [
-						{
-							"id": "test",
-							"type": "BPPushButton",
-							"cat": "0",
-							"text": "Primary action",
-							"name":"bp-empty-state-default-button-a",
-							"css": [
-								{
-									"k": "height",
-									"v": "32px"
-								},
-								{	
-									"k": "width",
-									"v": "auto"
-								},
-								{
-									"k": "background",
-									"v": "#3172E0"
-								},
-								{
-									"k": "border-radius",
-									"v": "4px"
-								},
-								{
-									"k": "color",
-									"v": "#FFFFFF"
-								},
-								{
-									"k": "font-size",
-									"v": "14px"
-								},
-								{
-									"k": "border",
-									"v": "none"
-								},
-								{
-									"k": "margin-right",
-									"v": "24px"
-								},
-								{
-									"k": "padding",
-									"v": "0 14px"
-								}
-							]
-						},
-						{
-							"id": "test",
-							"type": "BPPushButton",
-							"cat": "0",
-							"text": "Secondary action",
-							"name":"bp-empty-state-default-button-b",
-							"css": [
-								{
-									"k": "height",
-									"v": "32px"
-								},
-								{	
-									"k": "width",
-									"v": "auto"
-								},
-								{
-									"k": "background",
-									"v": "rgba(9,30,66,0.04)"
-								},
-								{
-									"k": "border-radius",
-									"v": "4px"
-								},
-								{
-									"k": "color",
-									"v": "#505F79"
-								},
-								{
-									"k": "font-size",
-									"v": "14px"
-								},
-								{
-									"k": "border",
-									"v": "none"
-								},
-								{
-									"k": "padding",
-									"v": "0 14px"
-								}
-							]
-						}
-					]
-				}
-				
-			]
+			"attrs": {
+				"img": "#",
+				"title": "Collect your important files",
+				"desc": "Here’s where you would download this reportory and any files your team has shared.",
+				"primaryAction": "Primary action",
+				"secondaryAction": "Secondary action"
+			}
 		},
 		{
 			"id": "test",
-			"type": "BPDiv",
+			"type": "BPEmptyState",
 			"cat": "0",
 			"text": "simon test",
 			"name":"bp-empty-state-link",
@@ -285,129 +69,24 @@
 			{
 				"k": "height",
 				"v": "348px"
-			}, {
-				"k": "display",
-				"v": "flex"
-			}, {
-				"k": "flex-direction",
-				"v": "column"
-			}, {
-				"k": "align-items",
-				"v": "center"
 			}
 			],
-			"components": [
-				{
-					"id": "test",
-					"type": "BPImg",
-					"cat": "1",
-					"text": "",
-					"name":"bp-empty-state-default-img",
-					"css": [
-						{
-						"k": "width",
-						"v": "160px"
-						},
-						{
-						"k": "height",
-						"v": "160px"
-						},
-						{
-							"k": "background",
-							"v": "#A1C6E7"
-						}
-					],
-					"attrs":{
-						"src": ""
-					}
-				},
-				{
-					"id": "test",
-					"type": "BPDiv",
-					"cat": "2",
-					"text": "Create or import a repository",
-					"name":"bp-empty-state-default-title",
-					"css": [
-						{
-							"k": "box-sizing",
-							"v": "content-box"
-						},
-						{
-						"k": "font-size",
-						"v": "20px"
-						},
-						{
-						"k": "color",
-						"v": "#172B4D"
-						},
-						{
-							"k": "padding",
-							"v": "24px 0 0 0"
-						},
-						{
-							"k": "width",
-							"v": "fit-content"
-						}
-					]
-				},
-				{
-					"id": "test",
-					"type": "BPDiv",
-					"cat": "1",
-					"text": "Thanks for choosing Bitbucket. Your next steps are to put some bits in your bucket.",
-					"name":"bp-empty-state-default-desc",
-					"css": [
-						{
-							"k": "box-sizing",
-							"v": "content-box"
-						},
-						{
-						"k": "font-size",
-						"v": "14px"
-						},
-						{
-						"k": "color",
-						"v": "#172B4D"
-						},
-						{
-							"k": "width",
-							"v": "312px"
-						},
-						{
-							"k": "padding",
-							"v": "16px 0 24px"
-						},
-						{
-							"k": "text-align",
-							"v": "center"
-						}
-					]
-				},
-				{
-					"id": "test",
-					"type": "BPLink",
-					"cat": "0",
-					"text": "Learn how",
-					"name":"bp-empty-state-default-link-a",
-					"css": [
-						{
-							"k": "padding",
-							"v": "0 0 24px 0"
-						}
-					],
-					"attrs": {
-						"href": "#"
-					}
+			"attrs": {
+				"img": "#",
+				"title": "Collect your important files",
+				"desc": "Here’s where you would download this reportory and any files your team has shared.",
+				"link": {
+					"name": "Learn now",
+					"href": "#"
 				}
-				
-			]
+			}
 		},
 		{
 			"id": "test",
-			"type": "BPDiv",
+			"type": "BPEmptyState",
 			"cat": "0",
 			"text": "simon test",
-			"name":"bp-empty-state-description",
+			"name":"bp-empty-state-desc",
 			"css": [
 			{
 				"k": "width",
@@ -415,78 +94,13 @@
 			},
 			{
 				"k": "height",
-				"v": "240px"
-			}, {
-				"k": "display",
-				"v": "flex"
-			}, {
-				"k": "flex-direction",
-				"v": "column"
-			}, {
-				"k": "align-items",
-				"v": "center"
+				"v": "348px"
 			}
 			],
-			"components": [
-				{
-					"id": "test",
-					"type": "BPImg",
-					"cat": "1",
-					"text": "",
-					"name":"bp-empty-state-default-img",
-					"css": [
-						{
-						"k": "width",
-						"v": "160px"
-						},
-						{
-						"k": "height",
-						"v": "160px"
-						},
-						{
-							"k": "background",
-							"v": "#A1C6E7"
-						}
-					],
-					"attrs":{
-						"src": ""
-					}
-				},
-				{
-					"id": "test",
-					"type": "BPDiv",
-					"cat": "1",
-					"text": "Thanks for choosing Bitbucket. Your next steps are to put some bits in your bucket.",
-					"name":"bp-empty-state-default-desc",
-					"css": [
-						{
-							"k": "box-sizing",
-							"v": "content-box"
-						},
-						{
-						"k": "font-size",
-						"v": "14px"
-						},
-						{
-						"k": "color",
-						"v": "#172B4D"
-						},
-						{
-							"k": "width",
-							"v": "312px"
-						},
-						{
-							"k": "padding",
-							"v": "16px 0 24px 0"
-						},
-						{
-							"k": "text-align",
-							"v": "center"
-						}
-					]
-				}
-				
-			]
+			"attrs": {
+				"img": "#",
+				"desc": "Here’s where you would download this reportory and any files your team has shared."
+			}
 		}
       ]
     }
