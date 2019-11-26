@@ -25,7 +25,7 @@ input[type="text"] {
     font-size: 14px;
     color: #42526E;
     outline: none;
-    border: 1px solid #DFE1E6;
+    /* border: 1px solid #DFE1E6; */
 }
 
 /* 滚动条样式设置 */
@@ -813,7 +813,7 @@ input[type="checkbox"]+label {
 
 /*table 样式*/
 
-table th {
+.bp-table table th {
     font-size: 12px;
     color: #6B778C;
     text-align: left;
@@ -821,20 +821,20 @@ table th {
     background: #ffffff;
 }
 
-table thead th {
+.bp-table table thead th {
     top: 0px !important;
 }
 
 
-table tbody tr:hover {
+.bp-table table tbody tr:hover {
     background: #ededf1;
 }
 
-table tbody tr {
+.bp-table table tbody tr {
     background: #ffffff;
 }
 
-table tbody td {   
+.bp-table table tbody td {   
     font-size: 14px;
     color: #344563;
     padding: 16px 8px;
@@ -845,18 +845,18 @@ table tbody td {
     border-top: 1px solid rgba(9,30,66,0.08);
 }
 
-table th .et-sort-indicator::before {
+.bp-table table th .et-sort-indicator::before {
     display: inline-block;
     border: none;
     line-height: 1;
     content: '\25be';
 }
 
-table th .is-descending::before{
+.bp-table table th .is-descending::before{
     transform: rotate(0);
 }
 
-table th .is-ascending::before {
+.bp-table table th .is-ascending::before {
     transform: rotate(180deg);
 }
 
