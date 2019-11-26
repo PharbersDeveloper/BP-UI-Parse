@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-pagination"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "pagination",
+      "path": "/pagination",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "column"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPPagination",
+          "cat": "0",
+          "text": "simon test",
+          "name":"bp-pagination",
+          "css": [
+          ],
+          "attrs": {
+              "pages": 12
+          }
+		},
+        {
+          "id": "test",
+          "type": "BPPagination",
+          "cat": "0",
+          "text": "simon test",
+          "name":"bp-pagination-simple",
+          "css": [
+          ],
+          "attrs": {
+              "pages": 10,
+              "type": "simple"
+          }
+		}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-toast"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "toast",
+      "path": "/toast",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "auto"
+        }
+      ],
+      "components": [
+        {
+            "id": "test",
+            "type": "BPToast",
+            "text": "",
+            "cat": "0",
+            "name": "bp-toast-container",
+            "css": [
+                {
+                    "k": "position",
+                    "v": "fixed"
+                }, {
+                    "k": "top",
+                    "v": "0"
+                }, {
+                    "k": "width",
+                    "v": "100%"
+                }, {
+                    "k": "background",
+                    "v": "transparent"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPToast",
+                    "cat": "0",
+                    "text": "Concise title",
+                    "name":"bp-tosat-success",
+                    "icon": "check-circle",
+                    "css": [
+                        
+                    ],
+                    "attrs": {
+                        "type": "success"
+                    }
+                },
+                {
+                    "id": "test",
+                    "type": "BPToast",
+                    "cat": "0",
+                    "text": "Concise title",
+                    "name":"bp-tosat-success-click",
+                    "icon": "check-circle",
+                    "css": [
+                    
+                    ],
+                    "attrs": {
+                        "clickEvent": "true",
+                        "type": "success"
+                    }
+                },
+                {
+                    "id": "test",
+                    "type": "BPToast",
+                    "cat": "0",
+                    "text": "Concise title",
+                    "name":"bp-tosat-warning",
+                    "icon": "warning",
+                    "css": [
+                       
+                    ],
+                    "attrs": {
+                        "type": "warning"
+                    }
+                },
+                {
+                    "id": "test",
+                    "type": "BPToast",
+                    "cat": "0",
+                    "text": "Concise title",
+                    "name":"bp-tosat-warning-click",
+                    "icon": "warning",
+                    "css": [
+                    ],
+                    "attrs": {
+                        "clickEvent": "true",
+                        "link": {
+                            "href": "#",
+                            "name": "inline link"
+                        },
+                        "type": "warning"
+                    }
+                },
+                {
+                    "id": "test",
+                    "type": "BPToast",
+                    "cat": "0",
+                    "text": "Concise title",
+                    "name":"bp-tosat-error",
+                    "icon": "error",
+                    "css": [
+                        
+                    ],
+                    "attrs": {
+                        "type": "error"
+                    }
+                },
+                {
+                    "id": "test",
+                    "type": "BPToast",
+                    "cat": "0",
+                    "text": "Concise title",
+                    "name":"bp-tosat-error-click",
+                    "icon": "error",
+                    "css": [
+                        
+                    ],
+                    "attrs": {
+                        "clickEvent": "true",
+                        "type": "error"
+                    }
+                },
+                {
+                    "id": "test",
+                    "type": "BPToast",
+                    "cat": "0",
+                    "text": "Concise title",
+                    "name":"bp-tosat-info",
+                    "icon": "info",
+                    "css": [
+                       
+                    ],
+                    "attrs": {
+                        "link": {
+                            "href": "#",
+                            "name": "inline link"
+                        },
+                        "type": "info"
+                    }
+                },
+                {
+                    "id": "test",
+                    "type": "BPToast",
+                    "cat": "0",
+                    "text": "Concise title",
+                    "name":"bp-tosat-info-click",
+                    "icon": "info",
+                    "css": [
+                        
+                    ],
+                    "attrs": {
+                        "clickEvent": "true",
+                        "link": {
+                            "href": "#",
+                            "name": "inline link"
+                        },
+                        "type": "info"
+                    }
+                }
+            ]
+        }
+        
+      ]
+    }
+  ]
+}

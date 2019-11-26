@@ -1,0 +1,322 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-popover"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "popover",
+      "path": "/popover",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "auto"
+        }
+      ],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPPopover",
+          "cat": "0",
+          "text": "top",
+          "name":"bp-popover-top",
+          "css": [
+                {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "min-width",
+              "v": "80px"
+            },
+            {
+              "k": "background",
+              "v": "rgba(9,30,66,0.04)"
+            },
+            {
+              "k": "font-size",
+              "v": "14px"
+            },
+            {
+              "k": "color",
+              "v": "#505F79"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "0 12px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "cursor",
+              "v": "pointer"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }
+          ],
+          "components": [],
+          "attrs": {
+              "placement": "top",
+              "title": "Waring",
+              "messageState": "warning",
+              "desc": "This is a very long long long long long error message description",
+              "actions": "",
+              "dismiss": ""
+          }
+		},
+        {
+          "id": "test",
+          "type": "BPPopover",
+          "cat": "0",
+          "text": "right",
+          "name":"bp-popover-right",
+          "css": [
+                 {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "min-width",
+              "v": "80px"
+            },
+            {
+              "k": "background",
+              "v": "rgba(9,30,66,0.04)"
+            },
+            {
+              "k": "font-size",
+              "v": "14px"
+            },
+            {
+              "k": "color",
+              "v": "#505F79"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "0 12px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "cursor",
+              "v": "pointer"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }
+          ],
+          "components": [],
+          "attrs": {
+              "placement": "right",
+              "title": "Waring",
+              "messageState": "warning",
+              "desc": "This is a very long long long long long error message description",
+              "actions": "",
+              "dismiss": "true"
+          }
+		},
+        {
+          "id": "test",
+          "type": "BPPopover",
+          "cat": "0",
+          "text": "bottom",
+          "name":"bp-popover-bottom",
+          "css": [
+                {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "min-width",
+              "v": "80px"
+            },
+            {
+              "k": "background",
+              "v": "rgba(9,30,66,0.04)"
+            },
+            {
+              "k": "font-size",
+              "v": "14px"
+            },
+            {
+              "k": "color",
+              "v": "#505F79"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "0 12px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "cursor",
+              "v": "pointer"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }
+          ],
+          "components": [],
+          "attrs": {
+              "placement": "bottom",
+              "title": "Error",
+              "messageState": "error",
+              "desc": "This is a very long long long long long error message description",
+              "actions": "",
+              "dismiss": "true",
+              "link": {
+                  "name": "link",
+                  "href": "#"
+              }
+          }
+		},
+        {
+          "id": "test",
+          "type": "BPPopover",
+          "cat": "0",
+          "text": "left",
+          "name":"bp-popover-left",
+          "css": [
+                {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "min-width",
+              "v": "80px"
+            },
+            {
+              "k": "background",
+              "v": "rgba(9,30,66,0.04)"
+            },
+            {
+              "k": "font-size",
+              "v": "14px"
+            },
+            {
+              "k": "color",
+              "v": "#505F79"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "0 12px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "cursor",
+              "v": "pointer"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }
+          ],
+          "components": [],
+          "attrs": {
+              "placement": "left",
+              "title": "Info",
+              "messageState": "info",
+              "desc": "This is a very long long long long long error message description",
+              "actions": "",
+              "dismiss": "true",
+              "actions": "true"
+          }
+        },
+        {
+          "id": "test",
+          "type": "BPPopover",
+          "cat": "0",
+          "text": "",
+          "name":"bp-popover-left-input",
+          "css": [
+          ],
+          "components": [],
+          "attrs": {
+              "placement": "left",
+              "title": "Info",
+              "messageState": "info-filled",
+              "desc": "This is a very long long long long long error message description",
+              "actions": "",
+              "dismiss": "true",
+              "actions": "true",
+              "input": "true"
+          }
+        }
+      ]
+    }
+  ]
+}

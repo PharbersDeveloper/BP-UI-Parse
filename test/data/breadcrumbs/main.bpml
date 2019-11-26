@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-breadcrumbs"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "breadcrumbs",
+      "path": "/breadcrumbs",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "column"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "auto"
+        }
+      ],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPBreadcrumbs",
+          "cat": "0",
+          "text": "simon test",
+          "name":"bp-breadcrumbs",
+          "css": [
+          ],
+          "attrs": {
+              "contents": ["Nucleus space, Pages", "ADG3 - New site", "design.atlassian.com content", "Product design (draft)", "Patterns design (draft)"]          }
+		    }
+      ]
+    }
+  ]
+}

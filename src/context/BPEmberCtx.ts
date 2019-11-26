@@ -16,16 +16,24 @@ import phLogger from "../logger/phLogger"
 import BPBadge from "../widgets/badges/BPBadge"
 import BPItem from "../widgets/basic/BPItem"
 import { BPWidget } from "../widgets/BPWidget"
+import BPBreadcrumbs from "../widgets/breadcrumbs/BPBreadcrumbs"
 import BPPushButton from "../widgets/buttons/BPPushButton"
+import BPBar from "../widgets/charts/BPBar"
+import BPChina from "../widgets/charts/BPChina"
+import BPLine from "../widgets/charts/BPLine"
+import BPPie from "../widgets/charts/BPPie"
+import BPScatter from "../widgets/charts/BPScatter"
 import BPCheckbox from "../widgets/checkbox/BPCheckbox"
 import BPComp from "../widgets/Comp"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
+import BPOption from "../widgets/dropdown/BPOption"
 import BPSelect from "../widgets/dropdown/BPSelect"
 import BPImg from "../widgets/img/BPImg"
 import BPInput from "../widgets/inputs/BPInput"
 import BPLabel from "../widgets/label/BPLabel"
 import BPLink from "../widgets/link/BPLink"
+import BPModal from "../widgets/modal/BPModal"
 import BPMenu from "../widgets/navs/BPMenu"
 import BPMenuItem from "../widgets/navs/BPMenuItem"
 import BPStackLayout from "../widgets/navs/BPStackLayout"
@@ -33,16 +41,21 @@ import BPSubMenu from "../widgets/navs/BPSubMenu"
 import BPTab from "../widgets/navs/BPTab"
 import BPTabBar from "../widgets/navs/BPTabBar"
 import BPTabButton from "../widgets/navs/BPTabButton"
+import BPPagination from "../widgets/pagination/BPPagination"
+import BPPopover from "../widgets/popover/BPPopover"
+import BPProgressTracker from "../widgets/progressTracker/BPProgressTracker"
 import BPRadio from "../widgets/radio/BPRadio"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
+import BPSpinner from "../widgets/spinner/BPSpinner"
+import BPSpotlight from "../widgets/spotlight/BPSpotlight"
 import BPStatus from "../widgets/status/BPStatus"
+import BPTable from "../widgets/table/BPTable"
 import BPTag from "../widgets/tags/BPTag"
 import BPTextarea from "../widgets/textarea/BPTextarea"
+import BPToast from "../widgets/toast/BPToast"
 import BPTooltip from "../widgets/tooltip/BPTooltip"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import BPCtx from "./BPCtx"
-
-import BPOption from "../widgets/dropdown/BPOption"
 
 export default class BPEmberCtx extends BPCtx {
     public type: string = "ember"
@@ -55,8 +68,8 @@ export default class BPEmberCtx extends BPCtx {
         super()
         phLogger.info("exec something with emberjs")
         this.projectName = projectName
-        const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
-        // const output: string = "/Users/Simon/Desktop/ui-output"
+        // const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
+        const output: string = "/Users/Simon/Desktop/ui-output"
         this.output = output
     }
     public cmdStart() {
@@ -69,8 +82,18 @@ export default class BPEmberCtx extends BPCtx {
         ]
     }
     public cmdEnd() {
-        return [new EmberYarnExec("remove", "ember-cli-htmlbars"), new EmberInstallDepExec("ember-cli-htmlbars@3.0.0", "-S"),
-        new EmberInstallDepExec("ember-svg-jar", "-S")]
+        return [
+            new EmberYarnExec("remove", "ember-cli-htmlbars"),
+            new EmberInstallDepExec("ember-cli-htmlbars@3.0.0", "-S"),
+            new EmberInstallDepExec("ember-svg-jar", "-S"),
+            new EmberInstallDepExec("ember-cli-echarts"),
+            new EmberInstallDepExec("@ember/jquery"),
+            new EmberInstallDepExec("@ember/optional-features"),
+            new EmberInstallDepExec("jquery-integration", "-D", "feature:enable"),
+            new EmberInstallDepExec("ember-truth-helpers"),
+            new EmberInstallDepExec("ember-table"),
+            new EmberInstallDepExec("ember-ajax")
+        ]
 
     }
     public paintMW(route: BPMainWindow, components: BPComp[]) {
@@ -126,6 +149,15 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPSpotlight(this.output, this.projectName, routeName),
+            new BPTable(this.output, this.projectName, routeName),
+            new BPBreadcrumbs(this.output, this.projectName, routeName),
+            new BPPagination(this.output, this.projectName, routeName),
+            new BPSpinner(this.output, this.projectName, routeName),
+            new BPProgressTracker(this.output, this.projectName, routeName),
+            new BPPopover(this.output, this.projectName, routeName),
+            new BPModal(this.output, this.projectName, routeName),
+            new BPToast(this.output, this.projectName, routeName),
             new BPTooltip(this.output, this.projectName, routeName),
             new BPLink(this.output, this.projectName, routeName),
             new BPTextarea(this.output, this.projectName, routeName),
@@ -150,7 +182,12 @@ export default class BPEmberCtx extends BPCtx {
             new BPTabButton(this.output, this.projectName, routeName),
             new BPTab(this.output, this.projectName, routeName),
             new BPSelect(this.output, this.projectName, routeName),
-            new BPOption(this.output, this.projectName, routeName)
+            new BPOption(this.output, this.projectName, routeName),
+            new BPLine(this.output, this.projectName, routeName),
+            new BPBar(this.output, this.projectName, routeName),
+            new BPPie(this.output, this.projectName, routeName),
+            new BPScatter(this.output, this.projectName, routeName),
+            new BPChina(this.output, this.projectName, routeName)
 
         ]
 
@@ -166,7 +203,7 @@ export default class BPEmberCtx extends BPCtx {
 
         curComps.forEach((item) => {
             showComps.forEach((sc, i) => {
-                const isShow: boolean = sc === item.type
+                // const isShow: boolean = sc === item.type
                 const isShow: boolean = sc === item.name
                 const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
                 that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))

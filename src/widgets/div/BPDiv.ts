@@ -35,8 +35,11 @@ export default class BPDiv extends BPWidget {
 
             let showBody = ""
             insideComps.forEach((icomp) => {
-                const innerDiv = new BPDiv(this.output, this.projectName, this.routeName)
-                showBody += innerDiv.paintShow(icomp)
+                // const type = icomp.type
+                // 识别子组件的类型后生成对应的组件，div 中应该包含多种类型组件
+                // const innerDiv = new BPDiv(this.output, this.projectName, this.routeName)
+                const innerComp = "{{#" + icomp.name + "}}" + icomp.text + "{{/" + icomp.name + "}}"
+                showBody += innerComp
             })
             return "{{#" + comp.name + "}}" + showBody + "{{/" + comp.name + "}}"
         }
@@ -47,12 +50,13 @@ export default class BPDiv extends BPWidget {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
+        const specialClass = comp.attrs.specialClass ? comp.attrs.specialClass : ""
 
         const fileData = "\n" +
             "export default Component.extend({" + "\r" +
             "    layout," + "\r" +
             "    tagName:'div'," + "\r" +
-            "    classNames:['" + comp.name + "']," + "\r" +
+            "    classNames:['" + comp.name + "', '" + specialClass + "']," + "\r" +
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'rseverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
             "    attributeBindings: ['disabled']," + "\r"

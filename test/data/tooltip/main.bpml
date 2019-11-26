@@ -84,6 +84,7 @@
           "type": "BPTooltip",
           "cat": "0",
           "text": "",
+          "icon": "info",
           "name":"bp-tooltip-bottom",
           "css": [
             {
@@ -93,12 +94,6 @@
             {
               "k": "height",
               "v": "24px"
-            }, {
-              "k": "background",
-              "v": "#A1C6E7"
-            },{
-              "k": "border-radius",
-              "v": "4px"
             },
             {
               "k": "margin",
@@ -118,7 +113,7 @@
             },
             {
                 "k": "top",
-                "v": "28px",
+                "v": "0px",
                 "tp": "hover",
                 "pe": "after"
             }

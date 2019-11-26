@@ -2,12 +2,46 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 a {
     font-size: 14px;
     color: #3172E0;
     line-height: 32px;
     text-decoration: none;
     text-align: center;
+}
+
+button {
+    cursor: pointer;
+}
+
+input[type="text"] {
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #42526E;
+    outline: none;
+    border: 1px solid #DFE1E6;
+}
+
+/* 滚动条样式设置 */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(9,30,66,0.25);
+    border-radius: 10px;
 }
 
 .d-none {
@@ -41,6 +75,30 @@ a {
 
 .icon {
     margin-right: 12px;
+}
+
+.icon-white path{    
+    fill: #FFFFFF;
+}
+
+.icon-warning path {
+    fill: #FFAB00;
+}
+
+.icon-error path {
+    fill: #DE350B;
+}
+
+.icon-info path {
+    fill: #3172E0;
+}
+
+.icon-info-filled path {
+    fill: #3172E0;
+}
+
+.icon-pointer {
+    cursor: pointer;
 }
 
 input[type="radio"] {
@@ -188,4 +246,690 @@ input[type="checkbox"]+label {
     display: block;
     position: relative;
     padding: 0 4px;
+}
+.chart-container {
+    height: 400px;
+}
+
+.flex-alian-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.toast-inline-link {
+    color: inherit;
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+.icon-toast-warning path {
+    fill: #505F79;
+}
+
+/* toast 通用样式 */
+
+.toast {
+    width: 320px;
+    height: 56px;
+    line-height: 14px;
+    font-size: 14px;
+    padding: 16px;
+    border-radius: 3px;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.toast-success {
+    color: #FFFFFF;
+    background: #00865a;
+}
+
+.toast-warning {
+    color: #172B4D;
+    background: #FFAB00;
+}
+
+.toast-error {
+    color: #FFFFFF;
+    background: #DE350B;
+}
+
+.toast-info {
+    color: #FFFFFF;
+    background: #42516E;
+}
+/* modal 通用样式  */
+.modal-container {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(9,30,66,0.54);
+    z-index: 998;
+    position: fixed;
+    display: none;
+}
+
+.modal-container-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.modal {
+    background: #FFFFFF;
+    box-shadow: 0 4px 8px -2px rgba(9,30,66,0.25);
+    border-radius: 4px;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: fixed;
+    left: 50%;
+    z-index: 999;
+    max-height: 90%;
+}
+
+.modal-small {
+    width: 400px;
+    margin-left: -200px;
+}
+
+.modal-medium {
+    width: 600px;
+    margin-left: -300px;
+}
+
+.modal-large {
+    width: 800px;
+    margin-left: -400px;
+}
+
+
+.modal-title {
+    width: 100%;
+    font-size: 20px;
+    color: #172B4D;
+    line-height: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* padding-bottom: 16px; */
+    padding: 0 24px 16px 24px;
+}
+
+.modal-title div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.modal-body {
+    font-size: 14px;
+    color: #172B4D;
+    text-align: left;
+    overflow-y: auto;
+    max-height: calc(90vh-136px);
+    padding: 0 16px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.modal-footer {
+    /* padding-top: 16px; */
+    padding: 16px 24px 0 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    box-sizing: border-box;
+}
+
+.modal-footer button {
+    height: 32px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 32px;
+    padding: 0 12px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+
+.modal-footer .modal-subtle-btn {
+    color: #505F79;
+    background: #FFFFFF;
+    margin-left: 4px;
+}
+
+.modal-footer .modal-default-btn {
+    color: #FFFFFF;
+    background: #3172E0;
+}
+
+.modal-footer .modal-error-btn {
+    color: #FFFFFF;
+    background: #DE350B;
+}
+
+.modal-footer .modal-warning-btn {
+    color: #505F79;
+    background: #FFAB00;
+}
+
+.modal-fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+.modal-show {
+    opacity: 1;
+    -webkit-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+.modal-scrollable .modal-title{
+    border-bottom: 2px solid #e7e9ed;
+}
+
+.modal-scrollable .modal-footer {
+    border-top: 2px solid #e7e9ed;
+}
+
+.modal-scrollable .modal-body {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.modal-control-btn {
+    height: 32px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 32px;
+    padding: 0 12px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    width: auto;
+    margin: 4px;
+}
+
+/* popover通用样式 */
+
+.popover-wrapper {
+    position: relative;
+    width: fit-content;
+    margin: 24px;
+}
+
+.popover-wrapper .popover-btn{
+    height: 32px;
+    line-height: 32px;
+    background: #505F79;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+
+.popover-container {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 999
+}
+
+.popover {
+    width: 320px;
+    padding: 16px;
+    background: #FFFFFF;
+    box-shadow: 0 0 1px 0 rgba(9,30,66,0.12), 0 8px 16px -4px rgba(9,30,66,0.25);
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.popover-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popover-title {
+    font-size: 14px;
+    color: #172B4D;
+    text-align: left;
+    font-weight: 500;
+}
+
+.popover-desc {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #344563;
+}
+
+.popover-footer {
+    margin-top: 8px;
+}
+
+.popover-footer a {
+    text-align: left;
+}
+
+.popover-footer button {
+    text-align: right;
+    height: 24px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    color: #505F79;
+    text-align: center;
+    line-height: 24px;
+    position: relative;
+    left: 125px;
+    border-radius: 4px;
+}
+
+.popover-footer button:last-child {
+    background: rgba(9,30,66,0.04);
+}
+
+.popover-triangle {
+    height: 12px;
+    width: 12px;
+    transform: rotate(45deg);
+    background: #FFFFFF;
+}
+
+.popover-triangle-left {
+    left: 314px;
+    top: 50%;
+    margin-top: -6px;
+    position: absolute;
+}
+
+.popover-triangle-left-top {
+    left: 314px;
+    top: 16px;
+    position: absolute;
+}
+
+.popover-triangle-left-bottom {
+    left: 314px;
+    bottom: 16px;
+    position: absolute;
+}
+
+.popover-triangle-bottom {
+    position: absolute;
+    top: -6px;
+    left: 152px;
+}
+
+.popover-triangle-bottom-left {
+    position: absolute;
+    top: -6px;
+    left: 16px;
+}
+
+.popover-triangle-bottom-right {
+    position: absolute;
+    top: -6px;
+    left: 288px;                                                                                                                                                                                                                                                   x;
+}
+
+.popover-triangle-top {
+    position: absolute;
+    left: 152px;
+    bottom: -6px;
+}
+
+.popover-triangle-top-left {
+    position: absolute;
+    left: 16px;
+    bottom: -6px;
+}
+
+.popover-triangle-top-right {
+    position: absolute;
+    left: 288px;
+    bottom: -6px;
+}
+
+.popover-triangle-right {
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    margin-top: -6px;
+}
+
+.popover-triangle-right-top {
+    position: absolute;
+    left: -6px;
+    top: 16px;
+}
+
+.popover-triangle-right-bottom {
+    position: absolute;
+    left: -6px;
+    bottom: 16px;
+}
+
+
+/* progress-trackerTrackr 通用样式 */
+.progress-tracker-container {
+    width: fit-content;
+    height: 88px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.progress-tracker-line {
+    margin: 0 55px;
+    background: #3172E0;
+    border-radius: 24px;
+    height: 8px;
+    /* width: 170px; */
+    z-index: 99;
+}
+
+.progress-tracker-step {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.progress-tracker-step span {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    margin-right: 40px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 24px;
+    position: relative;
+}
+
+.progress-tracker-step-cur {
+    color: #3172E0;
+}
+
+.progress-tracker-step-visited {
+    color: #172B4D;
+}
+
+.progress-tracker-step-disabled {
+    color: #B3BAC5;
+}
+
+.progress-tracker-step-unvisited {
+    color: #5E6C84;
+}
+
+
+.progress-tracker-step span::before {
+    content: " ";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #97A0AF;
+    position: absolute;
+    right: 56px;
+    top: -16px;
+    z-index: 0;
+}
+
+.progress-tracker-step span:last-child {
+    margin-right: 0;
+}
+
+/*spinner 通用样式*/
+
+.spinner-container {
+    position: absolute;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+
+.spinner-background-gray {
+    background: rgba(9,30,66,0.55);
+}
+
+.spinner-background-white {
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.full-window-spinner {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.item-spinner {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.spinner-animate svg{
+    -webkit-animation: spinnerAnimate 1s linear infinite;
+    animation: spinnerAnimate 1s linear infinite;
+}
+
+@-webkit-keyframes spinnerAnimate {
+    0%{ -webkit-transform: rotate(0deg);}
+    50%{ -webkit-transform: rotate(180deg);}
+    100%{ -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spinnerAnimate {
+    0%{ transform: rotate(0deg);}
+    50%{ transform: rotate(180deg);}
+    100%{ transform: rotate(360deg);}
+}
+
+
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    align-items: center;
+    font-size: 14px;
+    color: #505F79;
+}
+
+.pagination svg {
+    margin: 0;
+    cursor: pointer;
+}
+
+.pagination span {
+    height: 24px;
+    width: 24px;
+}
+
+.pagination-able svg path {
+    fill: #505F79;
+}
+
+.pagination-unable svg path {
+    fill: #B3BAC5;;
+}
+
+.pagination-page {
+    letter-spacing: 0;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+
+}
+
+.pagination-active {
+    background: #505F79;
+    border-radius: 3px;
+    color: white;
+    margin: 0 4px;
+}
+
+.breadcrumbs-container {
+    max-width: 560px;
+    height: max-content;
+    font-size: 12px;    
+    color: #6B778C;
+    line-height: 16px;
+}
+
+.breadcrumbs-container div {
+    display: inline-block;
+    margin: 0 16px 0 0;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.breadcrumbs-container div a {
+    color: #6B778C;
+}
+
+.breadcrumbs-container span {
+    margin: 0 4px;
+}
+
+
+.breadcrumbs-show {
+    cursor: pointer;
+}
+
+/*table 样式*/
+
+table th {
+    font-size: 12px;
+    color: #6B778C;
+    text-align: left;
+    padding: 8px;
+    background: #ffffff;
+}
+
+table thead th {
+    top: 0px !important;
+}
+
+
+table tbody tr:hover {
+    background: #ededf1;
+}
+
+table tbody tr {
+    background: #ffffff;
+}
+
+table tbody td {   
+    font-size: 14px;
+    color: #344563;
+    padding: 16px 8px;
+    background: inherit;
+}
+
+.border-table table tbody td {
+    border-top: 1px solid rgba(9,30,66,0.08);
+}
+
+table th .et-sort-indicator::before {
+    display: inline-block;
+    border: none;
+    line-height: 1;
+    content: '\25be';
+}
+
+table th .is-descending::before{
+    transform: rotate(0);
+}
+
+table th .is-ascending::before {
+    transform: rotate(180deg);
+}
+
+/* SpotLight */
+
+.spotlight-item {
+    border: 2px solid #6554C0;
+    box-shadow: 0 0 0 6px rgba(101,84,192,0.40);
+    border-radius: 4px;
+}
+
+.spotlight {
+    height: max-content;
+    width: 320px;
+    background: #6554C0;
+    border-radius: 4px;
+    padding: 16px;
+    position: absolute;
+    color: rgba(255,255,255,0.95);
+    top: 0;
+    left: 0;
+}
+
+.spotlight div {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.spotlight p {
+    margin-top: 0;
+}
+
+.spotlight button {
+    height: 32px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.95);
+    text-align: left;
+    background: rgba(9,30,66,0.08);
+    border-radius: 4px;
+    padding: 0 16px;
+    outline: none;
+}
+
+.spotlight span {
+    position: absolute;
+    left: 0px;
+    bottom: 5px;
+}
+
+.spotlight .secondary-btn {
+    margin-right: 4px;
+    border: none;
+    background: transparent;
+     margin-right: 4px;
+}
+
+.spotlight h3 {
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-top: 0px;
+    margin-bottom: 8px;
 }

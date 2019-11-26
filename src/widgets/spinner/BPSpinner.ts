@@ -7,7 +7,7 @@ import phLogger from "../../logger/phLogger"
 import { IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
-export default class BPTooltip extends BPWidget {
+export default class BPSpinner extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
             super(output, name, routeName)
         }
@@ -29,30 +29,44 @@ export default class BPTooltip extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
-        return "{{#" + comp.name + "}}" + comp.text + "{{/" + comp.name + "}}"
+        return "{{#" + comp.name + "}}" + "{{/" + comp.name + "}}"
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
-        // const tooltipClass = comp.attrs.tooltipExtraClass
-        const baseClass = comp.attrs.baseClass
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
 
         const fileData = "\n" +
+            "import {computed} from '@ember/object';" + "\r" +
             "export default Component.extend({" + "\r" +
             "    layout," + "\r" +
             "    tagName:'div'," + "\r" +
-            "    classNames:['" + comp.name + " " + baseClass + "']," + "\r" +
+            "    classNames:['" + comp.name +  "']," + "\r" +
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
-            "    attributeBindings: ['']," + "\r"
-
+            "    attributeBindings: ['']," + "\r" +
+            "    show: true,"
         return fileDataStart + fileData + fileDataEnd
     }
 
     public paintHBS(comp: BPComp) {
-        if (comp.icon) {
-            return "{{svg-jar '" + comp.icon + "' width='24px' height='24px' class='icon-pointer' }}"
+        const spinnerClass = comp.attrs.fullWindow === "true" ? "full-window-spinner" : "item-spinner"
+        const bgCOlor = comp.attrs.background === "gray" ? "spinner-background-gray" : "spinner-background-white"
+        let size = "24px"
+
+        if (comp.attrs.size === "large") {
+            size = "48px"
+        } else if (comp.attrs.size === "small") {
+            size = "16px"
+        } else if (comp.attrs.size === "x-small") {
+            size = "8px"
         }
+
+        return "{{#if show}}" + "\r" +
+        "<div class='" + spinnerClass + " " + bgCOlor + "'>" + "\r" +
+        "<span class='spinner-animate'>" +
+        "{{svg-jar 'Spinner' width='" + size + "' height='" + size + "' }}</span>" + "\r" +
+        "</div>{{/if}}"
     }
+
 }
