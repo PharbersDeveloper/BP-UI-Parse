@@ -1,326 +1,327 @@
 {
-  "meta": {
-    "paint": ["ember"],
-    "name": "refactoring-code-avatar"
-  },
-
-  "routers": [
-    {
-      "id": "page main window",
-      "type": "BPMainWindow",
-      "cat": "main-window",
-      "name": "avatars",
-      "path": "/avatars",
-      "layout": [
+    "meta": {
+        "paint": [
+            "ember"
+        ],
+        "name": "refactoring-code-avatar"
+    },
+    "routers": [
         {
-          "k": "display",
-          "v": "flex"
-        },{
-          "k": "flex-direction",
-          "v": "col"
+            "id": "page main window",
+            "type": "BPMainWindow",
+            "cat": "main-window",
+            "name": "avatars",
+            "path": "/avatars",
+            "layout": [
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "flex-direction",
+                    "v": "col"
+                }
+            ],
+            "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "600px"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "text": "simon test",
+                    "name": "bp-avatar-x-small-circle",
+                    "attrs": {
+                        "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                    },
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "50%"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "text": "simon test",
+                    "name": "bp-avatar-small-circle",
+                    "attrs": {
+                        "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                    },
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "24px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "24px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "50%"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "text": "simon test",
+                    "name": "bp-avatar-medium-circle",
+                    "attrs": {
+                        "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                    },
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "32px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "32px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "50%"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "text": "simon test",
+                    "name": "bp-avatar-large-circle",
+                    "attrs": {
+                        "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                    },
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "40px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "40px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "50%"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "text": "simon test",
+                    "name": "bp-avatar-x-large-circle",
+                    "attrs": {
+                        "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                    },
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "96px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "96px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "50%"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "text": "simon test",
+                    "name": "bp-avatar-xx-large",
+                    "attrs": {
+                        "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                    },
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "128px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "128px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "50%"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "text": "simon test",
+                    "name": "bp-avatar-x-small-square",
+                    "attrs": {
+                        "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                    },
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "4px"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "text": "simon test",
+                    "name": "bp-avatar-small-square",
+                    "attrs": {
+                        "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                    },
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "24px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "24px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "4px"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "text": "simon test",
+                    "name": "bp-avatar-medium-square",
+                    "attrs": {
+                        "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                    },
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "32px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "32px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "4px"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "text": "simon test",
+                    "name": "bp-avatar-large-square",
+                    "attrs": {
+                        "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                    },
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "40px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "40px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "4px"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "text": "simon test",
+                    "name": "bp-avatar-x-large-square",
+                    "attrs": {
+                        "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                    },
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "96px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "96px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "4px"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "text": "simon test",
+                    "name": "bp-avatar-xx-large-square",
+                    "attrs": {
+                        "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                    },
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "128px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "128px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "4px"
+                        }
+                    ]
+                }
+            ]
         }
-      ],
-      "css": [
-        {
-          "k": "width",
-          "v": "100%"
-        },
-        {
-          "k": "height",
-          "v": "600px"
-        }
-      ],
-
-      "components": [
-        {
-          "id": "test",
-          "type": "BPImg",
-          "cat": "0",
-          "text": "simon test",
-          "name":"bp-avatar-x-small-circle",
-          "attrs": {
-            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
-          },
-          "css": [
-            {
-              "k": "width",
-              "v": "16px"
-            },
-            {
-              "k": "height",
-              "v": "16px"
-            },
-            {
-              "k": "border-radius",
-              "v": "50%"
-            }
-          ]
-          },
-          {
-          "id": "test",
-          "type": "BPImg",
-          "cat": "0",
-          "text": "simon test",
-          "name":"bp-avatar-small-circle",
-          "attrs": {
-            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
-          },
-          "css": [
-            {
-              "k": "width",
-              "v": "24px"
-            },
-            {
-              "k": "height",
-              "v": "24px"
-            },
-            {
-              "k": "border-radius",
-              "v": "50%"
-            }
-          ]
-          },
-          {
-          "id": "test",
-          "type": "BPImg",
-          "cat": "0",
-          "text": "simon test",
-          "name":"bp-avatar-medium-circle",
-          "attrs": {
-            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
-          },
-          "css": [
-            {
-              "k": "width",
-              "v": "32px"
-            },
-            {
-              "k": "height",
-              "v": "32px"
-            },
-            {
-              "k": "border-radius",
-              "v": "50%"
-            }
-          ]
-          },
-          {
-          "id": "test",
-          "type": "BPImg",
-          "cat": "0",
-          "text": "simon test",
-          "name":"bp-avatar-large-circle",
-          "attrs": {
-            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
-          },
-          "css": [
-            {
-              "k": "width",
-              "v": "40px"
-            },
-            {
-              "k": "height",
-              "v": "40px"
-            },
-            {
-              "k": "border-radius",
-              "v": "50%"
-            }
-          ]
-          },
-          {
-          "id": "test",
-          "type": "BPImg",
-          "cat": "0",
-          "text": "simon test",
-          "name":"bp-avatar-x-large-circle",
-          "attrs": {
-            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
-          },
-          "css": [
-            {
-              "k": "width",
-              "v": "96px"
-            },
-            {
-              "k": "height",
-              "v": "96px"
-            },
-            {
-              "k": "border-radius",
-              "v": "50%"
-            }
-          ]
-          },
-          {
-          "id": "test",
-          "type": "BPImg",
-          "cat": "0",
-          "text": "simon test",
-          "name":"bp-avatar-xx-large",
-          "attrs": {
-            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
-          },
-          "css": [
-            {
-              "k": "width",
-              "v": "128px"
-            },
-            {
-              "k": "height",
-              "v": "128px"
-            },
-            {
-              "k": "border-radius",
-              "v": "50%"
-            }
-          ]
-          },
-          {
-          "id": "test",
-          "type": "BPImg",
-          "cat": "0",
-          "text": "simon test",
-          "name":"bp-avatar-x-small-square",
-          "attrs": {
-            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
-          },
-          "css": [
-            {
-              "k": "width",
-              "v": "16px"
-            },
-            {
-              "k": "height",
-              "v": "16px"
-            },
-            {
-              "k": "border-radius",
-              "v": "4px"
-            }
-          ]
-          },
-          {
-          "id": "test",
-          "type": "BPImg",
-          "cat": "0",
-          "text": "simon test",
-          "name":"bp-avatar-small-square",
-          "attrs": {
-            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
-          },
-          "css": [
-            {
-              "k": "width",
-              "v": "24px"
-            },
-            {
-              "k": "height",
-              "v": "24px"
-            },
-            {
-              "k": "border-radius",
-              "v": "4px"
-            }
-          ]
-          },
-          {
-          "id": "test",
-          "type": "BPImg",
-          "cat": "0",
-          "text": "simon test",
-          "name":"bp-avatar-medium-square",
-          "attrs": {
-            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
-          },
-          "css": [
-            {
-              "k": "width",
-              "v": "32px"
-            },
-            {
-              "k": "height",
-              "v": "32px"
-            },
-            {
-              "k": "border-radius",
-              "v": "4px"
-            }
-          ]
-          },
-          {
-          "id": "test",
-          "type": "BPImg",
-          "cat": "0",
-          "text": "simon test",
-          "name":"bp-avatar-large-square",
-          "attrs": {
-            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
-          },
-          "css": [
-            {
-              "k": "width",
-              "v": "40px"
-            },
-            {
-              "k": "height",
-              "v": "40px"
-            },
-            {
-              "k": "border-radius",
-              "v": "4px"
-            }
-          ]
-          },
-          {
-          "id": "test",
-          "type": "BPImg",
-          "cat": "0",
-          "text": "simon test",
-          "name":"bp-avatar-x-large-square",
-          "attrs": {
-            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
-          },
-          "css": [
-            {
-              "k": "width",
-              "v": "96px"
-            },
-            {
-              "k": "height",
-              "v": "96px"
-            },
-            {
-              "k": "border-radius",
-              "v": "4px"
-            }
-          ]
-          },
-          {
-          "id": "test",
-          "type": "BPImg",
-          "cat": "0",
-          "text": "simon test",
-          "name":"bp-avatar-xx-large-square",
-          "attrs": {
-            "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
-          },
-          "css": [
-            {
-              "k": "width",
-              "v": "128px"
-            },
-            {
-              "k": "height",
-              "v": "128px"
-            },
-            {
-              "k": "border-radius",
-              "v": "4px"
-            }
-          ]
-          }
-      ]
-    }
-  ]
+    ]
 }

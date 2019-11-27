@@ -6,6 +6,8 @@ import phLogger from "../../logger/phLogger"
 import { IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
+import BPSlot from "../slotleaf/BPSlot"
+
 export default class BPBadge extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
             super(output, name, routeName)
@@ -15,6 +17,7 @@ export default class BPBadge extends BPWidget {
 
         const options: IOptions = {
                 comp,
+                hbsData: this.paintHBS(),
                 logicData: this.paintLogic(comp), // js
                 output: this.output,
                 pName: this.projectName,
@@ -27,7 +30,7 @@ export default class BPBadge extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
-        return "{{#" + comp.name + "}}" + comp.text + "{{/" + comp.name + "}}"
+        return `{{#${comp.name} ssc="ssc" emit="emit" disconnect="disconnect"}}${comp.text}{{/${comp.name}}}`
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
@@ -35,14 +38,20 @@ export default class BPBadge extends BPWidget {
         const fileDataEnd = this.paintLoginEnd()
 
         const fileData = "\n" +
-            "export default Component.extend({" + "\r" +
-            "    layout," + "\r" +
-            "    tagName:'span'," + "\r" +
-            "    classNames:['" + comp.name + "']," + "\r" +
-            "    content: 'default'," + "\r" +
-            "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
-            "    attributeBindings: []," + "\r"
+        `export default Component.extend({
+            layout,
+            tagName:'span',
+            classNames:['${comp.name}'],
+            content: 'default',
+            classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only'],
+            attributeBindings: [],
+            ${this.slotActions(["click", "mouseEnter", "mouseLeave"], `${comp.name}`)},`
 
         return fileDataStart + fileData + fileDataEnd
+    }
+    public paintHBS() {
+        const leaf = new BPSlot(this.output, this.projectName, this.routeName)
+
+        return `${leaf.paintShow()}{{yield}}`
     }
 }
