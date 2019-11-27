@@ -97,8 +97,8 @@ export default class BPModal extends BPWidget {
         let btnControl = "<button  {{action 'changeShowState'}} class='modal-control-btn "
                         + comp.name + "'>" + comp.text + "</button>"
         const id = this.transName(comp.name)
-        const msg = comp.attrs.button ? comp.attrs.button : "Button"
-        const cancel = comp.attrs.cancel ? comp.attrs.cancel : "Cancel"
+        const msg = comp.attrs.button ? comp.attrs.buttonText : "Button"
+        const cancel = comp.attrs.cancel ? comp.attrs.cancelBtnText : "Cancel"
         const size = comp.attrs.size ? comp.attrs.size : "small"
         const modalSize = "modal-" + size
         const scrollable = comp.attrs.type === "scrollable" ? " modal-scrollable " : ""
@@ -127,7 +127,7 @@ export default class BPModal extends BPWidget {
                 + "        <div class='modal-title'><div>" + icon + comp.attrs.title  + "</div>"
                 + clickCross + "</div>" + "\r"
                 + "        <div class='modal-body '>" + comp.attrs.content + "</div>" + "\r"
-                + "        <div class='modal-footer'><button class='" + btn + "'>" + msg + "</button><button {{action 'changeShowState' bubbles=false}} class='modal-subtle-btn'>" + cancel + "</button></div>" + "\r"
+                + "        <div class='modal-footer'><button {{action 'changeShowState' bubbles=false}} class='modal-subtle-btn'><button class='" + btn + "'>" + msg + "</button>" + cancel + "</button></div>" + "\r"
                 + "    </div>" + "\r"
                 + "</div>" + "\r"
                 + btnControl

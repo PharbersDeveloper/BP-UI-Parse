@@ -40,12 +40,10 @@ export default class BPPopover extends BPWidget {
             "export default Component.extend({" + "\r" +
             "    layout," + "\r" +
             "    tagName:'div'," + "\r" +
-            "    classNames:['']," + "\r" +
-            // "    classNames:['" + comp.name + "']," + "\r" +
+            "    classNames:['" + comp.name + "']," + "\r" +
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
             "    attributeBindings: ['']," + "\r" +
-            "    popoverPlace: '" + comp.attrs.placement + "'," + "\r" +
             "    actions: {" + "\r"
 
         fileData = fileData + "dismiss(event) { " + "\r" +
@@ -58,59 +56,65 @@ export default class BPPopover extends BPWidget {
                 "},"
 
         fileData = fileData +
-                "togglePopover(event) { " + "\r" +
-                "    let ev = event || window.event" + "\r" +
-                "    let popover = ev.target.nextElementSibling" + "\r" +
-                "    if (popover.style.display === 'none' || !popover.style.display) { " + "\r" +
-                "        popover.style.display = 'block'" + "\r" +
-                "    } else { " + "\r" +
-                "        popover.style.display = 'none'" + "\r" +
-                "    }" + "\r" +
-                "    let btnWidth = ev.target.offsetWidth" + "\r" +
-                "    let btnHeight = ev.target.offsetHeight" + "\r" +
-                "    let popoverHeight = popover.offsetHeight" + "\r" +
-                "    let popoverWeight = popover.offsetWidth" + "\r" +
-                "    switch(this.popoverPlace) { " + "\r" +
-                "        case 'right':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ( btnWidth + 20 ) + 'px, ' + ((btnHeight-popoverHeight) / 2) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'right-top':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ( btnWidth + 20 ) + 'px, ' + (btnHeight / 2 - 24) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'right-bottom':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ( btnWidth + 20 ) + 'px, ' + (btnHeight/2-24-popoverHeight) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'left':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + (-20-popoverWeight) + 'px, ' + ((btnHeight-popoverHeight)/2) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'left-top':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + (-20-popoverWeight) + 'px, ' + (btnHeight / 2 - 24) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'left-bottom':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + (-20-popoverWeight) + 'px, ' + (btnHeight/2-24-popoverHeight) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'top':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ((btnWidth-popoverWeight)/2) + 'px, ' + (-20-popoverHeight) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'top-right':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ( 20 + btnWidth/2 - popoverWeight) + 'px, ' + (-20-popoverHeight) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'top-left':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ((btnWidth/2 - 30)) + 'px, ' + (-20-popoverHeight) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'bottom':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ((btnWidth-popoverWeight)/2) + 'px, ' + (btnHeight + 20) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'bottom-right':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ( 20 + btnWidth/2 - popoverWeight) + 'px, ' + (btnHeight + 20) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        case 'bottom-left':" + "\r" +
-                "            popover.style.transform =  'translate3d(' + ((btnWidth/2 - 30)) + 'px, ' + (btnHeight + 20) + 'px, 0px' +')'" + "\r" +
-                "            break" + "\r" +
-                "        default:" + "\r" +
-                "            break" + "\r" +
-                "    }" + "\r" +
-                "}"
+                `togglePopover(event) {
+                    const element = document.getElementsByClassName("${comp.name}")[0]
+                    const togglePopoverItem = element.previousElementSibling
+                    const popover = element.childNodes[0]
+
+                    if (popover.style.display === 'none' || !popover.style.display) {
+                        popover.style.display = 'block'
+                    } else {
+                        popover.style.display = 'none'
+                    }
+
+
+                    const itemHeight = togglePopoverItem.offsetHeight
+                    const itemWidth = togglePopoverItem.offsetWidth
+                    const popoverHeight = popover.offsetHeight
+                    const popoverWeight = popover.offsetWidth
+                    const popoverPlace = "${comp.attrs.placement}"
+
+                    switch(popoverPlace) {
+                        case 'right':
+                            popover.style.transform =  'translate3d(' + ( itemWidth + 20 ) + 'px, ' + ((itemHeight-popoverHeight) / 2) + 'px, 0px' +')'
+                            break
+                        case 'right-top':
+                            popover.style.transform =  'translate3d(' + ( itemWidth + 20 ) + 'px, ' + (itemHeight / 2 - 24) + 'px, 0px' +')'
+                            break
+                        case 'right-bottom':
+                            popover.style.transform =  'translate3d(' + ( itemWidth + 20 ) + 'px, ' + (itemHeight/2-24-popoverHeight) + 'px, 0px' +')'
+                            break
+                        case 'left':
+                            popover.style.transform =  'translate3d(' + (-20-popoverWeight) + 'px, ' + ((itemHeight-popoverHeight)/2) + 'px, 0px' +')'
+                            break
+                        case 'left-top':
+                            popover.style.transform =  'translate3d(' + (-20-popoverWeight) + 'px, ' + (itemHeight / 2 - 24) + 'px, 0px' +')'
+                            break
+                        case 'left-bottom':
+                            popover.style.transform =  'translate3d(' + (-20-popoverWeight) + 'px, ' + (itemHeight/2-24-popoverHeight) + 'px, 0px' +')'
+                            break
+                        case 'top':
+                            popover.style.transform =  'translate3d(' + ((itemWidth-popoverWeight)/2) + 'px, ' + (-20-popoverHeight) + 'px, 0px' +')'
+                            break
+                        case 'top-right':
+                            popover.style.transform =  'translate3d(' + ( 20 + itemWidth/2 - popoverWeight) + 'px, ' + (-20-popoverHeight) + 'px, 0px' +')'
+                            break
+                        case 'top-left':
+                            popover.style.transform =  'translate3d(' + ((itemWidth/2 - 30)) + 'px, ' + (-20-popoverHeight) + 'px, 0px' +')'
+                            break
+                        case 'bottom':
+                            popover.style.transform =  'translate3d(' + ((itemWidth-popoverWeight)/2) + 'px, ' + (itemHeight + 20) + 'px, 0px' +')'
+                            break
+                        case 'bottom-right':
+                            popover.style.transform =  'translate3d(' + ( 20 + itemWidth/2 - popoverWeight) + 'px, ' + (itemHeight + 20) + 'px, 0px' +')'
+                            break
+                        case 'bottom-left':
+                            popover.style.transform =  'translate3d(' + ((itemWidth/2 - 30)) + 'px, ' + (itemHeight + 20) + 'px, 0px' +')'
+                            break
+                        default:
+                            break
+                    }
+                }`
 
         fileData = fileData  + "}"
 
@@ -123,7 +127,6 @@ export default class BPPopover extends BPWidget {
         let dismiss = ""
         let link = ""
         let actions = ""
-        let popoverToggle = "<button onclick={{action 'togglePopover'}} class='" + comp.name + "'>" + comp.text + "</button>"
 
         if (comp.attrs.messageState) {
             icon = "<span>{{svg-jar '" + comp.attrs.messageState +
@@ -142,12 +145,7 @@ export default class BPPopover extends BPWidget {
             actions = "<button onclick={{action 'dismiss'}}>Cancel</button><button>Confirm</button>"
         }
 
-        if (comp.attrs.input === "true") {
-            popoverToggle = "<input type='text' onclick={{action 'togglePopover'}} class='" + comp.name + "'>"
-        }
-
-        return  "<div class='popover-wrapper'>" + popoverToggle + "\r" +
-                "<div class='popover-container'>" + "\r" +
+        return  "<div class='popover-container'>" + "\r" +
                 "<div class='popover'>" + "\r" +
                 icon + "\r" +
                 "<div class='popover-content'>" + "\r" +
@@ -160,8 +158,8 @@ export default class BPPopover extends BPWidget {
                 "</div>" + "\r" +
                 "</div>" + "\r" +
                 "<div class='popover-triangle " + position + "'></div>" +
-                "</div>" + "\r" +
-                "</div>"
+                "</div>" + "\r"
+                // "</div>"
     }
 
     public transName(name: string) {

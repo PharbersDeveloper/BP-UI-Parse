@@ -1,0 +1,137 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "refactoring-code-date-picker-test"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "date-picker",
+        "path": "/date-picker",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "column"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "max-content"
+          },
+          {
+            "k": "height",
+            "v": "max-content"
+          }
+        ],
+        "components": [
+          {
+            "id": "test",
+            "type": "BPDatePicker",
+            "icon": "calendar",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-date-picker-single",
+            "css": [
+                {
+                    "k": "width",
+                    "v": "240px"
+                  },
+                  {
+                    "k": "height",
+                    "v": "32px"
+                  }, {
+                    "k": "line-height",
+                    "v": "14px"
+                  },{
+                    "k": "font-size",
+                    "v": "14px"
+                  }, {
+                    "k": "padding",
+                    "v": "10px 8px"
+                  }, {
+                    "k": "border",
+                    "v": "none"
+                  }, {
+                    "k": "border-radius",
+                    "v": "4px"
+                  }, {
+                    "k": "color",
+                    "v": "#172B4D"
+                  },
+                  {
+                    "k": "outline",
+                    "v": "none",
+                    "tp": "focus"
+                  },{
+                    "k": "box-sizing",
+                    "v": "border-box"
+                  }, {
+                      "k": "background",
+                      "v": " #F4F5F7"
+                  }
+            ],
+            "attrs": {
+                "range": "false"
+            }
+          },
+          {
+            "id": "test",
+            "type": "BPDatePicker",
+            "icon": "calendar",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-date-picker-range",
+            "css": [
+                {
+                    "k": "width",
+                    "v": "273px"
+                  },
+                  {
+                    "k": "height",
+                    "v": "32px"
+                  }, {
+                    "k": "line-height",
+                    "v": "14px"
+                  },{
+                    "k": "font-size",
+                    "v": "14px"
+                  }, {
+                    "k": "padding",
+                    "v": "10px 8px"
+                  }, {
+                    "k": "border",
+                    "v": "none"
+                  }, {
+                    "k": "border-radius",
+                    "v": "4px"
+                  }, {
+                    "k": "color",
+                    "v": "#172B4D"
+                  },
+                  {
+                    "k": "outline",
+                    "v": "none",
+                    "tp": "focus"
+                  },{
+                    "k": "box-sizing",
+                    "v": "border-box"
+                  }, {
+                      "k": "background",
+                      "v": " #F4F5F7"
+                  }
+            ],
+            "attrs": {
+                "range": "true"
+            }
+          }
+        ]
+      }
+    ]
+  }

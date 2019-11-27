@@ -125,7 +125,8 @@ export default class BPTable extends BPWidget {
     }
 
     public paintHBS(comp: BPComp) {
-       return  `<EmberTable as |t|>
+       return  `<div class="bp-table">
+       <EmberTable as |t|>
             <t.head @columns={{columns}}
             @sorts={{sorts}}
             @onUpdateSorts={{action (mut sorts)}}
@@ -133,6 +134,7 @@ export default class BPTable extends BPWidget {
 
 
             <t.body @rows={{rows}} />
-            </EmberTable>`
+            </EmberTable>
+            </div>`
     }
 }

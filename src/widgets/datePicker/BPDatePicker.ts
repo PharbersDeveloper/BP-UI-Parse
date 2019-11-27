@@ -7,7 +7,7 @@ import phLogger from "../../logger/phLogger"
 import { IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
-export default class BPSpinner extends BPWidget {
+export default class BPDatePicker extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
             super(output, name, routeName)
         }
@@ -35,38 +35,39 @@ export default class BPSpinner extends BPWidget {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
+        const range = comp.attrs.range
 
-        const fileData = "\n" +
-            "import {computed} from '@ember/object';" + "\r" +
-            "export default Component.extend({" + "\r" +
-            "    layout," + "\r" +
-            "    tagName:'div'," + "\r" +
-            "    classNames:['" + comp.name +  "', 'spinner-container']," + "\r" +
-            "    content: 'default'," + "\r" +
-            "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
-            "    attributeBindings: ['']," + "\r" +
-            "    show: true,"
+        let fileData = "\n" +
+            `export default Component.extend({
+                layout,
+                tagName:'div',
+                classNames:['positon-relative', 'width-fit-content'],
+                content: 'default',
+                classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only'],
+                attributeBindings: [],
+                date: "",
+                didInsertElement() {
+                    // const today = ""
+                    laydate.render({
+                        elem: "#${comp.name}", //指定元素
+                        range: ${range},
+                        theme: "gray",
+                        showBottom: false,
+                        mark: {
+                            //today: "今", // 无效，在 laydate.js 方法中计算得出了规定的日期
+                        }
+                    });
+                },
+                actions: {`
+
+        fileData = fileData  + "}"
+
         return fileDataStart + fileData + fileDataEnd
     }
 
     public paintHBS(comp: BPComp) {
-        const spinnerClass = comp.attrs.fullWindow === "true" ? "full-window-spinner" : "item-spinner"
-        const bgCOlor = comp.attrs.background === "gray" ? "spinner-background-gray" : "spinner-background-white"
-        let size = "24px"
-
-        if (comp.attrs.size === "large") {
-            size = "48px"
-        } else if (comp.attrs.size === "small") {
-            size = "16px"
-        } else if (comp.attrs.size === "x-small") {
-            size = "8px"
-        }
-
-        return "{{#if show}}" + "\r" +
-        "<div class='" + spinnerClass + " " + bgCOlor + "'>" + "\r" +
-        "<span class='spinner-animate'>" +
-        "{{svg-jar 'Spinner' width='" + size + "' height='" + size + "' }}</span>" + "\r" +
-        "</div>{{/if}}"
+        return `<Input id="${comp.name}" class="${comp.name}" @value={{mut date}} />
+        {{svg-jar 'calendar' width='24px' height='24px' class='date-picker-icon' }}`
     }
 
 }

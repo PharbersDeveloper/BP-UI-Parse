@@ -1,0 +1,479 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "refactoring-code-page-header"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "page-header",
+        "path": "/page-header",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "column"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "100%"
+          },
+          {
+            "k": "height",
+            "v": "max-content"
+          }
+        ],
+        "components": [
+          {
+            "id": "test",
+            "type": "BPDiv",
+            "cat": "0",
+            "text": "",
+            "name":"bp-page-header-basic",
+            "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "72px"
+                },
+                {
+                    "k": "background",
+                    "v": "#FFFFFF"
+                },
+                {
+                    "k": "padding",
+                    "v": "20px 24px"
+                },
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "flex-direction",
+                    "v": "row"
+                },
+                {
+                    "k": "align-items",
+                    "v": "center"
+                },
+                {
+                    "k": "justify-content",
+                    "v": "space-between"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPDiv",
+                    "cat": "0",
+                    "text": "Page Title",
+                    "name":"bp-page-header-basic-title",
+                    "css": [
+                        {
+                            "k": "font-size",
+                            "v": "24px"
+                        },
+                        {
+                            "k": "color",
+                            "v": "#172B4D"
+                        },
+                        {
+                            "k": "width",
+                            "v": "fit-content"
+                        },
+                        {
+                            "k": "height",
+                            "v": "32px"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPDiv",
+                    "cat": "0",
+                    "text": "",
+                    "name":"bp-page-header-basic-buttons",
+                    "css": [
+                        {
+                            "k": "display",
+                            "v": "flex"
+                        },
+                        {
+                            "k": "flex-direction",
+                            "v": "row"
+                        },
+                        {
+                            "k": "width",
+                            "v": "fit-content"
+                        },
+                        {
+                            "k": "height",
+                            "v": "32px"
+                        }
+                    ],
+                    "components": [
+                        {
+                            "id": "test",
+                            "type": "BPPushButton",
+                            "cat": "0",
+                            "text": "Default",
+                            "name":"bp-page-header-basic-button-default",
+                            "css": [
+                                {
+                                    "k": "height",
+                                    "v": "32px"
+                                },
+                                {
+                                    "k": "padding",
+                                    "v": "0 12px"
+                                },
+                                {
+                                    "k": "background",
+                                    "v": "rgba(9,30,66,0.04)"
+                                },
+                                {
+                                    "k": "border-radius",
+                                    "v": "4px"
+                                },
+                                {
+                                    "k": "font-size",
+                                    "v": "14px"
+                                },
+                                {
+                                    "k": "color",
+                                    "v": "#505F79"
+                                },
+                                {
+                                    "k": "line-height",
+                                    "v": "32px"
+                                },
+                                {
+                                    "k": "margin-right",
+                                    "v": "4px"
+                                },
+                                {
+                                    "k": "outline",
+                                    "v": "none",
+                                    "tp": "focus"
+                                },
+                                {
+                                    "k": "border",
+                                    "v": "none"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "test",
+                            "type": "BPPushButton",
+                            "cat": "0",
+                            "text": "Primary",
+                            "name":"bp-page-header-basic-button-primary",
+                            "css": [
+                                {
+                                    "k": "height",
+                                    "v": "32px"
+                                },
+                                {
+                                    "k": "padding",
+                                    "v": "0 12px"
+                                },
+                                {
+                                    "k": "background",
+                                    "v": "#3172E0"
+                                },
+                                {
+                                    "k": "border-radius",
+                                    "v": "4px"
+                                },
+                                {
+                                    "k": "font-size",
+                                    "v": "14px"
+                                },
+                                {
+                                    "k": "color",
+                                    "v": "#FFFFFF;"
+                                },
+                                {
+                                    "k": "line-height",
+                                    "v": "32px"
+                                },
+                                {
+                                    "k": "margin-right",
+                                    "v": "4px"
+                                },
+                                {
+                                    "k": "outline",
+                                    "v": "none",
+                                    "tp": "focus"
+                                },
+                                {
+                                    "k": "border",
+                                    "v": "none"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+          },
+          {
+            "id": "test",
+            "type": "BPDiv",
+            "cat": "0",
+            "text": "",
+            "name":"bp-page-header-subtitle",
+            "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "104px"
+                },
+                {
+                    "k": "background",
+                    "v": "#FFFFFF"
+                },
+                {
+                    "k": "padding",
+                    "v": "20px 24px"
+                },
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "flex-direction",
+                    "v": "column"
+                },
+                {
+                    "k": "align-items",
+                    "v": "space-between"
+                },
+                {
+                    "k": "justify-content",
+                    "v": "center"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPDiv",
+                    "cat": "0",
+                    "text": "",
+                    "name": "bp-page-header-subtitle-title",
+                    "css": [
+                        {
+                            "k": "display",
+                            "v": "flex"
+                        },
+                        {
+                            "k": "flex-direction",
+                            "v": "row"
+                        },
+                        {
+                            "k": "align-items",
+                            "v": "center"
+                        },
+                        {
+                            "k": "justify-content",
+                            "v": "space-between"
+                        },
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        }
+                    ],
+                    "components": [
+                        {
+                            "id": "test",
+                            "type": "BPDiv",
+                            "cat": "1",
+                            "text": "Page Title",
+                            "name":"bp-page-header-basic-title",
+                            "css": [
+                                {
+                                    "k": "font-size",
+                                    "v": "24px"
+                                },
+                                {
+                                    "k": "color",
+                                    "v": "#172B4D"
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "fit-content"
+                                },
+                                {
+                                    "k": "height",
+                                    "v": "32px"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "test",
+                            "type": "BPDiv",
+                            "cat": "1",
+                            "text": "",
+                            "name":"bp-page-header-basic-buttons",
+                            "css": [
+                                {
+                                    "k": "display",
+                                    "v": "flex"
+                                },
+                                {
+                                    "k": "flex-direction",
+                                    "v": "row"
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "fit-content"
+                                },
+                                {
+                                    "k": "height",
+                                    "v": "32px"
+                                }
+                            ],
+                            "components": [
+                                {
+                                    "id": "test",
+                                    "type": "BPPushButton",
+                                    "cat": "1",
+                                    "text": "Default",
+                                    "name":"bp-page-header-basic-button-default",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "32px"
+                                        },
+                                        {
+                                            "k": "padding",
+                                            "v": "0 12px"
+                                        },
+                                        {
+                                            "k": "background",
+                                            "v": "rgba(9,30,66,0.04)"
+                                        },
+                                        {
+                                            "k": "border-radius",
+                                            "v": "4px"
+                                        },
+                                        {
+                                            "k": "font-size",
+                                            "v": "14px"
+                                        },
+                                        {
+                                            "k": "color",
+                                            "v": "#505F79"
+                                        },
+                                        {
+                                            "k": "line-height",
+                                            "v": "32px"
+                                        },
+                                        {
+                                            "k": "margin-right",
+                                            "v": "4px"
+                                        },
+                                        {
+                                            "k": "outline",
+                                            "v": "none",
+                                            "tp": "focus"
+                                        },
+                                        {
+                                            "k": "border",
+                                            "v": "none"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "test",
+                                    "type": "BPPushButton",
+                                    "cat": "1",
+                                    "text": "Primary",
+                                    "name":"bp-page-header-basic-button-primary",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "32px"
+                                        },
+                                        {
+                                            "k": "padding",
+                                            "v": "0 12px"
+                                        },
+                                        {
+                                            "k": "background",
+                                            "v": "#3172E0"
+                                        },
+                                        {
+                                            "k": "border-radius",
+                                            "v": "4px"
+                                        },
+                                        {
+                                            "k": "font-size",
+                                            "v": "14px"
+                                        },
+                                        {
+                                            "k": "color",
+                                            "v": "#FFFFFF;"
+                                        },
+                                        {
+                                            "k": "line-height",
+                                            "v": "32px"
+                                        },
+                                        {
+                                            "k": "margin-right",
+                                            "v": "4px"
+                                        },
+                                        {
+                                            "k": "outline",
+                                            "v": "none",
+                                            "tp": "focus"
+                                        },
+                                        {
+                                            "k": "border",
+                                            "v": "none"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPDiv",
+                    "cat": "0",
+                    "text": "subtitle",
+                    "name": "bp-page-header-subtitle-subtitle",
+                    "css": [
+                        {
+                            "k": "margin-top",
+                            "v": "8px"
+                        },
+                        {
+                            "k": "font-size",
+                            "v": "14px"
+                        },
+                        {
+                            "k": "color",
+                            "v": "#7A869A"
+                        }
+                    ]
+                }
+            ]
+          }
+        ]
+      }
+    ]
+  }

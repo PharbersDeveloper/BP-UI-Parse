@@ -2,6 +2,7 @@
 
 // import { EmberAddonExec } from "../bashexec/addonExec"
 import { AddBaseClass } from "../bashexec/addBaseClass"
+import { AddLayDateFiles } from "../bashexec/addLayDateFiles"
 import { EmberAddonExec } from "../bashexec/addonExec"
 import { AddSvgFiles } from "../bashexec/addSvgFiles"
 import { BashSpwanCmds } from "../bashexec/bashcmdlst"
@@ -13,6 +14,7 @@ import { GenMWStylesExec } from "../bashexec/genMWStylesExec"
 import { RemoveFolderExec } from "../bashexec/removeFolderExec"
 import { SassyStyles } from "../bashexec/sassyStyles"
 import phLogger from "../logger/phLogger"
+import BPAddItem from "../widgets/addItem/BPAddItem"
 import BPBadge from "../widgets/badges/BPBadge"
 import BPItem from "../widgets/basic/BPItem"
 import { BPWidget } from "../widgets/BPWidget"
@@ -25,10 +27,12 @@ import BPPie from "../widgets/charts/BPPie"
 import BPScatter from "../widgets/charts/BPScatter"
 import BPCheckbox from "../widgets/checkbox/BPCheckbox"
 import BPComp from "../widgets/Comp"
+import BPDatePicker from "../widgets/datePicker/BPDatePicker"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
 import BPOption from "../widgets/dropdown/BPOption"
 import BPSelect from "../widgets/dropdown/BPSelect"
+import BPEmptyState from "../widgets/emptyState/BPEmptyState"
 import BPImg from "../widgets/img/BPImg"
 import BPInput from "../widgets/inputs/BPInput"
 import BPLabel from "../widgets/label/BPLabel"
@@ -120,6 +124,7 @@ export default class BPEmberCtx extends BPCtx {
         // this.generaSassyStyles()
         this.mwStyles(route)
         this.moveBaseClass()
+        this.moveLayDateFiles()
         // 4. 将执行命令抛出
         return this.runExec()
     }
@@ -161,6 +166,9 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPAddItem(this.output, this.projectName, routeName),
+            new BPDatePicker(this.output, this.projectName, routeName),
+            new BPEmptyState(this.output, this.projectName, routeName),
             new BPSpotlight(this.output, this.projectName, routeName),
             new BPTable(this.output, this.projectName, routeName),
             new BPBreadcrumbs(this.output, this.projectName, routeName),
@@ -233,6 +241,10 @@ export default class BPEmberCtx extends BPCtx {
     private moveBaseClass() {
         this.cmds.push(new AddBaseClass(this.output, this.projectName),
             new AddSvgFiles(this.output, this.projectName))
+    }
+    // laydate files 因为对源码进行了修改，所以不能直接引入使用
+    private moveLayDateFiles() {
+        this.cmds.push(new AddLayDateFiles(this.output, this.projectName))
     }
     private runExec() {
         return this.cmds

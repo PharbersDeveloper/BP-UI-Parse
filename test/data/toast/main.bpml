@@ -52,6 +52,9 @@
                     "v": "transparent"
                 }
             ],
+            "attrs": {
+                "container": "true"
+            },
             "components": [
                 {
                     "id": "test",

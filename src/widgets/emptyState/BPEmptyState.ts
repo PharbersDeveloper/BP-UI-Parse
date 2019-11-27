@@ -7,7 +7,7 @@ import phLogger from "../../logger/phLogger"
 import { IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
-export default class BPSpinner extends BPWidget {
+export default class BPEmptyState extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
             super(output, name, routeName)
         }
@@ -36,37 +36,40 @@ export default class BPSpinner extends BPWidget {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
 
-        const fileData = "\n" +
-            "import {computed} from '@ember/object';" + "\r" +
+        let fileData = "import { computed } from '@ember/object';" + "\r" +
+            "\n" +
             "export default Component.extend({" + "\r" +
             "    layout," + "\r" +
             "    tagName:'div'," + "\r" +
-            "    classNames:['" + comp.name +  "', 'spinner-container']," + "\r" +
+            "    classNames:['empty-state']," + "\r" +
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
             "    attributeBindings: ['']," + "\r" +
-            "    show: true,"
+            "    didInsertElement() {" + "\r" +
+            "        this._super(...arguments);" + "\r" +
+            "    }," + "\r" +
+            "    actions: {" + "\r"
+
+        fileData = fileData  + "}"
+
         return fileDataStart + fileData + fileDataEnd
     }
 
     public paintHBS(comp: BPComp) {
-        const spinnerClass = comp.attrs.fullWindow === "true" ? "full-window-spinner" : "item-spinner"
-        const bgCOlor = comp.attrs.background === "gray" ? "spinner-background-gray" : "spinner-background-white"
-        let size = "24px"
+        const imgLink = comp.attrs.img ? `<img src="${comp.attrs.img}">` : ""
+        const title = comp.attrs.title ? `<div class="empty-state-title">${comp.attrs.title}</div>` : ""
+        const desc = comp.attrs.desc ? `<div class="empty-state-desc">${comp.attrs.desc}</div>` : ""
+        const pAction = comp.attrs.primaryAction ? `<button class="empty-state-btn-p">${comp.attrs.primaryAction}</button>` : ""
+        const sAction = comp.attrs.secondaryAction ? `<button class="empty-state-btn-s">${comp.attrs.secondaryAction}</button>` : ""
+        const link = comp.attrs.link ? `<a href="${comp.attrs.link.href}" class="empty-state-link">${comp.attrs.link.name}</a>` : ""
+        const actions = pAction || sAction ? `<div class="empty-state-actions">${pAction}${sAction}</div>` : ""
 
-        if (comp.attrs.size === "large") {
-            size = "48px"
-        } else if (comp.attrs.size === "small") {
-            size = "16px"
-        } else if (comp.attrs.size === "x-small") {
-            size = "8px"
-        }
+        const content = `${imgLink}
+                        ${title}
+                        ${desc}
+                        ${actions}
+                        ${link}`
 
-        return "{{#if show}}" + "\r" +
-        "<div class='" + spinnerClass + " " + bgCOlor + "'>" + "\r" +
-        "<span class='spinner-animate'>" +
-        "{{svg-jar 'Spinner' width='" + size + "' height='" + size + "' }}</span>" + "\r" +
-        "</div>{{/if}}"
+        return content
     }
-
 }
