@@ -1007,3 +1007,70 @@ input[type="checkbox"]+label {
 .width-fit-content {
     width: fit-content;
 }
+
+/*add item style*/
+.add-item-input {
+    height: 40px;
+    width: 240px;
+    border: 1px solid #DFE1E6;
+    border-radius: 4px;
+    padding: 10px 8px;
+    font-size: 14px;
+    color: #42526E;
+}
+
+.add-item-input:focus {
+    outline: none;
+    border: 1px solid #3172E0;
+}
+
+.flex-direction-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*h small*/
+.add-item-label {
+    font-size: 14px;
+    color: #172B4D;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/*body-secondary*/
+.add-item-desc {
+    font-size: 14px;
+    color: #7A869A;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.add-item-cross-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+}
+
+.add-item-main {
+    margin-bottom: 16px;
+}
+
+.add-item-text {
+    font-size: 14px;
+    color: #B3BAC5;
+    line-height: 32px;
+}
+
+.add-item-add-icon path{
+    fill: #B3BAC5;
+}
+
+.add-item-footer {
+    margin-top: 13px;
+    width: fit-content;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

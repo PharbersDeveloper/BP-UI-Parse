@@ -14,6 +14,7 @@ import { GenMWStylesExec } from "../bashexec/genMWStylesExec"
 import { RemoveFolderExec } from "../bashexec/removeFolderExec"
 import { SassyStyles } from "../bashexec/sassyStyles"
 import phLogger from "../logger/phLogger"
+import BPAddItem from "../widgets/addItem/BPAddItem"
 import BPBadge from "../widgets/badges/BPBadge"
 import BPItem from "../widgets/basic/BPItem"
 import { BPWidget } from "../widgets/BPWidget"
@@ -153,6 +154,7 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPAddItem(this.output, this.projectName, routeName),
             new BPDatePicker(this.output, this.projectName, routeName),
             new BPEmptyState(this.output, this.projectName, routeName),
             new BPSpotlight(this.output, this.projectName, routeName),
