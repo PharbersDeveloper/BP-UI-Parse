@@ -992,3 +992,18 @@ input[type="checkbox"]+label {
     margin-bottom: 24px;
 }
 
+/*date picker 右侧的icon calendar*/
+.date-picker-icon {
+    position: absolute;
+    line-height: 32px;
+    right: 8px;
+    top: 4px;
+}
+
+.positon-relative {
+    position: relative;
+}
+
+.width-fit-content {
+    width: fit-content;
+}

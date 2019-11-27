@@ -35,12 +35,13 @@ export default class BPDatePicker extends BPWidget {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
+        const range = comp.attrs.range
 
         let fileData = "\n" +
             `export default Component.extend({
                 layout,
                 tagName:'div',
-                classNames:[''],
+                classNames:['positon-relative', 'width-fit-content'],
                 content: 'default',
                 classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only'],
                 attributeBindings: [],
@@ -49,7 +50,7 @@ export default class BPDatePicker extends BPWidget {
                     // const today = ""
                     laydate.render({
                         elem: "#${comp.name}", //指定元素
-                        range: true,
+                        range: ${range},
                         theme: "gray",
                         showBottom: false,
                         mark: {
@@ -65,7 +66,8 @@ export default class BPDatePicker extends BPWidget {
     }
 
     public paintHBS(comp: BPComp) {
-        return `<Input id="${comp.name}" class="${comp.name}" @value={{mut date}} />`
+        return `<Input id="${comp.name}" class="${comp.name}" @value={{mut date}} />
+        {{svg-jar 'calendar' width='24px' height='24px' class='date-picker-icon' }}`
     }
 
 }
