@@ -1,7 +1,7 @@
 {
   "meta": {
     "paint": ["ember"],
-    "name": "refactoring-code"
+    "name": "uiparse-buttons-test"
   },
 
   "routers": [
@@ -35,7 +35,7 @@
         {
           "id": "test",
           "type": "BPPushButton",
-          "cat": "test",
+          "cat": "0",
           "text": "alfred test",
           "name":"bp-push-button",
           "css": [
@@ -98,7 +98,7 @@
         },{
           "id": "test",
           "type": "BPPushButton",
-          "cat": "test",
+          "cat": "0",
           "text": "alfred test primary",
           "name":"bp-push-button-primary",
           "css": [
@@ -152,7 +152,7 @@
         },{
           "id": "test",
           "type": "BPPushButton",
-          "cat": "test",
+          "cat": "0",
           "text": "alfred test danger",
           "name":"bp-push-button-danger",
           "css": [
@@ -206,7 +206,7 @@
         },{
           "id": "test",
           "type": "BPPushButton",
-          "cat": "test",
+          "cat": "0",
           "text": "alfred test warning",
           "name":"bp-push-button-warning",
           "css": [
@@ -260,7 +260,7 @@
         },{
           "id": "test",
           "type": "BPPushButton",
-          "cat": "test",
+          "cat": "0",
           "text": "alfred test subtle",
           "name":"bp-push-button-subtle",
           "css": [
@@ -293,7 +293,7 @@
         },{
           "id": "test",
           "type": "BPPushButton",
-          "cat": "test",
+          "cat": "0",
           "text": "alfred test link",
           "name":"bp-push-button-link",
           "css": [
@@ -328,30 +328,6 @@
               "k": "color",
               "v": "#2355A9",
               "tp": "active"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "page with menu",
-      "type": "BPMainWindow",
-      "cat": "navigation",
-      "name":"navigation",
-      "path":"navigation",
-      "layout":[],
-      "css":[],
-      "components": [
-        {
-          "id": "test",
-          "type": "BPNavMenu",
-          "cat": "test",
-          "text": "alfred test",
-          "name":"bp-nav-menu",
-          "css":[
-            {
-              "k":"color",
-              "v":"red"
             }
           ]
         }

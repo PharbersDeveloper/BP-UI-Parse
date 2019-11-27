@@ -50,6 +50,7 @@ import BPPopover from "../widgets/popover/BPPopover"
 import BPProgressTracker from "../widgets/progressTracker/BPProgressTracker"
 import BPRadio from "../widgets/radio/BPRadio"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
+import BPSlot from "../widgets/slotleaf/BPSlot"
 import BPSpinner from "../widgets/spinner/BPSpinner"
 import BPSpotlight from "../widgets/spotlight/BPSpotlight"
 import BPStatus from "../widgets/status/BPStatus"
@@ -72,8 +73,8 @@ export default class BPEmberCtx extends BPCtx {
         super()
         phLogger.info("exec something with emberjs")
         this.projectName = projectName
-        // const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
-        const output: string = "/Users/Simon/Desktop/ui-output"
+        const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
+        // const output: string = "/Users/Simon/Desktop/ui-output"
         this.output = output
     }
     public cmdStart() {
@@ -82,10 +83,20 @@ export default class BPEmberCtx extends BPCtx {
             new RemoveFolderExec(this.projectName),
             new EmberAddonExec(this.projectName),
             new CdExec(this.output + "/" + this.projectName),
-            new EmberYarnExec("install")
+            new EmberYarnExec("install"),
+            new EmberGenExec("component", "cp-leaf"),
+
         ]
     }
     public cmdEnd() {
+        const slot = new BPSlot(this.output, this.projectName, "index")
+        const cpLeaf = new BPComp()
+        cpLeaf.id = "cp-leaf"
+        cpLeaf.type = "cpLeaf"
+        cpLeaf.name = "cp-leaf"
+        cpLeaf.cat = "0"
+
+        const geneSlot = slot.paint(this, cpLeaf, false)
         return [
             new EmberYarnExec("remove", "ember-cli-htmlbars"),
             new EmberInstallDepExec("ember-cli-htmlbars@3.0.0", "-S"),
@@ -96,7 +107,8 @@ export default class BPEmberCtx extends BPCtx {
             new EmberInstallDepExec("jquery-integration", "-D", "feature:enable"),
             new EmberInstallDepExec("ember-truth-helpers"),
             new EmberInstallDepExec("ember-table"),
-            new EmberInstallDepExec("ember-ajax")
+            new EmberInstallDepExec("ember-ajax"),
+            geneSlot[0]
         ]
 
     }
