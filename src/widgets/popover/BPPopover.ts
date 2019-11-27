@@ -145,7 +145,6 @@ export default class BPPopover extends BPWidget {
             actions = "<button onclick={{action 'dismiss'}}>Cancel</button><button>Confirm</button>"
         }
 
-
         return  "<div class='popover-container'>" + "\r" +
                 "<div class='popover'>" + "\r" +
                 icon + "\r" +
