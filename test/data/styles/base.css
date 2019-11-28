@@ -819,6 +819,7 @@ input[type="checkbox"]+label {
     text-align: left;
     padding: 8px;
     background: #ffffff;
+    border-bottom: 1px solid rgba(9,30,66,0.08);
 }
 
 .bp-table table thead th {
@@ -842,7 +843,7 @@ input[type="checkbox"]+label {
 }
 
 .border-table table tbody td {
-    border-top: 1px solid rgba(9,30,66,0.08);
+    border-bottom: 1px solid rgba(9,30,66,0.08);
 }
 
 .bp-table table th .et-sort-indicator::before {
