@@ -53,6 +53,18 @@ export default class BPTable extends BPWidget {
                 didInsertElement() {
                     this._super(...arguments);
                     this.getData()
+
+                    const that = this
+                    const thisComp = document.getElementsByClassName('${comp.name}')[0]
+                    const table = thisComp.getElementsByClassName('ember-table')[0]
+                    table.onscroll = function(){
+                        const ths = table.getElementsByTagName('th')
+                        if ((ths[1].offsetLeft - ths[0].offsetLeft) >= 200) {
+                            that.set('tableLeftFixed', false)
+                        } else {
+                            that.set('tableLeftFixed', true)
+                        }
+                    }
                 },
                 getData() {
                     const ajax = this.ajax;
@@ -140,6 +152,9 @@ export default class BPTable extends BPWidget {
 
     public paintHBS(comp: BPComp) {
        return  `<div class="bp-table">
+        {{#if tableLeftFixed}}
+            <div style="box-shadow: 4px 0px 4px rgba(0,0,0,.12);position:absolute;height:400px;width: 200px;z-index:6;background:transparent;"></div>
+        {{/if}}
        <EmberTable as |t|>
        <t.head @sorts={{sorts}}
        @onUpdateSorts='sortSowIcon'
