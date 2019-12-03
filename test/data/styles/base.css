@@ -236,6 +236,73 @@ input[type="checkbox"]+label {
     color: #344563;
 }
 
+/* status 通用样式 */
+
+.status-default.status-subtle {
+    background: #DFE1E6;
+    color: #42526E;
+}
+
+.status-default.status-bold {
+    background: #42526E;
+    color: #FFFFFF;
+}
+
+.status-success.status-subtle {
+    background: #E2FFEE;
+    color: #006644;
+}
+
+.status-success.status-bold {
+    background: #00875A;
+    color: #FFFFFF;
+}
+
+.status-removed.status-subtle {
+    background: #FFEBE6;
+    color: #BF2600;
+}
+
+.status-removed.status-bold {
+    background: #DE350B;
+    color: #FFFFFF;
+}
+
+.status-in-progress.status-subtle {
+    background: #E1ECFF;
+    color: #2355A9;
+}
+
+.status-in-progress.status-bold {
+    background: #3172E0;
+    color: #FFFFFF;
+}
+
+.status-new.status-subtle {
+    background: #EAE6FF;
+    color: #403294;
+}
+
+.status-new.status-bold {
+    background: #5243AA;
+    color: #FFFFFF;
+}
+
+.status-moved.status-subtle {
+    background: #FFF0B3;
+    color: #172B4D;
+}
+
+.status-moved.status-bold {
+    background: #FF8B00;
+    color: #172B4D;
+}
+
+
+/* tag 通用样式 */
+
+
+
 /* tooltip 通用样式 */
 .tooltip:hover::after {
     background: #172B4D;
