@@ -236,6 +236,148 @@ input[type="checkbox"]+label {
     color: #344563;
 }
 
+/* status 通用样式 */
+
+.status-default.status-subtle {
+    background: #DFE1E6;
+    color: #42526E;
+}
+
+.status-default.status-bold {
+    background: #42526E;
+    color: #FFFFFF;
+}
+
+.status-success.status-subtle {
+    background: #E2FFEE;
+    color: #006644;
+}
+
+.status-success.status-bold {
+    background: #00875A;
+    color: #FFFFFF;
+}
+
+.status-removed.status-subtle {
+    background: #FFEBE6;
+    color: #BF2600;
+}
+
+.status-removed.status-bold {
+    background: #DE350B;
+    color: #FFFFFF;
+}
+
+.status-in-progress.status-subtle {
+    background: #E1ECFF;
+    color: #2355A9;
+}
+
+.status-in-progress.status-bold {
+    background: #3172E0;
+    color: #FFFFFF;
+}
+
+.status-new.status-subtle {
+    background: #EAE6FF;
+    color: #403294;
+}
+
+.status-new.status-bold {
+    background: #5243AA;
+    color: #FFFFFF;
+}
+
+.status-moved.status-subtle {
+    background: #FFF0B3;
+    color: #172B4D;
+}
+
+.status-moved.status-bold {
+    background: #FF8B00;
+    color: #172B4D;
+}
+
+
+/* tag 通用样式 */
+
+.tag-default.tag-subtle {
+    background: #EBECF0;
+    color: #344563;
+}
+
+.tag-default.tag-bold {
+    background: #42526E;
+    color: #FFFFFF;
+}
+
+.tag-blue.tag-subtle {
+    background: #C2DAFF;
+    color: #0049B0;
+}
+
+.tag-blue.tag-bold {
+    background: #73ABFF;
+    color: #172B4D;
+}
+.tag-green.tag-subtle {
+    background: #79F2C0;
+    color: #006644;
+}
+
+.tag-green.tag-bold {
+    background: #57D9A3;
+    color: #172B4D;
+}
+.tag-purple.tag-subtle {
+    background: #C0B6F2;
+    color: #403294;
+}
+
+.tag-purple.tag-bold {
+    background: #998DD9;
+    color: #172B4D;
+}
+.tag-teals.tag-subtle {
+    background: #79E2F2;
+    color: #344563;
+}
+
+.tag-teals.tag-bold {
+    background: #00C7E6;
+    color: #172B4D;
+}
+.tag-red.tag-subtle {
+    background: #FFBDAD;
+    color: #172B4D;
+}
+
+.tag-red.tag-bold {
+    background: #FF8F73;
+    color: #172B4D;
+}
+.tag-yellow.tag-subtle {
+    background: #EBECF0;
+    color: #172B4D;
+}
+
+.tag-yellow.tag-bold {
+    background: #FFC400;
+    color: #172B4D;
+}
+
+/* badge 通用样式 */
+.badge-default {
+    background: #DFE1E6;
+    color: #253858;
+}
+
+.badge-primary {
+    background: #3172E0;
+    color: #FFFFFF;
+}
+
+
 /* tooltip 通用样式 */
 .tooltip:hover::after {
     background: #172B4D;
@@ -819,6 +961,7 @@ input[type="checkbox"]+label {
     text-align: left;
     padding: 8px;
     background: #ffffff;
+    border-bottom: 1px solid rgba(9,30,66,0.08);
 }
 
 .bp-table table thead th {
@@ -842,7 +985,7 @@ input[type="checkbox"]+label {
 }
 
 .border-table table tbody td {
-    border-top: 1px solid rgba(9,30,66,0.08);
+    border-bottom: 1px solid rgba(9,30,66,0.08);
 }
 
 .bp-table table th .et-sort-indicator::before {

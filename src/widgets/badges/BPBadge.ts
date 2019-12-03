@@ -38,13 +38,20 @@ export default class BPBadge extends BPWidget {
         const fileDataEnd = this.paintLoginEnd()
 
         const fileData = "\n" +
-        `export default Component.extend({
+        `import { computed } from '@ember/object';
+        export default Component.extend({
             layout,
             tagName:'span',
             classNames:['${comp.name}'],
             content: 'default',
-            classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only'],
+            classNameBindings: ['block:btn-block', 'reverse', 'active', 'currentType','computedIconOnly:icon-only'],
             attributeBindings: [],
+            type: 'default',
+            currentType: computed('type', function () {
+                let type = this.get('type');
+
+                return "badge-" + type
+            }),
             ${this.slotActions(["click", "mouseEnter", "mouseLeave"], `${comp.name}`)},`
 
         return fileDataStart + fileData + fileDataEnd

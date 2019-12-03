@@ -53,6 +53,18 @@ export default class BPTable extends BPWidget {
                 didInsertElement() {
                     this._super(...arguments);
                     this.getData()
+
+                    const that = this
+                    const thisComp = document.getElementsByClassName('${comp.name}')[0]
+                    const table = thisComp.getElementsByClassName('ember-table')[0]
+                    table.onscroll = function(){
+                        const ths = table.getElementsByTagName('th')
+                        if ((ths[1].offsetLeft - ths[0].offsetLeft) >= 200) {
+                            that.set('tableLeftFixed', false)
+                        } else {
+                            that.set('tableLeftFixed', true)
+                        }
+                    }
                 },
                 getData() {
                     const ajax = this.ajax;
@@ -74,7 +86,7 @@ export default class BPTable extends BPWidget {
                     getXValues.then(data => {
                         this.set("xValues", data)
                         let arrC = []
-                        arrC.push({ name: "药品名", valuePath: "月份", width: 200,isFixed: 'left' })
+                        arrC.push({ name: "药品名", valuePath: "月份", width: 200,isFixed: 'left',  isSortable: false})
                         data.forEach(it => {
                             arrC.push({name: it, valuePath: it, isSortable: true})
                         })
@@ -119,6 +131,20 @@ export default class BPTable extends BPWidget {
                     })
                 },
                 actions: {
+                    sortSowIcon(sorts) {
+                        this.set('sorts', sorts)
+                        this.columns.forEach(it => {
+                            it.isAscending = false
+                            it.isDesending = false
+
+                            if (sorts.length >= 1) {
+                                if(it.valuePath === sorts[0].valuePath) {
+                                    it.isAscending = sorts[0].isAscending
+                                    it.isDesending = !sorts[0].isAscending
+                                }
+                            }
+                        })
+                    }
                 },`
 
         return fileDataStart + fileData + fileDataEnd
@@ -126,13 +152,29 @@ export default class BPTable extends BPWidget {
 
     public paintHBS(comp: BPComp) {
        return  `<div class="bp-table">
+        {{#if tableLeftFixed}}
+            <div style="box-shadow: 4px 0px 4px rgba(0,0,0,.12);position:absolute;height:400px;width: 200px;z-index:6;background:transparent;"></div>
+        {{/if}}
        <EmberTable as |t|>
-            <t.head @columns={{columns}}
-            @sorts={{sorts}}
-            @onUpdateSorts={{action (mut sorts)}}
-            />
+       <t.head @sorts={{sorts}}
+       @onUpdateSorts='sortSowIcon'
+       @columns={{columns}} as |h|>
+            <h.row as |r|>
+                <r.cell as |column|>
+                        {{column.name}}
+                        {{#if column.isSortable}}
+                            {{#if column.isAscending}}
+                                {{svg-jar 'sort-asc' width='12px' height='12px' class='icon-margin-left'}}
+                            {{else if column.isDesending}}
+                                {{svg-jar 'sort-des' width='12px' height='12px' class='icon-margin-left'}}
+                            {{else}}
+                                {{svg-jar 'sort-default' width='12px' height='12px' class='icon-margin-left'}}
+                            {{/if}}
+                        {{/if}}
 
-
+                </r.cell>
+            </h.row>
+            </t.head>
             <t.body @rows={{rows}} />
             </EmberTable>
             </div>`
