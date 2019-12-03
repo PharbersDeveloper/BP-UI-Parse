@@ -50,7 +50,7 @@ export default class BPTag extends BPWidget {
             type: 'default',
             /**
              *type:
-             *default/success/removed/in-progress/new/moved
+             *default/bule/green/purple/red/yellow
             */
             currentType: computed('type', function () {
                 let type = this.get('type');

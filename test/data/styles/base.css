@@ -366,6 +366,18 @@ input[type="checkbox"]+label {
     color: #172B4D;
 }
 
+/* badge 通用样式 */
+.badge-default {
+    background: #DFE1E6;
+    color: #253858;
+}
+
+.badge-primary {
+    background: #3172E0;
+    color: #FFFFFF;
+}
+
+
 /* tooltip 通用样式 */
 .tooltip:hover::after {
     background: #172B4D;
