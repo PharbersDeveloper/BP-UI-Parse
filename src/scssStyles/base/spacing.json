@@ -1,0 +1,72 @@
+{
+    "spacing": {
+        "none": {
+            "value": "0px"
+        },
+        "divider": {
+            "value": "1px"
+        },
+        "compact": {
+            "1x": {
+                "value": "2px"
+            },
+            "2x": {
+                "value": "2*{spacing.compact.1x}"
+            },
+            "3x": {
+                "value": "3*{spacing.compact.1x}"
+            },
+            "6x": {
+                "value": "6*{spacing.compact.1x}"
+            }
+        },
+        "1x": {
+            "value": "8px"
+        },
+        "2x": {
+            "value": "2*{spacing.1x}"
+        },
+        "3x": {
+            "value": "3*{spacing.1x}"
+        },
+        "4x": {
+            "value": "4*{spacing.1x}"
+        },
+        "5x": {
+            "value": "5*{spacing.1x}"
+        },
+        "gutter": {
+            "none": {
+                "value": "{spacing.none}"
+            },
+            "small": {
+                "value": "{spacing.1x}"
+            },
+            "medium": {
+                "value": "{spacing.2x}"
+            },
+            "large": {
+                "value": "{spacing.3x}"
+            }
+        },
+        "button": {
+            "padding_h": {
+                "value": "{spacing.compact.6x}"
+            }
+        }
+    },
+    "letter": {
+        "spacing": {
+            "small": {
+                "value": "1px"
+            }
+        }
+    },
+    "line": {
+        "height": {
+            "default": {
+                "value": 1.4
+            }
+        }
+    }
+}

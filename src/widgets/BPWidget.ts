@@ -97,7 +97,8 @@ export abstract class BPWidget extends BPObject {
         return "});" + "\r"
     }
     public slotActions(events: string[], compName: string) {
-        const actionsHeader = `actions: {
+        const actionsHeader = `
+        actions: {
             emit(source, signal, data) {
                 this.sendAction("emit", source, signal, data)
             },
@@ -172,11 +173,12 @@ export abstract class BPWidget extends BPObject {
                "target": this,
                "slot": this.get("actions.slots.on${firstUpperCase}")
            })`,
-           trigger: `mouseEnter() {
+           trigger: `${event}() {
                 let action = this.actions.emit;
 
                 action.call(this, this, "${event}", "")
-            },`
+            },
+            `
         }
     }
     private ssbody(actionsSSC: string, slotsBody: string, trigger: string, event: string) {

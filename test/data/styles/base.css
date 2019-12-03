@@ -1218,3 +1218,14 @@ input[type="checkbox"]+label {
 .cursor-pointer {
     cursor: pointer;
 }
+
+/* bp-badge styles */
+.bp-badge.primary {
+    background-color: #3172E0;
+    color: #fff;
+}
+.bp-badge.primary.reverse {
+    color: #3172E0;
+    background-color: #fff;
+}
+/* bp-badge */

@@ -1,0 +1,113 @@
+{
+    "meta": {
+        "paint": [
+            "ember"
+        ],
+        "name": "refactoring-code-badge"
+    },
+    "routers": [
+        {
+            "id": "page main window",
+            "type": "BPMainWindow",
+            "cat": "main-window",
+            "name": "badges",
+            "path": "/badges",
+            "layout": [
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "flex-direction",
+                    "v": "row"
+                }
+            ],
+            "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "300px"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPBadge",
+                    "cat": "0",
+                    "text": "9",
+                    "name": "bp-badge",
+                    "attrs": [
+                        {
+                            "name": "badgeNumber",
+                            "value": "8"
+                        }   
+                    ],
+                    "styleAttrs": [
+                        {
+                            "name": "primary",
+                            "value": false
+                        },
+                        {
+                            "name": "reverse",
+                            "value": false
+                        }
+                    ],
+                    "events": ["click", "mouseEnter", "mouseLeave"],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "min-width",
+                            "v": "20px"
+                        },
+                        {
+                            "k": "background",
+                            "v": "#DFE1E6"
+                        },
+                        {
+                            "k": "font-size",
+                            "v": "12px"
+                        },
+                        {
+                            "k": "color",
+                            "v": "#253858"
+                        },
+                        {
+                            "k": "text-align",
+                            "v": "center"
+                        },
+                        {
+                            "k": "line-height",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "border",
+                            "v": "0"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "8px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0 6px"
+                        },
+                        {
+                            "k": "cursor",
+                            "v": "pointer"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

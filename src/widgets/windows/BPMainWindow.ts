@@ -20,5 +20,7 @@ export default class BPMainWindow extends BPWidget {
         const endCmds = ctx.cmdEnd()
         return [...firstCmds, ...bodyCmds, ...endCmds]
 
+        // return [ ...endCmds]
+
     }
 }

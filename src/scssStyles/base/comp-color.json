@@ -1,0 +1,48 @@
+{
+    "color": {
+        "text": {
+            "disabled": {
+                "value": "{color.neutrals.n600.value}"
+            },
+            "negative": {
+                "value": "{color.negative.r400.value}"
+            },
+            "positive": {
+                "value": "{color.positive.g400.value}"
+            },
+            "informative": {
+                "value": "{color.informative.p500.value}"
+            },
+            "heading": {
+                "primary": {
+                    "value": "{color.neutrals.n800.value}"
+                },
+                "secondary": {
+                    "value": "{color.neutrals.n200.value}"
+                }
+            },
+            "body": {
+                "primary": {
+                    "value": "{color.neutrals.n800.value}"
+                },
+                "secondary": {
+                    "value": "{color.neutrals.n200.value}"
+                },
+                "tertiary": {
+                    "value": "{color.neutrals.n200.value}"
+                },
+                "inverse": {
+                    "primary": {
+                        "value": "{color.neutrals.n000.value} 0.4"
+                    },
+                    "secondary": {
+                        "value": "{color.neutrals.n000.value} 0.4"
+                    },
+                    "tertiary": {
+                        "value": "{color.neutrals.n000.value} 0.4"
+                    }
+                }
+            }
+        }
+    }
+}

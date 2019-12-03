@@ -1,12 +1,13 @@
 "use strict"
 import { Any, JsonObject, JsonProperty } from "json2typescript"
+import {IAttrs} from "../properties/Options"
 import { ParseCssConf } from "./ParseCssConf"
 import { ParsePtCtxConf } from "./ParsePtCtxConf"
 
 @JsonObject("component")
 export class ParseCompConf {
-    @JsonProperty("attrs", Object, true)
-    public attrs: Any = {}
+    // @JsonProperty("attrs", Object, true)
+    // public attrs: Any = {}
 
     @JsonProperty("id", String)
     public id: string = ""
@@ -35,4 +36,13 @@ export class ParseCompConf {
 
     @JsonProperty("components", [ParseCompConf], true)
     public components: ParseCompConf[] = []
+
+    @JsonProperty("attrs", [], true)
+    public attrs: IAttrs[] = []
+
+    @JsonProperty("styleAttrs", [], true)
+    public styleAttrs: IAttrs[] = []
+
+    @JsonProperty("events", [], true)
+    public events: string[] = []
 }

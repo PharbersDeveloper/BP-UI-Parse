@@ -108,7 +108,8 @@ export default class BPEmberCtx extends BPCtx {
             new EmberInstallDepExec("ember-truth-helpers"),
             new EmberInstallDepExec("ember-table"),
             new EmberInstallDepExec("ember-ajax"),
-            geneSlot[0]
+            geneSlot[0],
+            // new SassyStyles(this.output, this.projectName)
         ]
 
     }
@@ -208,7 +209,6 @@ export default class BPEmberCtx extends BPCtx {
             new BPPie(this.output, this.projectName, routeName),
             new BPScatter(this.output, this.projectName, routeName),
             new BPChina(this.output, this.projectName, routeName)
-
         ]
 
         return this.compTypeList
