@@ -301,7 +301,70 @@ input[type="checkbox"]+label {
 
 /* tag 通用样式 */
 
+.tag-default.tag-subtle {
+    background: #EBECF0;
+    color: #344563;
+}
 
+.tag-default.tag-bold {
+    background: #42526E;
+    color: #FFFFFF;
+}
+
+.tag-blue.tag-subtle {
+    background: #C2DAFF;
+    color: #0049B0;
+}
+
+.tag-blue.tag-bold {
+    background: #73ABFF;
+    color: #172B4D;
+}
+.tag-green.tag-subtle {
+    background: #79F2C0;
+    color: #006644;
+}
+
+.tag-green.tag-bold {
+    background: #57D9A3;
+    color: #172B4D;
+}
+.tag-purple.tag-subtle {
+    background: #C0B6F2;
+    color: #403294;
+}
+
+.tag-purple.tag-bold {
+    background: #998DD9;
+    color: #172B4D;
+}
+.tag-teals.tag-subtle {
+    background: #79E2F2;
+    color: #344563;
+}
+
+.tag-teals.tag-bold {
+    background: #00C7E6;
+    color: #172B4D;
+}
+.tag-red.tag-subtle {
+    background: #FFBDAD;
+    color: #172B4D;
+}
+
+.tag-red.tag-bold {
+    background: #FF8F73;
+    color: #172B4D;
+}
+.tag-yellow.tag-subtle {
+    background: #EBECF0;
+    color: #172B4D;
+}
+
+.tag-yellow.tag-bold {
+    background: #FFC400;
+    color: #172B4D;
+}
 
 /* tooltip 通用样式 */
 .tooltip:hover::after {
