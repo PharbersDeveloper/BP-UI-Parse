@@ -3,7 +3,7 @@
 import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
-import { IOptions } from "../../properties/Options"
+import { IAttrs, IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 import BPSlot from "../slotleaf/BPSlot"
@@ -30,12 +30,32 @@ export default class BPBadge extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
-        return `{{#${comp.name} ssc="ssc" emit="emit" disconnect="disconnect"}}${comp.text}{{/${comp.name}}}`
+        const {attrs, styleAttrs} = comp
+        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
+            return  ` ${item.name}=${item.value}`
+        }).join("")
+
+        return `{{${comp.name} ssc="ssc" emit="emit"
+            disconnect="disconnect" ${attrsBody}}}`
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
+
+        const {attrs, styleAttrs, events } = comp
+
+        // const events: string[] = comp.events["click", "mouseEnter", "mouseLeave"]
+        const attrsBody = attrs.map( (item: IAttrs) => {
+            return  `${item.name}: ${item.value},`
+        })
+        let styleAttrsBody = ""
+        let classNameBindings = ""
+
+        styleAttrs.forEach( (item: IAttrs) => {
+            styleAttrsBody += `${item.name}: ${item.value},`
+            classNameBindings += `'${item.name}',`
+        })
 
         const fileData = "\n" +
         `import { computed } from '@ember/object';
@@ -43,22 +63,25 @@ export default class BPBadge extends BPWidget {
             layout,
             tagName:'span',
             classNames:['${comp.name}'],
-            content: 'default',
-            classNameBindings: ['block:btn-block', 'reverse', 'active', 'currentType','computedIconOnly:icon-only'],
-            attributeBindings: [],
-            type: 'default',
-            currentType: computed('type', function () {
-                let type = this.get('type');
-
-                return "badge-" + type
+            result: computed("badgeNumber",function() {
+                let num = this.badgeNumber || 0
+                return num < 100 ?num: '99+'
             }),
-            ${this.slotActions(["click", "mouseEnter", "mouseLeave"], `${comp.name}`)},`
+            ${attrsBody}
+            ${styleAttrsBody}
+            classNameBindings: [${classNameBindings}],
+            ${this.slotActions(events, `${comp.name}`)},`
 
         return fileDataStart + fileData + fileDataEnd
     }
     public paintHBS() {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
-        return `${leaf.paintShow()}{{yield}}`
+        return `${leaf.paintShow()}
+        {{#if hasBlock}}
+            {{yield}}
+        {{else}}
+            {{result}}
+        {{/if}}`
     }
 }

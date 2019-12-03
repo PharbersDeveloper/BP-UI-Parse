@@ -10,3 +10,7 @@ export interface IOptions {
     styleData: string
     showData: string
 }
+export interface IAttrs {
+    value: any
+    name: string
+}

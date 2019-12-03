@@ -2,6 +2,7 @@
 
 import BPCtx from "../context/BPCtx"
 import phLogger from "../logger/phLogger"
+import {IAttrs} from "../properties/Options"
 import { BPWidget } from "./BPWidget"
 
 export default class BPComp extends BPWidget {
@@ -12,6 +13,8 @@ export default class BPComp extends BPWidget {
     public cat: string = "1"
     public attrs?: any = {}
     public icon?: string = ""
+    public styleAttrs?: IAttrs[] = []
+    public events?: string[] = []
     public components?: BPComp[] = []
     public paint(ctx: BPCtx) {
         phLogger.info("alfred paint test")
