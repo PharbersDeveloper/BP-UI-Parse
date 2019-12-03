@@ -87,8 +87,7 @@ export default class BPPushButton extends BPWidget {
                 },
                 slots: {
                     onClick( target, data ) {
-                        alert( "BP-UI-Parse bp-bush-button" + data)
-
+                        alert( "BP-UI-Parse ${comp.name}" + data)
                     }
                 }
             },`

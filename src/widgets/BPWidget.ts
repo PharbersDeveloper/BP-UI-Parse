@@ -43,7 +43,7 @@ export abstract class BPWidget extends BPObject {
 
         // 伪类
         comp.css.filter((item) => item.tp !== "css" && item.pe === "css").forEach((item) => {
-            const pseudoClassName =  "." + comp.name + ":" + item.tp + " {" + "\r" + "\n"
+            const pseudoClassName = "." + comp.name + ":" + item.tp + " {" + "\r" + "\n"
             let pseudoClass: string = prefix ? "." + prefix + " " + pseudoClassName : pseudoClassName
             const pseudoStyle = item.key + ": " + item.value + ";" + "\r"
             pseudoClass = pseudoClass + pseudoStyle + "\r" + "}" + "\r"
@@ -52,7 +52,7 @@ export abstract class BPWidget extends BPObject {
 
         // 伪元素 pseudu element
         comp.css.filter((item) => item.pe !== "css" && item.tp === "css").forEach((item) => {
-            const pseudoEleName =  "." + comp.name + "::" + item.pe + " {" + "\r" + "\n"
+            const pseudoEleName = "." + comp.name + "::" + item.pe + " {" + "\r" + "\n"
             let pseudoEle: string = prefix ? "." + prefix + " " + pseudoEleName : pseudoEleName
             const pseudoStyle = item.key + ": " + item.value + ";" + "\r"
             pseudoEle = pseudoEle + pseudoStyle + "\r" + "}" + "\r"
@@ -61,7 +61,7 @@ export abstract class BPWidget extends BPObject {
 
         // 伪类 + 伪元素
         comp.css.filter((item) => item.pe !== "css" && item.tp !== "css").forEach((item) => {
-            const pseudoEleName =  "." + comp.name + ":" + item.tp + "::" + item.pe + " {" + "\r" + "\n"
+            const pseudoEleName = "." + comp.name + ":" + item.tp + "::" + item.pe + " {" + "\r" + "\n"
             let pseudoEle: string = prefix ? "." + prefix + " " + pseudoEleName : pseudoEleName
             const pseudoStyle = item.key + ": " + item.value + ";" + "\r"
             pseudoEle = pseudoEle + pseudoStyle + "\r" + "}" + "\r"
@@ -88,13 +88,65 @@ export abstract class BPWidget extends BPObject {
     public paintLoginStart(comp: BPComp) {
         const fileData = "import Component from '@ember/component';" + "\r" +
             "import layout from '../templates/components/" + comp.name + "';" + "\r"
-            // "\n" +
-            // "export default Component.extend({" + "\r" +
-            // "    layout," + "\r"
+        // "\n" +
+        // "export default Component.extend({" + "\r" +
+        // "    layout," + "\r"
         return fileData
     }
     public paintLoginEnd() {
         return "});" + "\r"
+    }
+    public slotActions(events: string[], compName: string) {
+        const actionsHeader = `actions: {
+            emit(source, signal, data) {
+                this.sendAction("emit", source, signal, data)
+            },
+            disconnect(ss, ts, cs) {
+                this.sendAction("disconnect", ...this.mstc)
+            },
+            ssc(ss, ts, cs) {
+                const mss = ss
+                const mts = ts
+                const mcs = cs
+
+            `
+        let actionsSSC = ""
+        const actionsFooter = `this.set("mstc", [mss, mts, mcs])
+            this.sendAction("ssc", mss, mts, mcs)
+            },`
+        const slotsHeader = "slots: {"
+        const slotFooter = `}}`
+        let slotsBody = ""
+        let bodys = null
+        let trigger = ""
+
+        switch (true) {
+            case events.includes("click"):
+                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "click")
+                actionsSSC = bodys.actionsSSC
+                slotsBody = bodys.slotsBody
+                trigger = bodys.trigger
+            case events.includes("mouseEnter"):
+                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "mouseEnter")
+                actionsSSC = bodys.actionsSSC
+                slotsBody = bodys.slotsBody
+                trigger = bodys.trigger
+            case events.includes("mouseLeave"):
+                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "mouseLeave")
+                actionsSSC = bodys.actionsSSC
+                slotsBody = bodys.slotsBody
+                trigger = bodys.trigger
+
+            default:
+                break
+        }
+        return `${trigger}
+                ${actionsHeader}
+                ${actionsSSC}
+                ${actionsFooter}
+                ${slotsHeader}
+                ${slotsBody}
+                ${slotFooter}`
     }
 
     protected paint(ctx: BPCtx, comp?: BPComp, isShow?: boolean) {
@@ -103,5 +155,37 @@ export abstract class BPWidget extends BPObject {
 
     protected hitSize() {
         phLogger.info("alfred paint test")
+    }
+    private generateSSC(event: string) {
+
+        const firstUpperCase = event.replace(/( |^)[a-z]/g, (L: string) => L.toUpperCase())
+        return {
+            slot: `on${firstUpperCase}(target,data) {
+                window.console.log("BP-UI-Parse ${firstUpperCase} event => " + data)
+            },`,
+            ssc: `
+            mss.pushObject({ "source": this, "signal": "${event}" })
+            mts.pushObject({ "target": this, "slot": this.get("actions.slots.on${firstUpperCase}") })
+            mcs.pushObject({
+               "source": this,
+               "signal": "${event}",
+               "target": this,
+               "slot": this.get("actions.slots.on${firstUpperCase}")
+           })`,
+           trigger: `mouseEnter() {
+                let action = this.actions.emit;
+
+                action.call(this, this, "${event}", "")
+            },`
+        }
+    }
+    private ssbody(actionsSSC: string, slotsBody: string, trigger: string, event: string) {
+        const clickSS = this.generateSSC(event)
+
+        return {
+            actionsSSC: actionsSSC += clickSS.ssc,
+            slotsBody: slotsBody += clickSS.slot,
+            trigger: trigger += clickSS.trigger
+        }
     }
 }
