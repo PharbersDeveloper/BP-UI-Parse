@@ -54,7 +54,8 @@ export class AddLayDateFiles extends BashExec {
                 })
                 app.import("vendor/laydate/theme/default/laydate.css")
             app.import("vendor/laydate/laydate.js")
-
+            app.import('node_modules/echarts/map/js/china.js');
+            app.import('node_modules/echarts/map/js/province/zhejiang.js');
             return app.toTree();
             };`
         fs.writeFileSync(src, content)

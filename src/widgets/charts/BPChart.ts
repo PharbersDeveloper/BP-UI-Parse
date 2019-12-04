@@ -4,6 +4,7 @@ import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
 import { IOptions } from "../../properties/Options"
+import {IAttrs} from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 
@@ -33,21 +34,32 @@ export default class BPChart extends BPWidget {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
 
-        const fileData = this.importString() + "\r\n" +
-            this.basicStrHead() + "\r\n" +
-            this.basicProp() + "\r\n" +
-            this.lifeCycleHooks() + "\r\n" +
-            this.mainLogic() + "\r\n"
+        const {attrs } = comp
+
+        const attrsBody = attrs.map( (item: IAttrs) => {
+            return  `${item.name}: "${item.value}",`
+        })
+
+        const fileData =
+            `${this.importString()}
+            ${this.basicStrHead()}
+            ${attrsBody}
+            ${this.basicProp()}
+            ${this.lifeCycleHooks()}
+            ${this.mainLogic()}`
 
         return fileDataStart + "\r\n" + fileData + fileDataEnd
     }
     public paintShow(comp: BPComp) {
-        const showStart = "<section class='chart-container'>{{" + comp.name + " eid='" + comp.id + "'}}</section>"
+        const {attrs, styleAttrs} = comp
+        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
+            return  ` ${item.name}="${item.value}"`
+        }).join("")
 
-        return showStart
+        return `<section class='chart-container'>{{${comp.name} ${attrsBody}}}</section>`
     }
     public paintHBS() {
-        const chartHbs = `{{echarts-chart classNames='chart-container'
+        const chartHbs = `{{echarts-chart classNames='bp-chart'
                 elementId=eid
                 option=result
                 onChartReady=(action onChartReady)

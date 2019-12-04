@@ -389,9 +389,12 @@ input[type="checkbox"]+label {
     position: relative;
     padding: 0 4px;
 }
-.chart-container {
-    height: 400px;
+/* bp-charts styles */
+.bp-chart {
+    height: 100%;
 }
+
+/* bp-charts styles */
 
 .flex-alian-center {
     display: flex;

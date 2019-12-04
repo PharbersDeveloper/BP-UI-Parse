@@ -3,15 +3,15 @@
         "paint": [
             "ember"
         ],
-        "name": "refactoring-code-chart-refac"
+        "name": "refactoring-chart"
     },
     "routers": [
         {
             "id": "page with chart",
             "type": "BPMainWindow",
             "cat": "chart",
-            "name": "chart",
-            "path": "chart",
+            "name": "charts",
+            "path": "charts",
             "layout": [
                 {
                     "k": "width",
@@ -30,6 +30,12 @@
                     "cat": "0",
                     "name": "bp-line",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "line-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
@@ -63,6 +69,12 @@
                     "cat": "0",
                     "name": "bp-bar",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "bar-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
@@ -96,6 +108,12 @@
                     "cat": "0",
                     "name": "bp-pie",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "pie-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
@@ -129,6 +147,12 @@
                     "cat": "0",
                     "name": "bp-scatter",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "scatter-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
@@ -162,6 +186,12 @@
                     "cat": "0",
                     "name": "bp-china",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "china-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
@@ -195,6 +225,12 @@
                     "cat": "0",
                     "name": "bp-bar-line",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "barline-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
@@ -228,6 +264,12 @@
                     "cat": "0",
                     "name": "bp-radar",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "radar-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
@@ -261,6 +303,12 @@
                     "cat": "0",
                     "name": "bp-stack",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "stack-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
