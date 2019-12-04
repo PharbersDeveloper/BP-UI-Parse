@@ -67,7 +67,24 @@
                 "k": "line-height",
                 "v": "20px"
               }
-            ]
+            ],
+            "attrs": [
+              {
+                "name": "tagContent",
+                "value": "tag test"
+              }
+            ],
+            "styleAttrs": [
+              {
+                "name": "type", 
+                "value": "blue"
+              },
+              {
+                "name": "subtle",
+                "value": true
+              }
+            ],
+            "events": ["click", "mouseEnter", "mouseLeave"]
          }
         ]
       }
