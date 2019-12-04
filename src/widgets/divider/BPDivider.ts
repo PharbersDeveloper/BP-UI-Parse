@@ -27,7 +27,7 @@ export default class BPDivider extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
-        return "{{#" + comp.name + "}}" + "{{/" + comp.name + "}}"
+        return "{{" + comp.name + "}}"
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法

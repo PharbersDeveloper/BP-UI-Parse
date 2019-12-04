@@ -9,8 +9,8 @@
       "id": "page main window",
       "type": "BPMainWindow",
       "cat": "main-window",
-      "name": "divider",
-      "path": "/divider",
+      "name": "divider-route",
+      "path": "/divider-route",
       "layout": [
         {
           "k": "display",
@@ -27,7 +27,7 @@
         },
         {
           "k": "height",
-          "v": "300px"
+          "v": "1px"
         }
       ],
 
@@ -37,7 +37,7 @@
           "type": "BPDivider",
           "cat": "0",
           "text": "simon test",
-          "name":"bp-divider-default",
+          "name":"bp-divider",
           "css": [
             {
               "k": "width",
@@ -56,30 +56,6 @@
             
           ]
 					}
-      ]
-    },
-    {
-      "id": "page with menu",
-      "type": "BPMainWindow",
-      "cat": "navigation",
-      "name":"navigation",
-      "path":"navigation",
-      "layout":[],
-      "css":[],
-      "components": [
-        {
-          "id": "test",
-          "type": "BPNavMenu",
-          "cat": "test",
-          "text": "alfred test",
-          "name":"bp-nav-menu",
-          "css":[
-            {
-              "k":"color",
-              "v":"red"
-            }
-          ]
-        }
       ]
     }
   ]

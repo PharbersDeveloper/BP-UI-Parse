@@ -1,0 +1,87 @@
+{
+    "meta": {
+        "paint": [
+            "ember"
+        ],
+        "name": "refactoring-code-link"
+    },
+    "routers": [
+        {
+            "id": "page main window",
+            "type": "BPMainWindow",
+            "cat": "main-window",
+            "name": "links",
+            "path": "/links",
+            "layout": [
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "flex-direction",
+                    "v": "column"
+                }
+            ],
+            "css": [
+                {
+                    "k": "width",
+                    "v": "max-content"
+                },
+                {
+                    "k": "height",
+                    "v": "auto"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPLink",
+                    "cat": "0",
+                    "text": "9",
+                    "name": "bp-link",
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "font-size",
+                            "v": "14px"
+                        },
+                        {
+                            "k": "text-align",
+                            "v": "center"
+                        },
+                        {
+                            "k": "line-height",
+                            "v": "14px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "14px"
+                        }
+                    ],
+                    "attrs": [
+                        {
+                            "name": "name",
+                            "value": "test link"
+                        },
+                        {
+                            "name": "href",
+                            "value": "#"
+                        },
+                        {
+                            "name": "disabled",
+                            "value": false
+                        }
+                    ],
+                    "styleAttrs": [{
+                        "name": "type",
+                        "value": "default"
+                    }],
+                    "events": ["click"]
+                }
+            ]
+        }
+    ]
+}
