@@ -62,7 +62,17 @@ export default class BPChina extends BPChart {
                 data: JSON.stringify({ "sql": queryChartSql }),
                 dataType: 'json'
             }).then(data => {
-                this.updateChartData(chartConfig, data);
+                let mock = [
+                    ["省份","浙江"],
+                    ["浙江",32045,66],
+                    ["山东",2045,16],
+                    ["台湾",72045,56],
+                    ["内蒙古",34,6],
+                ]
+                let visualMapMaxArr = mock.map(ele=>typeof ele[1]==="number"?ele[1]:0)
+                chartConfig.visualMap.max = Math.max.apply(null,visualMapMaxArr)
+                this.updateChartData(chartConfig, mock);
+                // this.updateChartData(chartConfig, data);
             })
         },` + "\r\n" + this.updateChart()
     }
