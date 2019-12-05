@@ -28,6 +28,73 @@ input[type="text"] {
     /* border: 1px solid #DFE1E6; */
 }
 
+/*link 通用样式*/
+.link-disabled {
+    color: #B3BAC5;
+    cursor: not-allowed;
+}
+
+.link-default {
+    color: #5E6C84;
+}
+
+.link-default:hover {
+    color: #97A0AF;
+}
+
+.link-default:active {
+    color: #505F79;
+}
+
+.link-primary {
+    color: #3172E0;
+}
+
+.link-primary:hover {
+    color: #3881FF;
+}
+
+.link-primary:active {
+    color: #2355A9;
+}
+
+/*input 通用样式*/
+
+input:disabled {
+    background: #F4F5F7 !important;
+    border: none !important;
+    color:  #B3BAC5;
+    cursor: not-allowed;
+}
+
+.input-compact {
+    height: 24px !important;
+}
+
+.input-comfy {
+    height: 40px !important;
+}
+
+.input-default {
+    height: 32px !important;
+}
+
+.input-error {
+    border: 1px solid #DE350B !important;
+}
+
+.input-warning {
+    border: 1px solid #FFAB00 !important;
+}
+
+.input-success {
+    border: 1px solid #36B37E !important;
+}
+
+.input-info {
+    border: 1px solid #403294 !important;
+}
+
 /* 滚动条样式设置 */
 ::-webkit-scrollbar {
     width: 4px;
@@ -357,7 +424,7 @@ input[type="checkbox"]+label {
     color: #172B4D;
 }
 .tag-yellow.tag-subtle {
-    background: #EBECF0;
+    background: #FFE380;
     color: #172B4D;
 }
 

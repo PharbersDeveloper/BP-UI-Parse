@@ -38,9 +38,6 @@
             "cat": "0",
             "text": "simon test",
             "name":"bp-status",
-            "attrs": {
-              "value": "DEFAULT"
-            },
             "css": [
               {
                 "k": "width",
@@ -70,7 +67,24 @@
                 "k": "border-radius",
                 "v": "4px"
               }
-            ]
+            ],
+            "attrs": [
+              {
+                "name": "statusContent",
+                "value": "status test"
+              }
+            ],
+            "styleAttrs": [
+              {
+                "name": "type", 
+                "value": "success"
+              },
+              {
+                "name": "subtle",
+                "value": true
+              }
+            ],
+            "events": ["click", "mouseEnter", "mouseLeave"]
             }
         ]
       }

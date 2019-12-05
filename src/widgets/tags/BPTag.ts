@@ -4,7 +4,7 @@
 import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
-import { IOptions } from "../../properties/Options"
+import { IAttrs, IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 import BPSlot from "../slotleaf/BPSlot"
@@ -31,12 +31,43 @@ export default class BPTag extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
-        return "{{#" + comp.name + "}}" + comp.text + "{{/" + comp.name + "}}"
+        const {attrs, styleAttrs} = comp
+        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                return ` ${item.name}='${item.value}'`
+            } else {
+                return  ` ${item.name}=${item.value}`
+            }
+        }).join("")
+
+        return `{{${comp.name} ssc="ssc" emit="emit"
+            disconnect="disconnect" ${attrsBody}}}`
+        // return "{{#" + comp.name + "}}" + comp.text + "{{/" + comp.name + "}}"
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
+        const {attrs, styleAttrs, events } = comp
+
+        const attrsBody = attrs.map( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                return `${item.name}: '${item.value}',`
+            } else {
+                return  `${item.name}: ${item.value},`
+            }
+        })
+        let styleAttrsBody = ""
+        let classNameBindings = ""
+
+        styleAttrs.forEach( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                styleAttrsBody += `${item.name}: '${item.value}',`
+            } else {
+                styleAttrsBody += `${item.name}: ${item.value},`
+            }
+            classNameBindings += `'${item.name}',`
+        })
 
         const fileData = `
         import { computed } from '@ember/object';
@@ -45,89 +76,25 @@ export default class BPTag extends BPWidget {
             tagName:'span',
             classNames:['${comp.name}'],
             content: 'default',
-            classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only', 'currentType', 'subtle:tag-subtle:tag-bold'],
             attributeBindings: [''],
-            type: 'default',
-            /**
-             *type:
-             *default/bule/green/purple/red/yellow
-            */
+            tagContent: null,
+            ${attrsBody}
+            ${styleAttrsBody}
+            classNameBindings: ["currentStyle", "currentType"],
+            currentStyle: computed('subtle', function () {
+                let isSubtle = this.get('subtle')
+                if (isSubtle) {
+                    return "tag-subtle"
+                } else {
+                    return "tag-bold"
+                }
+            }),
             currentType: computed('type', function () {
                 let type = this.get('type');
 
                 return "tag-" + type
             }),
-            click() {
-                let action = this.actions.emit;
-
-                action.call(this, this, "click", "")
-                /**
-                 * other way bind this
-                 * const emit = action.bind(this);
-                 * emit(this,"click","")
-                 */
-                return this.get('bubble');
-            },
-            mouseEnter() {
-                let action = this.actions.emit;
-
-                action.call(this, this, "mouseEnter", "")
-            },
-            mouseLeave() {
-                let action = this.actions.emit;
-
-                action.call(this, this, "mouseLeave", "")
-            },
-            actions: {
-                emit(source, signal, data) {
-                    this.sendAction("emit", source, signal, data)
-                },
-                disconnect(ss, ts, cs) {
-                    this.sendAction("disconnect", ...this.mstc)
-                },
-                ssc(ss, ts, cs) {
-                    const mss = ss
-
-                    mss.pushObject({ "source": this, "signal": "click" })
-                    const mts = ts
-
-                    mts.pushObject({ "target": this, "slot": this.get("actions.slots.onClick") })
-                    const mcs = cs
-
-                    mcs.pushObject({
-                        "source": this,
-                        "signal": "click",
-                        "target": this,
-                        "slot": this.get("actions.slots.onClick")
-                    })
-                    mcs.pushObject({
-                        "source": this,
-                        "signal": "mouseEnter",
-                        "target": this,
-                        "slot": this.get("actions.slots.onMouseEnter")
-                    })
-                    mcs.pushObject({
-                        "source": this,
-                        "signal": "mouseLeave",
-                        "target": this,
-                        "slot": this.get("actions.slots.onMouseLeave")
-                    })
-                    this.set("mstc", [mss, mts, mcs])
-
-                    this.sendAction("ssc", mss, mts, mcs)
-                },
-                slots: {
-                    onClick(target, data) {
-                        alert("BP-UI-Parse click event =>  ${comp.name}" + data)
-                    },
-                    onMouseEnter(target,data) {
-                        window.console.log("BP-UI-Parse mouseEnber event =>  ${comp.name}" + data)
-                    },
-                    onMouseLeave(target,data) {
-                        window.console.log("BP-UI-Parse mouseLeave event =>  ${comp.name}" + data)
-                    }
-                }
-            },`
+            ${this.slotActions(events, `${comp.name}`)},`
 
         return fileDataStart + fileData + fileDataEnd
     }
@@ -135,7 +102,12 @@ export default class BPTag extends BPWidget {
     public paintHBS() {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
-        return `${leaf.paintShow()}{{yield}}`
+        return `${leaf.paintShow()}
+        {{#if hasBlock}}
+            {{yield}}
+        {{else}}
+            {{tagContent}}
+        {{/if}}`
     }
 
 }
