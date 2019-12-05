@@ -105,7 +105,7 @@ export default class BPEmberCtx extends BPCtx {
             new EmberInstallDepExec("ember-table"),
             new EmberInstallDepExec("ember-ajax"),
             geneSlot[0],
-            // new SassyStyles(this.output, this.projectName)
+            new SassyStyles(this.output, this.projectName)
         ]
 
     }

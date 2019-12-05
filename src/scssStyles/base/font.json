@@ -44,11 +44,6 @@
             "6": {
                 "value": "29px"
             }
-        },
-        "line-height": {
-            "default": {
-                "value": 1.4
-            }
         }
     },
     "letter": {
@@ -61,7 +56,7 @@
     "line": {
         "height": {
             "default": {
-                "value": 1.4
+                "value": "1.4"
             }
         }
     }

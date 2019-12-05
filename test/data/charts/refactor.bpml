@@ -3,7 +3,7 @@
         "paint": [
             "ember"
         ],
-        "name": "refactoring-chart-test1"
+        "name": "refactoring-chart-test"
     },
     "routers": [
         {

@@ -2,7 +2,15 @@
 
 import phLogger from "../logger/phLogger"
 import { BashExec } from "./bashexec"
-
+const baseValue = {
+    color: {
+        neutrals: (value:string)=> `hsla(218,76%,15%,${value})`
+    },
+    spacing: {
+        compact: (value:number)=> `${2*value}px`,
+        base: (value:number)=> `${2*value}px`
+    }
+}
 export class SassyStyles extends BashExec {
     constructor( outputPath: string, projectName: string) {
         super()
@@ -38,7 +46,12 @@ export class SassyStyles extends BashExec {
                 return attrs.category === "color" && attrs.type === "neutrals"
             },
             transformer(prop: any) {
-              return `hsla(218,76%,15%,${prop.original.value})`
+              const value = prop.original.value
+              if (!isNaN(value)) {
+              return baseValue.color.neutrals(value)
+              } else {
+                return value
+              }
             }
           })
         StyleDictionary.registerTransform({
@@ -54,7 +67,35 @@ export class SassyStyles extends BashExec {
               return `rgb(0,0,0)`
             }
           })
-        const transformGroup: string[] = ["color/neutrals", "color/comptext", "name/cti/camel"]
+        StyleDictionary.registerTransform({
+            name: "spacing/compact",
+            type: "value",
+            matcher(prop: any) {
+              const attrs =  prop.attributes
+              return attrs.category === "spacing" && attrs.type === "compact"
+            },
+            transformer(prop: any) {
+              const value = prop.original.value
+
+              return baseValue.spacing.compact(value)
+            }
+          })
+        StyleDictionary.registerTransform({
+            name: "spacing/base",
+            type: "value",
+            matcher(prop: any) {
+              const attrs =  prop.attributes
+              const types: string[] = ["1x", "2x", "3x", "4x", "5x"]
+              return attrs.category === "spacing" && types.includes(attrs.type)
+            },
+            transformer(prop: any) {
+              const value = prop.original.value
+
+              return baseValue.spacing.base(value)
+            }
+          })
+        const transformGroup: string[] = ["color/neutrals", "color/comptext",
+          "spacing/compact", "spacing/base", "name/cti/camel"]
         StyleDictionary.registerTransformGroup({
             name: "custom/scss",
             transforms: StyleDictionary.transformGroup.scss.concat(transformGroup)
