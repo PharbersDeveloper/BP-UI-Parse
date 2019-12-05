@@ -74,11 +74,11 @@ export default class BPLink extends BPWidget {
         import { computed } from '@ember/object';
         export default Component.extend({
             layout,
-            tagName:'a',
+            tagName:'button',
             classNames:['${comp.name}'],
             content: 'default',
             classNameBindings: ['currentType'],
-            attributeBindings: ['href'],
+            attributeBindings: ['disabled:disabled'],
             ${attrsBody}
             currentType: computed('type', 'disabled', function () {
                 let disabled = this.get('disabled')

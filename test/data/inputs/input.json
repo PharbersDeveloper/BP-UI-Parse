@@ -103,7 +103,7 @@
                   "value": ""
                 }
               ],
-              "events": []
+              "events": ["focus", "blur", "input", "change"]
         }
         ]
       }

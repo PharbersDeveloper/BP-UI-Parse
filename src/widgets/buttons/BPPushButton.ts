@@ -3,7 +3,7 @@
 import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
-import { IOptions } from "../../properties/Options"
+import { IAttrs, IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 import BPSlot from "../slotleaf/BPSlot"
@@ -30,67 +30,65 @@ export default class BPPushButton extends BPWidget {
         return execList
     }
     public paintShow(comp: BPComp) {
+        const {attrs, styleAttrs} = comp
+        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                return ` ${item.name}='${item.value}'`
+            } else {
+                return  ` ${item.name}=${item.value}`
+            }
+        }).join("")
+
         if (comp.icon) {
-          return  `{{#${comp.name}  ssc="ssc" emit="emit" disconnect="disconnect" icon=${comp.icon} }}${comp.text}{{/${comp.name}}}`
+          return  `{{#${comp.name}  ssc="ssc" emit="emit" disconnect="disconnect" icon=${comp.icon} ${attrsBody}}}{{/${comp.name}}}`
         }
-        return `{{#${comp.name}  ssc="ssc" emit="emit" disconnect="disconnect"}}${comp.text}{{/${comp.name}}}`
+        return `{{#${comp.name}  ssc="ssc" emit="emit" disconnect="disconnect" ${attrsBody}}}{{/${comp.name}}}`
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
+        const {attrs, styleAttrs, events } = comp
 
-        const fileData = "\n" +
-        `export default Component.extend({
+        const attrsBody = attrs.map( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                return `${item.name}: '${item.value}',`
+            } else {
+                return  `${item.name}: ${item.value},`
+            }
+        }).join("")
+        let styleAttrsBody = ""
+        let classNameBindings = ""
+
+        styleAttrs.forEach( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                styleAttrsBody += `${item.name}: '${item.value}',`
+            } else {
+                styleAttrsBody += `${item.name}: ${item.value},`
+            }
+            classNameBindings += `'${item.name}',`
+        })
+
+        const fileData = `
+        import { computed } from '@ember/object';
+        export default Component.extend({
             layout,
             tagName:'button',
-            classNames:['bp-push-button', '${comp.name}'],
+            classNames:['${comp.name}'],
             content: 'default',
-            classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only'],
-            attributeBindings: ['disabled'],
-            click() {
-                let action = this.actions.emit;
-
-                action.call(this,this,"click","")
-                /**
-                 * other way bind this
-                 * const emit = action.bind(this);
-                 * emit(this,"click","")
-                 */
-                return this.get('bubble');
-            },
-            actions: {
-                emit( source, signal, data ) {
-                    this.sendAction( "emit", source, signal, data )
-                },
-                disconnect( ss, ts, cs ) {
-                    this.sendAction( "disconnect", ...this.mstc )
-                },
-                ssc( ss, ts, cs ) {
-                    const mss = ss
-
-                    mss.pushObject( { "source": this, "signal": "click" } )
-                    const mts = ts
-
-                    mts.pushObject( { "target": this, "slot": this.get( "actions.slots.onClick" ) } )
-                    const mcs = cs
-
-                    mcs.pushObject( {
-                        "source": this,
-                        "signal": "click",
-                        "target": this,
-                        "slot": this.get( "actions.slots.onClick" )
-                    } )
-                    this.set( "mstc",[mss,mts,mcs] )
-
-                    this.sendAction( "ssc", mss, mts, mcs )
-                },
-                slots: {
-                    onClick( target, data ) {
-                        alert( "BP-UI-Parse ${comp.name}" + data)
-                    }
+            classNameBindings: ['currentType'],
+            attributeBindings: ['disabled:disabled'],
+            ${attrsBody}
+            ${styleAttrsBody}
+            currentType: computed('type', function () {
+                let type = this.get('type')
+                if (type) {
+                    return "button-" + type
+                } else {
+                    return 'button-primary'
                 }
-            },`
+            }),
+            ${this.slotActions(events, `${comp.name}`)},`
 
         return fileDataStart + fileData + fileDataEnd
     }

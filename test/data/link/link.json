@@ -59,16 +59,25 @@
                         {
                             "k": "height",
                             "v": "14px"
+                        },
+                        {
+                            "k": "cursor",
+                            "v": "pointer"
+                        }, {
+                            "k": "outline",
+                            "v": "none"
+                        }, {
+                            "k": "background",
+                            "v": "transform"
+                        }, {
+                            "k": "border",
+                            "v": "none"
                         }
                     ],
                     "attrs": [
                         {
                             "name": "name",
                             "value": "test link"
-                        },
-                        {
-                            "name": "href",
-                            "value": "#"
                         },
                         {
                             "name": "disabled",
