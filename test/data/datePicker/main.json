@@ -1,7 +1,7 @@
 {
     "meta": {
       "paint": ["ember"],
-      "name": "refactoring-code-date-picker-test"
+      "name": "refactoring-code-date-picker"
     },
   
     "routers": [
@@ -37,99 +37,35 @@
             "icon": "calendar",
             "cat": "0",
             "text": "simon test",
-            "name":"bp-date-picker-single",
+            "name":"bp-date-picker",
             "css": [
-                {
-                    "k": "width",
-                    "v": "240px"
-                  },
-                  {
-                    "k": "height",
-                    "v": "32px"
-                  }, {
-                    "k": "line-height",
-                    "v": "14px"
-                  },{
-                    "k": "font-size",
-                    "v": "14px"
-                  }, {
-                    "k": "padding",
-                    "v": "10px 8px"
-                  }, {
-                    "k": "border",
-                    "v": "none"
-                  }, {
-                    "k": "border-radius",
-                    "v": "4px"
-                  }, {
-                    "k": "color",
-                    "v": "#172B4D"
-                  },
-                  {
-                    "k": "outline",
-                    "v": "none",
-                    "tp": "focus"
-                  },{
-                    "k": "box-sizing",
-                    "v": "border-box"
-                  }, {
-                      "k": "background",
-                      "v": " #F4F5F7"
-                  }
+              
             ],
-            "attrs": {
-                "range": "false"
-            }
-          },
-          {
-            "id": "test",
-            "type": "BPDatePicker",
-            "icon": "calendar",
-            "cat": "0",
-            "text": "simon test",
-            "name":"bp-date-picker-range",
-            "css": [
-                {
-                    "k": "width",
-                    "v": "273px"
-                  },
-                  {
-                    "k": "height",
-                    "v": "32px"
-                  }, {
-                    "k": "line-height",
-                    "v": "14px"
-                  },{
-                    "k": "font-size",
-                    "v": "14px"
-                  }, {
-                    "k": "padding",
-                    "v": "10px 8px"
-                  }, {
-                    "k": "border",
-                    "v": "none"
-                  }, {
-                    "k": "border-radius",
-                    "v": "4px"
-                  }, {
-                    "k": "color",
-                    "v": "#172B4D"
-                  },
-                  {
-                    "k": "outline",
-                    "v": "none",
-                    "tp": "focus"
-                  },{
-                    "k": "box-sizing",
-                    "v": "border-box"
-                  }, {
-                      "k": "background",
-                      "v": " #F4F5F7"
-                  }
+            "attrs": [
+              {
+                "name": "range",
+                "value": true
+              },
+              {
+                "name": "type",
+                "value": "date"
+              },
+              {
+                "name": "pid",
+                "value": "date-picker"
+              }
             ],
-            "attrs": {
-                "range": "true"
-            }
+            "styleAttrs": [
+              {
+                "name": "style",
+                "value": "default"
+              },
+              {
+                "name": "size",
+                "value": "small"
+              }
+            ],
+            "events": ["click"]
           }
         ]
       }

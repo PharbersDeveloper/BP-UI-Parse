@@ -137,7 +137,33 @@ export abstract class BPWidget extends BPObject {
                 actionsSSC = bodys.actionsSSC
                 slotsBody = bodys.slotsBody
                 trigger = bodys.trigger
-
+            case events.includes("focus"):
+                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "focus")
+                actionsSSC = bodys.actionsSSC
+                slotsBody = bodys.slotsBody
+                trigger = bodys.trigger
+            case events.includes("blur"):
+                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "blur")
+                actionsSSC = bodys.actionsSSC
+                slotsBody = bodys.slotsBody
+                trigger = bodys.trigger
+            case events.includes("input"):
+                // input event is fired every time the value of the element changes
+                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "input")
+                actionsSSC = bodys.actionsSSC
+                slotsBody = bodys.slotsBody
+                trigger = bodys.trigger
+            case events.includes("change"):
+                // change event only fires when the value is committed
+                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "change")
+                actionsSSC = bodys.actionsSSC
+                slotsBody = bodys.slotsBody
+                trigger = bodys.trigger
+            case events.includes("dblclick"):
+                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "dblclick")
+                actionsSSC = bodys.actionsSSC
+                slotsBody = bodys.slotsBody
+                trigger = bodys.trigger
             default:
                 break
         }

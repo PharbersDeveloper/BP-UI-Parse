@@ -407,7 +407,8 @@
         ,startTime: '开始时间'
         ,endTime: '结束时间'
         ,dateTips: '返回日期'
-        ,month: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二']
+        // ,month: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二']
+        ,month: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
         ,tools: {
           confirm: '确定'
           ,clear: '清空'
@@ -1255,6 +1256,11 @@
         if(options.type === 'year' || options.type === 'month'){
           lay(ul).find('.'+ THIS).removeClass(THIS);
           lay(this).addClass(THIS);
+
+          // 选中两个月份或者年的时候直接关闭 待改进
+          if (document.getElementsByClassName(THIS).length === 2) {
+            that.tool(that, "confirm");
+          }
 
           //如果为年月选择器，点击了年列表，则切换到月选择器
           if(options.type === 'month' && type === 'year'){
