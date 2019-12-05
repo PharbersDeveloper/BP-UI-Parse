@@ -15,17 +15,83 @@ a {
     text-align: center;
 }
 
-button {
-    cursor: pointer;
+/* button 通用样式 */
+.button-primary {
+    background: #3172E0;
+    color: #FFFFFF;
 }
 
-input[type="text"] {
-    padding: 6px 8px;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #42526E;
-    outline: none;
-    /* border: 1px solid #DFE1E6; */
+.button-primary:hover {
+    background: #3881FF;
+}
+
+.button-primary:active {
+    background: #2355A9;
+}
+
+.button-standard {
+    background: rgba(9,30,66,0.04);
+    color: #505F79;
+}
+
+.button-standard:hover {
+    background: rgba(9,30,66,0.08);
+}
+
+.button-standard:active {
+    background: #E1ECFF;
+    color: #3172E0;
+}
+
+.button-primary:disabled,.button-standard:disabled {
+    background: rgba(9,30,66,0.04);
+    color: #B3BAC5;
+    cursor: not-allowed
+}
+
+
+.button-subtle {
+    background: #FFFFFF;
+    color: #505F79;
+}
+
+.button-subtle:hover {
+    background: rgba(9,30,66,0.08);
+}
+
+.button-subtle:active {
+    background: #E1ECFF;
+}
+
+.button-subtle:disabled {
+    color: #B3BAC5;
+    cursor: not-allowed;
+}
+
+.button-destructive {
+    background: #DE350B;
+    color: #FFFFFF;
+}
+
+.button-destructive:hover {
+    background: #FF5630;
+}
+
+.button-destructive:active {
+    background: #BF2600;
+}
+
+.button-warning {
+    background: #FFAB00;
+    color: #505F79;
+}
+
+.button-warning:hover {
+    background: #FFC400;
+}
+
+.button-warning:active {
+    background: #FF991F;
 }
 
 /*link 通用样式*/
@@ -1208,6 +1274,42 @@ input[type="checkbox"]+label {
     line-height: 32px;
     right: 8px;
     top: 4px;
+}
+
+.date-picker-white+.date-picker-icon path{
+    fill: rgba(255,255,255,0.95);
+}
+
+.date-picker-white {
+    color: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.20);
+}
+
+.date-picker-input {
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    outline: none;
+    padding: 6px 8px;
+}
+
+.date-picker-default {
+    background: #F4F5F7;
+    color: #8993A4;
+}
+
+.date-picker-width-small {
+    width: 195px;
+}
+
+.date-picker-width-default {
+    width: 240px;
+}
+
+.date-picker-width-large {
+    width: 273px;
 }
 
 .positon-relative {

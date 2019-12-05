@@ -4,7 +4,7 @@
 import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
-import { IOptions } from "../../properties/Options"
+import { IAttrs, IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 export default class BPDatePicker extends BPWidget {
@@ -29,32 +29,76 @@ export default class BPDatePicker extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
-        return "{{#" + comp.name + "}}" + "{{/" + comp.name + "}}"
+        const {attrs, styleAttrs} = comp
+        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                return ` ${item.name}='${item.value}'`
+            } else {
+                return  ` ${item.name}=${item.value}`
+            }
+        }).join("")
+        return `{{${comp.name} ${attrsBody}}}`
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
-        const range = comp.attrs.range
+        const {attrs, styleAttrs } = comp
+
+        const attrsBody = attrs.map( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                return `${item.name}: '${item.value}',`
+            } else {
+                return  `${item.name}: ${item.value},`
+            }
+        }).join("")
+
+        let styleAttrsBody = ""
+
+        styleAttrs.forEach( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                styleAttrsBody += `${item.name}: '${item.value}',`
+            } else {
+                styleAttrsBody += `${item.name}: ${item.value},`
+            }
+        })
 
         let fileData = "\n" +
-            `export default Component.extend({
+            `import { computed } from '@ember/object';
+            export default Component.extend({
                 layout,
                 tagName:'div',
                 classNames:['positon-relative', 'width-fit-content'],
                 content: 'default',
-                classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only'],
+                classNameBindings: [],
                 attributeBindings: [],
                 date: "",
+                ${styleAttrsBody}
+                ${attrsBody}
+                currentStyle: computed("style", function() {
+                    let style = this.get('style')
+                    if (style) {
+                        return "date-picker-" + style
+                    } else {
+                        return 'date-picker-default'
+                    }
+                }),
+                currentWidth: computed("size", function() {
+                    let size = this.get('size')
+                    if (size) {
+                        return "date-picker-width-" + size
+                    } else {
+                        return 'date-picker-width-default'
+                    }
+                }),
                 didInsertElement() {
-                    // const today = ""
                     laydate.render({
-                        elem: "#${comp.name}", //指定元素
-                        range: ${range},
+                        elem: "#" + this.get('pid'), //指定元素
+                        range: this.get('range'),
+                        type: this.get('type'),
                         theme: "gray",
                         showBottom: false,
                         mark: {
-                            //today: "今", // 无效，在 laydate.js 方法中计算得出了规定的日期
                         }
                     });
                 },
@@ -66,7 +110,7 @@ export default class BPDatePicker extends BPWidget {
     }
 
     public paintHBS(comp: BPComp) {
-        return `<Input id="${comp.name}" class="${comp.name}" @value={{mut date}} />
+        return `<Input id="{{pid}}" class="date-picker-input {{currentStyle}} {{currentWidth}}" @value={{mut date}} />
         {{svg-jar 'calendar' width='24px' height='24px' class='date-picker-icon' }}`
     }
 
