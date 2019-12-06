@@ -1,0 +1,31 @@
+{
+    "opacity": {
+        "transparent": {
+            "value": 0
+        },
+        "04s": {
+            "value": 1
+        },
+        "08s": {
+            "value": 2
+        },
+        "10s": {
+            "value": 3
+        },
+        "20s": {
+            "value": 0
+        },
+        "40s": {
+            "value": 0.2
+        },
+        "50s": {
+            "value": 0.3
+        },
+        "60s": {
+            "value": 0.4
+        },
+        "90s": {
+            "value": 0.7
+        }
+    }
+}

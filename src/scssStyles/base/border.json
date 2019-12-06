@@ -1,0 +1,54 @@
+{
+    "border": {
+        "none": {
+            "value": 0
+        },
+        "light": {
+            "value": 0.5
+        },
+        "regular": {
+            "value": 1
+        },
+        "medium": {
+            "value": 2
+        },
+        "heavy": {
+            "value": 6
+        },
+        "table": {
+            "header": {
+                "value": "{border.regular.value}"
+            },
+            "row": {
+                "value": "{border.light.value}"
+            },
+            "column": {
+                "value": "{border.light.value}"
+            }
+        },
+        "tab": {
+            "default": {
+                "value": "{border.medium.value}"
+            },
+            "selected": {
+                "value": "{border.medium.value}"
+            }
+        },
+        "divider": {
+            "value": "{border.light.value}"
+        },
+        "avatar": {
+            "value": "{border.medium.value}"
+        },
+        "text_field": {
+            "default": {
+                "value": "{border.regular.value}"
+            }
+        },
+        "button": {
+            "default": {
+                "value": "{border.none.value}"
+            }
+        }
+    }
+}

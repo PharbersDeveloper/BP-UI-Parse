@@ -1,0 +1,166 @@
+{
+    "size": {
+        "1x": {
+            "value": 1
+        },
+        "2x": {
+            "value": 2
+        },
+        "3x": {
+            "value": 3
+        },
+        "4x": {
+            "value": 4
+        },
+        "5x": {
+            "value": 5
+        },
+        "6x": {
+            "value": 6
+        },
+        "10x": {
+            "value": 10
+        },
+        "12x": {
+            "value": 12
+        },
+        "16x": {
+            "value": 16
+        },
+        "20x": {
+            "value": 20
+        },
+        "density": {
+            "compact": {
+                "value": "{size.3x.value}"
+            },
+            "default": {
+                "value": "{size.4x.value}"
+            },
+            "comfy": {
+                "value": "{size.5x.value}"
+            }
+        },
+        "avatar": {
+            "user": {
+                "small": {
+                    "value": "{size.2x.value}"
+                },
+                "medium": {
+                    "value": "{size.3x.value}"
+                },
+                "large": {
+                    "value": "{size.4x.value}"
+                },
+                "xlarge": {
+                    "value": "{size.5x.value}"
+                },
+                "xxlarge": {
+                    "value": "{size.12x.value}"
+                },
+                "xxxlarge": {
+                    "value": "{size.16x.value}"
+                }
+            },
+            "entity": {
+                "small": {
+                    "value": "{size.2x.value}"
+                },
+                "medium": {
+                    "value": "{size.3x.value}"
+                },
+                "large": {
+                    "value": "{size.4x.value}"
+                },
+                "xlarge": {
+                    "value": "{size.5x.value}"
+                }
+            }
+        },
+        "model": {
+            "small": {
+                "value": 50
+            },
+            "medium": {
+                "value": 75
+            },
+            "large": {
+                "value": 100
+            }
+        },
+        "badge": {
+            "value": "{size.2x.value}"
+        },
+        "button": {
+            "compact": {
+                "value": "{size.density.compact.value}"
+            },
+            "default": {
+                "value": "{size.density.default.value}"
+            },
+            "comfy": {
+                "value": "{size.density.comfy.value}"
+            }
+        },
+        "text_field": {
+            "compact": {
+                "value": "{size.density.compact.value}"
+            },
+            "default": {
+                "value": "{size.density.default.value}"
+            },
+            "comfy": {
+                "value": "{size.density.comfy.value}"
+            }
+        },
+        "select": {
+            "compact": {
+                "value": "{size.density.compact.value}"
+            },
+            "default": {
+                "value": "{size.density.default.value}"
+            },
+            "comfy": {
+                "value": "{size.density.comfy.value}"
+            }
+        },
+        "table": {
+            "row": {
+                "default": {
+                    "value": "{size.5x.value}"
+                },
+                "comfy": {
+                    "value": "{size.6x.value}"
+                }
+            }   
+        },
+        "icon": {
+            "small": {
+                "value": "{size.2x.value}"
+            },
+            "medium": {
+                "value": "{size.3x.value}"
+            },
+            "large": {
+                "value": "{size.4x.value}"
+            },
+            "xlarge": {
+                "value": "{size.6x.value}"
+            }
+        },
+        "spinner": {
+            "xsmall": {
+                "value": "{size.1x.value}"
+            },
+            "small": {
+                "value": "{size.2x.value}"
+            },
+            "medium": {
+                "value": "{size.3x.value}"
+            },
+            "large": {
+                "value": "{size.6x.value}"
+            }
+        }
+    }
+}
