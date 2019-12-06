@@ -1088,13 +1088,17 @@ input[type="checkbox"]+label {
 
 /*table 样式*/
 
+.bp-table {
+    position: relative;
+}
+
 .bp-table table th {
-    font-size: 12px;
-    color: #6B778C;
-    text-align: left;
-    padding: 8px;
     background: #ffffff;
-    border-bottom: 1px solid rgba(9,30,66,0.08);
+    border-bottom: 2px solid rgba(9,30,66,0.08);
+    color: #6B778C;
+    font-size: 12px;
+    padding: 8px;
+    text-align: left;
 }
 
 .bp-table table thead th {
@@ -1111,10 +1115,10 @@ input[type="checkbox"]+label {
 }
 
 .bp-table table tbody td {   
-    font-size: 14px;
-    color: #344563;
-    padding: 16px 8px;
     background: inherit;
+    color: #344563;
+    font-size: 14px;
+    padding: 16px 8px;
 }
 
 .border-table table tbody td {

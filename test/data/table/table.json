@@ -10,8 +10,8 @@
             "id": "page with table",
             "type": "BPMainWindow",
             "cat": "table",
-            "name": "table",
-            "path": "table",
+            "name": "tables",
+            "path": "tables",
             "layout": [
                 {
                     "k": "width",
@@ -28,15 +28,15 @@
                     "id": "table-demo",
                     "type": "BPTable",
                     "cat": "0",
-                    "name": "bp-table-demo",
+                    "name": "bp-table",
                     "layout": [],
                     "css": [
                         {
                             "k": "width",
-                            "v": "800px"
+                            "v": "100%"
                         },{
                             "k": "height",
-                            "v": "400px"
+                            "v": "100%"
                         },{
                             "k": "padding",
                             "v": "0"
@@ -50,38 +50,19 @@
                             "k": "box-sizing",
                             "v": "border-box"
                         }
-                    ]
-                },
-                {
-                    "id": "table-border-demo",
-                    "type": "BPTable",
-                    "cat": "0",
-                    "name": "bp-border-table-demo",
-                    "layout": [],
-                    "css": [
+                    ],
+                    "attrs": [
                         {
-                            "k": "width",
-                            "v": "800px"
-                        },{
-                            "k": "height",
-                            "v": "400px"
-                        },{
-                            "k": "padding",
-                            "v": "0"
-                        },{
-                            "k": "position",
-                            "v": "relative"
-                        },{
-                            "k": "box-sizing",
-                            "v": "border-box"
-                        }, {
-                            "k": "margin-top",
-                            "v": "30px"
+                            "name": "tid",
+                            "value": "bp-table-test"
                         }
                     ],
-                    "attrs": {
-                        "border": "true"
-                    }
+                    "styleAttrs": [
+                        {
+                            "name": "border",
+                            "value": false
+                        }
+                    ]
                 }
             ]
         }
