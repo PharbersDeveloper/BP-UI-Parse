@@ -4,9 +4,11 @@
 import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
-import { IOptions } from "../../properties/Options"
+import { IAttrs, IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
+import BPSlot from "../slotleaf/BPSlot"
+
 export default class BPLabel extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
             super(output, name, routeName)
@@ -16,6 +18,7 @@ export default class BPLabel extends BPWidget {
 
         const options: IOptions = {
                 comp,
+                hbsData: this.paintHBS(),
                 logicData: this.paintLogic(comp), // js
                 output: this.output,
                 pName: this.projectName,
@@ -28,24 +31,66 @@ export default class BPLabel extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
-        return "{{#" + comp.name + "}}" + comp.text + "{{/" + comp.name + "}}"
+        const {attrs, styleAttrs} = comp
+        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                return ` ${item.name}='${item.value}'`
+            } else {
+                return  ` ${item.name}=${item.value}`
+            }
+        }).join("")
+
+        return `{{${comp.name} ssc="ssc" emit="emit"
+            disconnect="disconnect" ${attrsBody}}}`
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
         const radioFor = comp.attrs.for
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
+        const {attrs, styleAttrs, events } = comp
 
-        const fileData = "\n" +
-            "export default Component.extend({" + "\r" +
-            "    layout," + "\r" +
-            "    tagName:'label'," + "\r" +
-            "    classNames:['" + comp.name + "']," + "\r" +
-            "    content: 'default'," + "\r" +
-            "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
-            "    attributeBindings: ['for']," + "\r" +
-            "    for: '" + radioFor + "'," + "\r"
+        const attrsBody = attrs.map( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                return `${item.name}: '${item.value}',`
+            } else {
+                return  `${item.name}: ${item.value},`
+            }
+        })
+
+        let styleAttrsBody = ""
+
+        styleAttrs.forEach( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                styleAttrsBody += `${item.name}: '${item.value}',`
+            } else {
+                styleAttrsBody += `${item.name}: ${item.value},`
+            }
+        })
+
+        const fileData = `
+        import { computed } from '@ember/object';
+        export default Component.extend({
+            layout,
+            tagName:'label',
+            classNames:[],
+            content: 'default',
+            attributeBindings: [''],
+            ${attrsBody}
+            ${styleAttrsBody}
+            classNameBindings: ["type"],`
 
         return fileDataStart + fileData + fileDataEnd
+    }
+
+    public paintHBS() {
+        const leaf = new BPSlot(this.output, this.projectName, this.routeName)
+
+        return `${leaf.paintShow()}
+        {{#if hasBlock}}
+            {{yield}}
+        {{else}}
+            {{text}}
+        {{/if}}`
     }
 }
