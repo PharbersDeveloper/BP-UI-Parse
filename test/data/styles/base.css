@@ -209,6 +209,33 @@ a {
     line-height: 24px;
 }
 
+/*button group*/
+
+.button-group .button-item {
+    background: rgba(9,30,66,0.04);
+    color: #505F79;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    margin-right: 2px;
+}
+
+
+.button-group button:first-child{
+    border-radius: 4px 0 0 4px;
+}
+
+.button-group button:last-child {
+    border-radius: 0 4px 4px 0;
+    margin-right: 0;
+}
+
+.button-group .button-item.active {
+    background: #505F79;
+    color: #FFFFFF;
+}
+
 /*link 通用样式*/
 .link-disabled {
     color: #B3BAC5;

@@ -19,6 +19,8 @@ import BPBadge from "../widgets/badges/BPBadge"
 import BPItem from "../widgets/basic/BPItem"
 import { BPWidget } from "../widgets/BPWidget"
 import BPBreadcrumbs from "../widgets/breadcrumbs/BPBreadcrumbs"
+import BPButtonGroup from "../widgets/buttons/BPButtonGroup"
+import BPButtonItem from "../widgets/buttons/BPButtonItem"
 import BPPushButton from "../widgets/buttons/BPPushButton"
 import { BPBar , BPBarLine, BPChina, BPLine, BPPie, BPRadar, BPScatter, BPStack} from "../widgets/charts/charts"
 import BPCheckbox from "../widgets/checkbox/BPCheckbox"
@@ -69,8 +71,8 @@ export default class BPEmberCtx extends BPCtx {
         super()
         phLogger.info("exec something with emberjs")
         this.projectName = projectName
-        const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
-        // const output: string = "/Users/Simon/Desktop/ui-output"
+        // const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
+        const output: string = "/Users/Simon/Desktop/ui-output"
         this.output = output
     }
     public cmdStart() {
@@ -163,6 +165,8 @@ export default class BPEmberCtx extends BPCtx {
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
         this.compTypeList = [
+            new BPButtonItem(this.output, this.projectName, routeName),
+            new BPButtonGroup(this.output, this.projectName, routeName),
             new BPAddItem(this.output, this.projectName, routeName),
             new BPDatePicker(this.output, this.projectName, routeName),
             new BPEmptyState(this.output, this.projectName, routeName),
