@@ -8,32 +8,32 @@
         },
         "compact": {
             "1x": {
-                "value": "2px"
+                "value": "1"
             },
             "2x": {
-                "value": "2*{spacing.compact.1x}"
+                "value": "2"
             },
             "3x": {
-                "value": "3*{spacing.compact.1x}"
+                "value": "3"
             },
             "6x": {
-                "value": "6*{spacing.compact.1x}"
+                "value": "6"
             }
         },
         "1x": {
-            "value": "8px"
+            "value": "1"
         },
         "2x": {
-            "value": "2*{spacing.1x}"
+            "value": "2"
         },
         "3x": {
-            "value": "3*{spacing.1x}"
+            "value": "3"
         },
         "4x": {
-            "value": "4*{spacing.1x}"
+            "value": "4"
         },
         "5x": {
-            "value": "5*{spacing.1x}"
+            "value": "5"
         },
         "gutter": {
             "none": {

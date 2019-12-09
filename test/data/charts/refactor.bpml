@@ -3,15 +3,15 @@
         "paint": [
             "ember"
         ],
-        "name": "refactoring-code-chart"
+        "name": "refactoring-chart-test"
     },
     "routers": [
         {
             "id": "page with chart",
             "type": "BPMainWindow",
             "cat": "chart",
-            "name": "chart",
-            "path": "chart",
+            "name": "charts",
+            "path": "charts",
             "layout": [
                 {
                     "k": "width",
@@ -30,185 +30,307 @@
                     "cat": "0",
                     "name": "bp-line",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "line-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
                             "v": "100%"
-                        },{
+                        },
+                        {
                             "k": "height",
                             "v": "400px"
-                        },{
+                        },
+                        {
                             "k": "padding",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "margin",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "position",
                             "v": "relative"
-                        },{
+                        },
+                        {
                             "k": "box-sizing",
                             "v": "border-box"
                         }
                     ]
-                },{
+                },
+                {
                     "id": "bar-demo-first001",
                     "type": "BPBar",
                     "cat": "0",
                     "name": "bp-bar",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "bar-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
                             "v": "100%"
-                        },{
+                        },
+                        {
                             "k": "height",
                             "v": "400px"
-                        },{
+                        },
+                        {
                             "k": "padding",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "margin",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "position",
                             "v": "relative"
-                        },{
+                        },
+                        {
                             "k": "box-sizing",
                             "v": "border-box"
                         }
                     ]
-                },{
+                },
+                {
                     "id": "pie-demo-first001",
                     "type": "BPPie",
                     "cat": "0",
                     "name": "bp-pie",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "pie-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
                             "v": "100%"
-                        },{
+                        },
+                        {
                             "k": "height",
                             "v": "400px"
-                        },{
+                        },
+                        {
                             "k": "padding",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "margin",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "position",
                             "v": "relative"
-                        },{
+                        },
+                        {
                             "k": "box-sizing",
                             "v": "border-box"
                         }
                     ]
-                },{
+                },
+                {
                     "id": "scatter-demo-first001",
                     "type": "BPScatter",
                     "cat": "0",
                     "name": "bp-scatter",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "scatter-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
                             "v": "100%"
-                        },{
+                        },
+                        {
                             "k": "height",
                             "v": "400px"
-                        },{
+                        },
+                        {
                             "k": "padding",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "margin",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "position",
                             "v": "relative"
-                        },{
+                        },
+                        {
                             "k": "box-sizing",
                             "v": "border-box"
                         }
                     ]
-                },{
+                },
+                {
                     "id": "china-demo-first001",
                     "type": "BPChina",
                     "cat": "0",
                     "name": "bp-china",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "china-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
                             "v": "100%"
-                        },{
+                        },
+                        {
                             "k": "height",
                             "v": "400px"
-                        },{
+                        },
+                        {
                             "k": "padding",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "margin",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "position",
                             "v": "relative"
-                        },{
+                        },
+                        {
                             "k": "box-sizing",
                             "v": "border-box"
                         }
                     ]
-                },{
+                },
+                {
                     "id": "barline-demo-first001",
                     "type": "BPBarLine",
                     "cat": "0",
                     "name": "bp-bar-line",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "barline-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
                             "v": "100%"
-                        },{
+                        },
+                        {
                             "k": "height",
                             "v": "400px"
-                        },{
+                        },
+                        {
                             "k": "padding",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "margin",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "position",
                             "v": "relative"
-                        },{
+                        },
+                        {
                             "k": "box-sizing",
                             "v": "border-box"
                         }
                     ]
-                },{
+                },
+                {
                     "id": "radar-demo-first001",
                     "type": "BPRadar",
                     "cat": "0",
                     "name": "bp-radar",
                     "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "radar-demo-first001"
+                        }
+                    ],
                     "css": [
                         {
                             "k": "width",
                             "v": "100%"
-                        },{
+                        },
+                        {
                             "k": "height",
                             "v": "400px"
-                        },{
+                        },
+                        {
                             "k": "padding",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "margin",
                             "v": "0"
-                        },{
+                        },
+                        {
                             "k": "position",
                             "v": "relative"
-                        },{
+                        },
+                        {
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ]
+                },
+                {
+                    "id": "stack-demo-first001",
+                    "type": "BPStack",
+                    "cat": "0",
+                    "name": "bp-stack",
+                    "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "stack-demo-first001"
+                        }
+                    ],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "height",
+                            "v": "400px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },
+                        {
+                            "k": "margin",
+                            "v": "0"
+                        },
+                        {
+                            "k": "position",
+                            "v": "relative"
+                        },
+                        {
                             "k": "box-sizing",
                             "v": "border-box"
                         }

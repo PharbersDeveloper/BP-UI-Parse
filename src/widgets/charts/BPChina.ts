@@ -30,10 +30,9 @@ export default class BPChina extends BPChart {
         return execList
     }
     public paintShow(comp: BPComp) {
-        const showStart = "<section class='chart-container'>" +
-            "<p>需要在ember-cli-build 中添加app.import('node_modules/echarts/map/js/china.js');</p>" +
+        const showStart = "<p>需要在ember-cli-build 中添加app.import('node_modules/echarts/map/js/china.js');</p>" +
             "<p>app.import('node_modules/echarts/map/js/province/zhejiang.js');</p>" +
-            "{{" + comp.name + " eid='" + comp.id + "'}}</section>"
+            `<section class='chart-container'>{{${comp.name} eid='${comp.id}'}}</section>`
 
         return showStart
     }
@@ -63,7 +62,17 @@ export default class BPChina extends BPChart {
                 data: JSON.stringify({ "sql": queryChartSql }),
                 dataType: 'json'
             }).then(data => {
-                this.updateChartData(chartConfig, data);
+                let mock = [
+                    ["省份","浙江"],
+                    ["浙江",32045,66],
+                    ["山东",2045,16],
+                    ["台湾",72045,56],
+                    ["内蒙古",34,6],
+                ]
+                let visualMapMaxArr = mock.map(ele=>typeof ele[1]==="number"?ele[1]:0)
+                chartConfig.visualMap.max = Math.max.apply(null,visualMapMaxArr)
+                this.updateChartData(chartConfig, mock);
+                // this.updateChartData(chartConfig, data);
             })
         },` + "\r\n" + this.updateChart()
     }

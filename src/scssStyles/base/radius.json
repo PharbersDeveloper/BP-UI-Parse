@@ -1,0 +1,67 @@
+{
+    "radius": {
+        "none": {
+            "value": 0
+        },
+        "circle": {
+            "value": "50%"
+        },
+        "small": {
+            "value": 1
+        },
+        "medium": {
+            "value": 2
+        },
+        "large": {
+            "value": 4
+        },
+        "card": {
+            "default": {
+                "value": 0
+            }
+        },
+        "avatar": {
+            "user": {
+                "value": "{radius.circle.value}"
+            },
+            "entity": {
+                "value": "{radius.medium.value}"
+            }
+        },
+        "badge": {
+            "value": "{radius.circle.value}"
+        },
+        "button": {
+            "value": "{radius.medium.value}"
+        },
+        "tag": {
+            "value": "{radius.medium.value}"
+        },
+        "status": {
+            "value": "{radius.medium.value}"
+        },
+        "modal": {
+            "value": "{radius.medium.value}"
+        },
+        "toast": {
+            "value": "{radius.medium.value}"
+        },
+        "popover": {
+            "value": "{radius.medium.value}"
+        },
+        "text_field": {
+            "value": "{radius.medium.value}"
+        },
+        "select": {
+            "value": "{radius.medium.value}"
+        },
+        "empty_state": {
+            "image": {
+                "value": "{radius.medium.value}"
+            }
+        },
+        "tooltip": {
+            "value": "{radius.medium.value}"
+        }
+    }
+}
