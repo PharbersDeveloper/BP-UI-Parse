@@ -1,0 +1,224 @@
+{
+    "mixin": {
+        "Display-large": {
+            "color": {
+                "value": "{color.text.heading.primary.value}"
+            },
+            "font-size": {
+                "value": "{font.size.6.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "Title": {
+            "color": {
+                "value": "{color.text.heading.primary.value}"
+            },
+            "font-size": {
+                "value": "{font.size.5.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "heading-learge": {
+            "color": {
+                "value": "{color.text.heading.primary.value}"
+            },
+            "font-size": {
+                "value": "{font.size.4.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "heading-medium": {
+            "color": {
+                "value": "{color.text.heading.primary.value}"
+            },
+            "font-size": {
+                "value": "{font.size.3.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "heading-small": {
+            "color": {
+                "value": "{color.text.heading.primary.value}"
+            },
+            "font-size": {
+                "value": "{font.size.2.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "heading-xsmall": {
+            "color": {
+                "value": "{color.text.heading.secondary.value}"
+            },
+            "font-size": {
+                "value": "{font.size.1.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "body-primary": {
+            "color": {
+                "value": "{color.text.body.primary.value}"
+            },
+            "font-size": {
+                "value": "{font.size.2.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "body-secondary": {
+            "color": {
+                "value": "{color.text.body.secondary.value}"
+            },
+            "font-size": {
+                "value": "{font.size.2.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.regular.value}"
+            }
+        },
+        "body-tertiary": {
+            "color": {
+                "value": "{color.text.body.secondary.value}"
+            },
+            "font-size": {
+                "value": "{font.size.1.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.regular.value}"
+            }
+        },
+        "placeholder": {
+            "color": {
+                "value": "{color.text.placeholder.value}"
+            },
+            "font-size": {
+                "value": "{font.size.2.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.regular.value}"
+            }
+        },
+        "field_value": {
+            "color": {
+                "value": "{color.text.text_field.value}"
+            },
+            "font-size": {
+                "value": "{font.size.2.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.regular.value}"
+            }
+        },
+        "Display-large-inverse": {
+            "color": {
+                "value": "{color.text.heading.primary.inverse.value}"
+            },
+            "font-size": {
+                "value": "{font.size.6.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "Title-inverse": {
+            "color": {
+                "value": "{color.text.heading.primary.inverse.value}"
+            },
+            "font-size": {
+                "value": "{font.size.5.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "heading-large-inverse": {
+            "color": {
+                "value": "{color.text.heading.primary.inverse.value}"
+            },
+            "font-size": {
+                "value": "{font.size.4.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "heading-medium-inverse": {
+            "color": {
+                "value": "{color.text.heading.primary.inverse.value}"
+            },
+            "font-size": {
+                "value": "{font.size.3.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "heading-small-inverse": {
+            "color": {
+                "value": "{color.text.heading.primary.inverse.value}"
+            },
+            "font-size": {
+                "value": "{font.size.2.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "heading-xsmall-inverse": {
+            "color": {
+                "value": "{color.text.heading.secondary.inverse.value}"
+            },
+            "font-size": {
+                "value": "{font.size.1.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.medium.value}"
+            }
+        },
+        "body-primary-inverse": {
+            "color": {
+                "value": "{color.text.body.primary.inverse.value}"
+            },
+            "font-size": {
+                "value": "{font.size.2.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.regular.value}"
+            }
+        },
+        "body-secondary-inverse": {
+            "color": {
+                "value": "{color.text.body.secondary.inverse.value}"
+            },
+            "font-size": {
+                "value": "{font.size.2.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.regular.value}"
+            }
+        },
+        "body-tertiary-inverse": {
+            "color": {
+                "value": "{color.text.body.tertiary.inverse.value}"
+            },
+            "font-size": {
+                "value": "{font.size.1.value}"
+            },
+            "font-weight": {
+                "value": "{font.weight.regular.value}"
+            }
+        }
+    }
+}
