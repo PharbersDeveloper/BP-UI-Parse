@@ -1,62 +1,59 @@
 {
     "color": {
-        "neutral-base": {
-            "value":"0,0,0"
-        },
         "neutrals": {
             "n900": {
-                "value": "1"
+                "value": "rgba(9,30,66,1)"
             },
             "n800": {
-                "value":"0.95"
+                "value":"rgba({color.neutrals.n900.value},0.95)"
             },
             "n700": {
-                "value":"0.89"
+                "value":"rgba({color.neutrals.n900.value},0.89)"
             },
             "n600": {
-                "value":"0.82"
+                "value":"rgba({color.neutrals.n900.value},0.82)"
             },
             "n500": {
-                "value":"0.77"
+                "value":"rgba({color.neutrals.n900.value},0.77)"
             },
             "n400": {
-                "value":"0.71"
+                "value":"rgba({color.neutrals.n900.value},0.71)"
             },
             "n300": {
-                "value":"0.66"
+                "value":"rgba({color.neutrals.n900.value},0.66)"
             },
             "n200": {
-                "value":"0.60"
+                "value":"rgba({color.neutrals.n900.value},0.60)"
             },
             "n100": {
-                "value":"0.54"
+                "value":"rgba({color.neutrals.n900.value},0.54)"
             },
             "n090": {
-                "value":"0.48"
+                "value":"rgba({color.neutrals.n900.value},0.48)"
             },
             "n080": {
-                "value":"0.42"
+                "value":"rgba({color.neutrals.n900.value},0.42)"
             },
             "n070": {
-                "value":"0.36"
+                "value":"rgba({color.neutrals.n900.value},0.36)"
             },
             "n060": {
-                "value":"0.31"
+                "value":"rgba({color.neutrals.n900.value},0.31)"
             },
             "n050": {
-                "value":"0.25"
+                "value":"rgba({color.neutrals.n900.value},0.25)"
             },
             "n040": {
-                "value":"0.13"
+                "value":"rgba({color.neutrals.n900.value},0.13)"
             },
             "n030": {
-                "value":"0.08"
+                "value":"rgba({color.neutrals.n900.value},0.08)"
             },
             "n020": {
-                "value":"0.04"
+                "value":"rgba({color.neutrals.n900.value},0.04)"
             },
             "n010": {
-                "value":"0.02"
+                "value":"rgba({color.neutrals.n900.value},0.02)"
             },
             "n000": {
                 "value":"hsl(0, 100%, 100%)"

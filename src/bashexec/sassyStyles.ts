@@ -46,40 +46,44 @@ export class SassyStyles extends BashExec {
                     files: [{
                         destination: "variables.scss",
                         format: "scss/variables"
+                    }, {
+                        destination: "mixin.scss",
+                        filter: (prop: any) => {
+                            return prop.attributes.category === "mixin"
+                        },
+                        footer: "}",
+                        format: "mixin-scss/variables",
+                        header: `@mixin `,
+
                     }],
                     transformGroup: "custom/scss"
                 }
             },
             source: ["/Users/frank/Documents/work/pharbers/BP-UI-Parse/src/scssStyles/**/*.json"]
-        })
 
-        StyleDictionary.registerTransform({
-            name: "color/neutrals",
-            type: "value",
-            matcher(prop: any) {
-                const attrs = prop.attributes
-                return attrs.category === "color" && attrs.type === "neutrals"
-            },
-            transformer(prop: any) {
-                const value = prop.original.value
-                if (!isNaN(value)) {
-                    return baseValue.color.neutrals(value)
-                } else {
-                    return value
-                }
+        })
+        StyleDictionary.registerFormat({
+            name: "mixin-scss/variables",
+            formatter(dictionary: any) {
+                const header = this.header
+                const footer = `\n ${this.footer}`
+                const mixins = Object.keys(dictionary.properties.mixin)
+
+                return mixins.map((mixin: string) => {
+                    return `\n ${header} ${mixin} { \n` +
+                        dictionary.allProperties.map((prop: any) => {
+                            if (prop.path[1] === mixin) { return `    ${prop.path[2]}: ${prop.value};` }})
+                            .filter((strVal: string) => !!strVal)
+                            .join("\n") +
+                        footer + ";"
+                }).join("")
             }
-        })
+          })
         StyleDictionary.registerTransform({
-            name: "color/comptext",
-            type: "value",
-            matcher(prop: any) {
-                const attrs = prop.attributes
-
-                return attrs.category === "color" && attrs.subitem === "inverse"
-            },
+            name: "name/strike",
+            type: "name",
             transformer(prop: any) {
-                phLogger.info(prop)
-                return `rgb(0,0,0)`
+                return prop.path.join("-")
             }
         })
         StyleDictionary.registerTransform({
@@ -180,10 +184,10 @@ export class SassyStyles extends BashExec {
                 return baseValue.opacity.medium + value
             }
         })
-        const transformGroup: string[] = ["color/neutrals", "color/comptext",
-            "spacing/compact", "spacing/base", "size/base",
+        const transformGroup: string[] = ["name/strike", "spacing/compact",
+            "spacing/base", "size/base",
             "radius/base", "border/base", "opacity/base",
-            "opacity/medium", "name/cti/camel"]
+            "opacity/medium"]
         StyleDictionary.registerTransformGroup({
             name: "custom/scss",
             transforms: StyleDictionary.transformGroup.scss.concat(transformGroup)
