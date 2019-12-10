@@ -1,34 +1,34 @@
 {
     "size": {
         "1x": {
-            "value": 1
+            "value": "8px"
         },
         "2x": {
-            "value": 2
+            "value": "2*{size.1x.value}"
         },
         "3x": {
-            "value": 3
+            "value": "3*{size.1x.value}"
         },
         "4x": {
-            "value": 4
+            "value": "4*{size.1x.value}"
         },
         "5x": {
-            "value": 5
+            "value": "5*{size.1x.value}"
         },
         "6x": {
-            "value": 6
+            "value": "6*{size.1x.value}"
         },
         "10x": {
-            "value": 10
+            "value": "10*{size.1x.value}"
         },
         "12x": {
-            "value": 12
+            "value": "12*{size.1x.value}"
         },
         "16x": {
-            "value": 16
+            "value": "16*{size.1x.value}"
         },
         "20x": {
-            "value": 20
+            "value": "20*{size.1x.value}"
         },
         "density": {
             "compact": {
@@ -79,13 +79,13 @@
         },
         "model": {
             "small": {
-                "value": 50
+                "value": "50*{size.1x.value}"
             },
             "medium": {
-                "value": 75
+                "value": "75*{size.1x.value}"
             },
             "large": {
-                "value": 100
+                "value": "100*{size.1x.value}"
             }
         },
         "badge": {
@@ -132,7 +132,7 @@
                 "comfy": {
                     "value": "{size.6x.value}"
                 }
-            }   
+            }
         },
         "icon": {
             "small": {

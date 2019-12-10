@@ -25,10 +25,10 @@
                 "value": 700
             },
             "button": {
-                "value": "{font.weight.medium}"
+                "value": "{font.weight.medium.value}"
             },
             "breadcrumbs": {
-                "value":"{font.weight.medium}"
+                "value":"{font.weight.medium.value}"
             }
         },
         "size": {
@@ -51,10 +51,10 @@
                 "value": "29px"
             },
             "button": {
-                "value":"{font.size.2}"
+                "value":"{font.size.2.value}"
             },
             "breadcrumbs": {
-                "value":"{font.size.1}"
+                "value":"{font.size.1.value}"
             }
         }
     },

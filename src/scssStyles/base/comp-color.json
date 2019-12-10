@@ -303,6 +303,14 @@
             "spotlight": {
                 "value": "{color.informative.p300.value}"
             }
+        },
+        "depth": {
+            "basic": {
+                "value":"rgba({color.neutrals.n900.value}, $opacity-10s)"
+            },
+            "expand": {
+                "value":"rgba({color.neutrals.n900.value}, $opacity-20s)"
+            }
         }
     }
 }
