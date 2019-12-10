@@ -1,0 +1,1595 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "components"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "components",
+        "path": "/components",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "column"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "100%"
+          },
+          {
+            "k": "height",
+            "v": "auto"
+          }
+        ],
+  
+        "components": [
+            {
+                "id": "table-demo",
+                "type": "BPTable",
+                "cat": "0",
+                "name": "bp-table",
+                "layout": [],
+                "css": [
+                    {
+                        "k": "width",
+                        "v": "800px"
+                    },{
+                        "k": "height",
+                        "v": "600px"
+                    },{
+                        "k": "padding",
+                        "v": "0"
+                    },{
+                        "k": "margin",
+                        "v": "0"
+                    },{
+                        "k": "position",
+                        "v": "relative"
+                    },{
+                        "k": "box-sizing",
+                        "v": "border-box"
+                    }
+                ],
+                "attrs": [
+                    {
+                        "name": "tid",
+                        "value": "bp-table-test"
+                    }
+                ],
+                "styleAttrs": [
+                    {
+                        "name": "border",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "id": "test",
+                "type": "BPDatePicker",
+                "icon": "calendar",
+                "cat": "0",
+                "text": "simon test",
+                "name":"bp-date-picker",
+                "css": [
+                  
+                ],
+                "attrs": [
+                  {
+                    "name": "range",
+                    "value": true
+                  },
+                  {
+                    "name": "type",
+                    "value": "date"
+                  },
+                  {
+                    "name": "pid",
+                    "value": "date-picker"
+                  }
+                ],
+                "styleAttrs": [
+                  {
+                    "name": "style",
+                    "value": "default"
+                  },
+                  {
+                    "name": "size",
+                    "value": "small"
+                  }
+                ],
+                "events": ["click"]
+              },
+          {
+            "id": "test",
+            "type": "BPPushButton",
+            "cat": "0",
+            "text": "alfred test",
+            "name":"bp-button",
+            "css": [
+              {
+                "k": "width",
+                "v": "max-content"
+              },
+              {
+                "k": "font-size",
+                "v": "14px"
+              },
+              {
+                "k": "text-align",
+                "v": "center"
+              },
+              {
+                "k": "padding",
+                "v": "0 12px"
+              }, {
+                "k": "border",
+                "v": "0"
+              }, {
+                "k": "border-radius",
+                "v": "4px"
+              }, {
+                "k": "cursor",
+                "v": "pointer"
+              }, {
+                  "k": "outline",
+                  "v": "none"
+              }, {
+                "k": "display",
+                "v": "flex"
+              },{
+                "k": "flex-direction",
+                "v": "row"
+              }, {
+                "k": "align-items",
+                "v": "center"
+              }
+            ],
+            "attrs": [
+                {
+                    "name": "disabled",
+                    "value": false
+                },
+                {
+                    "name": "text",
+                    "value": "test text"
+                }
+            ],
+            "styleAttrs": [
+                {
+                    "name": "type",
+                    "value": "primary"
+                }, 
+                {
+                  "name": "density",
+                  "value": "default"
+                },
+                {
+                  "name": "icon",
+                  "value": "edit"
+                }
+            ],
+            "events": ["click", "dblclick"]
+          },
+          {
+            "id": "test",
+            "type": "BPButtonGroup",
+            "cat": "0",
+            "name":"bp-button-group",
+            "css": [
+              {
+                "k": "width",
+                "v": "max-content"
+              },
+              {
+                  "k": "height",
+                  "v": "auto"
+              }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPButtonItem",
+                    "cat": "0",
+                    "name":"bp-button-item",
+                    "css": [
+                    ],
+                    "attrs": [
+                        {
+                            "name": "disabled",
+                            "value": false
+                        },
+                        {
+                            "name": "text",
+                            "value": "test text"
+                        }
+                    ],
+                    "styleAttrs": [
+                        {
+                          "name": "density",
+                          "value": "default"
+                        },
+                        {
+                            "name": "active",
+                            "value": true
+                        }
+                    ],
+                    "events": ["click", "dblclick"]
+                  },
+                  {
+                    "id": "test",
+                    "type": "BPButtonItem",
+                    "cat": "1",
+                    "name":"bp-button-item",
+                    "css": [
+                    ],
+                    "attrs": [
+                        {
+                            "name": "disabled",
+                            "value": false
+                        },
+                        {
+                            "name": "text",
+                            "value": "test text"
+                        }
+                    ],
+                    "styleAttrs": [
+                        {
+                          "name": "density",
+                          "value": "default"
+                        },
+                        {
+                            "name": "active",
+                            "value": false
+                        }
+                    ],
+                    "events": ["click", "dblclick"]
+                  }
+            ]
+          },
+          {
+            "id": "test",
+            "type": "BPBadge",
+            "cat": "0",
+            "text": "9",
+            "name": "bp-badge",
+            "attrs": [
+                {
+                    "name": "badgeNumber",
+                    "value": "8"
+                }   
+            ],
+            "styleAttrs": [
+                {
+                    "name": "primary",
+                    "value": false
+                },
+                {
+                    "name": "reverse",
+                    "value": false
+                }
+            ],
+            "events": ["click", "mouseEnter", "mouseLeave"],
+            "css": [
+                {
+                    "k": "width",
+                    "v": "max-content"
+                },
+                {
+                    "k": "min-width",
+                    "v": "20px"
+                },
+                {
+                    "k": "background",
+                    "v": "#DFE1E6"
+                },
+                {
+                    "k": "font-size",
+                    "v": "12px"
+                },
+                {
+                    "k": "color",
+                    "v": "#253858"
+                },
+                {
+                    "k": "text-align",
+                    "v": "center"
+                },
+                {
+                    "k": "line-height",
+                    "v": "16px"
+                },
+                {
+                    "k": "height",
+                    "v": "16px"
+                },
+                {
+                    "k": "border",
+                    "v": "0"
+                },
+                {
+                    "k": "border-radius",
+                    "v": "8px"
+                },
+                {
+                    "k": "padding",
+                    "v": "0 6px"
+                },
+                {
+                    "k": "cursor",
+                    "v": "pointer"
+                }
+            ]
+        },
+        {
+            "id": "test",
+            "type": "BPInput",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-input",
+            "css": [
+              {
+                "k": "width",
+                "v": "240px"
+              },
+              {
+                "k": "height",
+                "v": "32px"
+              }, {
+                "k": "line-height",
+                "v": "14px"
+              },{
+                "k": "font-size",
+                "v": "14px"
+              }, {
+                "k": "padding",
+                "v": "10px 8px"
+              }, {
+                "k": "border",
+                "v": "1px solid #DFE1E6"
+              }, {
+                "k": "border-radius",
+                "v": "4px"
+              }, {
+                "k": "color",
+                "v": "#172B4D"
+              },
+              {
+                "k": "border",
+                "v": "1px solid #3172E0",
+                "tp": "focus"
+              },
+              {
+                "k": "outline",
+                "v": "none",
+                "tp": "focus"
+              },{
+                "k": "box-sizing",
+                "v": "border-box"
+              }
+            ],
+            "attrs": [
+                {
+                  "name": "disabled",
+                  "value": false
+                },
+                {
+                    "name": "value",
+                    "value": null
+                },
+                {
+                    "name": "placeholder",
+                    "value": "test placeHolder"
+                },
+                {
+                    "name": "size",
+                    "value": "comfy"
+                }
+              ],
+              "styleAttrs": [
+                {
+                  "name": "states", 
+                  "value": ""
+                }
+              ],
+              "events": ["focus", "blur", "input", "change"]
+        },
+        {
+            "id": "",
+            "type": "BPLabel",
+            "cat": "0",
+            "name": "bp-label",
+            "layout": [],
+            "css": [
+            ],
+            "attrs": [
+                {
+                    "name": "text",
+                    "value": "test label"
+                }
+            ],
+            "styleAttrs": [
+                {
+                    "name": "type",
+                    "value": "body-primary"
+                }
+            ]
+        },
+        {
+            "id": "test",
+            "type": "BPLink",
+            "cat": "0",
+            "text": "9",
+            "name": "bp-link",
+            "css": [
+                {
+                    "k": "width",
+                    "v": "max-content"
+                },
+                {
+                    "k": "font-size",
+                    "v": "14px"
+                },
+                {
+                    "k": "text-align",
+                    "v": "center"
+                },
+                {
+                    "k": "line-height",
+                    "v": "14px"
+                },
+                {
+                    "k": "height",
+                    "v": "14px"
+                },
+                {
+                    "k": "cursor",
+                    "v": "pointer"
+                }, {
+                    "k": "outline",
+                    "v": "none"
+                }, {
+                    "k": "background",
+                    "v": "transform"
+                }, {
+                    "k": "border",
+                    "v": "none"
+                }, {
+                    "k": "display",
+                    "v": "inline-block"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "name",
+                    "value": "test link"
+                },
+                {
+                    "name": "disabled",
+                    "value": false
+                }
+            ],
+            "styleAttrs": [{
+                "name": "type",
+                "value": "default"
+            }],
+            "events": ["click"]
+        },
+        {
+            "id": "test",
+            "type": "BPStatus",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-status",
+            "css": [
+              {
+                "k": "width",
+                "v": "max-content"
+              },
+              {
+                "k": "height",
+                "v": "16px"
+              },
+              {
+                "k": "padding",
+                "v": "0 4px"
+              },
+              {
+                "k": "font-size",
+                "v": "12px"
+              },
+              {
+                "k": "line-height",
+                "v": "16px"
+              },
+              {
+                "k": "text-align",
+                "v": "center"
+              },
+              {
+                "k": "border-radius",
+                "v": "4px"
+              }
+            ],
+            "attrs": [
+              {
+                "name": "statusContent",
+                "value": "status test"
+              }
+            ],
+            "styleAttrs": [
+              {
+                "name": "type", 
+                "value": "success"
+              },
+              {
+                "name": "subtle",
+                "value": true
+              }
+            ],
+            "events": ["click", "mouseEnter", "mouseLeave"]
+        },
+        {
+            "id": "test",
+            "type": "BPTag",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-tag",
+            "css": [
+                {
+                "k": "width",
+                "v": "max-content"
+                },
+                {
+                "k": "height",
+                "v": "20px"
+                },
+                {
+                    "k": "padding",
+                    "v": "0 4px"
+                },
+                {
+                "k": "border-radius",
+                "v": "4px"
+                },
+                {
+                "k": "font-size",
+                "v": "14px"
+                },
+                {
+                "k": "text-align",
+                "v": "center"
+                },
+                {
+                "k": "line-height",
+                "v": "20px"
+                }
+            ],
+            "attrs": [
+                {
+                "name": "tagContent",
+                "value": "tag test"
+                }
+            ],
+            "styleAttrs": [
+                {
+                "name": "type", 
+                "value": "blue"
+                },
+                {
+                "name": "subtle",
+                "value": true
+                }
+            ],
+            "events": ["click", "mouseEnter", "mouseLeave"]
+        }
+        ]
+      },
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "no-attrs",
+        "path": "/no-attrs",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "column"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "100%"
+          },
+          {
+            "k": "height",
+            "v": "auto"
+          }
+        ],
+  
+        "components": [
+            {
+                "id": "test",
+                "type": "BPImg",
+                "cat": "0",
+                "text": "simon test",
+                "name": "bp-avatar-x-small-circle",
+                "attrs": {
+                    "src": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg"
+                },
+                "css": [
+                    {
+                        "k": "width",
+                        "v": "16px"
+                    },
+                    {
+                        "k": "height",
+                        "v": "16px"
+                    },
+                    {
+                        "k": "border-radius",
+                        "v": "50%"
+                    }
+                ]
+            },
+            {
+                "id": "test",
+                "type": "BPDiv",
+                "cat": "0",
+                "text": "simon test",
+                "name":"bp-spinner-item-div",
+                "css": [
+                  {
+                      "k": "width",
+                      "v": "fit-content"
+                  },
+                  {
+                      "k": "height",
+                      "v": "max-content"
+                  },
+                  {
+                      "k": "display",
+                      "v": "flex"
+                  },
+                  {
+                      "k": "position",
+                      "v": "relative"
+                  }
+                ],
+                "components": [
+                    {
+                      "id": "test",
+                      "type": "BPPushButton",
+                      "cat": "0",
+                      "text": "spinner item",
+                      "name":"bp-spinner-item-btn",
+                      "css": [
+                          {
+                              "k": "width",
+                              "v": "auto"
+                              },
+                              {
+                              "k": "min-width",
+                              "v": "80px"
+                              },
+                              {
+                              "k": "background",
+                              "v": "rgba(9,30,66,0.04)"
+                              },
+                              {
+                              "k": "font-size",
+                              "v": "14px"
+                              },
+                              {
+                              "k": "color",
+                              "v": "#505F79"
+                              },
+                              {
+                              "k": "text-align",
+                              "v": "center"
+                              },
+                              {
+                              "k": "line-height",
+                              "v": "32px"
+                              }, {
+                              "k": "height",
+                              "v": "32px"
+                              }, {
+                              "k": "padding",
+                              "v": "0 12px"
+                              }, {
+                              "k": "border",
+                              "v": "0"
+                              }, {
+                              "k": "border-radius",
+                              "v": "4px"
+                              }, {
+                              "k": "cursor",
+                              "v": "pointer"
+                              }
+                      ]
+                    },
+                     {
+                      "id": "test",
+                      "type": "BPSpinner",
+                      "cat": "0",
+                      "text": "simon test",
+                      "name":"bp-spinner-full-window",
+                      "css": [
+                         
+                      ],
+                      "attrs": {
+                          "size": "small",
+                          "fullWindow": "false"
+                      }
+                    }
+      
+                ]
+            },
+            {
+            "id": "test",
+            "type": "BPDiv",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-div-container",
+            "css": [
+                {
+                "k": "width",
+                "v": "max-content"
+                },
+                {
+                "k": "height",
+                "v": "max-content"
+                }, {
+                "k": "position",
+                "v": "relative"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPDiv",
+                    "cat": "0",
+                    "text": "Laura Sofía Ureña",
+                    "name":"bp-spotlight-item",
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "247px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "86px"
+                        }, {
+                            "k": "position",
+                            "v": "relative"
+                        }, {
+                            "k": "padding",
+                            "v": "16px 24px"
+                        }
+                    ],
+                    "attrs": {
+                        "specialClass": "spotlight-item"
+                    }
+                },
+                {
+                    "id": "test",
+                    "type": "BPSpotlight",
+                    "cat": "0",
+                    "text": "",
+                    "name":"bp-spotlight-default",
+                    "css": [
+                        
+                    ],
+                    "attrs": {
+                        "secondaryButton": "true",
+                        "title": "Title test",
+                        "placement": "right",
+                        "text": ["1. Help or  instruction text goes here.Lorem ipsum dolor sit amet, consectetur adipisicing elit.", "2. Help or  instruction text goes here.Lorem ipsum dolor sit amet, consectetur adipisicing elit."]
+                    }
+                }
+            ]
+            },
+            {
+            "id": "test",
+            "type": "BPTextarea",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-textarea-default",
+            "css": [
+                {
+                "k": "width",
+                "v": "480px"
+                },
+                {
+                "k": "height",
+                "v": "56px"
+                }, {
+                "k": "line-height",
+                "v": "14px"
+                },{
+                "k": "font-size",
+                "v": "14px"
+                }, {
+                "k": "padding",
+                "v": "10px 8px"
+                }, {
+                "k": "border",
+                "v": "1px solid #DFE1E6"
+                }, {
+                "k": "max-width",
+                "v": "480px"
+                }, {
+                "k": "border-radius",
+                "v": "4px"
+                },
+                {
+                "k": "outline",
+                "v": "none"
+                }
+            ]
+            },
+            {
+            "id": "test",
+            "type": "BPAddItem",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-add-item",
+            "css": [
+            
+            ]
+            },
+            {
+                "id": "test",
+                "type": "BPBreadcrumbs",
+                "cat": "0",
+                "text": "simon test",
+                "name":"bp-breadcrumbs",
+                "css": [
+                ],
+                "attrs": {
+                    "contents": ["Nucleus space, Pages", "ADG3 - New site", "design.atlassian.com content", "Product design (draft)", "Patterns design (draft)"]          }
+            },
+            {
+                "id": "test",
+                "type": "BPDiv",
+                "cat": "0",
+                "text": "",
+                "name":"bp-checkbox-rest",
+                "css": [
+                ],
+                "components": [
+                    {
+                    "id": "test",
+                    "type": "BPCheckbox",
+                    "cat": "0",
+                    "text": "",
+                    "name":"bp-checkbox-single-c",
+                    "attrs": {
+                        "id": "singleCheckboxC",
+                        "disabled": "",
+                        "checked": ""
+                    },
+                    "css": [
+                    ]
+                    },
+                    {
+                    "id": "test",
+                    "type": "BPLabel",
+                    "cat": "0",
+                    "text": "Unchecked",
+                    "name":"bp-checkbox-label-single-c",
+                    "attrs": [
+                        {
+                            "name": "for",
+                            "value": "singleCheckboxC"
+                        }
+                    ],
+                    "css": [	
+                    ]
+                    }
+                ]
+            },
+            {
+                "id": "test",
+                "type": "BPDiv",
+                "cat": "0",
+                "text": "",
+                "name":"bp-radio-rest",
+                "css": [
+                ],
+                "components": [
+                    {
+                    "id": "test",
+                    "type": "BPRadio",
+                    "cat": "0",
+                    "text": "",
+                    "name":"bp-radio-single-b",
+                    "attrs": {
+                        "id": "singleRadioB",
+                        "name": ""
+                    },
+                    "css": [
+                    ]
+                    },
+                    {
+                    "id": "test",
+                    "type": "BPLabel",
+                    "cat": "0",
+                    "text": "Resting",
+                    "name":"bp-label-single-b",
+                    "attrs": [
+                        {
+                            "name": "for",
+                            "value": "singleRadioB"
+                        }
+                    ],
+                    "css": [	
+                        {
+                        "k": "font-size",
+                        "v": "14px"
+                        },
+                        {
+                        "k": "color",
+                        "v": "#344563"
+                        }
+                    ]
+                    }
+                ]
+            },
+            {
+                "id": "test",
+                "type": "BPSelect",
+                "cat": "1",
+                "name": "bp-select",
+                "layout": [],
+                "attrs":{
+                    "disabled":false,
+                    "choosedValue": "place hold from json"
+                },
+                "components": [
+                    {
+                        "id": "test",
+                        "type": "BPOption",
+                        "cat": "1",
+                        "text": "🍊橘子🍊",
+                        "icon": "home-filled",
+                        "name": "bp-option"
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPOption",
+                        "cat": "1",
+                        "text": "🍎苹果🍎",
+                        "icon": "marketplace",
+                        "name": "bp-option"
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPOption",
+                        "cat": "1",
+                        "text": "🍌香蕉🍌",
+                        "icon": "male",
+                        "name": "bp-option"
+                    }
+                ]
+            },
+            {
+                "id": "test",
+                "type": "BPModal",
+                "cat": "0",
+                "text": "Small Default",
+                "name":"bp-modal-default-a",
+                "css": [
+                    {
+                        "k": "width",
+                        "v": "100%"
+                    },
+                    {
+                        "k": "height",
+                        "v": "32px"
+                    },
+                    {
+                        "k": "background",
+                        "v": "#3172E0"
+                    },
+                    {
+                        "k": "color",
+                        "v": "#FFFFFF"
+                    }
+                ],
+                "attrs": {
+                    "title": "Modal dialog - Small",
+                    "content": "This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution."
+                }
+            },
+            {
+                "id": "test",
+                "type": "BPPagination",
+                "cat": "0",
+                "text": "simon test",
+                "name":"bp-pagination",
+                "css": [
+                ],
+                "attrs": {
+                    "pages": 12
+                }
+            },
+            {
+            "id": "test",
+            "type": "BPDiv",
+            "cat": "0",
+            "text": "",
+            "name": "bp-popover-container",
+            "css": [
+                {
+                "k": "width",
+                "v": "max-content"
+                },
+                {
+                "k": "height",
+                "v": "max-height"
+                },
+                {
+                "k": "position",
+                "v": "relative"
+                }
+            ],
+            "components": [
+                {
+                "id": "test",
+                "type": "BPPushButton",
+                "cat": "0",
+                "text": "top",
+                "name":"bp-popover-right-btn",
+                "css": [
+                        {
+                    "k": "width",
+                    "v": "auto"
+                    },
+                    {
+                    "k": "min-width",
+                    "v": "80px"
+                    },
+                    {
+                    "k": "background",
+                    "v": "rgba(9,30,66,0.04)"
+                    },
+                    {
+                    "k": "font-size",
+                    "v": "14px"
+                    },
+                    {
+                    "k": "color",
+                    "v": "#505F79"
+                    },
+                    {
+                    "k": "text-align",
+                    "v": "center"
+                    },
+                    {
+                    "k": "line-height",
+                    "v": "32px"
+                    }, {
+                    "k": "height",
+                    "v": "32px"
+                    }, {
+                    "k": "padding",
+                    "v": "0 12px"
+                    }, {
+                    "k": "border",
+                    "v": "0"
+                    }, {
+                    "k": "border-radius",
+                    "v": "4px"
+                    }, {
+                    "k": "cursor",
+                    "v": "pointer"
+                    }, {
+                    "k": "background",
+                    "v": "rgba(9,30,66,0.08)",
+                    "tp": "hover"
+                    },
+                    {
+                    "k": "outline",
+                    "v": "none"
+                    }
+                ],
+                "components": []
+                },
+                {
+                "id": "test",
+                "type": "BPPopover",
+                "cat": "0",
+                "text": "top",
+                "name":"bp-popover-top",
+                "css": [],
+                "components": [],
+                "attrs": {
+                    "placement": "right",
+                    "title": "Waring",
+                    "messageState": "warning",
+                    "desc": "This is a very long long long long long error message description",
+                    "actions": "",
+                    "dismiss": ""
+                }
+            }
+            ]
+            },
+            {
+            "id": "test",
+            "type": "BPProgressTracker",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-process-tracker",
+            "css": [
+                {
+                    "k": "width",
+                    "v": "400px"
+                },
+                {
+                    "k": "height",
+                    "v": "400px"
+                },
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "flex-direction",
+                    "v": "row"
+                }
+            ],
+            "attrs": {
+                "allStep": 7,
+                "curStep": 3,
+                "disableStep": [4, 5],
+                "stepText": ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5", "Step 6", "Step 7"]
+            }
+            },
+            {
+                "id": "test",
+                "type": "BPToast",
+                "text": "",
+                "cat": "0",
+                "name": "bp-toast-container",
+                "css": [
+                    {
+                        "k": "position",
+                        "v": "fixed"
+                    }, {
+                        "k": "top",
+                        "v": "0"
+                    }, {
+                        "k": "width",
+                        "v": "100%"
+                    }, {
+                        "k": "background",
+                        "v": "transparent"
+                    }
+                ],
+                "attrs": {
+                    "container": "true"
+                },
+                "components": [
+                    {
+                        "id": "test",
+                        "type": "BPToast",
+                        "cat": "0",
+                        "text": "Concise title",
+                        "name":"bp-tosat-success",
+                        "icon": "check-circle",
+                        "css": [
+                            
+                        ],
+                        "attrs": {
+                            "type": "success"
+                        }
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPToast",
+                        "cat": "0",
+                        "text": "Concise title",
+                        "name":"bp-tosat-success-click",
+                        "icon": "check-circle",
+                        "css": [
+                        
+                        ],
+                        "attrs": {
+                            "clickEvent": "true",
+                            "type": "success"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "test",
+                "type": "BPTooltip",
+                "cat": "0",
+                "text": "",
+                "name":"bp-tooltip-top",
+                "css": [
+                    {
+                    "k": "width",
+                    "v": "24px"
+                    },
+                    {
+                    "k": "height",
+                    "v": "24px"
+                    }, {
+                    "k": "background",
+                    "v": "#A1C6E7"
+                    },{
+                    "k": "border-radius",
+                    "v": "4px"
+                    },
+                    {
+                    "k": "margin",
+                    "v": "100px"
+                    },
+                    {
+                        "k": "content",
+                        "v": "'Short and brief'",
+                        "tp": "hover",
+                        "pe": "after"
+                    }, 
+                    {
+                        "k": "width",
+                        "v": "85px",
+                        "tp": "hover",
+                        "pe": "after"
+                    },
+                    {
+                        "k": "bottom",
+                        "v": "24px",
+                        "tp": "hover",
+                        "pe": "after"
+                    }
+                ],
+                "attrs": {
+                    "baseClass": "tooltip"
+                }
+            },
+            {
+                "id": "test",
+                "type": "BPEmptyState",
+                "cat": "0",
+                "text": "simon test",
+                "name":"bp-empty-state-default",
+                "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "348px"
+                }
+                ],
+                "attrs": {
+                    "img": "#",
+                    "title": "Collect your important files",
+                    "desc": "Here’s where you would download this reportory and any files your team has shared.",
+                    "primaryAction": "Primary action",
+                    "secondaryAction": "Secondary action"
+                }
+            }
+        ]
+      },
+      {
+        "id": "page with menu",
+        "type": "BPMainWindow",
+        "cat": "navigation",
+        "name": "navigation",
+        "path": "navigation",
+        "layout": [
+            {
+                "k": "width",
+                "v": "100%"
+            },
+            {
+                "k": "height",
+                "v": "400px"
+            }
+        ],
+        "css": [],
+        "components": [
+            {
+                "id": "test",
+                "type": "BPMenu",
+                "cat": "0",
+                "name": "bp-menu",
+                "layout": [],
+                "css": [
+                    {
+                        "k": "width",
+                        "v": "208px"
+                    },
+                    {
+                        "k": "height",
+                        "v": "auto"
+                    },
+                    {
+                        "k": "padding",
+                        "v": "0"
+                    },
+                    {
+                        "k": "margin",
+                        "v": "0"
+                    }
+                ],
+                "components": [
+                    {
+                        "id": "test",
+                        "type": "BPMenuItem",
+                        "cat": "1",
+                        "text": "menu item zero",
+                        "icon": "home-filled",
+                        "name": "bp-menu-item"
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPMenuItem",
+                        "cat": "1",
+                        "text": "menuItem 1",
+                        "icon": "marketplace",
+                        "name": "bp-menu-item"
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPMenuItem",
+                        "cat": "1",
+                        "text": "sub menu 2",
+                        "icon": "male",
+                        "name": "bp-menu-item"
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPSubMenu",
+                        "cat": "0",
+                        "text": "menu button 3",
+                        "icon": "point",
+                        "name": "bp-sub-menu",
+                        "layout": [],
+                        "css": [
+                            {
+                                "k": "width",
+                                "v": "100%"
+                            },
+                            {
+                                "k": "min-height",
+                                "v": "40px"
+                            },
+                            {
+                                "k": "height",
+                                "v": "auto"
+                            },
+                            {
+                                "k": "color",
+                                "v": "#505F79"
+                            },
+                            {
+                                "k": "padding",
+                                "v": "0 12px"
+                            },
+                            {
+                                "k": "display",
+                                "v": "flex"
+                            },
+                            {
+                                "k": "flex-direction",
+                                "v": "column"
+                            },
+                            {
+                                "k": "justify-content",
+                                "v": "center"
+                            },
+                            {
+                                "k": "align-items",
+                                "v": "flex-start"
+                            },
+                            {
+                                "k": "color",
+                                "v": "#3172E0",
+                                "tp": "hover"
+                            }
+                        ],
+                        "components": [
+                            {
+                                "id": "test",
+                                "type": "BPMenuItem",
+                                "cat": "1",
+                                "text": "menu item first",
+                                "name": "bp-menu-item",
+                                "layout": [],
+                                "css": []
+                            },
+                            {
+                                "id": "test",
+                                "type": "BPMenuItem",
+                                "cat": "0",
+                                "text": "second menu item",
+                                "name": "bp-menu-item",
+                                "layout": [],
+                                "css": [
+                                    {
+                                        "k": "width",
+                                        "v": "100%"
+                                    },
+                                    {
+                                        "k": "height",
+                                        "v": "40px"
+                                    },
+                                    {
+                                        "k": "display",
+                                        "v": "flex"
+                                    },
+                                    {
+                                        "k": "align-items",
+                                        "v": "center"
+                                    },
+                                    {
+                                        "k": "cursor",
+                                        "v": "pointer"
+                                    },
+                                    {
+                                        "k": "padding",
+                                        "v": "0 12px"
+                                    },
+                                    {
+                                        "k": "color",
+                                        "v": "#505F79"
+                                    },
+                                    {
+                                        "k": "box-sizing",
+                                        "v": "border-box"
+                                    },
+                                    {
+                                        "k": "color",
+                                        "v": "#3172E0",
+                                        "tp": "hover"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPMenuItem",
+                        "cat": "1",
+                        "text": "NavigationThird",
+                        "icon": "target",
+                        "name": "bp-menu-item"
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPSubMenu",
+                        "cat": "1",
+                        "text": "🍉水果🍉",
+                        "icon": "point",
+                        "name": "bp-sub-menu",
+                        "layout": [],
+                        "components": [
+                            {
+                                "id": "test",
+                                "type": "BPMenuItem",
+                                "cat": "1",
+                                "text": "🍎苹果🍎",
+                                "name": "bp-menu-item",
+                                "layout": [],
+                                "css": []
+                            },
+                            {
+                                "id": "test",
+                                "type": "BPMenuItem",
+                                "cat": "1",
+                                "text": "🍊哈橘子🍊",
+                                "name": "bp-menu-item",
+                                "layout": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "test",
+                "type": "BPMenu",
+                "name": "bp-menu",
+                "layout": [],
+                "components": [
+                    {
+                        "id": "test",
+                        "type": "BPMenuItem",
+                        "text": "🚗汽车人，逼！🚗",
+                        "icon": "home-filled",
+                        "name": "bp-menu-item"
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPMenuItem",
+                        "text": "✈️飞机侠，轰！✈️",
+                        "icon": "marketplace",
+                        "name": "bp-menu-item"
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPMenuItem",
+                        "text": "🚄火车侠，呜！🚄",
+                        "icon": "male",
+                        "name": "bp-menu-item"
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPSubMenu",
+                        "text": "🏍摩托车方阵️🏍️",
+                        "icon": "point",
+                        "name": "bp-sub-menu",
+                        "layout": [],
+                        "components": [
+                            {
+                                "id": "test",
+                                "type": "BPMenuItem",
+                                "text": "🛵女士摩托🛵",
+                                "name": "bp-menu-item",
+                                "layout": []
+                            },
+                            {
+                                "id": "test",
+                                "type": "BPMenuItem",
+                                "text": "🚲人力摩托🚲",
+                                "name": "bp-menu-item",
+                                "layout": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPMenuItem",
+                        "text": "🌅天气大比拼🌅",
+                        "icon": "target",
+                        "name": "bp-menu-item"
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPSubMenu",
+                        "text": "🐺西游记🐺",
+                        "icon": "point",
+                        "name": "bp-sub-menu",
+                        "layout": [],
+                        "components": [
+                            {
+                                "id": "test",
+                                "type": "BPMenuItem",
+                                "text": "🐒大师兄🐒",
+                                "name": "bp-menu-item",
+                                "layout": [],
+                                "css": []
+                            },
+                            {
+                                "id": "test",
+                                "type": "BPMenuItem",
+                                "text": "🐷二师弟🐷",
+                                "name": "bp-menu-item",
+                                "layout": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    ]
+  }

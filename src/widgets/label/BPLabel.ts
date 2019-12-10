@@ -75,7 +75,7 @@ export default class BPLabel extends BPWidget {
             tagName:'label',
             classNames:[],
             content: 'default',
-            attributeBindings: [''],
+            attributeBindings: ['for'],
             ${attrsBody}
             ${styleAttrsBody}
             classNameBindings: ["type"],`

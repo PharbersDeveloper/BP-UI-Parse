@@ -72,6 +72,9 @@
                         }, {
                             "k": "border",
                             "v": "none"
+                        }, {
+                            "k": "display",
+                            "v": "inline-block"
                         }
                     ],
                     "attrs": [

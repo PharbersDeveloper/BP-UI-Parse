@@ -611,31 +611,6 @@
           ]
           }
       ]
-    },
-    {
-      "id": "page with menu",
-      "type": "BPMainWindow",
-      "cat": "navigation",
-      "name":"navigation",
-      "path":"navigation",
-      "layout":[],
-      "css":[],
-      "components": [
-        {
-          "id": "test",
-          "type": "BPNavMenu",
-          "cat": "0",
-          "text": "alfred test",
-          "name":"bp-nav-menu",
-          "attrs": {},
-          "css":[
-            {
-              "k":"color",
-              "v":"red"
-            }
-          ]
-        }
-      ]
     }
   ]
 }
