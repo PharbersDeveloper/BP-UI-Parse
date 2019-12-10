@@ -1,23 +1,23 @@
 {
     "radius": {
         "none": {
-            "value": 0
+            "value": "0px"
         },
         "circle": {
             "value": "50%"
         },
         "small": {
-            "value": 1
+            "value": "2px"
         },
         "medium": {
-            "value": 2
+            "value": "2*{radius.small.value}"
         },
         "large": {
-            "value": 4
+            "value": "4*{radius.small.value}"
         },
         "card": {
             "default": {
-                "value": 0
+                "value": "{radius.none.value}"
             }
         },
         "avatar": {

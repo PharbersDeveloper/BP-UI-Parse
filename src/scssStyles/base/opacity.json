@@ -4,28 +4,28 @@
             "value": 0
         },
         "04s": {
-            "value": 1
+            "value": 0.04
         },
         "08s": {
-            "value": 2
+            "value": "2 * $opacity-04s"
         },
         "10s": {
-            "value": 3
+            "value": "3 * $opacity-04s"
         },
         "20s": {
-            "value": 0
+            "value": 0.25
         },
         "40s": {
-            "value": 0.2
+            "value": "0.2 + $opacity-20s"
         },
         "50s": {
-            "value": 0.3
+            "value": "0.3 + $opacity-20s"
         },
         "60s": {
-            "value": 0.4
+            "value": "0.4 + $opacity-20s"
         },
         "90s": {
-            "value": 0.7
+            "value": "0.7 + $opacity-20s"
         }
     }
 }

@@ -1,0 +1,158 @@
+{
+    "offset": {
+        "x": {
+            "basic": {
+                "value": "0px"
+            },
+            "expand": {
+                "none": {
+                    "value": "0px"
+                },
+                "micro": {
+                    "value": "1px",
+                    "left": {
+                        "value": "{offset.x.expand.micro.value}"
+                    }
+                },
+                "1x": {
+                    "value": "4px",
+                    "left": {
+                        "value": "{offset.x.expand.1x.value}"
+                    }
+                }
+            }
+        },
+        "y": {
+            "basic": {
+                "value": "0px"
+            },
+            "none": {
+                "value": "0px"
+            },
+            "expand": {
+                "micro": {
+                    "value": "1px"
+                },
+                "1x": {
+                    "value": "4px"
+                },
+                "2x": {
+                    "value": "2*{offset.y.expand.1x.value}"
+                },
+                "3x": {
+                    "value": "3*{offset.y.expand.1x.value}"
+                },
+                "5x": {
+                    "value": "5*{offset.y.expand.1x.value}"
+                }
+            }
+        }
+    },
+    "blur": {
+        "basic": {
+            "value": "1px"
+        },
+        "expand": {
+            "micro": {
+                "value": "1px"
+            },
+            "1x": {
+                "value": "8px"
+            },
+            "2x": {
+                "value": "2*{blur.expand.1x.value}"
+            },
+            "3x": {
+                "value": "3*{blur.expand.1x.value}"
+            },
+            "4x": {
+                "value": "4*{blur.expand.1x.value}"
+            }
+        }
+    },
+    "spread": {
+        "basic": {
+            "value": "0px"
+        },
+        "expand": {
+            "none": {
+                "value": "0px"
+            },
+            "1x": {
+                "value": "-2px"
+            },
+            "2x": {
+                "value": "2*{spread.expand.1x.value}"
+            },
+            "3x": {
+                "value": "3*{spread.expand.1x.value}"
+            },
+            "4x": {
+                "value": "4*{spread.expand.1x.value}"
+            }
+        }
+    },
+    "depth": {
+        "basic": {
+            "vale": "$offset-x-basic $offset-y-basic $blur-basic $spread-basic $color-depth-basic"
+        },
+        "expand": {
+            "100": {
+                "value": "$offset-x-expand-none $offset-y-expand-micro $blur-expand-micro $spread-expand-none $color-depth-expand"
+            },
+            "200": {
+                "value": "$offset-x-expand-none $offset-y-expand-1x $blur-expand-1x $spread-expand-1x $color-depth-expand"
+            },
+            "300": {
+                "value": "$offset-x-expand-none $offset-y-expand-2x $blur-expand-2x $spread-expand-2x $color-depth-expand"
+            },
+            "400": {
+                "value": "$offset-x-expand-none $offset-y-expand-3x $blur-expand-3x $spread-expand-3x $color-depth-expand"
+            },
+            "500": {
+                "value": "$offset-x-expand-none $offset-y-expand-5x $blur-expand-4x $spread-expand-4x $color-depth-expand"
+            }
+
+        },
+        "z100": {
+            "value": "$depth-basic,$depth-expand-100"
+        },
+        "z200": {
+            "value": "$depth-basic,$depth-expand-200"
+        },
+        "z300": {
+            "value": "$depth-basic,$depth-expand-300"
+        },
+        "z400": {
+            "value": "$depth-basic,$depth-expand-400"
+        },
+        "z500": {
+            "value": "$depth-basic,$depth-expand-500"
+        },
+        "modal": {
+            "value": "{depth.z200.value}"
+        },
+        "toast": {
+            "value": "{depth.z300.value}"
+        },
+        "popover": {
+            "value": "{depth.z300.value}"
+        },
+        "spotlight": {
+            "value": "{depth.z200.value}"
+        },
+        "selection_menu": {
+            "value": "{depth.z200.value}"
+        },
+        "table": {
+            "sticky": {
+                "left": {
+                    "value": "$offset-x-expand-1x-left $offset-y-none $blur-expand-1x $spread-expand-1x $color-depth-expand"
+                },
+                "right": {
+                    "value": "$offset-x-expand-1x $offset-y-none $blur-expand-1x $spread-expand-1x  $color-depth-expand"
+                }
+            }
+        }
+    }
+}

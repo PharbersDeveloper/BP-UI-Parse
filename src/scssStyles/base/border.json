@@ -1,19 +1,19 @@
 {
     "border": {
         "none": {
-            "value": 0
+            "value": "0px"
         },
         "light": {
-            "value": 0.5
+            "value": "0.5*{border.regular.value}"
         },
         "regular": {
-            "value": 1
+            "value": "1px"
         },
         "medium": {
-            "value": 2
+            "value": "2*{border.regular.value}"
         },
         "heavy": {
-            "value": 6
+            "value": "6*{border.regular.value}"
         },
         "table": {
             "header": {

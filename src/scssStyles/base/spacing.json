@@ -8,50 +8,60 @@
         },
         "compact": {
             "1x": {
-                "value": "1"
+                "value": "2px"
             },
             "2x": {
-                "value": "2"
+                "value": "2*{spacing.compact.1x.value}"
             },
             "3x": {
-                "value": "3"
+                "value": "3*{spacing.compact.1x.value}"
             },
             "6x": {
-                "value": "6"
+                "value": "6*{spacing.compact.1x.value}"
             }
         },
         "1x": {
-            "value": "1"
+            "value": "8px"
         },
         "2x": {
-            "value": "2"
+            "value": "2*{spacing.1x.value}"
         },
         "3x": {
-            "value": "3"
+            "value": "3*{spacing.1x.value}"
         },
         "4x": {
-            "value": "4"
+            "value": "4*{spacing.1x.value}"
         },
         "5x": {
-            "value": "5"
+            "value": "5*{spacing.1x.value}"
         },
         "gutter": {
             "none": {
-                "value": "{spacing.none}"
+                "value": "{spacing.none.value}"
             },
             "small": {
-                "value": "{spacing.1x}"
+                "value": "{spacing.1x.value}"
             },
             "medium": {
-                "value": "{spacing.2x}"
+                "value": "{spacing.2x.value}"
             },
             "large": {
-                "value": "{spacing.3x}"
+                "value": "{spacing.3x.value}"
             }
         },
         "button": {
             "padding_h": {
-                "value": "{spacing.compact.6x}"
+                "value": "{spacing.compact.6x.value}"
+            }
+        },
+        "text_field": {
+            "padding_h": {
+                "value": "{spacing.1x.value}"
+            }
+        },
+        "select": {
+            "padding_h": {
+                "value": "{spacing.1x.value}"
             }
         }
     },
