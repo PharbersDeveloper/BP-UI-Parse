@@ -76,7 +76,7 @@ export default class BPPushButton extends BPWidget {
             tagName:'button',
             classNames:['${comp.name}'],
             content: 'default',
-            classNameBindings: ['currentType'],
+            classNameBindings: ['currentType', 'currentDensity'],
             attributeBindings: ['disabled:disabled'],
             ${attrsBody}
             ${styleAttrsBody}
@@ -88,6 +88,14 @@ export default class BPPushButton extends BPWidget {
                     return 'button-primary'
                 }
             }),
+            currentDensity: computed('density', function () {
+                let density = this.get('density')
+                if (density) {
+                    return "button-density-" + density
+                } else {
+                    return 'button-density-default'
+                }
+            }),
             ${this.slotActions(events, `${comp.name}`)},`
 
         return fileDataStart + fileData + fileDataEnd
@@ -97,7 +105,7 @@ export default class BPPushButton extends BPWidget {
 
         return `
         ${leaf.paintShow()}
-        {{svg-jar icon width='24px' height='24px' class='icon'}}
+        {{svg-jar icon width='24px' height='24px' class='icon button-icon-color'}}
         {{text}}
         {{yield}}`
      }

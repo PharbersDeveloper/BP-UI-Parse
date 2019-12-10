@@ -4,9 +4,11 @@
 import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
-import { IOptions } from "../../properties/Options"
+import { IAttrs, IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
+import BPSlot from "../slotleaf/BPSlot"
+
 export default class BPTable extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
             super(output, name, routeName)
@@ -29,13 +31,42 @@ export default class BPTable extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
-        return "{{#" + comp.name + "}}" + "{{/" + comp.name + "}}"
+
+        const {attrs, styleAttrs} = comp
+        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                return ` ${item.name}='${item.value}'`
+            } else {
+                return  ` ${item.name}=${item.value}`
+            }
+        }).join("")
+
+        return `{{${comp.name} ssc="ssc" emit="emit"
+            disconnect="disconnect" ${attrsBody}}}`
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
-        const borderTable = comp.attrs.border === "true" ? "border-table" : ""
+        const {attrs, styleAttrs, events } = comp
+
+        const attrsBody = attrs.map( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                return `${item.name}: '${item.value}',`
+            } else {
+                return  `${item.name}: ${item.value},`
+            }
+        })
+
+        let styleAttrsBody = ""
+
+        styleAttrs.forEach( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                styleAttrsBody += `${item.name}: '${item.value}',`
+            } else {
+                styleAttrsBody += `${item.name}: ${item.value},`
+            }
+        })
 
         const fileData = "\n" +
             `import {computed} from '@ember/object';
@@ -46,27 +77,47 @@ export default class BPTable extends BPWidget {
                 layout,
                 ajax: service(),
                 tagName:'div',
-                classNames:["${comp.name} ${borderTable}"],
+                classNames:["${comp.name}"],
                 content: 'default',
-                classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only'],
+                classNameBindings: ['border:border-table'],
                 attributeBindings: [''],
+                ${styleAttrsBody}
+                ${attrsBody}
                 didInsertElement() {
                     this._super(...arguments);
                     this.getData()
 
                     const that = this
-                    const thisComp = document.getElementsByClassName('${comp.name}')[0]
+                    const thisComp = document.getElementById(this.get('tid'))
                     const table = thisComp.getElementsByClassName('ember-table')[0]
+
                     table.onscroll = function(){
                         const ths = table.getElementsByTagName('th')
-                        if ((ths[1].offsetLeft - ths[0].offsetLeft) >= 200) {
+                        const length = ths.length
+                        const leftWidth = ths[0].offsetWidth
+                        const leftHeight = table.offsetHeight
+
+                        const rightWidth = ths[length-2].offsetWidth
+
+                        that.set('leftWidth', leftWidth)
+                        that.set('leftHeight', leftHeight)
+                        that.set('rightWidth', rightWidth)
+                        if ((ths[1].offsetLeft - ths[0].offsetLeft) >= leftWidth) {
                             that.set('tableLeftFixed', false)
                         } else {
                             that.set('tableLeftFixed', true)
                         }
+
+                        if ((ths[length-1].offsetLeft - ths[length-2].offsetLeft) < rightWidth) {
+                            that.set('tableRightFixed', true)
+                        } else {
+                            that.set('tableRightFixed', false)
+                        }
                     }
                 },
                 getData() {
+                    if (!this.get('rows') && !this.get('columns')) {
+
                     const ajax = this.ajax;
                     const queryChartSql = "select 月份, 药品名, count(药品名.keyword) as 数量 from hx2 where 药品名.keyword='***' group by 月份.keyword, 药品名.keyword order by 月份.keyword"
                     const ec = {
@@ -129,6 +180,7 @@ export default class BPTable extends BPWidget {
                             this.set('rows', arrR)
                         })
                     })
+                }
                 },
                 actions: {
                     sortSowIcon(sorts) {
@@ -151,9 +203,11 @@ export default class BPTable extends BPWidget {
     }
 
     public paintHBS(comp: BPComp) {
-       return  `<div class="bp-table">
+       return  `<div class="bp-table" id={{tid}}>
         {{#if tableLeftFixed}}
-            <div style="box-shadow: 4px 0px 4px rgba(0,0,0,.12);position:absolute;height:400px;width: 200px;z-index:6;background:transparent;"></div>
+            <div style="box-shadow: 4px 0px 4px -4px rgba(0,0,0,.12);position:absolute;height:{{leftHeight}}px;width: {{leftWidth}}px;z-index:6;background:transparent;"></div>
+        {{else if tableRightFixed}}
+        <div style="right:0;box-shadow: -4px 0px 4px -4px rgba(0,0,0,.12);position:absolute;height:{{leftHeight}}px;width: {{rightWidth}}px;z-index:6;background:transparent;"></div>
         {{/if}}
        <EmberTable as |t|>
        <t.head @sorts={{sorts}}
@@ -175,7 +229,19 @@ export default class BPTable extends BPWidget {
                 </r.cell>
             </h.row>
             </t.head>
-            <t.body @rows={{rows}} />
+            <t.body @rows={{rows}} as |b|>
+                <b.row as |r|>
+                <r.cell as |cell column|>
+                    {{#if column.cellComponent}}
+                    {{#component column.cellComponent}}
+                        {{cell}}
+                    {{/component}}
+                    {{else}}
+                    {{cell}}
+                    {{/if}}
+                </r.cell>
+                </b.row>
+            </t.body>
             </EmberTable>
             </div>`
     }

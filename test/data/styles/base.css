@@ -15,6 +15,73 @@ a {
     text-align: center;
 }
 
+.display-large {
+    color: #172B4D;
+    font-size: 29px;
+    font-weight: 500;
+}
+
+.title {
+    color: #172B4D;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.heading-large {
+    color: #172B4D;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.heading-medium {
+    color: #172B4D;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.heading-small {
+    color: #172B4D;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.heading-xsmall {
+    color: #6B778C;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.body-primary{
+    color: #344563;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.body-secondary {
+    color: #7A869A;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.body-tertiary {
+    font-size: 12px;
+    color: #7A869A;
+    font-weight: 400;
+}
+
+.placeholder {
+    color: #8993A4;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.field_value  {
+    color: #42526E;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
 /* button 通用样式 */
 .button-primary {
     background: #3172E0;
@@ -29,6 +96,14 @@ a {
     background: #2355A9;
 }
 
+.button-primary .button-icon-color path {
+    fill: #FFFFFF;
+}
+
+.button-primary:disabled .button-icon-color path{
+    fill: #B3BAC5;
+}
+
 .button-standard {
     background: rgba(9,30,66,0.04);
     color: #505F79;
@@ -41,6 +116,18 @@ a {
 .button-standard:active {
     background: #E1ECFF;
     color: #3172E0;
+}
+
+.button-standard .button-icon-color path {
+    fill: #505F79;
+}
+
+.button-standard:disabled .button-icon-color path {
+    fill: #B3BAC5;
+}
+
+.button-standard:active .button-icon-color path {
+    fill: #3172E0;
 }
 
 .button-primary:disabled,.button-standard:disabled {
@@ -68,6 +155,19 @@ a {
     cursor: not-allowed;
 }
 
+.button-subtle .button-icon-color path {
+    fill: #505F79;
+}
+
+.button-subtle:disabled .button-icon-color path {
+    fill: #B3BAC5;
+}
+
+.button-subtle:active .button-icon-color path {
+    fill: #3172E0;
+}
+
+
 .button-destructive {
     background: #DE350B;
     color: #FFFFFF;
@@ -92,6 +192,48 @@ a {
 
 .button-warning:active {
     background: #FF991F;
+}
+
+.button-density-comfy {
+    height: 40px;
+    line-height: 40px;
+}
+
+.button-density-default {
+    height: 32px;
+    line-height: 32px;
+}
+
+.button-density-compact {
+    height: 24px;
+    line-height: 24px;
+}
+
+/*button group*/
+
+.button-group .button-item {
+    background: rgba(9,30,66,0.04);
+    color: #505F79;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    margin-right: 2px;
+}
+
+
+.button-group button:first-child{
+    border-radius: 4px 0 0 4px;
+}
+
+.button-group button:last-child {
+    border-radius: 0 4px 4px 0;
+    margin-right: 0;
+}
+
+.button-group .button-item.active {
+    background: #505F79;
+    color: #FFFFFF;
 }
 
 /*link 通用样式*/
@@ -1091,13 +1233,17 @@ input[type="checkbox"]+label {
 
 /*table 样式*/
 
+.bp-table {
+    position: relative;
+}
+
 .bp-table table th {
-    font-size: 12px;
-    color: #6B778C;
-    text-align: left;
-    padding: 8px;
     background: #ffffff;
-    border-bottom: 1px solid rgba(9,30,66,0.08);
+    border-bottom: 2px solid rgba(9,30,66,0.08);
+    color: #6B778C;
+    font-size: 12px;
+    padding: 8px;
+    text-align: left;
 }
 
 .bp-table table thead th {
@@ -1114,10 +1260,10 @@ input[type="checkbox"]+label {
 }
 
 .bp-table table tbody td {   
-    font-size: 14px;
-    color: #344563;
-    padding: 16px 8px;
     background: inherit;
+    color: #344563;
+    font-size: 14px;
+    padding: 16px 8px;
 }
 
 .border-table table tbody td {

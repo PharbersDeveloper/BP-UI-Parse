@@ -1,0 +1,51 @@
+{
+    "meta": {
+        "paint": [
+            "ember"
+        ],
+        "name": "refactoring-code-label"
+    },
+    "routers": [
+        {
+            "id": "page with label",
+            "type": "BPMainWindow",
+            "cat": "label",
+            "name": "labels",
+            "path": "labels",
+            "layout": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "100%"
+                }
+            ],
+            "css": [],
+            "components": [
+                {
+                    "id": "",
+                    "type": "BPLabel",
+                    "cat": "0",
+                    "name": "bp-label",
+                    "layout": [],
+                    "css": [
+                    ],
+                    "attrs": [
+                        {
+                            "name": "text",
+                            "value": "test label"
+                        }
+                    ],
+                    "styleAttrs": [
+                        {
+                            "name": "type",
+                            "value": "body-primary"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

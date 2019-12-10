@@ -52,12 +52,6 @@
                 "v": "center"
               },
               {
-                "k": "line-height",
-                "v": "32px"
-              }, {
-                "k": "height",
-                "v": "32px"
-              }, {
                 "k": "padding",
                 "v": "0 12px"
               }, {
@@ -72,6 +66,15 @@
               }, {
                   "k": "outline",
                   "v": "none"
+              }, {
+                "k": "display",
+                "v": "flex"
+              },{
+                "k": "flex-direction",
+                "v": "row"
+              }, {
+                "k": "align-items",
+                "v": "center"
               }
             ],
             "attrs": [
@@ -88,6 +91,14 @@
                 {
                     "name": "type",
                     "value": "primary"
+                }, 
+                {
+                  "name": "density",
+                  "value": "default"
+                },
+                {
+                  "name": "icon",
+                  "value": "edit"
                 }
             ],
             "events": ["click", "dblclick"]

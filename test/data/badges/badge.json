@@ -72,7 +72,54 @@
                             "k": "padding",
                             "v": "0 6px"
                         }
-                    ]
+                    ],
+                    "attrs": {
+                        "type": "primary"
+                    }
+                },
+                {
+                    "id": "test",
+                    "type": "BPBadge",
+                    "cat": "1",
+                    "text": "99+",
+                    "name": "bp-badge",
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "font-size",
+                            "v": "12px"
+                        },
+                        {
+                            "k": "text-align",
+                            "v": "center"
+                        },
+                        {
+                            "k": "line-height",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "border",
+                            "v": "0"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "8px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0 6px"
+                        }
+                    ],
+                    "attrs": {
+                        "type": "default"
+                    }
                 }
             ]
         }
