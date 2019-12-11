@@ -151,6 +151,36 @@
                         {
                             "name": "eid",
                             "value": "scatter-demo-first001"
+                        },
+                        {
+                            "name": "confReqAdd",
+                            "value": "http://127.0.0.1:5555",
+                            "type": "string"
+                        },
+                        {
+                            "name":"currentProv",
+                            "value": "全国"
+                        },
+                        {
+                            "name":"currentCity",
+                            "value": ""
+                        },
+                        {
+                            "name": "onChangeCity",
+                            "value": "function() {}",
+                            "type": "function"
+                        },
+                        {
+                            "name": "startDate",
+                            "value": "201801"
+                        },
+                        {
+                            "name": "endDate",
+                            "value": "201901"
+                        },
+                        {
+                            "name": "prodName",
+                            "value": "Viread"
                         }
                     ],
                     "css": [
@@ -189,7 +219,34 @@
                     "attrs": [
                         {
                             "name": "eid",
-                            "value": "china-demo-first001"
+                            "value": "china-demo-first001",
+                            "type": "string"
+                        },
+                        {
+                            "name": "confReqAdd",
+                            "value": "http://127.0.0.1:5555",
+                            "type": "string"
+                        },
+                        {
+                            "name":"currentProv",
+                            "value": "全国"
+                        },
+                        {
+                            "name": "onChangeProv",
+                            "value": "function() {}",
+                            "type": "function"
+                        },
+                        {
+                            "name": "startDate",
+                            "value": "201801"
+                        },
+                        {
+                            "name": "endDate",
+                            "value": "201901"
+                        },
+                        {
+                            "name": "prodName",
+                            "value": "Viread"
                         }
                     ],
                     "css": [

@@ -37,8 +37,14 @@ export default class BPChart extends BPWidget {
         const {attrs } = comp
 
         const attrsBody = attrs.map( (item: IAttrs) => {
-            return  `${item.name}: "${item.value}",`
-        })
+
+            if (item.type === "string" || !item.type) {
+                return  `${item.name}: "${item.value}",\n`
+            } else {
+                return  `${item.name}: ${item.value},\n`
+            }
+
+        }).join("")
 
         const fileData =
             `${this.importString()}
@@ -53,7 +59,10 @@ export default class BPChart extends BPWidget {
     public paintShow(comp: BPComp) {
         const {attrs, styleAttrs} = comp
         const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
-            return  ` ${item.name}="${item.value}"`
+            if (item.type  === "string") {
+                return  ` ${item.name}="${item.value}"`
+            }
+            return  ` ${item.name}=${item.value}`
         }).join("")
 
         return `<section class='chart-container'>{{${comp.name} ${attrsBody}}}</section>`
@@ -84,7 +93,6 @@ export default class BPChart extends BPWidget {
         return `layout,
                 tagName: '',
                 ajax: service(),
-                confReqAdd: "http://127.0.0.1:5555",
                 xValues: A([]),`
     }
     public lifeCycleHooks() {
