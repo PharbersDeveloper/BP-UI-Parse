@@ -100,4 +100,69 @@ export default class BPScatter extends BPChart {
             return option;
         },` + this.dataChange()
     }
+    public dataChange() {
+        return `
+        onChartReady(chart) {
+            chart.currentCity = this.currentCity
+            chart.onChangeCity = function(city) {
+                this.set("currentCity",city)
+                this.onChangeCity(city)
+            }.bind(this)
+            chart.showLoading({
+                text: '加载中...',
+                color: '#FFAB00',
+                textColor: '#fff',
+                maskColor: 'rgba(9,30,66,0.54)',
+                zlevel: 0
+            });
+        },
+        dataReady(chartData, panelConfig) {
+            this.onDataReady(chartData, panelConfig);
+        },
+        onDataReady() { },
+        onEvents: EmberObject.create({
+            click(param, echart) {
+                let clickCity = param.data[0];
+
+                echart.currentCity = clickCity
+                echart.onChangeCity(clickCity)
+            }
+        }),`
+    }
+    public lifeCycleHooks() {
+        return `init() {
+            this._super(...arguments);
+            this.set('result', {});
+            this.set('opts', {
+                renderer: 'canvas' // canvas of svg
+            });
+        },
+        didReceiveAttrs() {
+            this._super(...arguments);
+        },
+        didUpdateAttrs() {
+            this._super(...arguments);
+            const {dataConfig,dataCondition} = this;
+
+            this.generateChartOption(dataConfig, dataCondition);
+        },
+        didInsertElement() {
+            this._super(...arguments);
+
+            const chartId = this.eid;
+            this.set('chartId', chartId)
+            this.get('ajax').request(this.confReqAdd+'/chartsConfig', {
+                method: 'GET',
+                data: chartId
+            }).then(data => {
+                if (!isEmpty(data.id) && !isEmpty(data.condition)) {
+                    this.setProperties({
+                        dataConfig: data.config,
+                        dataCondition: data.condition
+                      });
+                    this.generateChartOption(data.config, data.condition);
+                }
+            })
+        },`
+    }
 }

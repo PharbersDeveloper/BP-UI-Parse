@@ -13,4 +13,5 @@ export interface IOptions {
 export interface IAttrs {
     value: any
     name: string
+    type: string
 }

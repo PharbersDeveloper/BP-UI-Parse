@@ -31,7 +31,6 @@ export default class BPChina extends BPChart {
     }
     public paintShow(comp: BPComp) {
         const showStart = "<p>需要在ember-cli-build 中添加app.import('node_modules/echarts/map/js/china.js');</p>" +
-            "<p>app.import('node_modules/echarts/map/js/province/zhejiang.js');</p>" +
             `<section class='chart-container'>{{${comp.name} eid='${comp.id}'}}</section>`
 
         return showStart
@@ -79,6 +78,11 @@ export default class BPChina extends BPChart {
     public dataChange() {
         return `
         onChartReady(chart) {
+            chart.currentProv = this.currentProv
+            chart.onChangeProv = function(prov) {
+                this.set("currentProv",prov)
+                this.onChangeProv(prov)
+            }.bind(this)
             chart.showLoading({
                 text: '加载中...',
                 color: '#FFAB00',
@@ -93,44 +97,50 @@ export default class BPChina extends BPChart {
         onDataReady() { },
         onEvents: EmberObject.create({
             click(param, echart) {
-                if (param.name === "浙江") {
-                    echart.setOption({
-                        geo: { map: param.name },
-                        series: [{ map: param.name }],
-                        dataset: {source: [
-                            ['宁波市',6409],
-                            ['绍兴市',6000],
-                            ['金华市',6818],
-                            ['温州市',6408],
-                            ['湖州市',6410]
-                        ]}
-                    })
-                } else if(param.name === "湖州市") {
-                    $.get('http://127.0.0.1:5555/huzhou', function (huzhou) {
-                        echarts.registerMap('湖州市', huzhou);
-                        echart.setOption({
-                            geo: {
-                                map: "湖州市"
-                            },
-                            series: [{
-                                map: '湖州市'
-                            }]
-                        });
-                    });
-                } else {
-                    echart.setOption({
-                        geo: { map: "china" },
-                        series: [{ map: "china" }],
-                        dataset: {source: [
-                            ['浙江',32045]
-                        ]}
-                    })
+                let clickProv = param.name;
+                let currentProv = clickProv
+                if(clickProv === echart.currentProv) {
+                    currentProv = "全国"
                 }
-            },
-            legendselectchanged(param, echart) {
-                window.console.log(param, echart);
-                alert('chart legendselectchanged');
+                echart.currentProv = currentProv
+                echart.onChangeProv(currentProv)
             }
         }),`
+    }
+    public lifeCycleHooks() {
+        return `init() {
+            this._super(...arguments);
+            this.set('result', {});
+            this.set('opts', {
+                renderer: 'canvas' // canvas of svg
+            });
+        },
+        didReceiveAttrs() {
+            this._super(...arguments);
+        },
+        didUpdateAttrs() {
+            this._super(...arguments);
+            const {dataConfig,dataCondition} = this;
+
+            this.generateChartOption(dataConfig, dataCondition);
+        },
+        didInsertElement() {
+            this._super(...arguments);
+
+            const chartId = this.eid;
+            this.set('chartId', chartId)
+            this.get('ajax').request(this.confReqAdd+'/chartsConfig', {
+                method: 'GET',
+                data: chartId
+            }).then(data => {
+                if (!isEmpty(data.id) && !isEmpty(data.condition)) {
+                    this.setProperties({
+                        dataConfig: data.config,
+                        dataCondition: data.condition
+                      });
+                    this.generateChartOption(data.config, data.condition);
+                }
+            })
+        },`
     }
 }
