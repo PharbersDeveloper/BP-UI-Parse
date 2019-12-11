@@ -1,0 +1,56 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "refactoring-code-icon"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "icons",
+        "path": "/icons",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "row"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "100%"
+          },
+          {
+            "k": "height",
+            "v": "300px"
+          }
+        ],
+  
+        "components": [
+          {
+            "id": "test",
+            "type": "BPIcon",
+            "cat": "0",
+            "icon": "cross",
+            "text": "simon test",
+            "name":"bp-icon",
+            "css": [],
+            "attrs": [
+            ],
+            "styleAttrs": [
+              {
+                "name": "color", 
+                "value": "icon-green"
+              }
+            ],
+            "events": ["click", "mouseEnter", "mouseLeave"]
+         }
+        ]
+      }
+    ]
+  }
