@@ -3,7 +3,7 @@
         "paint": [
             "ember"
         ],
-        "name": "components-test-ctx"
+        "name": "components"
     },
     "routers": [
         {
