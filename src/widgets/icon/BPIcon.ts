@@ -39,14 +39,13 @@ export default class BPIcon extends BPWidget {
             }
         }).join("")
 
-        return `{{${comp.name} ssc="ssc" emit="emit"
-            disconnect="disconnect" ${attrsBody}}}`
+        return `{{${comp.name} ssc="ssc" emit="emit" disconnect="disconnect" ${attrsBody}}}`
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
-        const {attrs, styleAttrs, events } = comp
+        const {attrs, styleAttrs, events, calcAttrs} = comp
 
         const attrsBody = attrs.map( (item: IAttrs) => {
             if (typeof item.value === "string") {
@@ -57,6 +56,7 @@ export default class BPIcon extends BPWidget {
         })
 
         let styleAttrsBody = ""
+        let calcAttrsBody  = ""
 
         styleAttrs.forEach( (item: IAttrs) => {
             if (typeof item.value === "string") {
@@ -66,17 +66,22 @@ export default class BPIcon extends BPWidget {
             }
         })
 
+        calcAttrs.forEach( (item: IAttrs) => {
+            calcAttrsBody += `${item.name}: ${item.value},`
+        })
+
         const fileData = `
         import { computed } from '@ember/object';
         export default Component.extend({
             layout,
             tagName:'div',
-            classNames:[],
+            classNames:['${comp.name}'],
             content: 'default',
             attributeBindings: [''],
             ${attrsBody}
             ${styleAttrsBody}
-            classNameBindings: ["color"],`
+            ${calcAttrsBody}
+            classNameBindings: [],`
 
         return fileDataStart + fileData + fileDataEnd
 
@@ -86,7 +91,7 @@ export default class BPIcon extends BPWidget {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
         return `${leaf.paintShow()}
-        {{svg-jar '${comp.icon}' width='24px' height='24px' class=color }}`
+        {{svg-jar iconName width='24px' height='24px' class=color }}`
     }
 
 }

@@ -1,0 +1,1122 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "reportComponents"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "report",
+        "path": "/report",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "row"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "auto"
+          },
+          {
+            "k": "height",
+            "v": "auto"
+          }
+        ],
+        "components": [
+          {
+            "id": "test",
+            "type": "BPDiv",
+            "cat": "0",
+            "name":"bp-product-card",
+            "css": [
+                {
+                    "k": "height",
+                    "v": "106px"
+                },
+                {
+                    "k": "width",
+                    "v": "218px"
+                },
+                {
+                    "k": "padding",
+                    "v": "10px 10px 8px 10px"
+                },
+                {
+                    "k": "border-radius",
+                    "v": "4px"
+                },
+                {
+                    "k": "background",
+                    "v": "#FFFFFF"
+                }, 
+                {
+                    "k": "box-shadow",
+                    "v": "0 0 1px 0 rgba(9,30,66,0.12), 0 4px 8px -2px rgba(9,30,66,0.25)"
+                },
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "flex-direction",
+                    "v": "column"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPDiv",
+                    "cat": "0",
+                    "text": "Product Name",
+                    "name":"bp-product-card-head",
+                    "css": [
+                        {
+                            "k": "height",
+                            "v": "auto"
+
+                        },
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "font-size",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "color",
+                            "v": "#3172E0"
+                        },
+                        {
+                            "k": "margin-bottom",
+                            "v": "18px"
+                        },
+                        {
+                            "k": "font-weight",
+                            "v": "500"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPDiv",
+                    "cat": "0",
+                    "name":"bp-product-card-content",
+                    "css": [
+                        {
+                            "k": "height",
+                            "v": "auto"
+
+                        },
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "display",
+                            "v": "flex"
+                        },
+                        {
+                            "k": "flex-direction",
+                            "v": "row"
+                        },
+                        {
+                            "k": "justify-content",
+                            "v": "space-between"
+                        }
+                    ],
+                    "components": [
+                        {
+                            "id": "test",
+                            "type": "BPDiv",
+                            "cat": "0",
+                            "name":"bp-product-card-content-ei",
+                            "css": [
+                                {
+                                    "k": "height",
+                                    "v": "auto"
+        
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "100%"
+                                },
+                                {
+                                    "k": "display",
+                                    "v": "flex"
+                                },
+                                {
+                                    "k": "flex-direction",
+                                    "v": "column"
+                                }
+                            ],
+                            "components": [
+                                {
+                                    "id": "test",
+                                    "type": "BPDiv",
+                                    "cat": "0",
+                                    "text": "EI",
+                                    "name":"bp-product-card-content-ei-text",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "auto"
+                
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "max-content"
+                                        },
+                                        {
+                                            "k": "font-size",
+                                            "v": "12px"
+                                        },
+                                        {
+                                            "k": "color",
+                                            "v": "#6B778C"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "test",
+                                    "type": "BPDiv",
+                                    "cat": "0",
+                                    "text": "98",
+                                    "name":"bp-product-card-content-data-ei",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "auto"
+                
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "max-content"
+                                        },
+                                        {
+                                            "k": "font-size",
+                                            "v": "24px"
+                                        },
+                                        {
+                                            "k": "color",
+                                            "v": "#172B4D"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "name",
+                            "type": "BPDiv",
+                            "cat": "0",
+                            "name": "bp-product-card-content-sales",
+                            "css": [
+                                {
+                                    "k": "height",
+                                    "v": "auto"
+        
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "100%"
+                                },
+                                {
+                                    "k": "display",
+                                    "v": "flex"
+                                },
+                                {
+                                    "k": "flex-direction",
+                                    "v": "column"
+                                }
+                            ],
+                            "components": [
+                                {
+                                    "id": "test",
+                                    "type": "BPDiv",
+                                    "cat": "0",
+                                    "name": "bp-product-card-content-sales-box",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "auto"
+                
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "max-content"
+                                        },
+                                        {
+                                            "k": "display",
+                                            "v": "flex"
+                                        },
+                                        {
+                                            "k": "flex-direction",
+                                            "v": "row"
+                                        }
+                                    ],
+                                    "components":[
+                                        {
+                                            "id": "test",
+                                            "type": "BPDiv",
+                                            "cat": "0",
+                                            "text": "产品销量",
+                                            "name": "bp-product-card-content-sales-text",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "auto"
+                        
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "max-content"
+                                                },
+                                                {
+                                                    "k": "color",
+                                                    "v": "#6B778C"
+                                                },
+                                                {
+                                                    "k": "font-size",
+                                                    "v": "12px"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "test",
+                                            "type": "BPTag",
+                                            "cat": "0",
+                                            "text": "TOP 1",
+                                            "name": "bp-product-card-content-sales-tag",
+                                            "css": [
+                                                {
+                                                  "k": "width",
+                                                  "v": "auto"
+                                                },
+                                                {
+                                                  "k": "height",
+                                                  "v": "20px"
+                                                },
+                                                  {
+                                                      "k": "padding",
+                                                      "v": "0 4px"
+                                                  },
+                                                {
+                                                  "k": "border-radius",
+                                                  "v": "4px"
+                                                },
+                                                {
+                                                  "k": "font-size",
+                                                  "v": "14px"
+                                                },
+                                                {
+                                                  "k": "text-align",
+                                                  "v": "center"
+                                                },
+                                                {
+                                                  "k": "line-height",
+                                                  "v": "20px"
+                                                },
+                                                {
+                                                    "k": "margin-left",
+                                                    "v": "5px"
+                                                }
+                                              ],
+                                              "attrs": [
+                                                {
+                                                    "name": "index",
+                                                    "value": 0
+                                                }
+                                              ],
+                                              "styleAttrs": [
+                                                {
+                                                  "name": "type", 
+                                                  "value": "default"
+                                                },
+                                                {
+                                                  "name": "subtle",
+                                                  "value": true
+                                                }
+                                              ],
+                                              "events": ["click", "mouseEnter", "mouseLeave"],
+                                              "calcAttrs": [
+                                                  {
+                                                      "name": "show",
+                                                      "value": "computed('index', function(){ return this.get('index') < 3 })"
+                                                  },
+                                                  {
+                                                    "name": "tagContent",
+                                                    "value": "computed('index', function(){ return 'TOP ' + (this.get('index')+1) })"
+                                                  }
+                                              ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "test",
+                                    "type": "BPDiv",
+                                    "cat": "0",
+                                    "name": "bp-product-card-content-sales-data",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "auto"
+                
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "max-content"
+                                        },
+                                        {
+                                            "k": "display",
+                                            "v": "flex"
+                                        },
+                                        {
+                                            "k": "flex-direction",
+                                            "v": "row"
+                                        },
+                                        {
+                                            "k": "align-items",
+                                            "v": "center"
+                                        },
+                                        {
+                                            "k": "margin-top",
+                                            "v": "4px"
+                                        }
+                                    ],
+                                    "components": [
+                                        {
+                                            "id": "test",
+                                            "type": "BPDiv",
+                                            "cat": "0",
+                                            "text": "89",
+                                            "name": "bp-product-card-content-data-sales-a",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "auto"
+                        
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "max-content"
+                                                },
+                                                {
+                                                    "k": "font-size",
+                                                    "v": "16px"
+                                                },
+                                                {
+                                                    "k": "color",
+                                                    "v": "#172B4D"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "test",
+                                            "type": "BPDiv",
+                                            "cat": "0",
+                                            "text": "Mn",
+                                            "name": "bp-product-card-content-data-sales-b",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "auto"
+                        
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "max-content"
+                                                },
+                                                {
+                                                    "k": "font-size",
+                                                    "v": "12px"
+                                                },
+                                                {
+                                                    "k": "color",
+                                                    "v": "#7A869A"
+                                                },
+                                                {
+                                                    "k": "margin-left",
+                                                    "v": "2px"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "test",
+                                            "type": "BPDiv",
+                                            "cat": "0",
+                                            "text": "12.1%",
+                                            "name": "bp-product-card-content-data-sales-c",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "auto"
+                        
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "max-content"
+                                                },
+                                                {
+                                                    "k": "font-size",
+                                                    "v": "12px"
+                                                },
+                                                {
+                                                    "k": "color",
+                                                    "v": "#00875A"
+                                                },
+                                                {
+                                                    "k": "margin-left",
+                                                    "v": "8px"
+                                                }
+                                            ],
+                                            "attrs": [
+                                                {
+                                                    "name": "value",
+                                                    "value": 12.1
+                                                }
+                                            ],
+                                            "styleAttrs": [
+                                                {
+                                                    "name": "textColorRed",
+                                                    "value": "textColorRed"
+                                                }
+                                            ],
+                                            "calcAttrs": [
+                                                {
+                                                    "name": "textColorRed",
+                                                    "value": "computed('value', function(){ return this.get('value') < 0 })"
+                                                }
+                                            ]
+
+                                        },
+                                        {
+                                            "id": "test",
+                                            "type": "BPIcon",
+                                            "cat": "0",
+                                            "name": "bp-product-card-content-data-sales-d",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "24px"
+                        
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "24px"
+                                                },
+                                                {
+                                                    "k": "margin-bottom",
+                                                    "v": "2px"
+                                                }
+                                            ],
+                                            "attrs": [
+                                                {
+                                                    "name": "value",
+                                                    "value": 12.2
+                                                }
+                                            ],
+                                            "styleAttrs": [
+                                              {
+                                                "name": "color", 
+                                                "value": null
+                                              }
+                                            ],
+                                            "events": ["click", "mouseEnter", "mouseLeave"],
+                                            "calcAttrs": [
+                                                {
+                                                    "name": "iconName",
+                                                    "value":"computed('value', function(){ if (this.get('value') > 0) { return 'priority-high' } else { return 'priority-low' } })"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]   
+                        }
+                    ]
+                }
+            ],
+            "attrs": [
+            
+            ],
+            "styleAttrs": [
+              
+            ],
+            "events": ["click"]
+          },
+          {
+            "id": "test",
+            "type": "BPDiv",
+            "cat": "0",
+            "name":"bp-product-card-active",
+            "css": [
+                {
+                    "k": "height",
+                    "v": "106px"
+                },
+                {
+                    "k": "width",
+                    "v": "218px"
+                },
+                {
+                    "k": "padding",
+                    "v": "10px 10px 8px 10px"
+                },
+                {
+                    "k": "border-radius",
+                    "v": "4px"
+                },
+                {
+                    "k": "background",
+                    "v": "#2355A9"
+                }, 
+                {
+                    "k": "box-shadow",
+                    "v": "0 0 1px 0 rgba(9,30,66,0.12), 0 4px 8px -2px rgba(9,30,66,0.25)"
+                },
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "flex-direction",
+                    "v": "column"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPDiv",
+                    "cat": "0",
+                    "text": "Product Name",
+                    "name":"bp-product-card-head-active",
+                    "css": [
+                        {
+                            "k": "height",
+                            "v": "auto"
+
+                        },
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "font-size",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "color",
+                            "v": "#FFFFFF"
+                        },
+                        {
+                            "k": "margin-bottom",
+                            "v": "18px"
+                        },
+                        {
+                            "k": "font-weight",
+                            "v": "500"
+                        },
+                        {
+                            "k": "background",
+                            "v": "transparent"
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPDiv",
+                    "cat": "0",
+                    "name":"bp-product-card-content-active",
+                    "css": [
+                        {
+                            "k": "height",
+                            "v": "auto"
+
+                        },
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "display",
+                            "v": "flex"
+                        },
+                        {
+                            "k": "flex-direction",
+                            "v": "row"
+                        },
+                        {
+                            "k": "justify-content",
+                            "v": "space-between"
+                        },
+                        {
+                            "k": "background",
+                            "v": "transparent"
+                        }
+                    ],
+                    "components": [
+                        {
+                            "id": "test",
+                            "type": "BPDiv",
+                            "cat": "0",
+                            "name":"bp-product-card-content-ei-active",
+                            "css": [
+                                {
+                                    "k": "height",
+                                    "v": "auto"
+        
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "100%"
+                                },
+                                {
+                                    "k": "display",
+                                    "v": "flex"
+                                },
+                                {
+                                    "k": "flex-direction",
+                                    "v": "column"
+                                },
+                                {
+                                    "k": "background",
+                                    "v": "transparent"
+                                }
+                            ],
+                            "components": [
+                                {
+                                    "id": "test",
+                                    "type": "BPDiv",
+                                    "cat": "0",
+                                    "text": "EI",
+                                    "name":"bp-product-card-content-ei-text-active",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "auto"
+                
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "max-content"
+                                        },
+                                        {
+                                            "k": "font-size",
+                                            "v": "12px"
+                                        },
+                                        {
+                                            "k": "color",
+                                            "v": " rgba(255,255,255,0.95)"
+                                        },
+                                        {
+                                            "k": "background",
+                                            "v": "transparent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "test",
+                                    "type": "BPDiv",
+                                    "cat": "0",
+                                    "text": "98",
+                                    "name":"bp-product-card-content-data-ei-active",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "auto"
+                
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "max-content"
+                                        },
+                                        {
+                                            "k": "font-size",
+                                            "v": "24px"
+                                        },
+                                        {
+                                            "k": "color",
+                                            "v": "#FFFFFF"
+                                        },
+                                        {
+                                            "k": "background",
+                                            "v": "transparent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "name",
+                            "type": "BPDiv",
+                            "cat": "0",
+                            "name": "bp-product-card-content-sales-active",
+                            "css": [
+                                {
+                                    "k": "height",
+                                    "v": "auto"
+        
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "100%"
+                                },
+                                {
+                                    "k": "display",
+                                    "v": "flex"
+                                },
+                                {
+                                    "k": "flex-direction",
+                                    "v": "column"
+                                },
+                                {
+                                    "k": "background",
+                                    "v": "transparent"
+                                }
+                            ],
+                            "components": [
+                                {
+                                    "id": "test",
+                                    "type": "BPDiv",
+                                    "cat": "0",
+                                    "name": "bp-product-card-content-sales-box-active",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "auto"
+                
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "max-content"
+                                        },
+                                        {
+                                            "k": "display",
+                                            "v": "flex"
+                                        },
+                                        {
+                                            "k": "flex-direction",
+                                            "v": "row"
+                                        },
+                                        {
+                                            "k": "background",
+                                            "v": "transparent"
+                                        }
+                                    ],
+                                    "components":[
+                                        {
+                                            "id": "test",
+                                            "type": "BPDiv",
+                                            "cat": "0",
+                                            "text": "产品销量",
+                                            "name": "bp-product-card-content-sales-text-active",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "auto"
+                        
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "max-content"
+                                                },
+                                                {
+                                                    "k": "color",
+                                                    "v": "rgba(255,255,255,0.95)"
+                                                },
+                                                {
+                                                    "k": "font-size",
+                                                    "v": "12px"
+                                                },
+                                                {
+                                                    "k": "background",
+                                                    "v": "transparent"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "test",
+                                            "type": "BPTag",
+                                            "cat": "0",
+                                            "text": "TOP 1",
+                                            "name": "bp-product-card-content-sales-tag-active",
+                                            "css": [
+                                                {
+                                                  "k": "width",
+                                                  "v": "auto"
+                                                },
+                                                {
+                                                  "k": "height",
+                                                  "v": "20px"
+                                                },
+                                                  {
+                                                      "k": "padding",
+                                                      "v": "0 4px"
+                                                  },
+                                                {
+                                                  "k": "border-radius",
+                                                  "v": "4px"
+                                                },
+                                                {
+                                                  "k": "font-size",
+                                                  "v": "14px"
+                                                },
+                                                {
+                                                  "k": "text-align",
+                                                  "v": "center"
+                                                },
+                                                {
+                                                  "k": "line-height",
+                                                  "v": "20px"
+                                                },
+                                                {
+                                                    "k": "margin-left",
+                                                    "v": "5px"
+                                                },
+                                                {
+                                                    "k": "background",
+                                                    "v": "#FFFFFF"
+                                                },
+                                                {
+                                                    "k": "color",
+                                                    "v": "#2355A9"
+                                                }
+                                              ],
+                                              "attrs": [
+                                                {
+                                                  "name": "index",
+                                                  "value": 0
+                                                }
+                                              ],
+                                              "styleAttrs": [
+                                                {
+                                                  "name": "type", 
+                                                  "value": ""
+                                                },
+                                                {
+                                                  "name": "subtle",
+                                                  "value": true
+                                                }
+                                              ],
+                                              "events": ["click", "mouseEnter", "mouseLeave"],
+                                              "calcAttrs": [
+                                                {
+                                                    "name": "show",
+                                                    "value": "computed('index', function(){ return this.get('index') < 3 })"
+                                                },
+                                                {
+                                                  "name": "tagContent",
+                                                  "value": "computed('index', function(){ return 'TOP ' + (this.get('index')+1) })"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "test",
+                                    "type": "BPDiv",
+                                    "cat": "0",
+                                    "name": "bp-product-card-content-sales-data-active",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "auto"
+                
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "max-content"
+                                        },
+                                        {
+                                            "k": "display",
+                                            "v": "flex"
+                                        },
+                                        {
+                                            "k": "flex-direction",
+                                            "v": "row"
+                                        },
+                                        {
+                                            "k": "align-items",
+                                            "v": "center"
+                                        },
+                                        {
+                                            "k": "margin-top",
+                                            "v": "4px"
+                                        },
+                                        {
+                                            "k": "background",
+                                            "v": "transparent"
+                                        }
+                                    ],
+                                    "components": [
+                                        {
+                                            "id": "test",
+                                            "type": "BPDiv",
+                                            "cat": "0",
+                                            "text": "89",
+                                            "name": "bp-product-card-content-data-sales-a-active",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "auto"
+                        
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "max-content"
+                                                },
+                                                {
+                                                    "k": "font-size",
+                                                    "v": "16px"
+                                                },
+                                                {
+                                                    "k": "color",
+                                                    "v": "#FFFFFF"
+                                                },
+                                                {
+                                                    "k": "background",
+                                                    "v": "transparent"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "test",
+                                            "type": "BPDiv",
+                                            "cat": "0",
+                                            "text": "Mn",
+                                            "name": "bp-product-card-content-data-sales-b-active",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "auto"
+                        
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "max-content"
+                                                },
+                                                {
+                                                    "k": "font-size",
+                                                    "v": "12px"
+                                                },
+                                                {
+                                                    "k": "color",
+                                                    "v": "rgba(255,255,255,0.45)"
+                                                },
+                                                {
+                                                    "k": "margin-left",
+                                                    "v": "2px"
+                                                },
+                                                {
+                                                    "k": "background",
+                                                    "v": "transparent"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "test",
+                                            "type": "BPDiv",
+                                            "cat": "0",
+                                            "text": "12.1%",
+                                            "name": "bp-product-card-content-data-sales-c-active",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "auto"
+                        
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "max-content"
+                                                },
+                                                {
+                                                    "k": "font-size",
+                                                    "v": "12px"
+                                                },
+                                                {
+                                                    "k": "color",
+                                                    "v": "#FFFFFF"
+                                                },
+                                                {
+                                                    "k": "margin-left",
+                                                    "v": "8px"
+                                                },
+                                                {
+                                                    "k": "background",
+                                                    "v": "transparent"
+                                                }
+                                            ]
+
+                                        },
+                                        {
+                                            "id": "test",
+                                            "type": "BPIcon",
+                                            "cat": "0",
+                                            "icon": "increase",
+                                            "name": "bp-product-card-content-data-sales-d-active",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "24px"
+                        
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "24px"
+                                                },
+                                                {
+                                                    "k": "background",
+                                                    "v": "transparent"
+                                                },
+                                                {
+                                                    "k": "margin-bottom",
+                                                    "v": "2px"
+                                                }
+                                            ],
+                                            "attrs": [
+                                                {
+                                                    "name": "value",
+                                                    "value": 12.2
+                                                }
+                                            ],
+                                            "styleAttrs": [
+                                              {
+                                                "name": "color", 
+                                                "value": "icon-white"
+                                              }
+                                            ],
+                                            "events": ["click", "mouseEnter", "mouseLeave"],
+                                            "calcAttrs": [
+                                                {
+                                                    "name": "iconName",
+                                                    "value":"computed('value', function(){ if (this.get('value') > 0) { return 'priority-high' } else { return 'priority-low' } })"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]   
+                        }
+                    ]
+                }
+            ],
+            "attrs": [
+            
+            ],
+            "styleAttrs": [
+              
+            ],
+            "events": ["click"]
+          }
+        ]
+      }
+    ]
+  }

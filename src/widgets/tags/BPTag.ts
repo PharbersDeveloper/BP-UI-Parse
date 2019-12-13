@@ -40,15 +40,14 @@ export default class BPTag extends BPWidget {
             }
         }).join("")
 
-        return `{{${comp.name} ssc="ssc" emit="emit"
-            disconnect="disconnect" ${attrsBody}}}`
+        return `{{${comp.name} ssc="ssc" emit="emit" disconnect="disconnect" ${attrsBody}}}`
         // return "{{#" + comp.name + "}}" + comp.text + "{{/" + comp.name + "}}"
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
-        const {attrs, styleAttrs, events } = comp
+        const {attrs, styleAttrs, events, calcAttrs } = comp
 
         const attrsBody = attrs.map( (item: IAttrs) => {
             if (typeof item.value === "string") {
@@ -59,6 +58,7 @@ export default class BPTag extends BPWidget {
         })
         let styleAttrsBody = ""
         let classNameBindings = ""
+        let calcAttrsBody = ""
 
         styleAttrs.forEach( (item: IAttrs) => {
             if (typeof item.value === "string") {
@@ -69,6 +69,10 @@ export default class BPTag extends BPWidget {
             classNameBindings += `'${item.name}',`
         })
 
+        calcAttrs.forEach( (item: IAttrs) => {
+            calcAttrsBody += `${item.name}: ${item.value},`
+        })
+
         const fileData = `
         import { computed } from '@ember/object';
         export default Component.extend({
@@ -77,10 +81,10 @@ export default class BPTag extends BPWidget {
             classNames:['${comp.name}'],
             content: 'default',
             attributeBindings: [''],
-            tagContent: null,
             ${attrsBody}
             ${styleAttrsBody}
-            classNameBindings: ["currentStyle", "currentType"],
+            ${calcAttrsBody}
+            classNameBindings: ["currentStyle", "currentType", "show::display-none"],
             currentStyle: computed('subtle', function () {
                 let isSubtle = this.get('subtle')
                 if (isSubtle) {

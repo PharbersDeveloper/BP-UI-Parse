@@ -1555,3 +1555,12 @@ input[type="checkbox"]+label {
     background-color: #fff;
 }
 /* bp-badge */
+
+
+.textColorRed {
+    color: #FF5630 !important;
+}
+
+.display-none {
+    display: none;
+}
