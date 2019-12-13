@@ -29,20 +29,6 @@ export default class BPLine extends BPChart {
 
         return execList
     }
-    public importString() {
-        return `import { isEmpty, typeOf } from '@ember/utils';
-        import { isArray } from '@ember/array';
-        import echarts from 'echarts';
-        import $ from 'jquery';
-        import { inject as service } from '@ember/service';
-        import { all } from 'rsvp';`
-    }
-    public basicProp() {
-        return `layout,
-                tagName: '',
-                ajax: service(),
-                confReqAdd: "http://127.0.0.1:5555",`
-    }
 
     public updateChart() {
         return `updateChartData(chartConfig, chartData) {
@@ -56,6 +42,42 @@ export default class BPLine extends BPChart {
 
             echartInit.hideLoading();
         },` + this.calcLinesNumber() + this.depLogic()
+    }
+    public lifeCycleHooks() {
+        return `init() {
+            this._super(...arguments);
+            this.set('result', {});
+            this.set('opts', {
+                renderer: 'canvas' // canvas of svg
+            });
+        },
+        didReceiveAttrs() {
+            this._super(...arguments);
+        },
+        didUpdateAttrs() {
+            this._super(...arguments);
+            const {dataConfig,dataCondition} = this;
+
+            this.generateChartOption(dataConfig, dataCondition);
+        },
+        didInsertElement() {
+            this._super(...arguments);
+
+            const chartId = this.eid;
+            this.set('chartId', chartId)
+            this.get('ajax').request(this.confReqAdd+'/chartsConfig', {
+                method: 'GET',
+                data: chartId
+            }).then(data => {
+                if (!isEmpty(data.id) && !isEmpty(data.condition)) {
+                    this.setProperties({
+                        dataConfig: data.config,
+                        dataCondition: data.condition
+                      });
+                    this.generateChartOption(data.config, data.condition);
+                }
+            })
+        },`
     }
     private calcLinesNumber() {
         return 	`calculateLinesNumber(panelConfig, chartData) {

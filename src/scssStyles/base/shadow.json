@@ -9,15 +9,19 @@
                     "value": "0px"
                 },
                 "micro": {
-                    "value": "1px",
+                    "right": {
+                        "value": "1px"
+                    },
                     "left": {
-                        "value": "{offset.x.expand.micro.value}"
+                        "value": "-1 * $offset-x-expand-micro-right"
                     }
                 },
                 "1x": {
-                    "value": "4px",
+                    "right": {
+                        "value": "4px"
+                    },
                     "left": {
-                        "value": "{offset.x.expand.1x.value}"
+                        "value": "-1 * $offset-x-expand-1x-right"
                     }
                 }
             }
@@ -94,7 +98,7 @@
     },
     "depth": {
         "basic": {
-            "vale": "$offset-x-basic $offset-y-basic $blur-basic $spread-basic $color-depth-basic"
+            "value": "$offset-x-basic $offset-y-basic $blur-basic $spread-basic $color-depth-basic"
         },
         "expand": {
             "100": {
@@ -150,7 +154,7 @@
                     "value": "$offset-x-expand-1x-left $offset-y-none $blur-expand-1x $spread-expand-1x $color-depth-expand"
                 },
                 "right": {
-                    "value": "$offset-x-expand-1x $offset-y-none $blur-expand-1x $spread-expand-1x  $color-depth-expand"
+                    "value": "$offset-x-expand-1x-right $offset-y-none $blur-expand-1x $spread-expand-1x  $color-depth-expand"
                 }
             }
         }

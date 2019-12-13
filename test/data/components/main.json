@@ -1702,7 +1702,7 @@
                         },
                         {
                             "name": "confReqAdd",
-                            "value": "http://127.0.0.1:5555",
+                            "value": "http://192.168.100.25:5555",
                             "type": "string"
                         },
                         {
@@ -1767,7 +1767,7 @@
                         },
                         {
                             "name": "confReqAdd",
-                            "value": "http://127.0.0.1:5555",
+                            "value": "http://192.168.100.25:5555",
                             "type": "string"
                         },
                         {
@@ -1794,6 +1794,290 @@
                         {
                             "name": "prodName",
                             "value": "Viread"
+                        }
+                    ],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "height",
+                            "v": "400px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },
+                        {
+                            "k": "margin",
+                            "v": "0"
+                        },
+                        {
+                            "k": "position",
+                            "v": "relative"
+                        },
+                        {
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ]
+                },
+                {
+                    "id": "line-demo-first001",
+                    "type": "BPLine",
+                    "cat": "0",
+                    "name": "bp-line",
+                    "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "line-demo-first001"
+                        },
+                        {
+                            "name": "confReqAdd",
+                            "value": "http://192.168.100.25:5555",
+                            "type": "string"
+                        },
+                        {
+                            "name":"currentProv",
+                            "value": "全国"
+                        },
+                        {
+                            "name":"currentCity",
+                            "value": ""
+                        },
+                        {
+                            "name": "startDate",
+                            "value": "201801"
+                        },
+                        {
+                            "name": "endDate",
+                            "value": "201901"
+                        },
+                        {
+                            "name": "prodName",
+                            "value": "Viread"
+                        }
+                    ],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "height",
+                            "v": "400px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },
+                        {
+                            "k": "margin",
+                            "v": "0"
+                        },
+                        {
+                            "k": "position",
+                            "v": "relative"
+                        },
+                        {
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ]
+                },
+                {
+                    "id": "stack-demo-first001",
+                    "type": "BPStack",
+                    "cat": "0",
+                    "name": "bp-stack",
+                    "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "stack-demo-first001"
+                        },
+                        {
+                            "name": "confReqAdd",
+                            "value": "http://192.168.100.25:5555",
+                            "type": "string"
+                        },
+                        {
+                            "name":"currentProv",
+                            "value": "全国"
+                        },
+                        {
+                            "name":"currentCity",
+                            "value": ""
+                        },
+                        {
+                            "name": "startDate",
+                            "value": "201801"
+                        },
+                        {
+                            "name": "endDate",
+                            "value": "201901"
+                        },
+                        {
+                            "name": "prodName",
+                            "value": "Viread"
+                        }
+                    ],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "height",
+                            "v": "400px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },
+                        {
+                            "k": "margin",
+                            "v": "0"
+                        },
+                        {
+                            "k": "position",
+                            "v": "relative"
+                        },
+                        {
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ]
+                },
+                {
+                    "id": "bar-demo-first001",
+                    "type": "BPBar",
+                    "cat": "0",
+                    "name": "bp-bar",
+                    "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "bar-demo-first001"
+                        }
+                    ],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "height",
+                            "v": "400px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },
+                        {
+                            "k": "margin",
+                            "v": "0"
+                        },
+                        {
+                            "k": "position",
+                            "v": "relative"
+                        },
+                        {
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ]
+                },
+                {
+                    "id": "pie-demo-first001",
+                    "type": "BPPie",
+                    "cat": "0",
+                    "name": "bp-pie",
+                    "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "pie-demo-first001"
+                        }
+                    ],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "height",
+                            "v": "400px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },
+                        {
+                            "k": "margin",
+                            "v": "0"
+                        },
+                        {
+                            "k": "position",
+                            "v": "relative"
+                        },
+                        {
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ]
+                },
+                {
+                    "id": "barline-demo-first001",
+                    "type": "BPBarLine",
+                    "cat": "0",
+                    "name": "bp-bar-line",
+                    "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "barline-demo-first001"
+                        }
+                    ],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "height",
+                            "v": "400px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },
+                        {
+                            "k": "margin",
+                            "v": "0"
+                        },
+                        {
+                            "k": "position",
+                            "v": "relative"
+                        },
+                        {
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ]
+                },
+                {
+                    "id": "radar-demo-first001",
+                    "type": "BPRadar",
+                    "cat": "0",
+                    "name": "bp-radar",
+                    "layout": [],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "radar-demo-first001"
                         }
                     ],
                     "css": [

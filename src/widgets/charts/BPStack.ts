@@ -42,6 +42,42 @@ export default class BPStack extends BPChart {
             echartInit.hideLoading();
         },` + this.calcBarsNumber() + this.depLogic()
     }
+    public lifeCycleHooks() {
+        return `init() {
+            this._super(...arguments);
+            this.set('result', {});
+            this.set('opts', {
+                renderer: 'canvas' // canvas of svg
+            });
+        },
+        didReceiveAttrs() {
+            this._super(...arguments);
+        },
+        didUpdateAttrs() {
+            this._super(...arguments);
+            const {dataConfig,dataCondition} = this;
+
+            this.generateChartOption(dataConfig, dataCondition);
+        },
+        didInsertElement() {
+            this._super(...arguments);
+
+            const chartId = this.eid;
+            this.set('chartId', chartId)
+            this.get('ajax').request(this.confReqAdd+'/chartsConfig', {
+                method: 'GET',
+                data: chartId
+            }).then(data => {
+                if (!isEmpty(data.id) && !isEmpty(data.condition)) {
+                    this.setProperties({
+                        dataConfig: data.config,
+                        dataCondition: data.condition
+                      });
+                    this.generateChartOption(data.config, data.condition);
+                }
+            })
+        },`
+    }
     private calcBarsNumber() {
         return 	`calcBarsNumber(panelConfig, chartData) {
             let barsNumber = chartData[0].length - 1,
