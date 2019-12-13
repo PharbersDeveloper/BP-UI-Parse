@@ -1,11 +1,11 @@
 "use strict"
 
 import * as fs from "fs"
-
 import * as path from "path"
 import phLogger from "../logger/phLogger"
 import { BashExec } from "./bashexec"
 
+// 移动 svg file
 export class AddSvgFiles extends BashExec {
     protected cmd = "ember"
 

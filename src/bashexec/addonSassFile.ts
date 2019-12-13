@@ -6,7 +6,7 @@ import phLogger from "../logger/phLogger"
 import BPComp from "../widgets/Comp"
 import { BashExec } from "./bashexec"
 
-export class EmberShowExec extends BashExec {
+export class AddonShowExec extends BashExec {
     protected cmd = "ember"
     protected component: BPComp = null
     constructor(output: string, name: string, routeName: string, component: BPComp) {
@@ -62,7 +62,7 @@ export class EmberShowExec extends BashExec {
         if (!existFile) {
             fs.mkdirSync(outputPath, { recursive: true })
         }
-        fs.appendFileSync(outputPath + "/addon.css", fileData)
+        fs.appendFileSync(outputPath + "/addon.scss", fileData)
 
     }
     private  fsExistsSync(path: string) {

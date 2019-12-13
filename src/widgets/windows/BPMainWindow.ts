@@ -18,9 +18,7 @@ export default class BPMainWindow extends BPWidget {
         const firstCmds = ctx.cmdStart()
         const bodyCmds = ctx.paintMW(this, components)
         const endCmds = ctx.cmdEnd()
+
         return [...firstCmds, ...bodyCmds, ...endCmds]
-
-        // return [ ...endCmds]
-
     }
 }
