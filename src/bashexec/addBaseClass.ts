@@ -3,7 +3,7 @@
 import * as fs from "fs"
 import phLogger from "../logger/phLogger"
 import { BashExec } from "./bashexec"
-
+// 将 base.css 的内容移动到项目的 addonName/addon/styles/_base.scss 内。
 export class AddBaseClass extends BashExec {
     protected cmd = "ember"
 
@@ -24,11 +24,14 @@ export class AddBaseClass extends BashExec {
         const outputPath = output + "/" + pName + "/addon/styles/"
         const inputPath = process.argv[1] + "/test/data/styles/base.css"
         const baseStyleClass = fs.readFileSync(inputPath, "utf8")
-        fs.writeFileSync(outputPath + "base.css", baseStyleClass)
+        fs.writeFileSync(outputPath + "_base.scss", baseStyleClass)
 
-        const addonStyle = fs.readFileSync(outputPath + "addon.css", "utf8")
-        const impData = "@import './base.css';" + "\r"
-        fs.writeFileSync(outputPath + "addon.css", impData + addonStyle)
+        const addonStyle = fs.readFileSync(outputPath + "addon.scss", "utf8")
+
+        const impData = `@import './base';\n@import "./class.scss";
+        @import "./mixin.scss";\n@import "./variables.scss";` + "\r"
+
+        fs.writeFileSync(outputPath + "addon.scss", impData + addonStyle)
 
     }
 

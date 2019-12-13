@@ -2,7 +2,7 @@
 
 import phLogger from "../logger/phLogger"
 import { BashExec } from "./bashexec"
-
+// 生成公有样式 scss 变量，为以后的插件使用 scss 作准备。
 export class SassyStyles extends BashExec {
     constructor(outputPath: string, projectName: string) {
         super()

@@ -49,7 +49,8 @@ export class CompExec extends BashExec {
         if (!existFile) {
             fs.mkdirSync(outputPath, { recursive: true })
         }
-        fs.appendFileSync(outputPath + "/addon.css", options.styleData)
+
+        fs.appendFileSync(outputPath + "/addon.scss", options.styleData)
     }
     private fsExistsSync(path: string) {
         try {

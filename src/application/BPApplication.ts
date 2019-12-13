@@ -63,7 +63,6 @@ export default class BPApplication extends BPObject {
 
             mw.routeName = router.name
             // end 将 components 放入 mw
-            // phLogger.info(mw.components[1].components[1])
             this.routers.push(mw)
         })
         return true

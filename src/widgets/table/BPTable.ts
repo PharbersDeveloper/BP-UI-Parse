@@ -49,7 +49,6 @@ export default class BPTable extends BPWidget {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
         const {attrs, styleAttrs, events } = comp
-
         const attrsBody = attrs.map( (item: IAttrs) => {
             if (typeof item.value === "string") {
                 return `${item.name}: '${item.value}',`

@@ -10,54 +10,13 @@ import { CdExec } from "../bashexec/cdExec"
 import { EmberGenExec } from "../bashexec/emberGenExec"
 import { EmberInstallDepExec } from "../bashexec/emberInstallDepExec"
 import { EmberYarnExec } from "../bashexec/emberYarn"
+import {GenCompList} from "../bashexec/genCompList"
 import { GenMWStylesExec } from "../bashexec/genMWStylesExec"
 import { RemoveFolderExec } from "../bashexec/removeFolderExec"
 import { SassyStyles } from "../bashexec/sassyStyles"
 import phLogger from "../logger/phLogger"
-import BPAddItem from "../widgets/addItem/BPAddItem"
-import BPBadge from "../widgets/badges/BPBadge"
-import BPItem from "../widgets/basic/BPItem"
-import { BPWidget } from "../widgets/BPWidget"
-import BPBreadcrumbs from "../widgets/breadcrumbs/BPBreadcrumbs"
-import BPButtonGroup from "../widgets/buttons/BPButtonGroup"
-import BPButtonItem from "../widgets/buttons/BPButtonItem"
-import BPPushButton from "../widgets/buttons/BPPushButton"
-import { BPBar , BPBarLine, BPChina, BPLine, BPPie, BPRadar, BPScatter, BPStack} from "../widgets/charts/charts"
-import BPCheckbox from "../widgets/checkbox/BPCheckbox"
 import BPComp from "../widgets/Comp"
-import BPDatePicker from "../widgets/datePicker/BPDatePicker"
-import BPDiv from "../widgets/div/BPDiv"
-import BPDivider from "../widgets/divider/BPDivider"
-import BPOption from "../widgets/dropdown/BPOption"
-import BPSelect from "../widgets/dropdown/BPSelect"
-import BPEmptyState from "../widgets/emptyState/BPEmptyState"
-import BPIcon from "../widgets/icon/BPIcon"
-import BPImg from "../widgets/img/BPImg"
-import BPInput from "../widgets/inputs/BPInput"
-import BPLabel from "../widgets/label/BPLabel"
-import BPLink from "../widgets/link/BPLink"
-import BPModal from "../widgets/modal/BPModal"
-import BPMenu from "../widgets/navs/BPMenu"
-import BPMenuItem from "../widgets/navs/BPMenuItem"
-import BPStackLayout from "../widgets/navs/BPStackLayout"
-import BPSubMenu from "../widgets/navs/BPSubMenu"
-import BPTab from "../widgets/navs/BPTab"
-import BPTabBar from "../widgets/navs/BPTabBar"
-import BPTabButton from "../widgets/navs/BPTabButton"
-import BPPagination from "../widgets/pagination/BPPagination"
-import BPPopover from "../widgets/popover/BPPopover"
-import BPProgressTracker from "../widgets/progressTracker/BPProgressTracker"
-import BPRadio from "../widgets/radio/BPRadio"
-import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
 import BPSlot from "../widgets/slotleaf/BPSlot"
-import BPSpinner from "../widgets/spinner/BPSpinner"
-import BPSpotlight from "../widgets/spotlight/BPSpotlight"
-import BPStatus from "../widgets/status/BPStatus"
-import BPTable from "../widgets/table/BPTable"
-import BPTag from "../widgets/tags/BPTag"
-import BPTextarea from "../widgets/textarea/BPTextarea"
-import BPToast from "../widgets/toast/BPToast"
-import BPTooltip from "../widgets/tooltip/BPTooltip"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import BPCtx from "./BPCtx"
 
@@ -72,8 +31,8 @@ export default class BPEmberCtx extends BPCtx {
         super()
         phLogger.info("exec something with emberjs")
         this.projectName = projectName
-        // const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
-        const output: string = "/Users/Simon/Desktop/ui-output"
+        const output: string = "/Users/frank/Documents/work/pharbers/nocode-output"
+        // const output: string = "/Users/Simon/Desktop/ui-output"
         this.output = output
     }
     public cmdStart() {
@@ -84,7 +43,8 @@ export default class BPEmberCtx extends BPCtx {
             new CdExec(this.output + "/" + this.projectName),
             new EmberYarnExec("install"),
             new EmberGenExec("component", "cp-leaf"),
-
+            new EmberYarnExec("add", "ember-cli-sass ", "--save"),
+            new EmberYarnExec("add", "sass ", "--save")
         ]
     }
     public cmdEnd() {
@@ -108,22 +68,23 @@ export default class BPEmberCtx extends BPCtx {
             new EmberInstallDepExec("ember-table"),
             new EmberInstallDepExec("ember-ajax"),
             geneSlot[0],
+            new AddSvgFiles(this.output, this.projectName),
+            new AddBaseClass(this.output, this.projectName),
             new SassyStyles(this.output, this.projectName)
         ]
 
     }
     public paintMW(route: BPMainWindow, components: BPComp[]) {
-        this.genCompTypeList(route.routeName)
+        this.compTypeList = this.genCompTypeList(route.routeName)
         // 1. 生成路由
         this.cmds.push(new EmberGenExec("route", route.routeName, "--dummy"))
         // 2. 生成当前路由下的 component
         this.paintComps(components)
         // 3. 重写文件，将上面的组件进行展示
         this.showComp(components)
-        // 生成公有样式 scss 变量，为以后的插件使用 scss 作准备。
-        // this.generaSassyStyles()
+        // this.supportSass(),
         this.mwStyles(route)
-        this.moveBaseClass()
+        // this.moveBaseClass()
         this.moveLayDateFiles()
         // 4. 将执行命令抛出
         return this.runExec()
@@ -151,101 +112,64 @@ export default class BPEmberCtx extends BPCtx {
 
     public paintComps(components: BPComp[]) {
         const curComps = this.getAllComponents(components)
-
-        const compTypeList = this.compTypeList
         this.currentCompTypeList = []
+
         for (let i = 0, len = curComps.length; i < len; i++) {
             const component = curComps[i]
 
             this.cmds.push(new EmberGenExec("component", component.name))   // 会重复生成某一组件，需要在
 
-            this.currentCompTypeList.push(compTypeList.find((x) => x.constructor.name === component.type))
+            this.currentCompTypeList.push(this.compTypeList.find((x) => x.constructor.name === component.type))
             // 把最外层的组件 放进 currentComp... 里面
         }
     }
     private genCompTypeList(routeName: string) {
         // TODO 生成目前所有组件类的全集
-        this.compTypeList = [
-            new BPIcon(this.output, this.projectName, routeName),
-            new BPButtonItem(this.output, this.projectName, routeName),
-            new BPButtonGroup(this.output, this.projectName, routeName),
-            new BPAddItem(this.output, this.projectName, routeName),
-            new BPDatePicker(this.output, this.projectName, routeName),
-            new BPEmptyState(this.output, this.projectName, routeName),
-            new BPSpotlight(this.output, this.projectName, routeName),
-            new BPTable(this.output, this.projectName, routeName),
-            new BPBreadcrumbs(this.output, this.projectName, routeName),
-            new BPPagination(this.output, this.projectName, routeName),
-            new BPSpinner(this.output, this.projectName, routeName),
-            new BPProgressTracker(this.output, this.projectName, routeName),
-            new BPPopover(this.output, this.projectName, routeName),
-            new BPModal(this.output, this.projectName, routeName),
-            new BPToast(this.output, this.projectName, routeName),
-            new BPTooltip(this.output, this.projectName, routeName),
-            new BPLink(this.output, this.projectName, routeName),
-            new BPTextarea(this.output, this.projectName, routeName),
-            new BPCheckbox(this.output, this.projectName, routeName),
-            new BPRadio(this.output, this.projectName, routeName),
-            new BPLabel(this.output, this.projectName, routeName),
-            new BPDiv(this.output, this.projectName, routeName),
-            new BPImg(this.output, this.projectName, routeName),
-            new BPTag(this.output, this.projectName, routeName),
-            new BPStatus(this.output, this.projectName, routeName),
-            new BPBadge(this.output, this.projectName, routeName),
-            new BPScrollBar(this.output, this.projectName, routeName),
-            new BPDivider(this.output, this.projectName, routeName),
-            new BPInput(this.output, this.projectName, routeName),
-            new BPPushButton(this.output, this.projectName, routeName),
-            new BPMenu(this.output, this.projectName, routeName),
-            new BPSubMenu(this.output, this.projectName, routeName),
-            new BPMenuItem(this.output, this.projectName, routeName),
-            new BPTabBar(this.output, this.projectName, routeName),
-            new BPItem(this.output, this.projectName, routeName),
-            new BPStackLayout(this.output, this.projectName, routeName),
-            new BPTabButton(this.output, this.projectName, routeName),
-            new BPTab(this.output, this.projectName, routeName),
-            new BPSelect(this.output, this.projectName, routeName),
-            new BPOption(this.output, this.projectName, routeName),
-            new BPLine(this.output, this.projectName, routeName),
-            new BPBar(this.output, this.projectName, routeName),
-            new BPPie(this.output, this.projectName, routeName),
-            new BPScatter(this.output, this.projectName, routeName),
-            new BPChina(this.output, this.projectName, routeName),
-            new BPBarLine(this.output, this.projectName, routeName),
-            new BPRadar(this.output, this.projectName, routeName),
-            new BPStack(this.output, this.projectName, routeName)
-        ]
+        const compList = new GenCompList(this.output, this.projectName, routeName)
 
-        return this.compTypeList
+        return compList.createList()
+
     }
 
     private showComp(components: BPComp[]) {
         const curComps = this.getAllComponents(components)
-        const showComps: string[] = components.map((comp) => comp.name)
+        const routeComps: string[] = components.map((comp) => comp.name)
         const currentCompTypeList = this.currentCompTypeList
         const that = this
         const uniqCompList = [...new Set(currentCompTypeList)]
 
-        curComps.forEach((item) => {
-            showComps.forEach((sc, i) => {
-                // const isShow: boolean = sc === item.type
-                const isShow: boolean = sc === item.name
-                const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
-                that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))
-            })
+        // curComps.forEach((item) => {
+        //     routeComps.forEach((sc, i) => {
+        //         // const isShow: boolean = sc === item.type
+        //         const isShow: boolean = sc === item.name    // 路由的顶层组件展示
+        //         const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
+        //         that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))
+        //     })
+        // })
+        
+        // 上方为旧写法，会重复生成组件样式
+        uniqCompList.forEach((comp) => {
+            const name = comp.constructor.name
+            const isShow = routeComps.includes(name)
+            const compConfig = curComps.find((cc) => cc.type === name)
+            this.cmds.push(...comp.paint(that, compConfig, isShow))
         })
+
         // 每一个 BPxxxx 类有自己的paint方法
         // paint 方法返回 compExec 类的执行方法 exec
     }
     private mwStyles(route: BPMainWindow) {
         this.cmds.push(new GenMWStylesExec(this.output, this.projectName, route))
     }
-    private generaSassyStyles() {
-        this.cmds.push(new SassyStyles(this.output, this.projectName))
+
+    private supportSass() {
+        // 用来处理安装 sass 插件之后需要生成 /addon/styles/addon.scss /app/styles/app.scss
+        // this.cmds.push(new addonSassFile(this.output, this.projectName))
+
     }
     private moveBaseClass() {
-        this.cmds.push(new AddBaseClass(this.output, this.projectName),
-            new AddSvgFiles(this.output, this.projectName))
+        this.cmds.push(new AddBaseClass(this.output, this.projectName))
+
     }
     // laydate files 因为对源码进行了修改，所以不能直接引入使用
     private moveLayDateFiles() {
