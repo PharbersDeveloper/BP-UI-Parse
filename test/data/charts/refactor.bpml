@@ -34,6 +34,31 @@
                         {
                             "name": "eid",
                             "value": "line-demo-first001"
+                        },
+                        {
+                            "name": "confReqAdd",
+                            "value": "http://127.0.0.1:5555",
+                            "type": "string"
+                        },
+                        {
+                            "name":"currentProv",
+                            "value": "全国"
+                        },
+                        {
+                            "name":"currentCity",
+                            "value": ""
+                        },
+                        {
+                            "name": "startDate",
+                            "value": "201801"
+                        },
+                        {
+                            "name": "endDate",
+                            "value": "201901"
+                        },
+                        {
+                            "name": "prodName",
+                            "value": "Viread"
                         }
                     ],
                     "css": [
@@ -364,6 +389,31 @@
                         {
                             "name": "eid",
                             "value": "stack-demo-first001"
+                        },
+                        {
+                            "name": "confReqAdd",
+                            "value": "http://127.0.0.1:5555",
+                            "type": "string"
+                        },
+                        {
+                            "name":"currentProv",
+                            "value": "全国"
+                        },
+                        {
+                            "name":"currentCity",
+                            "value": ""
+                        },
+                        {
+                            "name": "startDate",
+                            "value": "201801"
+                        },
+                        {
+                            "name": "endDate",
+                            "value": "201901"
+                        },
+                        {
+                            "name": "prodName",
+                            "value": "Viread"
                         }
                     ],
                     "css": [

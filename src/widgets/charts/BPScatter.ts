@@ -96,7 +96,9 @@ export default class BPScatter extends BPChart {
                 option.yAxis.axisLabel.color = new Function('value',"return value === '0'?'#7A869A':'transparent';")
             }
             let circleRangeArr = data.map( ele => isNaN(ele[3])?0:ele[3]);
-            option.visualMap.max = Math.max.apply(null,circleRangeArr)
+            if(option.visualMap) {
+                option.visualMap.max = Math.max.apply(null,circleRangeArr)
+            }
             return option;
         },` + this.dataChange()
     }

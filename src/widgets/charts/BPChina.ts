@@ -30,7 +30,9 @@ export default class BPChina extends BPChart {
         return execList
     }
     public paintShow(comp: BPComp) {
-        const showStart = "<p>需要在ember-cli-build 中添加app.import('node_modules/echarts/map/js/china.js');</p>" +
+        const showStart = `{{!--
+                <p>在ember-cli-build 中添加app.import('node_modules/echarts/map/js/china.js');</p>
+             --}}` +
             `<section class='chart-container'>{{${comp.name} eid='${comp.id}'}}</section>`
 
         return showStart

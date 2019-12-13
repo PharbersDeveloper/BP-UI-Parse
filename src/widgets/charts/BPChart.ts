@@ -59,10 +59,20 @@ export default class BPChart extends BPWidget {
     public paintShow(comp: BPComp) {
         const {attrs, styleAttrs} = comp
         const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
-            if (item.type  === "string") {
-                return  ` ${item.name}="${item.value}"`
+
+            switch (item.type) {
+                case "string":
+                    return ` ${item.name}= "${item.value}"`
+                case "number":
+                case "boolean":
+                    return ` ${item.name}= ${item.value}`
+                case "function":
+                case "object":
+                case "array":
+                    return ``
+                default:
+                    return ` ${item.name}= "${item.value}"`
             }
-            return  ` ${item.name}=${item.value}`
         }).join("")
 
         return `<section class='chart-container'>{{${comp.name} ${attrsBody}}}</section>`
@@ -140,17 +150,13 @@ export default class BPChart extends BPWidget {
             let getXValues = null;
             let chartData = []
 
-            if (isEmpty(this.xValues)) {
-                getXValues = this.get('ajax').request(qa + '?tag=array', {
-                    method: 'POST',
-                    data: JSON.stringify({"sql":queryXSql}),
-                    dataType: 'json'
-                })
-            } else {
-                getXValues = new Promise(resolve => {
-                    resolve(this.xValues)
-                })
-            }
+
+            getXValues = this.get('ajax').request(qa + '?tag=array', {
+                method: 'POST',
+                data: JSON.stringify({"sql":queryXSql}),
+                dataType: 'json'
+            })
+
             getXValues.then(data => {
                 this.set("xValues", data)
                 chartData.push(data)

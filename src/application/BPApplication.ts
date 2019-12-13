@@ -20,8 +20,8 @@ export default class BPApplication extends BPObject {
     private cmdlst = new BashSpwanCmds()
 
     public run(args: string[]) {
-        const projectPath = args[1] + "/test/data/buttons" // TODO: 解析工作
-        const inputPath = projectPath + "/refactor.bpml"
+        const projectPath = args[1] + "/test/data/components" // TODO: 解析工作
+        const inputPath = projectPath + "/main.json"
         const jsonConvert: JsonConvert = new JsonConvert()
         const inputFileData = fs.readFileSync(inputPath, "utf8")
         const appContent = jsonConvert.deserializeObject(JSON.parse(inputFileData), ParseBPML)
