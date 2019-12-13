@@ -8,8 +8,7 @@ import { IAttrs, IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 import BPSlot from "../slotleaf/BPSlot"
-
-export default class BPTag extends BPWidget {
+export default class BPIcon extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
             super(output, name, routeName)
         }
@@ -18,7 +17,7 @@ export default class BPTag extends BPWidget {
 
         const options: IOptions = {
                 comp,
-                hbsData: this.paintHBS(),
+                hbsData: this.paintHBS(comp),
                 logicData: this.paintLogic(comp), // js
                 output: this.output,
                 pName: this.projectName,
@@ -41,13 +40,12 @@ export default class BPTag extends BPWidget {
         }).join("")
 
         return `{{${comp.name} ssc="ssc" emit="emit" disconnect="disconnect" ${attrsBody}}}`
-        // return "{{#" + comp.name + "}}" + comp.text + "{{/" + comp.name + "}}"
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
-        const {attrs, styleAttrs, events, calcAttrs } = comp
+        const {attrs, styleAttrs, events, calcAttrs} = comp
 
         const attrsBody = attrs.map( (item: IAttrs) => {
             if (typeof item.value === "string") {
@@ -56,9 +54,9 @@ export default class BPTag extends BPWidget {
                 return  `${item.name}: ${item.value},`
             }
         })
+
         let styleAttrsBody = ""
-        let classNameBindings = ""
-        let calcAttrsBody = ""
+        let calcAttrsBody  = ""
 
         styleAttrs.forEach( (item: IAttrs) => {
             if (typeof item.value === "string") {
@@ -66,7 +64,6 @@ export default class BPTag extends BPWidget {
             } else {
                 styleAttrsBody += `${item.name}: ${item.value},`
             }
-            classNameBindings += `'${item.name}',`
         })
 
         calcAttrs.forEach( (item: IAttrs) => {
@@ -77,41 +74,24 @@ export default class BPTag extends BPWidget {
         import { computed } from '@ember/object';
         export default Component.extend({
             layout,
-            tagName:'span',
+            tagName:'div',
             classNames:['${comp.name}'],
             content: 'default',
             attributeBindings: [''],
             ${attrsBody}
             ${styleAttrsBody}
             ${calcAttrsBody}
-            classNameBindings: ["currentStyle", "currentType", "show::display-none"],
-            currentStyle: computed('subtle', function () {
-                let isSubtle = this.get('subtle')
-                if (isSubtle) {
-                    return "tag-subtle"
-                } else {
-                    return "tag-bold"
-                }
-            }),
-            currentType: computed('type', function () {
-                let type = this.get('type');
-
-                return "tag-" + type
-            }),
-            ${this.slotActions(events, `${comp.name}`)},`
+            classNameBindings: [],`
 
         return fileDataStart + fileData + fileDataEnd
+
     }
 
-    public paintHBS() {
+    public paintHBS(comp: BPComp) {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
         return `${leaf.paintShow()}
-        {{#if hasBlock}}
-            {{yield}}
-        {{else}}
-            {{tagContent}}
-        {{/if}}`
+        {{svg-jar iconName width='24px' height='24px' class=color }}`
     }
 
 }

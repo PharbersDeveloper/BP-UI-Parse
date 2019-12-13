@@ -45,4 +45,8 @@ export class ParseCompConf {
 
     @JsonProperty("events", [], true)
     public events: string[] = []
+
+    @JsonProperty("calcAttrs", [], true)
+    public calcAttrs: IAttrs[] = []
+    // 计算属性 computed 的值，在展示出来时不需要引号，也不需要在hbs中以a=b的形式展示
 }

@@ -72,6 +72,10 @@
               {
                 "name": "tagContent",
                 "value": "tag test"
+              },
+              {
+                "name": "show",
+                "value": true
               }
             ],
             "styleAttrs": [

@@ -15,6 +15,10 @@ a {
     text-align: center;
 }
 
+button {
+    outline: none;
+}
+
 .display-large {
     color: #172B4D;
     font-size: 29px;
@@ -370,6 +374,10 @@ input:disabled {
 
 .icon-info-filled path {
     fill: #3172E0;
+}
+
+.icon-green path{
+    fill: #36B37E;;
 }
 
 .icon-pointer {
@@ -1547,3 +1555,12 @@ input[type="checkbox"]+label {
     background-color: #fff;
 }
 /* bp-badge */
+
+
+.textColorRed {
+    color: #FF5630 !important;
+}
+
+.display-none {
+    display: none;
+}

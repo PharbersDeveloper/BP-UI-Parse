@@ -15,6 +15,7 @@ export default class BPComp extends BPWidget {
     public icon?: string = ""
     public styleAttrs?: IAttrs[] = []
     public events?: string[] = []
+    public calcAttrs?: IAttrs[] = []
     public components?: BPComp[] = []
     public paint(ctx: BPCtx) {
         phLogger.info("alfred paint test")
