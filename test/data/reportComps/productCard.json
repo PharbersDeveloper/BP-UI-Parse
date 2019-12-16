@@ -68,6 +68,14 @@
                 {
                     "k": "flex-direction",
                     "v": "column"
+                },
+                {
+                    "k": "flex-shrink",
+                    "v": 0
+                },
+                {
+                    "k": "margin-right",
+                    "v": "8px"
                 }
             ],
             "components": [
@@ -332,7 +340,7 @@
                                               "attrs": [
                                                 {
                                                     "name": "index",
-                                                    "value": 0
+                                                    "value": 2
                                                 }
                                               ],
                                               "styleAttrs": [
