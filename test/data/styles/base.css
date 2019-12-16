@@ -356,6 +356,11 @@ input:disabled {
     margin-right: 12px;
 }
 
+.icon-small svg{
+    height: 16px;
+    width: 16px;
+}
+
 .icon-white path{    
     fill: #FFFFFF;
 }

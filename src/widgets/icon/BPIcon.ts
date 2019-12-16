@@ -81,7 +81,7 @@ export default class BPIcon extends BPWidget {
             ${attrsBody}
             ${styleAttrsBody}
             ${calcAttrsBody}
-            classNameBindings: [],`
+            classNameBindings: ['iconSmall:icon-small:'],`
 
         return fileDataStart + fileData + fileDataEnd
 
@@ -91,7 +91,7 @@ export default class BPIcon extends BPWidget {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
         return `${leaf.paintShow()}
-        {{svg-jar iconName width='24px' height='24px' class=color }}`
+        {{svg-jar iconName width='24px' height='24px' class=color}}`
     }
 
 }

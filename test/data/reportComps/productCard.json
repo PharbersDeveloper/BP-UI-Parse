@@ -515,6 +515,10 @@
                                                 {
                                                     "k": "margin-bottom",
                                                     "v": "2px"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "3px 0 0 5px"
                                                 }
                                             ],
                                             "attrs": [
@@ -527,6 +531,10 @@
                                               {
                                                 "name": "color", 
                                                 "value": null
+                                              },
+                                              {
+                                                  "name": "iconSmall",
+                                                  "value": true
                                               }
                                             ],
                                             "events": ["click", "mouseEnter", "mouseLeave"],
@@ -1052,6 +1060,10 @@
                                                 {
                                                     "k": "background",
                                                     "v": "transparent"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "2px 0 0 5px"
                                                 }
                                             ]
 
@@ -1079,6 +1091,10 @@
                                                 {
                                                     "k": "margin-bottom",
                                                     "v": "2px"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "3px 0 0 5px"
                                                 }
                                             ],
                                             "attrs": [
@@ -1091,7 +1107,11 @@
                                               {
                                                 "name": "color", 
                                                 "value": "icon-white"
-                                              }
+                                              },
+                                              {
+                                                "name": "iconSmall",
+                                                "value": true
+                                            }
                                             ],
                                             "events": ["click", "mouseEnter", "mouseLeave"],
                                             "calcAttrs": [
