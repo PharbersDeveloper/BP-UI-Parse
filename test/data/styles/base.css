@@ -87,7 +87,7 @@ button {
 
 
 /* button 通用样式 */
-.button-primary {
+button.button-primary {
     background: #3172E0;
     color: #FFFFFF;
 }
@@ -108,7 +108,7 @@ button {
     fill: #B3BAC5;
 }
 
-.button-standard {
+button.button-standard {
     background: rgba(9,30,66,0.04);
     color: #505F79;
 }
@@ -141,7 +141,7 @@ button {
 }
 
 
-.button-subtle {
+button.button-subtle {
     background: #FFFFFF;
     color: #505F79;
 }
@@ -1004,7 +1004,7 @@ input[type="checkbox"]+label {
 .popover-triangle-bottom-right {
     position: absolute;
     top: -6px;
-    left: 288px;
+    left: 288px;                                                                                                                                                                                                                                         
 }
 
 .popover-triangle-top {
