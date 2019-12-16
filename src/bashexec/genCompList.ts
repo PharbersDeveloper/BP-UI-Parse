@@ -20,6 +20,7 @@ import BPImg from "../widgets/img/BPImg"
 import BPInput from "../widgets/inputs/BPInput"
 import BPLabel from "../widgets/label/BPLabel"
 import BPLink from "../widgets/link/BPLink"
+import { ChartCard , ChartCardTitle} from "../widgets/middleComps/MiddleComps"
 import BPModal from "../widgets/modal/BPModal"
 import BPMenu from "../widgets/navs/BPMenu"
 import BPMenuItem from "../widgets/navs/BPMenuItem"
@@ -100,7 +101,9 @@ export class GenCompList {
             new BPChina(this.output, this.projectName, this.routeName),
             new BPBarLine(this.output, this.projectName, this.routeName),
             new BPRadar(this.output, this.projectName, this.routeName),
-            new BPStack(this.output, this.projectName, this.routeName)
+            new BPStack(this.output, this.projectName, this.routeName),
+            new ChartCardTitle(this.output, this.projectName, this.routeName),
+            new ChartCard(this.output, this.projectName, this.routeName)
         ]
     }
 }

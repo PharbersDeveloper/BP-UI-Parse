@@ -17,10 +17,10 @@ export abstract class BPWidget extends BPObject {
     protected mainLayout: BPLayout = null
     private theme: BPThemeProperty = null
 
-    constructor(output?: string, name?: string, routeName?: string) {
+    constructor(output?: string, projName?: string, routeName?: string) {
         super()
         this.output = output
-        this.projectName = name
+        this.projectName = projName
         this.routeName = routeName
     }
     // 生成 展示用的 hbs 代码

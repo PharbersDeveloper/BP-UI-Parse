@@ -117,10 +117,9 @@ export default class BPEmberCtx extends BPCtx {
         for (let i = 0, len = curComps.length; i < len; i++) {
             const component = curComps[i]
 
-            this.cmds.push(new EmberGenExec("component", component.name))   // 会重复生成某一组件，需要在
+            this.cmds.push(new EmberGenExec("component", component.name))
 
             this.currentCompTypeList.push(this.compTypeList.find((x) => x.constructor.name === component.type))
-            // 把最外层的组件 放进 currentComp... 里面
         }
     }
     private genCompTypeList(routeName: string) {
@@ -128,32 +127,35 @@ export default class BPEmberCtx extends BPCtx {
         const compList = new GenCompList(this.output, this.projectName, routeName)
 
         return compList.createList()
-
     }
 
     private showComp(components: BPComp[]) {
         const curComps = this.getAllComponents(components)
-        const routeComps: string[] = components.map((comp) => comp.type)
+        const routeComps: string[] = components.map((comp) => comp.name)
         const currentCompTypeList = this.currentCompTypeList
         const that = this
         const uniqCompList = [...new Set(currentCompTypeList)]
-
-        // curComps.forEach((item) => {
-        //     routeComps.forEach((sc, i) => {
-        //         // const isShow: boolean = sc === item.type
-        //         const isShow: boolean = sc === item.name    // 路由的顶层组件展示
-        //         const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
-        //         that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))
-        //     })
-        // })
+        phLogger.info(curComps)
+        phLogger.info("===============")
+        curComps.forEach((item) => {
+            routeComps.forEach((sc, i) => {
+                // const isShow: boolean = sc === item.type
+                phLogger.info(sc)
+                phLogger.info(item.name)
+                phLogger.info("===============")
+                const isShow: boolean = sc === item.name    // 路由的顶层组件展示
+                const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
+                that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))
+            })
+        })
 
         // 上方为旧写法，会重复生成组件样式
-        uniqCompList.forEach((comp) => {
-            const name = comp.constructor.name
-            const isShow = routeComps.includes(name)
-            const compConfig = curComps.find((cc) => cc.type === name)
-            this.cmds.push(...comp.paint(that, compConfig, isShow))
-        })
+        // currentCompTypeList.forEach((comp) => {
+        //     const name = comp.constructor.name
+        //     const isShow = routeComps.includes(name)
+        //     const compConfig = curComps.find((cc) => cc.type === name)
+        //     this.cmds.push(...comp.paint(that, compConfig, isShow))
+        // })
 
         // 每一个 BPxxxx 类有自己的paint方法
         // paint 方法返回 compExec 类的执行方法 exec
