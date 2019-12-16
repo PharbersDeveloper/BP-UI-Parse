@@ -42,7 +42,6 @@ export default class BPDiv extends BPWidget {
                     const innerItem = new BPTag(this.output, this.projectName, this.routeName)
                     showBody += innerItem.paintShow(icomp) + "\n"
                 } else {
-                    // div
                     showBody += this.paintShow(icomp) + "\n"
                 }
 

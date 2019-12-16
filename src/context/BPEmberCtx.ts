@@ -133,7 +133,7 @@ export default class BPEmberCtx extends BPCtx {
 
     private showComp(components: BPComp[]) {
         const curComps = this.getAllComponents(components)
-        const routeComps: string[] = components.map((comp) => comp.name)
+        const routeComps: string[] = components.map((comp) => comp.type)
         const currentCompTypeList = this.currentCompTypeList
         const that = this
         const uniqCompList = [...new Set(currentCompTypeList)]
@@ -146,7 +146,7 @@ export default class BPEmberCtx extends BPCtx {
         //         that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))
         //     })
         // })
-        
+
         // 上方为旧写法，会重复生成组件样式
         uniqCompList.forEach((comp) => {
             const name = comp.constructor.name

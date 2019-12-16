@@ -28,8 +28,8 @@ export class AddBaseClass extends BashExec {
 
         const addonStyle = fs.readFileSync(outputPath + "addon.scss", "utf8")
 
-        const impData = `@import './base';\n@import "./class.scss";
-        @import "./mixin.scss";\n@import "./variables.scss";` + "\r"
+        const impData = `@import "./variables.scss";\n@import "./class.scss";
+        @import "./mixin.scss";\n@import './base';` + "\r"
 
         fs.writeFileSync(outputPath + "addon.scss", impData + addonStyle)
 
