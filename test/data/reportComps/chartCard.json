@@ -1,0 +1,174 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "report-components-charts"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "report",
+        "path": "/report",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "row"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "auto"
+          },
+          {
+            "k": "height",
+            "v": "auto"
+          }
+        ],
+        "components": [
+          {
+            "id": "test",
+            "type": "ChartCard",
+            "cat": "0",
+            "name":"chart-card",
+            "css": [
+                {
+                    "k": "height",
+                    "v": "385px"
+                },
+                {
+                    "k": "width",
+                    "v": "auto"
+                },
+                {
+                    "k": "flex",
+                    "v": "1"
+                },
+                {
+                    "k": "padding",
+                    "v": "0 24px 24px"
+                },
+                {
+                    "k": "border-radius",
+                    "v": "$radius-medium"
+                },
+                {
+                    "k": "background",
+                    "v": "#FFFFFF"
+                }, 
+                {
+                    "k": "box-shadow",
+                    "v": "0 0 1px 0 rgba(9,30,66,0.12), 0 4px 8px -2px rgba(9,30,66,0.25)"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "ChartCardTitle",
+                    "cat": "0",
+                    "text": "Product Name",
+                    "name":"chart-card-title",
+                    "css": [
+                        {
+                            "k": "display",
+                            "v": "flex"
+                        },
+                        {
+                            "k": "align-items",
+                            "v": "center"
+                        },
+                        {
+                            "k": "height",
+                            "v": "56px"
+                        },
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "font-size",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0 24px"
+                        },
+                        {
+                            "k": "margin",
+                            "v": "0"
+                        }
+                    ],
+                    "attrs": [
+                        {
+                            "name": "provName",
+                            "value": "全国"
+                        },
+                        {
+                            "name": "cityName",
+                            "value": ""
+                        },
+                        {
+                            "name": "prodName",
+                            "value": "Vieread"
+                        }
+                    ]
+                },
+                {
+                    "id": "china-demo-first001",
+                    "type": "BPChina",
+                    "cat": "1",
+                    "name": "bp-china",
+                    "layout": [],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "height",
+                            "v": "300px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },
+                        {
+                            "k": "margin",
+                            "v": "0"
+                        },
+                        {
+                            "k": "position",
+                            "v": "relative"
+                        },
+                        {
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ]
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "provName",
+                    "value": "全国"
+                },
+                {
+                    "name": "cityName",
+                    "value": ""
+                },
+                {
+                    "name": "prodName",
+                    "value": "Vieread"
+                }
+            ],
+            "styleAttrs": []
+          }
+        ]
+      }
+    ]
+  }

@@ -50,7 +50,7 @@ export default class BPChart extends BPWidget {
             `${this.importString()}
             ${this.basicStrHead()}
             ${attrsBody}
-            ${this.basicProp()}
+            ${this.basicProp(comp)}
             ${this.lifeCycleHooks()}
             ${this.mainLogic()}`
 
@@ -99,10 +99,11 @@ export default class BPChart extends BPWidget {
     public basicStrHead() {
         return `export default Component.extend({`
     }
-    public basicProp() {
+    public basicProp(comp: BPComp) {
         return `layout,
                 tagName: '',
                 ajax: service(),
+                classNames:["${comp.name}"],
                 xValues: A([]),`
     }
     public lifeCycleHooks() {

@@ -33,6 +33,23 @@ export class AddBaseClass extends BashExec {
 
         fs.writeFileSync(outputPath + "addon.scss", impData + addonStyle)
 
+        const appStylePath = output + "/" + pName + "/app/styles"
+
+        const existAppStyleFile: boolean = this.fsExistsSync(appStylePath)
+
+        if (!existAppStyleFile) {
+            fs.mkdirSync(appStylePath, { recursive: true })
+        }
+        fs.appendFileSync(appStylePath + "/app.scss", "")
+
+    }
+    private fsExistsSync(path: string) {
+        try {
+            fs.accessSync(path, fs.constants.R_OK | fs.constants.W_OK)
+        } catch (err) {
+            return false
+        }
+        return true
     }
 
 }

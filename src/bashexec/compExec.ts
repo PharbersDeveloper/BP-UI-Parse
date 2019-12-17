@@ -44,7 +44,6 @@ export class CompExec extends BashExec {
     private async addCompStyles(options: IOptions) {
 
         const outputPath = options.output + "/" + options.pName + "/addon/styles"
-
         const existFile: boolean = this.fsExistsSync(outputPath)
         if (!existFile) {
             fs.mkdirSync(outputPath, { recursive: true })
