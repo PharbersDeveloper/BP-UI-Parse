@@ -18,7 +18,7 @@ export default class ChartCardTitle extends BPWidget {
 
         const options: IOptions = {
             comp,
-            // hbsData: this.paintHBS(),
+            hbsData: this.paintHBS(comp),
             logicData: this.paintLogic(comp),
             output: this.output,
             pName: this.projectName,
@@ -39,6 +39,8 @@ export default class ChartCardTitle extends BPWidget {
 
             if (item.type === "string" || !item.type) {
                 return  `${item.name}: "${item.value}",\n`
+            } else if (item.type === "variable") {
+                return  ``
             } else {
                 return  `${item.name}: ${item.value},\n`
             }
@@ -59,16 +61,16 @@ export default class ChartCardTitle extends BPWidget {
 
             switch (item.type) {
                 case "string":
-                    return ` ${item.name}= "${item.value}"`
+                    return ` ${item.name}="${item.value}"`
                 case "number":
                 case "boolean":
-                    return ` ${item.name}= ${item.value}`
+                    return ` ${item.name}=${item.value}`
                 case "function":
                 case "object":
                 case "array":
                     return ``
                 default:
-                    return ` ${item.name}= "${item.value}"`
+                    return ` ${item.name}="${item.value}"`
             }
         }).join("")
 

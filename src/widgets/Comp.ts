@@ -2,6 +2,7 @@
 
 import BPCtx from "../context/BPCtx"
 import phLogger from "../logger/phLogger"
+import { CssProperty } from "../properties/CssPerperty"
 import {IAttrs} from "../properties/Options"
 import { BPWidget } from "./BPWidget"
 
@@ -13,6 +14,7 @@ export default class BPComp extends BPWidget {
     public cat: string = "1"
     public attrs?: any = {}
     public icon?: string = ""
+    public layout: CssProperty[] = []
     public styleAttrs?: IAttrs[] = []
     public events?: string[] = []
     public calcAttrs?: IAttrs[] = []

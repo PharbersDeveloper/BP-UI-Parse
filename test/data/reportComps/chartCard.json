@@ -1,7 +1,7 @@
 {
     "meta": {
       "paint": ["ember"],
-      "name": "report-components-charts"
+      "name": "report-components-charts-candelete"
     },
   
     "routers": [
@@ -63,7 +63,7 @@
                 }, 
                 {
                     "k": "box-shadow",
-                    "v": "0 0 1px 0 rgba(9,30,66,0.12), 0 4px 8px -2px rgba(9,30,66,0.25)"
+                    "v": "$depth-z200"
                 }
             ],
             "components": [
@@ -106,15 +106,17 @@
                     "attrs": [
                         {
                             "name": "provName",
-                            "value": "全国"
-                        },
-                        {
-                            "name": "cityName",
-                            "value": ""
+                            "value": "card.provName",
+                            "type":"variable"
                         },
                         {
                             "name": "prodName",
-                            "value": "Vieread"
+                            "value": "card.prodName",
+                            "type":"variable"
+                        },
+                        {
+                            "name": "title",
+                            "value": "所在市场省份分布"
                         }
                     ]
                 },
@@ -149,21 +151,197 @@
                             "k": "box-sizing",
                             "v": "border-box"
                         }
+                    ],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "china-demo-first001"
+                        },
+                        {
+                            "name": "startDate",
+                            "value": "card.startDate",
+                            "type":"variable"
+                        },
+                        {
+                            "name": "endDate",
+                            "value": "card.endDate",
+                            "type":"variable"
+                        },
+                        {
+                            "name": "prodName",
+                            "value": "card.prodName",
+                            "type": "variable"
+                        },
+                        {
+                            "name":"onChangeProv",
+                            "value": "(action 'changeProv')",
+                            "type":"callback"
+                        }
                     ]
                 }
             ],
             "attrs": [
                 {
+                    "name": "chartName",
+                    "value": "bp-china"
+                },
+                {
                     "name": "provName",
-                    "value": "全国"
+                    "value": "provName",
+                    "type":"variable"
                 },
                 {
                     "name": "cityName",
-                    "value": ""
+                    "value": "cityName",
+                    "type":"variable"
                 },
                 {
                     "name": "prodName",
-                    "value": "Vieread"
+                    "value": "prodName",
+                    "type":"variable"
+                },
+                {
+                    "name": "startDate",
+                    "value": "startDate",
+                    "type":"variable"
+                },
+                {
+                    "name": "endDate",
+                    "value": "endDate",
+                    "type":"variable"
+                }
+            ],
+            "styleAttrs": [
+                {
+                    "name": "smallSize",
+                    "value":"false",
+                    "type": "boolean"
+                }
+            ]
+          },
+          {
+            "id": "test",
+            "type": "ChartCard",
+            "cat": "1",
+            "name":"chart-card",
+            "components": [
+                {
+                    "id": "test",
+                    "type": "ChartCardTitle",
+                    "cat": "1",
+                    "text": "Product Name",
+                    "name":"chart-card-title",
+                    "attrs": [
+                        {
+                            "name": "provName",
+                            "value": "card.provName",
+                            "type":"variable"
+                        },
+                        {
+                            "name": "cityName",
+                            "value": "card.cityName",
+                            "type": "variable"
+                        },
+                        {
+                            "name": "prodName",
+                            "value": "card.prodName",
+                            "type":"variable"
+                        },
+                        {
+                            "name": "title",
+                            "value": "所在市场城市概况"
+                        }
+                    ]
+                },
+                {
+                    "id": "scatter-demo-first002",
+                    "type": "BPScatter",
+                    "cat": "1",
+                    "name": "bp-scatter",
+                    "layout": [],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "height",
+                            "v": "300px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },
+                        {
+                            "k": "margin",
+                            "v": "0"
+                        },
+                        {
+                            "k": "position",
+                            "v": "relative"
+                        },
+                        {
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ],
+                    "attrs": [
+                        {
+                            "name": "eid",
+                            "value": "scatter-demo-first002"
+                        },
+                        {
+                            "name": "startDate",
+                            "value": "card.startDate",
+                            "type": "variable"
+                        },
+                        {
+                            "name": "endDate",
+                            "value": "card.endDate",
+                            "type": "variable"
+                        },
+                        {
+                            "name": "currentProv",
+                            "value": "card.prodName",
+                            "type": "variable"
+                        },
+                        {
+                            "name":"onChangeCity",
+                            "value": "(action 'changeCity')",
+                            "type":"callback"
+                        }
+                    ]
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "chartName",
+                    "value": "bp-scatter"
+                },
+                {
+                    "name": "provName",
+                    "value": "provName",
+                    "type":"variable"
+                },
+                {
+                    "name": "cityName",
+                    "value": "cityName",
+                    "type":"variable"
+                },
+                {
+                    "name": "prodName",
+                    "value": "prodName",
+                    "type":"variable"
+                },
+                {
+                    "name": "startDate",
+                    "value": "startDate",
+                    "type":"variable"
+                },
+                {
+                    "name": "endDate",
+                    "value": "endDate",
+                    "type":"variable"
                 }
             ],
             "styleAttrs": []

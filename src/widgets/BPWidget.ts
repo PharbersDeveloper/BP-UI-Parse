@@ -5,6 +5,7 @@ import { BPLayout } from "../layouts/BPLayout"
 import phLogger from "../logger/phLogger"
 import { BPObject } from "../object/BPObject"
 import { CssProperty } from "../properties/CssPerperty"
+import {IAttrs} from "../properties/Options"
 import { BPThemeProperty } from "../properties/themes/BPThemeProperty"
 import BPComp from "./Comp"
 
@@ -27,7 +28,6 @@ export abstract class BPWidget extends BPObject {
     public paintShow(comp: BPComp, ...rest: any[]) {
         phLogger.info("alfred paintShow test")
     }
-
     public paintStyle(comp: BPComp, prefix?: string) {
 
         // 该组件的 css 样式
@@ -175,11 +175,33 @@ export abstract class BPWidget extends BPObject {
                 ${slotsBody}
                 ${slotFooter}`
     }
+    public showProperties(arr: IAttrs[]) {
+        return arr.map( (item: IAttrs) => {
+
+            switch (item.type) {
+                case "string":
+                    return ` ${item.name}="${item.value}"`
+                case "number":
+                case "boolean":
+                case "variable":
+                case "callback":
+                    return ` ${item.name}=${item.value}`
+                case "function":
+                case "object":
+                case "array":
+                    return ``
+                default:
+                    return ` ${item.name}="${item.value}"`
+            }
+        }).join("")
+    }
 
     protected paint(ctx: BPCtx, comp?: BPComp, isShow?: boolean) {
         phLogger.info("alfred paint test")
     }
-
+    protected repaintStyles( comp: BPComp) {
+        phLogger.info("repaintStyles")
+    }
     protected hitSize() {
         phLogger.info("alfred paint test")
     }

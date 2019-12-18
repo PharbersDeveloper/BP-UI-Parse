@@ -94,19 +94,19 @@ export default class BPEmberCtx extends BPCtx {
      * getAllComponents
      */
     public getAllComponents(components: BPComp[]) {
+        if (!components) { return [] }
         let comps: BPComp[] = []
 
         for (const element of components) {
             if (element.cat === "0") {
                 comps.push(element)
             }
-            // comps.push(element)
-            // }
 
             const inner = this.getAllComponents(element.components)
             comps = comps.concat(inner)
 
         }
+
         return comps
     }
 
@@ -131,26 +131,29 @@ export default class BPEmberCtx extends BPCtx {
 
     private showComp(components: BPComp[]) {
         const curComps = this.getAllComponents(components)
+        phLogger.info(curComps)
+        phLogger.info("---------------")
         const routeComps: string[] = components.map((comp) => comp.name)
         const currentCompTypeList = this.currentCompTypeList
         const that = this
         const uniqCompList = [...new Set(currentCompTypeList)]
-        phLogger.info(curComps)
-        phLogger.info("===============")
-        curComps.forEach((item) => {
-            routeComps.forEach((sc, i) => {
-                // const isShow: boolean = sc === item.type
-                phLogger.info(sc)
-                phLogger.info(item.name)
-                phLogger.info("===============")
-                const isShow: boolean = sc === item.name    // 路由的顶层组件展示
-                const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
-                that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))
-            })
+        // curComps.forEach((item) => {
+        //     routeComps.forEach((sc, i) => {
+        //         // const isShow: boolean = sc === item.type
+        //         const isShow: boolean = sc === item.name    // 路由的顶层组件展示
+        //         const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
+        //         that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))
+        //     })
+        // })
+        currentCompTypeList.forEach((comp, index: number) => {
+            this.cmds.push(...comp.paint(that, curComps[index], false))
         })
-
+        components.forEach((compConf: BPComp, index: number) => {
+            const compIns = this.compTypeList.find((x) => x.constructor.name === compConf.type)
+            this.cmds.push(...compIns.repaintStyles(compConf))
+        })
         // 上方为旧写法，会重复生成组件样式
-        // currentCompTypeList.forEach((comp) => {
+        // uniqCompList.forEach((comp) => {
         //     const name = comp.constructor.name
         //     const isShow = routeComps.includes(name)
         //     const compConfig = curComps.find((cc) => cc.type === name)
