@@ -1569,3 +1569,52 @@ input[type="checkbox"]+label {
 .display-none {
     display: none;
 }
+
+/* middle components */
+.card-size-b {
+    height: auto !important;
+    width: 893px !important;
+}
+
+.card-size-b .bp-card-title-part{
+    height: 93px !important;
+    flex-direction: column !important;
+    align-items: start !important;
+    justify-content: center !important;
+}
+
+.card-size-b .heading-medium  {
+    margin-bottom: 6px;
+}
+
+.card-size-b .bp-card-title-desc {
+    margin-left: 0px !important;
+}
+
+.card-size-b .bp-button-group {
+    display: none;
+}
+
+.card-size-c,.card-size-d {
+    width: 435px !important;
+    height: auto !important;
+}
+
+.card-size-c .bp-card-title-part,.card-size-d .bp-card-title-part{
+    height: 80px !important;
+    flex-direction: column !important;
+    align-items: start !important;
+    justify-content: center !important;
+}
+
+.card-size-c .heading-medium,.card-size-d .heading-medium  {
+    margin-bottom: 2px;
+}
+
+.card-size-c .bp-card-title-desc,.card-size-d .bp-card-title-desc {
+    margin-left: 0px !important;
+}
+
+.card-size-a .bp-button-group, .card-size-b .bp-button-group,.card-size-c .bp-button-group {
+    display: none;
+}

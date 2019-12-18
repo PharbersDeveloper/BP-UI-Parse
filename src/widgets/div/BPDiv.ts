@@ -6,6 +6,7 @@ import phLogger from "../../logger/phLogger"
 import { IAttrs, IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
+import BPLabel from "../label/BPLabel"
 import BPSlot from "../slotleaf/BPSlot"
 import BPTag from "../tags/BPTag"
 
@@ -38,18 +39,34 @@ export default class BPDiv extends BPWidget {
 
             let showBody = ""
             insideComps.forEach((icomp) => {
+                // 这个判断不对 暂时这样写一些
+                // 理论上应该去找其特定的 type 然后调用paintShow函数，或者用其他方法实现嵌套
                 if (icomp.type === "BPTag") {
                     const innerItem = new BPTag(this.output, this.projectName, this.routeName)
+                    showBody += innerItem.paintShow(icomp) + "\n"
+                } else if (icomp.type === "BPLabel") {
+                    const innerItem = new BPLabel(this.output, this.projectName, this.routeName)
                     showBody += innerItem.paintShow(icomp) + "\n"
                 } else {
                     showBody += this.paintShow(icomp) + "\n"
                 }
 
             })
-            return "{{#" + comp.name + "}}" + showBody + "{{/" + comp.name + "}}"
+
+            const {attrs, styleAttrs} = comp
+            const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
+                // return  ` ${item.name}=${item.value}`
+                if (typeof item.value === "string") {
+                    return ` ${item.name}='${item.value}'`
+                } else {
+                    return  ` ${item.name}=${item.value}`
+                }
+
+            }).join("")
+            return `{{#${comp.name} ${attrsBody}}}${showBody}{{/${comp.name}}}`
         } else {
             const {attrs, styleAttrs} = comp
-            const attrsBody = [...attrs].map( (item: IAttrs) => {
+            const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
                 // return  ` ${item.name}=${item.value}`
                 if (typeof item.value === "string") {
                     return ` ${item.name}='${item.value}'`
@@ -104,7 +121,7 @@ export default class BPDiv extends BPWidget {
             ${attrsBody}
             ${styleAttrsBody}
             ${calcAttrsBody}
-            classNameBindings: [${classBinding}],`
+            classNameBindings: ['style',${classBinding}],`
 
         return fileDataStart + fileData + fileDataEnd
     }
