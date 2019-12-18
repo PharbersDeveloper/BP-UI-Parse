@@ -48,24 +48,39 @@ export default class BPLabel extends BPWidget {
         const radioFor = comp.attrs.for
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
-        const {attrs, styleAttrs, events } = comp
+        const {attrs, styleAttrs, events, calcAttrs} = comp
 
-        const attrsBody = attrs.map( (item: IAttrs) => {
-            if (typeof item.value === "string") {
-                return `${item.name}: '${item.value}',`
-            } else {
-                return  `${item.name}: ${item.value},`
-            }
-        })
+        // map 返回数组，在用${}时候会导致多一个逗号
+        // const attrsBody = attrs.map( (item: IAttrs) => {
+        //     if (typeof item.value === "string") {
+        //         return `${item.name}: '${item.value}',\n`
+        //     } else {
+        //         return  `${item.name}: ${item.value},\n`
+        //     }
+        // })
 
+        const attrsBody = ""
         let styleAttrsBody = ""
+        let calcAttrsBody = ""
 
         styleAttrs.forEach( (item: IAttrs) => {
             if (typeof item.value === "string") {
-                styleAttrsBody += `${item.name}: '${item.value}',`
+                styleAttrsBody += `${item.name}: '${item.value}',\n`
             } else {
-                styleAttrsBody += `${item.name}: ${item.value},`
+                styleAttrsBody += `${item.name}: ${item.value},\n`
             }
+        })
+
+        attrs.forEach( (item: IAttrs) => {
+            if (typeof item.value === "string") {
+                styleAttrsBody += `${item.name}: '${item.value}',\n`
+            } else {
+                styleAttrsBody += `${item.name}: ${item.value},\n`
+            }
+        })
+
+        calcAttrs.forEach( (item: IAttrs) => {
+            calcAttrsBody += `${item.name}: ${item.value},\n`
         })
 
         const fileData = `
@@ -78,6 +93,7 @@ export default class BPLabel extends BPWidget {
             attributeBindings: ['for'],
             ${attrsBody}
             ${styleAttrsBody}
+            ${calcAttrsBody}
             classNameBindings: ["type"],`
 
         return fileDataStart + fileData + fileDataEnd
