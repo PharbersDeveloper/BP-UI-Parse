@@ -14,6 +14,7 @@ export default class BPComp extends BPWidget {
     public cat: string = "1"
     public attrs?: any = {}
     public icon?: string = ""
+    public className?: string = "" // 为当前组件设置独有的 class
     public layout: CssProperty[] = []
     public styleAttrs?: IAttrs[] = []
     public events?: string[] = []

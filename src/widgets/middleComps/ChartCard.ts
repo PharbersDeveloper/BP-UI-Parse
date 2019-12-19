@@ -3,23 +3,20 @@
 import { CompExec } from "../../bashexec/compExec"
 import {CompStylesRepaint} from "../../bashexec/compStylesRepaint"
 import BPCtx from "../../context/BPCtx"
-import { IAttrs, IOptions } from "../../properties/Options"
+import { IAttrs, IOptions , IReStyleOpt} from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
-import { BPBar , BPBarLine, BPChina, BPLine, BPPie, BPRadar, BPScatter, BPStack} from "../charts/charts"
 import BPComp from "../Comp"
-import ChartCardTitle from "./ChartCardTitle"
 
 export default class ChartCard extends BPWidget {
-    public chartList: BPWidget[] = []
-    private options: IOptions = null
     constructor(output: string, name: string, routeName: string) {
         super(output, name, routeName)
-
     }
+    // TODO 去除掉 isShow 参数
+    // 生成 组件的 handlebars.hbs / component.js / addon.scss
     public paint(ctx: BPCtx, comp: BPComp, isShow: boolean = false) {
         const execList: any[] = []
 
-        this.options = {
+        const options: IOptions  = {
             comp,
             hbsData: this.paintHBS(),
             logicData: this.paintLogic(comp),
@@ -29,26 +26,27 @@ export default class ChartCard extends BPWidget {
             showData: this.paintShow(comp),
             styleData: this.paintStyle(comp)
         }
-        execList.push(new CompExec(this.options, isShow))
+        execList.push(new CompExec(options, isShow))
 
         return execList
     }
-    public repaintStyles(comp: BPComp) {
-        const execList: any[] = []
-        this.options = {
-            comp,
-            hbsData: this.paintHBS(),
-            logicData: this.paintLogic(comp),
-            output: this.output,
-            pName: this.projectName,
-            rName: this.routeName,
-            showData: this.paintShow(comp),
-            styleData: this.paintStyle(comp)
-        }
-        execList.push(new CompStylesRepaint(this.options))
+    // 生成当前组件实例的样式，通过 comp.className 属性（或 comp.name）
+    // 以及将样式数据写入 addon.scss
+    // 同时在 dummy 中生成展示，供之后项目中使用参考。
+    // public paintStylesShow(comp: BPComp) {
+    //     const execList: any[] = []
+    //     const options: IReStyleOpt = {
+    //         comp,
+    //         output: this.output,
+    //         pName: this.projectName,
+    //         rName: this.routeName,
+    //         showData: this.paintShow(comp),
+    //         styleData: this.repaintStyles(comp)
+    //     }
+    //     execList.push(new CompStylesRepaint(options))
 
-        return execList
-    }
+    //     return execList
+    // }
     public paintLogic(comp: BPComp) {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()

@@ -1,11 +1,12 @@
 "use strict"
 
+import { CompStylesRepaint } from "../bashexec/compStylesRepaint"
 import BPCtx from "../context/BPCtx"
 import { BPLayout } from "../layouts/BPLayout"
 import phLogger from "../logger/phLogger"
 import { BPObject } from "../object/BPObject"
 import { CssProperty } from "../properties/CssPerperty"
-import {IAttrs} from "../properties/Options"
+import { IAttrs, IReStyleOpt } from "../properties/Options"
 import { BPThemeProperty } from "../properties/themes/BPThemeProperty"
 import BPComp from "./Comp"
 
@@ -27,6 +28,7 @@ export abstract class BPWidget extends BPObject {
     // 生成 展示用的 hbs 代码
     public paintShow(comp: BPComp, ...rest: any[]) {
         phLogger.info("alfred paintShow test")
+        return ""
     }
     public paintStyle(comp: BPComp, prefix?: string) {
 
@@ -176,7 +178,7 @@ export abstract class BPWidget extends BPObject {
                 ${slotFooter}`
     }
     public showProperties(arr: IAttrs[]) {
-        return arr.map( (item: IAttrs) => {
+        return arr.map((item: IAttrs) => {
 
             switch (item.type) {
                 case "string":
@@ -195,12 +197,28 @@ export abstract class BPWidget extends BPObject {
             }
         }).join("")
     }
+    // 生成当前组件实例的样式，通过 comp.className 属性（或 comp.name）
+    // 以及将样式数据写入 addon.scss
+    // 同时在 dummy 中生成展示，供之后项目中使用参考。
+    public paintStylesShow(comp: BPComp) {
+        const execList: any[] = []
+        const options: IReStyleOpt = {
+            comp,
+            output: this.output,
+            pName: this.projectName,
+            rName: this.routeName,
+            showData: this.paintShow(comp),
+            styleData: this.repaintStyles(comp)
+        }
+        execList.push(new CompStylesRepaint(options))
 
+        return execList
+    }
     protected paint(ctx: BPCtx, comp?: BPComp, isShow?: boolean) {
         phLogger.info("alfred paint test")
     }
-    protected repaintStyles( comp: BPComp) {
-        phLogger.info("repaintStyles")
+    protected repaintStyles(comp: BPComp) {
+        return this.createChainStyles(comp)
     }
     protected hitSize() {
         phLogger.info("alfred paint test")
@@ -221,7 +239,7 @@ export abstract class BPWidget extends BPObject {
                "target": this,
                "slot": this.get("actions.slots.on${firstUpperCase}")
            })`,
-           trigger: `${event}() {
+            trigger: `${event}() {
                 let action = this.actions.emit;
 
                 action.call(this, this, "${event}", "")
@@ -237,5 +255,58 @@ export abstract class BPWidget extends BPObject {
             slotsBody: slotsBody += clickSS.slot,
             trigger: trigger += clickSS.trigger
         }
+    }
+
+    private createChainStyles(comp: BPComp, prefix: string = "") {
+
+        const className: string = comp.className || comp.name
+        const pointClass: string = prefix ? `${prefix} .${className} ` : `.${className} `
+        const styleProperties: CssProperty[] = [...comp.css, ...comp.layout]
+        let pseudoStyleBody: string = ""
+        const baseClass: CssProperty[] = styleProperties.filter((item) => item.pe === "css" && item.tp === "css")
+
+        styleProperties.forEach((item: CssProperty) => {
+            let insidePointClass: string
+            let styleCont: string
+            switch (true) {
+                // 处理伪类
+                case (item.pe === "css" && item.tp !== "css"):
+                    insidePointClass = `${prefix} .${className}:${item.tp}`
+                    styleCont = `    ${item.key}: ${item.value};\r`
+                    pseudoStyleBody += `${pseudoStyleBody}\r${insidePointClass} {\r${styleCont}}\r`
+                    break
+                // 处理伪元素
+                case (item.pe !== "css" && item.tp === "css"):
+                    insidePointClass = `${prefix} .${className}::${item.pe}`
+                    styleCont = `    ${item.key}: ${item.value};\r`
+                    pseudoStyleBody += `${pseudoStyleBody}\r${insidePointClass} {\r${styleCont}}\r`
+                    break
+                // 处理伪类 + 伪元素
+                case (item.pe !== "css" && item.tp !== "css"):
+                    insidePointClass = `${prefix} .${className}:${item.tp}::${item.pe}`
+                    styleCont = `    ${item.key}: ${item.value};\r`
+                    pseudoStyleBody += `${pseudoStyleBody}\r${insidePointClass} {\r${styleCont}}\r`
+                    break
+                // 处理标准的 css
+                case (item.pe === "css" && item.tp === "css"):
+                default:
+                    // styleCont = `    ${item.key}: ${item.value};\r`
+                    // pseudoStyleBody += `${pseudoStyleBody}\r${insidePointClass} {\r${styleCont}}\r`
+                    break
+            }
+        })
+
+        phLogger.info("🌛🌛🌛🌛🌛🌛🌛")
+        phLogger.info(pseudoStyleBody)
+        phLogger.info("************************")
+
+        const baseStyleBody = baseClass.map((prop: CssProperty) => {
+            return `    ${prop.key}: ${prop.value};\r`
+        }).join("")
+        // pointClass = `${prefix} .${className} `
+
+        const styles = `${pseudoStyleBody}\r${pointClass} {\r${baseStyleBody}}\r`
+        const insideStyles: string = comp.components.map((ele) => this.createChainStyles(ele, pointClass)).join("")
+        return styles + insideStyles
     }
 }

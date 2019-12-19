@@ -12,9 +12,13 @@ export class ParseCompConf {
     @JsonProperty("id", String)
     public id: string = ""
 
+    // 默认为“1” 代表已经存在的组件,"0"代表组件需要生成
     @JsonProperty("cat", String, true)
     public cat: string = "1"
-    // 默认为“1” 代表已经存在的组件,"0"代表组件需要生成
+
+    // 当前组件的 className（用于 repaintStyles()）
+    @JsonProperty("className", String, true)
+    public className: string = ""
 
     @JsonProperty("type", String)
     public type: string = ""

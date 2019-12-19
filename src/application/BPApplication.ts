@@ -71,17 +71,13 @@ export default class BPApplication extends BPObject {
         const components: BPComp[] = []
         // 对组件 css 的处理
         comps.forEach((comp) => {
+
             const singleComp = new BPComp()
             const icp = new BPThemeProperty()
             const compCss = comp.css || []
             compCss.forEach((c) => icp.resetProperty(c.k, c.v, c.tp, c.pe))
             Object.assign(singleComp, comp)
             singleComp.css = compCss.length > 0 ? icp.properties : []
-            // singleComp.type = comp.type
-            // singleComp.name = comp.name
-            // singleComp.text = comp.text || ""
-            // singleComp.attrs = comp.attrs
-            // singleComp.cat = comp.cat || "1"
             singleComp.components = this.deepParseComp(comp.components)
 
             components.push(singleComp)

@@ -36,6 +36,7 @@
             "type": "ChartCard",
             "cat": "0",
             "name":"chart-card",
+            "className": "chart-card-1",
             "css": [
                 {
                     "k": "height",
@@ -224,6 +225,27 @@
             "type": "ChartCard",
             "cat": "1",
             "name":"chart-card",
+            "className": "chart-card-2",
+            "css": [
+                {
+                    "k": "border",
+                    "v": "1px solid red",
+                    "pe": "css",
+                    "tp": "hover"
+                },
+                {
+                    "k": "content",
+                    "v": "'how are you'",
+                    "pe": "after",
+                    "tp": "css"
+                },
+                {
+                    "k": "content",
+                    "v": "'pseudo'",
+                    "pe": "after",
+                    "tp": "hover"
+                }
+            ],
             "components": [
                 {
                     "id": "test",
