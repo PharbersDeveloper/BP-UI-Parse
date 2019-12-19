@@ -9,7 +9,7 @@ import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 import BPSlot from "../slotleaf/BPSlot"
 
-export default class BPLabel extends BPWidget {
+export default class BPViewport extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
             super(output, name, routeName)
         }
@@ -31,17 +31,26 @@ export default class BPLabel extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
+        let classRow = ""
         const {attrs, styleAttrs} = comp
         const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
+            if (item.name === "row" && item.value) {
+                classRow = "viewport-row"
+            }
+
             if (typeof item.value === "string") {
                 return ` ${item.name}='${item.value}'`
             } else {
                 return  ` ${item.name}=${item.value}`
             }
+
         }).join("")
 
-        return `{{${comp.name} ssc="ssc" emit="emit"
-            disconnect="disconnect" ${attrsBody}}}`
+        return `{{#${comp.name} ssc="ssc" emit="emit" disconnect="disconnect" ${attrsBody}}}
+            <div class='${classRow}'>
+
+            </div>
+        {{/${comp.name}}}`
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
@@ -71,14 +80,6 @@ export default class BPLabel extends BPWidget {
             }
         })
 
-        // attrs.forEach( (item: IAttrs) => {
-        //     if (typeof item.value === "string") {
-        //         styleAttrsBody += `${item.name}: '${item.value}',\n`
-        //     } else {
-        //         styleAttrsBody += `${item.name}: ${item.value},\n`
-        //     }
-        // })
-
         calcAttrs.forEach( (item: IAttrs) => {
             calcAttrsBody += `${item.name}: ${item.value},\n`
         })
@@ -87,14 +88,17 @@ export default class BPLabel extends BPWidget {
         import { computed } from '@ember/object';
         export default Component.extend({
             layout,
-            tagName:'label',
-            classNames:[],
+            tagName:'div',
+            classNames:['viewport-class'],
             content: 'default',
-            attributeBindings: ['for'],
+            attributeBindings: ['style'],
             ${attrsBody}
             ${styleAttrsBody}
             ${calcAttrsBody}
-            classNameBindings: ["type"],`
+            classNameBindings: [],
+            style: computed('width', 'height', function() {
+                return 'height:' + this.get('height') + ';width:' + this.get('width') + ';'
+            })`
 
         return fileDataStart + fileData + fileDataEnd
     }
@@ -103,10 +107,6 @@ export default class BPLabel extends BPWidget {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
         return `${leaf.paintShow()}
-        {{#if hasBlock}}
-            {{yield}}
-        {{else}}
-            {{text}}
-        {{/if}}`
+            {{yield}}`
     }
 }

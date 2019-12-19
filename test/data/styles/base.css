@@ -1618,3 +1618,22 @@ input[type="checkbox"]+label {
 .card-size-a .bp-button-group, .card-size-b .bp-button-group,.card-size-c .bp-button-group {
     display: none;
 }
+
+
+.viewport-class {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.viewport-row {
+    white-space: nowrap;
+}
+
+.viewport-row div {
+    display: inline-block;
+}
+
+/* .viewport-col {
+    
+} */
+
