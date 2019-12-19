@@ -296,10 +296,6 @@ export abstract class BPWidget extends BPObject {
             }
         })
 
-        phLogger.info("🌛🌛🌛🌛🌛🌛🌛")
-        phLogger.info(pseudoStyleBody)
-        phLogger.info("************************")
-
         const baseStyleBody = baseClass.map((prop: CssProperty) => {
             return `    ${prop.key}: ${prop.value};\r`
         }).join("")
