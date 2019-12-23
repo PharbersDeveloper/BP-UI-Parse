@@ -405,7 +405,7 @@
                                             "type": "BPDiv",
                                             "cat": "0",
                                             "text": "89",
-                                            "name": "bp-product-card-content-data-sales-a",
+                                            "name": "bp-product-card-content-data-sales-number",
                                             "css": [
                                                 {
                                                     "k": "height",
@@ -431,7 +431,7 @@
                                             "type": "BPDiv",
                                             "cat": "0",
                                             "text": "Mn",
-                                            "name": "bp-product-card-content-data-sales-b",
+                                            "name": "bp-product-card-content-data-sales-mn",
                                             "css": [
                                                 {
                                                     "k": "height",
@@ -461,7 +461,7 @@
                                             "type": "BPDiv",
                                             "cat": "0",
                                             "text": "12.1%",
-                                            "name": "bp-product-card-content-data-sales-c",
+                                            "name": "bp-product-card-content-data-sales-precent",
                                             "css": [
                                                 {
                                                     "k": "height",
@@ -509,7 +509,7 @@
                                             "id": "test",
                                             "type": "BPIcon",
                                             "cat": "0",
-                                            "name": "bp-product-card-content-data-sales-d",
+                                            "name": "bp-product-card-content-data-sales-icon",
                                             "css": [
                                                 {
                                                     "k": "height",
@@ -978,7 +978,7 @@
                                             "type": "BPDiv",
                                             "cat": "0",
                                             "text": "89",
-                                            "name": "bp-product-card-content-data-sales-a-active",
+                                            "name": "bp-product-card-content-data-sales-number-active",
                                             "css": [
                                                 {
                                                     "k": "height",
@@ -1008,7 +1008,7 @@
                                             "type": "BPDiv",
                                             "cat": "0",
                                             "text": "Mn",
-                                            "name": "bp-product-card-content-data-sales-b-active",
+                                            "name": "bp-product-card-content-data-sales-mn-active",
                                             "css": [
                                                 {
                                                     "k": "height",
@@ -1042,7 +1042,7 @@
                                             "type": "BPDiv",
                                             "cat": "0",
                                             "text": "12.1%",
-                                            "name": "bp-product-card-content-data-sales-c-active",
+                                            "name": "bp-product-card-content-data-sales-precent-active",
                                             "css": [
                                                 {
                                                     "k": "height",
@@ -1081,7 +1081,7 @@
                                             "type": "BPIcon",
                                             "cat": "0",
                                             "icon": "increase",
-                                            "name": "bp-product-card-content-data-sales-d-active",
+                                            "name": "bp-product-card-content-data-sales-icon-active",
                                             "css": [
                                                 {
                                                     "k": "height",
