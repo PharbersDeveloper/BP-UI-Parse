@@ -14,21 +14,26 @@
 // }
 
 import { CompExec } from "../bashexec/compExec"
-import {CompStylesRepaint} from "../bashexec/compStylesRepaint"
+import { CompStylesRepaint } from "../bashexec/compStylesRepaint"
 import { GenCompList } from "../bashexec/genCompList"
 import BPEmberCtx from "../context/BPEmberCtx"
+import { RowLayout } from "../layouts/RowLayout"
+import phLogger from "../logger/phLogger"
 import { IAttrs, IOptions, IReStyleOpt } from "../properties/Options"
 import { BPWidget } from "../widgets/BPWidget"
 import BPComp from "../widgets/Comp"
 
 export default class BPRowLayout extends BPWidget {
-
+    protected mainLayout: RowLayout
     private options: IOptions = null
     constructor(output: string, name: string, routeName: string) {
         super(output, name, routeName)
     }
     public paint(ctx: BPEmberCtx, comp: BPComp, isShow: boolean = false) {
         const execList: any[] = []
+        this.mainLayout = new RowLayout()
+        comp.css.forEach((c) => this.mainLayout.resetProperty(c.key, c.value, c.tp, c.pe))
+        comp.css = this.mainLayout.properties || []
 
         this.options = {
             comp,
@@ -44,7 +49,7 @@ export default class BPRowLayout extends BPWidget {
 
         return execList
     }
-     // 生成当前组件实例的样式，通过 comp.className 属性（或 comp.name）
+    // 生成当前组件实例的样式，通过 comp.className 属性（或 comp.name）
     // 以及将样式数据写入 addon.scss
     // 同时在 dummy 中生成展示，供之后项目中使用参考。
     public paintStylesShow(comp: BPComp) {
@@ -66,45 +71,46 @@ export default class BPRowLayout extends BPWidget {
         const fileDataEnd = this.paintLoginEnd()
         const { attrs, styleAttrs } = comp
 
-        const attrsBody = attrs.map( (item: IAttrs) => {
+        const attrsBody = [...attrs, ...styleAttrs].map((item: IAttrs) => {
 
             if (item.type === "string" || !item.type) {
-                return  `${item.name}: "${item.value}",\n`
+                return `${item.name}: "${item.value}",\n`
             } else if (item.type === "variable") {
                 return ``
             } else {
-                return  `${item.name}: ${item.value},\n`
+                return `${item.name}: ${item.value},\n`
             }
 
         }).join("")
-        let styleAttrsBody = ""
         let classNameBindings = ""
-        styleAttrs.forEach( (item: IAttrs) => {
-            styleAttrsBody += `${item.name}: ${item.value},`
-            classNameBindings += `'${item.name}',`
+        styleAttrs.forEach((item: IAttrs) => {
+            classNameBindings += `"${item.name}",`
         })
         const fileData = "\n" +
             `export default Component.extend({
                 layout,
                 classNames:["${comp.name}"],
                 ${attrsBody}
-                ${styleAttrsBody}
                 classNameBindings: [${classNameBindings}],`
 
         return fileDataStart + fileData + fileDataEnd
     }
 
     public paintShow(comp: BPComp) {
+        const { attrs, styleAttrs } = comp
+        const attrsBody = this.showProperties([...attrs, ...styleAttrs])
         const insideComps = comp.components
         const compListClass = new GenCompList(this.output, this.projectName, this.routeName)
-        const compList =  compListClass.createList()
-
-        let showBody = ""
+        const compList = compListClass.createList()
+        const classNames: string = comp.className.split(",").join(" ")
+        let showBody: string = ""
         insideComps.forEach((icomp) => {
             const compIns = compList.find((x) => x.constructor.name === icomp.type)
             showBody += compIns.paintShow(icomp)
         })
-        return "{{#" + comp.name + "}}" + showBody + "{{/" + comp.name + "}}"
+        return `{{#${comp.name} classNames="${classNames}" ${attrsBody}}}
+                    ${showBody}
+                {{/${comp.name}}}`
     }
 
 }

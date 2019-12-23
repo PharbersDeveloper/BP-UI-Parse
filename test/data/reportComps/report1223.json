@@ -1,0 +1,682 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "report-1223"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "report",
+        "path": "/report",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "column"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "auto"
+          },
+          {
+            "k": "height",
+            "v": "auto"
+          }
+        ],
+        "components": [
+            {
+                "id": "column-layout-container",
+                "type": "BPColumnLayout",
+                "name":"bp-column-layout",
+                "className": "report-container",
+                "css": [
+                    {
+                        "k": "height",
+                        "v": "auto"
+                    },
+                    {
+                        "k": "width",
+                        "v": "auto"
+                    },
+                    {
+                        "k": "padding",
+                        "v": "0"
+                    },
+                    {
+                        "k": "background",
+                        "v": "#e3e3e3"
+                    }
+                ],
+                "components": [
+                    {
+                        "id": "report-header",
+                        "type": "BPRowLayout",
+                        "name":"bp-row-layout",
+                        "className": "report-header",
+                        "css": [
+                            {
+                                "k": "height",
+                                "v": "72px"
+                            },
+                            {
+                                "k": "width",
+                                "v": "auto"
+                            },
+                            {
+                                "k": "padding",
+                                "v": "0 24px"
+                            },
+                            {
+                                "k": "background",
+                                "v": "$color-primary-b400"
+                            }
+                        ],
+                        "components": [
+                            {
+                                "id": "bp-text-creater",
+                                "type": "BPText",
+                                "text": "报告名称",
+                                "name":"bp-text",
+                                "css": [
+                                    {
+                                        "k": "height",
+                                        "v": "auto"
+                                    },
+                                    {
+                                        "k": "width",
+                                        "v": "auto"
+                                    },
+                                    {
+                                        "k": "padding",
+                                        "v": "0"
+                                    },
+                                    {
+                                        "k": "margin",
+                                        "v": "0"
+                                    },{
+                                        "k": "background",
+                                        "v": "transparent"
+                                    }
+                                ],
+                                "components": [],
+                                "attrs": [
+                                    {
+                                        "name": "tagName",
+                                        "value": "h2",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "name": "classNames",
+                                        "value": "Title-inverse"
+                                    }
+                                ],
+                                "styleAttrs": []
+                              },
+                              {
+                                "id": "bp-text-creater",
+                                "type": "BPText",
+                                "text": "datepicker placeholder",
+                                "name":"bp-text",
+                                "css": [
+                                    {
+                                        "k": "height",
+                                        "v": "auto"
+                                    },
+                                    {
+                                        "k": "width",
+                                        "v": "auto"
+                                    },
+                                    {
+                                        "k": "padding",
+                                        "v": "0"
+                                    },{
+                                        "k": "background",
+                                        "v": "transparent"
+                                    }
+                                ],
+                                "components": [],
+                                "attrs": [
+                                    {
+                                        "name": "tagName",
+                                        "value": "h2",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "name": "classNames",
+                                        "value": "Title-inverse"
+                                    }
+                                ],
+                                "styleAttrs": []
+                              }
+                        ],
+                        "attrs": [],
+                        "styleAttrs": [
+                            {
+                                "name": "mainAxis",
+                                "value": "main-space-between",
+                                "type": "string"
+                            },
+                            {
+                                "name": "crossAxis",
+                                "value": "cross-center",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "report-scrollview",
+                        "type": "BPRowLayout",
+                        "name":"bp-row-layout",
+                        "className": "report-scrollview",
+                        "css": [
+                            {
+                                "k": "height",
+                                "v": "138px"
+                            },
+                            {
+                                "k": "width",
+                                "v": "auto"
+                            },
+                            {
+                                "k": "padding",
+                                "v": "0 24px"
+                            },
+                            {
+                                "k": "background",
+                                "v": "$color-primary-b400"
+                            }
+                        ],
+                        "components": [
+                            {
+                                "id": "bp-text-creater",
+                                "type": "BPText",
+                                "text": "scroll View is here",
+                                "name":"bp-text",
+                                "className": "Display-large-inverse",
+                                "css": [
+                                    {
+                                        "k": "height",
+                                        "v": "106px"
+                                    },
+                                    {
+                                        "k": "width",
+                                        "v": "auto"
+                                    },
+                                    {
+                                        "k": "padding",
+                                        "v": "0"
+                                    },
+                                    {
+                                        "k": "margin",
+                                        "v": "0"
+                                    },{
+                                        "k": "background",
+                                        "v": "transparent"
+                                    }
+                                ],
+                                "components": [],
+                                "attrs": [
+                                    {
+                                        "name": "tagName",
+                                        "value": "h1",
+                                        "type": "string"
+                                    }
+                                ],
+                                "styleAttrs": []
+                              }
+                        ],
+                        "attrs": [],
+                        "styleAttrs": [
+                            {
+                                "name": "mainAxis",
+                                "value": "main-center",
+                                "type": "string"
+                            },
+                            {
+                                "name": "crossAxis",
+                                "value": "cross-center",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "report-map-scatter",
+                        "type": "BPRowLayout",
+                        "name":"bp-row-layout",
+                        "className": "report-map-scatter",
+                        "css": [
+                            {
+                                "k": "height",
+                                "v": "385px"
+                            },
+                            {
+                                "k": "width",
+                                "v": "auto"
+                            },
+                            {
+                                "k": "padding",
+                                "v": "0 24px"
+                            }
+                        ],
+                        "components": [
+                            {
+                                "id": "china-demo-first001",
+                                "type": "BPChina",
+                                "name": "bp-china",
+                                "layout": [
+                                    {
+                                        "k": "flex",
+                                        "v": "1"
+                                    }
+                                ],
+                                "css": [
+                                    {
+                                        "k": "width",
+                                        "v": "100%"
+                                    },
+                                    {
+                                        "k": "height",
+                                        "v": "337px"
+                                    },
+                                    {
+                                        "k": "padding",
+                                        "v": "24px"
+                                    },
+                                    {
+                                        "k": "margin",
+                                        "v": "0"
+                                    },
+                                    {
+                                        "k": "box-sizing",
+                                        "v": "border-box"
+                                    },
+                                    {
+                                        "k": "overflow",
+                                        "v": "auot"
+                                    },
+                                    {
+                                        "k": "box-shadow",
+                                        "v": "$depth-z200"
+                                    }
+                                ],
+                                "attrs": [
+                                    {
+                                        "name": "eid",
+                                        "value": "china-demo-first001"
+                                    },
+                                    {
+                                        "name": "startDate",
+                                        "value": "201801",
+                                        "type":"variable"
+                                    },
+                                    {
+                                        "name": "endDate",
+                                        "value": "201901",
+                                        "type":"variable"
+                                    },
+                                    {
+                                        "name": "prodName",
+                                        "value": "TestProdName",
+                                        "type": "variable"
+                                    },
+                                    {
+                                        "name":"onChangeProv",
+                                        "value": "(action 'changeProv')",
+                                        "type":"callback"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "scatter-demo-first002",
+                                "type": "BPScatter",
+                                "name": "bp-scatter",
+                                "layout": [
+                                    {
+                                        "k": "flex",
+                                        "v": "1"
+                                    }
+                                ],
+                                "css": [
+                                    {
+                                        "k": "width",
+                                        "v": "100%"
+                                    },
+                                    {
+                                        "k": "height",
+                                        "v": "337px"
+                                    },
+                                    {
+                                        "k": "padding",
+                                        "v": "24px"
+                                    },
+                                    {
+                                        "k": "margin",
+                                        "v": "0 0 0 24px"
+                                    },
+                                    {
+                                        "k": "box-sizing",
+                                        "v": "border-box"
+                                    },
+                                    {
+                                        "k": "overflow",
+                                        "v": "auot"
+                                    },
+                                    {
+                                        "k": "box-shadow",
+                                        "v": "$depth-z200"
+                                    }
+                                ],
+                                "attrs": [
+                                    {
+                                        "name": "eid",
+                                        "value": "scatter-demo-first002"
+                                    },
+                                    {
+                                        "name": "startDate",
+                                        "value": "card.startDate",
+                                        "type": "variable"
+                                    },
+                                    {
+                                        "name": "endDate",
+                                        "value": "card.endDate",
+                                        "type": "variable"
+                                    },
+                                    {
+                                        "name": "currentProv",
+                                        "value": "card.prodName",
+                                        "type": "variable"
+                                    },
+                                    {
+                                        "name":"onChangeCity",
+                                        "value": "(action 'changeCity')",
+                                        "type":"callback"
+                                    }
+                                ]
+                            }
+                        ],
+                        "attrs": [],
+                        "styleAttrs": [
+                            {
+                                "name": "mainAxis",
+                                "value": "main-space-between",
+                                "type": "string"
+                            },
+                            {
+                                "name": "crossAxis",
+                                "value": "cross-center",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "report-table-bars",
+                        "type": "BPRowLayout",
+                        "name":"bp-row-layout",
+                        "className": "report-table-bars",
+                        "css": [
+                            {
+                                "k": "height",
+                                "v": "auto"
+                            },
+                            {
+                                "k": "width",
+                                "v": "auto"
+                            },
+                            {
+                                "k": "padding",
+                                "v": "0 24px"
+                            },
+                            {
+                                "k": "margin",
+                                "v": "24px 0"
+                            },
+                            {
+                                "k":"overflow",
+                                "v": "auto"
+                            }
+                        ],
+                        "components": [
+                            {
+                                "id": "report-table",
+                                "type": "BPText",
+                                "text": "table placeHolder place",
+                                "name": "bp-text",
+                                "layout": [
+                                    {
+                                        "k": "flex",
+                                        "v": "2"
+                                    }
+                                ],
+                                "css": [
+                                    {
+                                        "k": "width",
+                                        "v": "100%"
+                                    },
+                                    {
+                                        "k": "height",
+                                        "v": "600px"
+                                    },
+                                    {
+                                        "k": "padding",
+                                        "v": "24px"
+                                    },
+                                    {
+                                        "k": "margin",
+                                        "v": "0"
+                                    },
+                                    {
+                                        "k": "box-sizing",
+                                        "v": "border-box"
+                                    },
+                                    {
+                                        "k": "overflow",
+                                        "v": "auot"
+                                    },
+                                    {
+                                        "k": "box-shadow",
+                                        "v": "$depth-z200"
+                                    }
+                                ],
+                                "attrs": []
+                            },
+                            {
+                                "id": "report-bars-container",
+                                "type": "BPColumnLayout",
+                                "name": "bp-column-layout",
+                                "layout": [
+                                    {
+                                        "k": "flex",
+                                        "v": "1"
+                                    }
+                                ],
+                                "css": [
+                                    {
+                                        "k": "width",
+                                        "v": "100%"
+                                    },
+                                    {
+                                        "k": "height",
+                                        "v": "auto"
+                                    },
+                                    {
+                                        "k": "padding",
+                                        "v": "0"
+                                    },
+                                    {
+                                        "k": "margin",
+                                        "v": "0 0 0 24px"
+                                    },
+                                    {
+                                        "k": "box-sizing",
+                                        "v": "border-box"
+                                    },
+                                    {
+                                        "k": "overflow",
+                                        "v": "auot"
+                                    },
+                                    {
+                                        "k": "box-shadow",
+                                        "v": "$depth-z200"
+                                    }
+                                ],
+                                "attrs": [],
+                                "components": [
+                                    {
+                                        "id": "stack-demo-first001",
+                                        "type": "BPStack",
+                                        "name": "bp-stack",
+                                        "layout": [],
+                                        "attrs": [
+                                            {
+                                                "name": "eid",
+                                                "value": "stack-demo-first001"
+                                            },
+                                            {
+                                                "name": "confReqAdd",
+                                                "value": "http://192.168.100.25:5555",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name":"currentProv",
+                                                "value": "全国"
+                                            },
+                                            {
+                                                "name":"currentCity",
+                                                "value": ""
+                                            },
+                                            {
+                                                "name": "startDate",
+                                                "value": "201801"
+                                            },
+                                            {
+                                                "name": "endDate",
+                                                "value": "201901"
+                                            },
+                                            {
+                                                "name": "prodName",
+                                                "value": "Viread"
+                                            }
+                                        ],
+                                        "css": [
+                                            {
+                                                "k": "width",
+                                                "v": "100%"
+                                            },
+                                            {
+                                                "k": "height",
+                                                "v": "349px"
+                                            },
+                                            {
+                                                "k": "padding",
+                                                "v": "0"
+                                            },
+                                            {
+                                                "k": "margin",
+                                                "v": "0 0 24px 0"
+                                            },
+                                            {
+                                                "k": "box-sizing",
+                                                "v": "border-box"
+                                            },
+                                            {
+                                                "k": "box-shadow",
+                                                "v": "$depth-z200"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "line-demo-first001",
+                                        "type": "BPLine",
+                                        "name": "bp-line",
+                                        "layout": [],
+                                        "attrs": [
+                                            {
+                                                "name": "eid",
+                                                "value": "line-demo-first001"
+                                            },
+                                            {
+                                                "name": "confReqAdd",
+                                                "value": "http://192.168.100.25:5555",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name":"currentProv",
+                                                "value": "全国"
+                                            },
+                                            {
+                                                "name":"currentCity",
+                                                "value": ""
+                                            },
+                                            {
+                                                "name": "startDate",
+                                                "value": "201801"
+                                            },
+                                            {
+                                                "name": "endDate",
+                                                "value": "201901"
+                                            },
+                                            {
+                                                "name": "prodName",
+                                                "value": "Viread"
+                                            }
+                                        ],
+                                        "css": [
+                                            {
+                                                "k": "width",
+                                                "v": "100%"
+                                            },
+                                            {
+                                                "k": "height",
+                                                "v": "349px"
+                                            },
+                                            {
+                                                "k": "padding",
+                                                "v": "0"
+                                            },
+                                            {
+                                                "k": "margin",
+                                                "v": "0 0 24px 0"
+                                            },
+                                            {
+                                                "k": "box-sizing",
+                                                "v": "border-box"
+                                            },
+                                            {
+                                                "k": "box-shadow",
+                                                "v": "$depth-z200"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "attrs": [],
+                        "styleAttrs": [
+                            {
+                                "name": "mainAxis",
+                                "value": "main-space-between",
+                                "type": "string"
+                            },
+                            {
+                                "name": "crossAxis",
+                                "value": "cross-flex-start",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                ],
+                "attrs": [],
+                "styleAttrs": [
+                ]
+              }
+        ]
+      }
+    ]
+  }

@@ -1,4 +1,5 @@
 
+import { BPColumnLayout, BPRowLayout} from "../layouts/layout"
 import phLogger from "../logger/phLogger"
 import BPAddItem from "../widgets/addItem/BPAddItem"
 import BPBadge from "../widgets/badges/BPBadge"
@@ -39,6 +40,7 @@ import BPSpotlight from "../widgets/spotlight/BPSpotlight"
 import BPStatus from "../widgets/status/BPStatus"
 import BPTable from "../widgets/table/BPTable"
 import BPTag from "../widgets/tags/BPTag"
+import BPText from "../widgets/text/BPText"
 import BPTextarea from "../widgets/textarea/BPTextarea"
 import BPToast from "../widgets/toast/BPToast"
 import BPTooltip from "../widgets/tooltip/BPTooltip"
@@ -103,7 +105,10 @@ export class GenCompList {
             new BPRadar(this.output, this.projectName, this.routeName),
             new BPStack(this.output, this.projectName, this.routeName),
             new ChartCardTitle(this.output, this.projectName, this.routeName),
-            new ChartCard(this.output, this.projectName, this.routeName)
+            new ChartCard(this.output, this.projectName, this.routeName),
+            new BPText(this.output, this.projectName, this.routeName),
+            new BPColumnLayout(this.output, this.projectName, this.routeName),
+            new BPRowLayout(this.output, this.projectName, this.routeName)
         ]
     }
 }

@@ -1,0 +1,274 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "layout-ember-test"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "layout",
+        "path": "/layout",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "row"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "auto"
+          },
+          {
+            "k": "height",
+            "v": "auto"
+          }
+        ],
+        "components": [
+          {
+            "id": "layout-row",
+            "type": "BPRowLayout",
+            "cat": "0",
+            "name":"bp-row-layout",
+            "css": [
+                {
+                    "k": "height",
+                    "v": "385px"
+                },
+                {
+                    "k": "width",
+                    "v": "auto"
+                },
+                {
+                    "k": "padding",
+                    "v": "24px"
+                },
+                {
+                    "k": "border-radius",
+                    "v": "$radius-medium"
+                },
+                {
+                    "k": "background",
+                    "v": "#eee"
+                }, 
+                {
+                    "k": "box-shadow",
+                    "v": "$depth-z200"
+                }
+            ],
+            "components": [
+                {
+                    "id": "bp-text-creater",
+                    "type": "BPText",
+                    "cat": "0",
+                    "text": "how you doing",
+                    "name":"bp-text",
+                    "css": [
+                        {
+                            "k": "height",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "width",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },{
+                            "k": "color",
+                            "v": "red"
+                        },{
+                            "k": "background",
+                            "v": "transparent"
+                        }
+                    ],
+                    "components": [],
+                    "attrs": [
+                        {
+                            "name": "tagName",
+                            "value": "span",
+                            "type": "string"
+                        }
+                    ],
+                    "styleAttrs": []
+                  },
+                  {
+                    "id": "bp-text-creater",
+                    "type": "BPText",
+                    "text": "fine thx and you",
+                    "name":"bp-text",
+                    "css": [
+                        {
+                            "k": "height",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "width",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },{
+                            "k": "color",
+                            "v": "lightgreen"
+                        },{
+                            "k": "background",
+                            "v": "transparent"
+                        }
+                    ],
+                    "components": [],
+                    "attrs": [
+                        {
+                            "name": "tagName",
+                            "value": "h2",
+                            "type": "string"
+                        }
+                    ],
+                    "styleAttrs": []
+                  }
+            ],
+            "attrs": [],
+            "styleAttrs": [
+                {
+                    "name": "wrap",
+                    "value": "false",
+                    "type": "boolean"
+                },
+                {
+                    "name": "mainAxis",
+                    "value": "main-flex-start",
+                    "type": "string"
+                },
+                {
+                    "name": "crossAxis",
+                    "value": "cross-stretch",
+                    "type": "string"
+                },
+                {
+                    "name": "alignContent",
+                    "value": "wrap-flex-start",
+                    "type": "string"
+                }
+            ]
+          },
+          {
+            "id": "column-layout",
+            "type": "BPColumnLayout",
+            "cat": "0",
+            "name":"bp-column-layout",
+            "className": "column-layout-test1",
+            "css": [
+                {
+                    "k": "height",
+                    "v": "385px"
+                },
+                {
+                    "k": "width",
+                    "v": "auto"
+                },
+                {
+                    "k": "padding",
+                    "v": "24px"
+                },
+                {
+                    "k": "border-radius",
+                    "v": "$radius-medium"
+                },
+                {
+                    "k": "background",
+                    "v": "#e3e3e3"
+                }, 
+                {
+                    "k": "box-shadow",
+                    "v": "$depth-z200"
+                }
+            ],
+            "components": [],
+            "attrs": [],
+            "styleAttrs": [
+                {
+                    "name": "wrap",
+                    "value": "false",
+                    "type": "boolean"
+                },
+                {
+                    "name": "mainAxis",
+                    "value": "main-flex-start",
+                    "type": "string"
+                },
+                {
+                    "name": "crossAxis",
+                    "value": "cross-stretch",
+                    "type": "string"
+                },
+                {
+                    "name": "alignContent",
+                    "value": "wrap-flex-start",
+                    "type": "string"
+                }
+            ]
+          },
+          {
+            "id": "layout-row",
+            "type": "BPRowLayout",
+            "cat": "1",
+            "name":"bp-row-layout",
+            "className": "row-layout-test2",
+            "css": [
+                {
+                    "k": "height",
+                    "v": "auto"
+                },
+                {
+                    "k": "width",
+                    "v": "auto"
+                },
+                {
+                    "k": "padding",
+                    "v": "24px"
+                },
+                {
+                    "k": "border-radius",
+                    "v": "$radius-medium"
+                },
+                {
+                    "k": "background",
+                    "v": "#e2e3e3"
+                }, 
+                {
+                    "k": "box-shadow",
+                    "v": "$depth-z200"
+                }
+            ],
+            "components": [],
+            "attrs": [],
+            "styleAttrs": [
+                {
+                    "name": "wrap",
+                    "value": "false",
+                    "type": "boolean"
+                },
+                {
+                    "name": "mainAxis",
+                    "value": "main-center",
+                    "type": "string"
+                },
+                {
+                    "name": "crossAxis",
+                    "value": "cross-center",
+                    "type": "string"
+                }
+            ]
+          }
+        ]
+      }
+    ]
+  }

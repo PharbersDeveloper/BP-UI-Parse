@@ -53,7 +53,7 @@ export class BPThemeProperty {
         return this.properties.find((x) => x.key === key).value
     }
 
-    private initDefaults(...normals: Array<{key: string, v: any}>) {
+    protected initDefaults(...normals: Array<{key: string, v: any}>) {
         this.normals.forEach( (x) => {
             this.properties.push(
                 {
