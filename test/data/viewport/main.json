@@ -31,31 +31,51 @@
           }
         ],
         "components": [
-          {
-            "id": "test",
-            "type": "BPViewport",
-            "cat": "0",
-            "name":"bp-viewport",
-            "css": [    
-            ],
-            "attrs": [
-                {
-                    "name": "height",
-                    "value": "120px"
-                },
-                {
-                    "name": "width",
-                    "value": "100%"
-                }
-            ],
-            "styleAttrs": [
-                {
-                    "name": "row",
-                    "value": true
-                }
-            ],
-            "events": ["click"]
-          }
+            {
+                "id": "test",
+                "type": "BPViewport",
+                "cat": "0",
+                "name":"bp-viewport",
+                "css": [    
+                    {
+                        "k": "margin",
+                        "v": "0 24px"
+                    },
+                    {
+                        "k": "positon",
+                        "v": "relative"
+                    }
+                ],
+                "attrs": [
+                    {
+                        "name": "height",
+                        "value": "120px"
+                    },
+                    {
+                        "name": "width",
+                        "value": "calc(100% - 48px)"
+                    },
+                    {
+                        "name": "clickChange",
+                        "value": true
+                    },
+                    {
+                        "name": "vid",
+                        "value": "bp-viewport-test"
+                    },
+                    {
+                        "name": "step",
+                        "value": 200
+                    }
+                ],
+                "styleAttrs": [
+                    {
+                        "name": "row",
+                        "value": true
+                    }
+                ],
+                "events": ["click"]
+              }
         ]
       }
     ]

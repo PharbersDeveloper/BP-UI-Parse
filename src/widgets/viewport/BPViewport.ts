@@ -31,12 +31,8 @@ export default class BPViewport extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
-        let classRow = ""
         const {attrs, styleAttrs} = comp
         const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
-            if (item.name === "row" && item.value) {
-                classRow = "viewport-row"
-            }
 
             if (typeof item.value === "string") {
                 return ` ${item.name}='${item.value}'`
@@ -47,9 +43,7 @@ export default class BPViewport extends BPWidget {
         }).join("")
 
         return `{{#${comp.name} ssc="ssc" emit="emit" disconnect="disconnect" ${attrsBody}}}
-            <div class='${classRow}'>
 
-            </div>
         {{/${comp.name}}}`
     }
     public paintLogic(comp: BPComp) {
@@ -89,16 +83,30 @@ export default class BPViewport extends BPWidget {
         export default Component.extend({
             layout,
             tagName:'div',
-            classNames:['viewport-class'],
+            classNames:['${comp.name}','viewport-class'],
             content: 'default',
-            attributeBindings: ['style'],
+            attributeBindings: ['style', 'vid:id'],
             ${attrsBody}
             ${styleAttrsBody}
             ${calcAttrsBody}
             classNameBindings: [],
             style: computed('width', 'height', function() {
                 return 'height:' + this.get('height') + ';width:' + this.get('width') + ';'
-            })`
+            }),
+            actions: {
+                stepAction(dire) {
+                    let curDom = document.getElementById(this.get('vid'))
+                    let curSroll = curDom.getElementsByClassName("viewport-auto-wrapper")[0]
+                    let curDistance = curSroll.scrollLeft
+                    let step = this.get('step')
+                    window.console.log(11)
+                    if(dire ==="right") {
+                        curSroll.scrollLeft = step + curDistance
+                    }else if (dire === "left") {
+                        curSroll.scrollLeft = curDistance - step
+                    }
+                }
+            }`
 
         return fileDataStart + fileData + fileDataEnd
     }
@@ -107,6 +115,18 @@ export default class BPViewport extends BPWidget {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
         return `${leaf.paintShow()}
-            {{yield}}`
+        {{#if clickChange}}
+            <div onclick={{action "stepAction" "left"}} class='viewport-click-left'>{{svg-jar 'pre-year' width='24px' height='24px' class='icon-no-margin'}}</div>
+        {{/if}}
+        <div class="viewport-hidden-wrapper">
+            <div class="viewport-auto-wrapper">
+                <div style="width:2000px;" class="viewport-nowarp">
+                    {{yield}}
+                </div>
+            </div>
+        </div>
+        {{#if clickChange}}
+            <div onclick={{action "stepAction" "right"}} class='viewport-click-right'>{{svg-jar 'next-year' width='24px' height='24px' class='icon-no-margin'}}</div>
+        {{/if}}`
     }
 }
