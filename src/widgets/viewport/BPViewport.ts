@@ -31,6 +31,7 @@ export default class BPViewport extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
+        let comps = ""
         const {attrs, styleAttrs} = comp
         const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
 
@@ -42,8 +43,14 @@ export default class BPViewport extends BPWidget {
 
         }).join("")
 
-        return `{{#${comp.name} ssc="ssc" emit="emit" disconnect="disconnect" ${attrsBody}}}
+        if (comp.components.length > 0) {
+            comp.components.forEach((it) => {
+                comps += `{{#${it.name}}}{{/${it.name}}}`
+            })
+        }
 
+        return `{{#${comp.name} ssc="ssc" emit="emit" disconnect="disconnect" ${attrsBody}}}
+            ${comps}
         {{/${comp.name}}}`
     }
     public paintLogic(comp: BPComp) {

@@ -31,151 +31,127 @@
           }
         ],
         "components": [
-          {
-            "id": "test",
-            "type": "BPDiv",
-            "cat": "0",
-            "name":"bp-product-card-wrapper",
-            "css": [
-                {
-                    "k": "height",
-                    "v": "106px"
-                },
-                {
-                    "k": "width",
-                    "v": "calc(100% - 48px)"
-                },
-                {
-                    "k": "margin",
-                    "v": "0 24px"
-                },
-                {
-                    "k": "border-radius",
-                    "v": "4px"
-                },
-                {
-                    "k": "background",
-                    "v": "transparent"
-                }, 
-                {
-                    "k": "position",
-                    "v": "relative"
-                }
-            ],
-            "components": [
-                {
-                    "id": "test",
-                    "type": "BPDiv",
-                    "cat": "0",
-                    "name":"bp-product-card-wrapper-right",
-                    "css": [
-                        {
-                            "k": "height",
-                            "v": "100%"
-                        },
-                        {
-                            "k": "width",
-                            "v": "24px"
-                        },
-                        {
-                            "k": "position",
-                            "v": "absolute"
-                        },
-                        {
-                            "k": "right",
-                            "v": "0"
-                        },
-                        {
-                            "k": "background",
-                            "v": "linear-gradient(90deg, rgba(49,114,224,0.00) 0%, rgba(49,114,224,0.15) 21%, rgba(49,114,224,0.45) 49%, rgba(49,114,224,0.95) 76%, #3172E0 84%)"
-                        }, 
-                        {
-                            "k": "z-index",
-                            "v": "99"
-                        }
-                    ]
-                },
-                {
-                    "id": "test",
-                    "type": "BPDiv",
-                    "cat": "0",
-                    "name":"bp-product-card-wrapper-left",
-                    "css": [
-                        {
-                            "k": "height",
-                            "v": "100%"
-                        },
-                        {
-                            "k": "width",
-                            "v": "24px"
-                        },
-                        {
-                            "k": "background",
-                            "v": "linear-gradient(270deg, rgba(49,114,224,0.00) 0%, rgba(49,114,224,0.15) 21%, rgba(49,114,224,0.45) 49%, rgba(49,114,224,0.95) 76%, #3172E0 84%)"
-                        },
-                        {
-                            "k": "border-radius",
-                            "v": "4px"
-                        },
-                        {
-                            "k": "z-index",
-                            "v": 99
-                        }, 
-                        {
-                            "k": "position",
-                            "v": "absolute"
-                        },
-                        {
-                            "k": "left",
-                            "v": 0
-                        }
-                    ]
-                },
-                {
-                    "id": "test",
-                    "type": "BPDiv",
-                    "cat": "0",
-                    "name":"bp-product-card-wrapper-content",
-                    "css": [
-                        {
-                            "k": "display",
-                            "v": "flex"
-                        },
-                        {
-                            "k": "flex-direction",
-                            "v": "row"
-                        },
-                        {
-                            "k": "position",
-                            "v": "relative"
-                        },
-                        {
-                            "k": "z-index",
-                            "v": "1"
-                        },
-                        {
-                            "k": "overflow-y",
-                            "v": "scroll"
-                        },
-                        {
-                            "k": "height",
-                            "v": "100%"
-                        },
-                        {
-                            "k": "width",
-                            "v": "100%"
-                        }
-                    ]
-                }
-            ],
-            "attrs": [
-            
-            ],
-            "styleAttrs": [
-              
-            ],
-            "events": ["click"]
-          }
+            {
+                "id": "test",
+                "type": "BPViewport",
+                "cat": "0",
+                "name":"bp-viewport",
+                "css": [    
+                    {
+                        "k": "margin",
+                        "v": "0 24px"
+                    },
+                    {
+                        "k": "positon",
+                        "v": "relative"
+                    }
+                ],
+                "attrs": [
+                    {
+                        "name": "height",
+                        "value": "120px"
+                    },
+                    {
+                        "name": "width",
+                        "value": "calc(100% - 48px)"
+                    },
+                    {
+                        "name": "clickChange",
+                        "value": false
+                    },
+                    {
+                        "name": "vid",
+                        "value": "bp-viewport-test"
+                    },
+                    {
+                        "name": "step",
+                        "value": 0
+                    }
+                ],
+                "styleAttrs": [
+                    
+                ],
+                "events": ["click"],
+                "components": [
+                    {
+                        "id": "test",
+                        "type": "BPDiv",
+                        "cat": "0",
+                        "name":"bp-product-card-wrapper-right",
+                        "css": [
+                            {
+                                "k": "height",
+                                "v": "126px"
+                            },
+                            {
+                                "k": "width",
+                                "v": "24px"
+                            },
+                            {
+                                "k": "position",
+                                "v": "absolute"
+                            },
+                            {
+                                "k": "right",
+                                "v": "0"
+                            },
+                            {
+                                "k": "background",
+                                "v": "linear-gradient(90deg, rgba(49,114,224,0.00) 0%, rgba(49,114,224,0.15) 21%, rgba(49,114,224,0.45) 49%, rgba(49,114,224,0.95) 76%, #3172E0 84%)"
+                            }, 
+                            {
+                                "k": "z-index",
+                                "v": "99"
+                            },
+                            {
+                                "k": "top",
+                                "v": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPDiv",
+                        "cat": "0",
+                        "name":"bp-product-card-wrapper-left",
+                        "css": [
+                            {
+                                "k": "height",
+                                "v": "126px"
+                            },
+                            {
+                                "k": "width",
+                                "v": "24px"
+                            },
+                            {
+                                "k": "background",
+                                "v": "linear-gradient(270deg, rgba(49,114,224,0.00) 0%, rgba(49,114,224,0.15) 21%, rgba(49,114,224,0.45) 49%, rgba(49,114,224,0.95) 76%, #3172E0 84%)"
+                            },
+                            {
+                                "k": "border-radius",
+                                "v": "4px"
+                            },
+                            {
+                                "k": "z-index",
+                                "v": 99
+                            }, 
+                            {
+                                "k": "position",
+                                "v": "absolute"
+                            },
+                            {
+                                "k": "left",
+                                "v": 0
+                            },
+                            {
+                                "k": "top",
+                                "v": "0"
+                            }
+                        ]
+                    }
+                ]
+              }
+             
         ]
       }
     ]
