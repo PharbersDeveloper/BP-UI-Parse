@@ -33,25 +33,25 @@ export default class BPText extends BPWidget {
     // 生成当前组件实例的样式，通过 comp.className 属性（或 comp.name）
     // 以及将样式数据写入 addon.scss
     // 同时在 dummy 中生成展示，供之后项目中使用参考。
-    // public paintStylesShow(comp: BPComp) {
-    //     const execList: any[] = []
-    //     const options: IReStyleOpt = {
-    //         comp,
-    //         output: this.output,
-    //         pName: this.projectName,
-    //         rName: this.routeName,
-    //         showData: this.paintShow(comp),
-    //         styleData: this.repaintStyles(comp)
-    //     }
-    //     execList.push(new CompStylesRepaint(options))
+    public paintStylesShow(comp: BPComp) {
+        const execList: any[] = []
+        const options: IReStyleOpt = {
+            comp,
+            output: this.output,
+            pName: this.projectName,
+            rName: this.routeName,
+            showData: this.paintShow(comp),
+            styleData: this.repaintStyles(comp)
+        }
+        execList.push(new CompStylesRepaint(options))
 
-    //     return execList
-    // }
+        return execList
+    }
     public paintLogic(comp: BPComp) {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
         const { attrs, styleAttrs } = comp
-
+        // TODO  action / event / state
         const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
 
             if (item.type === "string" || !item.type) {
@@ -67,6 +67,7 @@ export default class BPText extends BPWidget {
         styleAttrs.forEach( (item: IAttrs) => {
             classNameBindings += `'${item.name}',`
         })
+
         const fileData = "\n" +
             `export default Component.extend({
                 layout,
@@ -79,6 +80,7 @@ export default class BPText extends BPWidget {
 
     public paintShow(comp: BPComp) {
         const { attrs, styleAttrs } = comp
+        // TODO  action / event / state
         const attrsBody = this.showProperties([...attrs, ...styleAttrs])
         const classNames: string = comp.className.split(",").join(" ")
 

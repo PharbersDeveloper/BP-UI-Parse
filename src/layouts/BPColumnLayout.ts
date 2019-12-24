@@ -57,6 +57,7 @@ export default class BPColumnLayout extends BPWidget {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
         const { attrs, styleAttrs } = comp
+        // TODO  action / event / state
 
         const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
 
@@ -85,6 +86,7 @@ export default class BPColumnLayout extends BPWidget {
 
     public paintShow(comp: BPComp) {
         const { attrs, styleAttrs } = comp
+        // TODO  action / event / state
         const attrsBody = this.showProperties([...attrs, ...styleAttrs])
         const insideComps = comp.components
         const compListClass = new GenCompList(this.output, this.projectName, this.routeName)

@@ -70,7 +70,7 @@ export default class BPRowLayout extends BPWidget {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
         const { attrs, styleAttrs } = comp
-
+        // TODO  action / event / state
         const attrsBody = [...attrs, ...styleAttrs].map((item: IAttrs) => {
 
             if (item.type === "string" || !item.type) {
@@ -83,9 +83,11 @@ export default class BPRowLayout extends BPWidget {
 
         }).join("")
         let classNameBindings = ""
+
         styleAttrs.forEach((item: IAttrs) => {
             classNameBindings += `"${item.name}",`
         })
+
         const fileData = "\n" +
             `export default Component.extend({
                 layout,
@@ -99,10 +101,11 @@ export default class BPRowLayout extends BPWidget {
     public paintShow(comp: BPComp) {
         const { attrs, styleAttrs } = comp
         const attrsBody = this.showProperties([...attrs, ...styleAttrs])
+        // TODO  action / event / state
         const insideComps = comp.components
+        const classNames: string = comp.className.split(",").join(" ")
         const compListClass = new GenCompList(this.output, this.projectName, this.routeName)
         const compList = compListClass.createList()
-        const classNames: string = comp.className.split(",").join(" ")
         let showBody: string = ""
         insideComps.forEach((icomp) => {
             const compIns = compList.find((x) => x.constructor.name === icomp.type)
