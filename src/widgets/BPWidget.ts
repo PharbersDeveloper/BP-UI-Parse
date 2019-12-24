@@ -177,11 +177,14 @@ export abstract class BPWidget extends BPObject {
                 ${slotsBody}
                 ${slotFooter}`
     }
-    public showProperties(arr: IAttrs[]) {
+    public showProperties(arr: IAttrs[], comp?: BPComp) {
         return arr.map((item: IAttrs) => {
 
             switch (item.type) {
                 case "string":
+                    if (item.name === "classNames") {
+                        return ` ${item.name}="${item.value} ${comp.className}"`
+                    }
                     return ` ${item.name}="${item.value}"`
                 case "number":
                 case "boolean":
@@ -193,6 +196,9 @@ export abstract class BPWidget extends BPObject {
                 case "array":
                     return ``
                 default:
+                    if (item.name === "classNames") {
+                        return ` ${item.name}="${item.value} ${comp.className}"`
+                    }
                     return ` ${item.name}="${item.value}"`
             }
         }).join("")

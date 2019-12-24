@@ -100,7 +100,7 @@ export default class BPRowLayout extends BPWidget {
 
     public paintShow(comp: BPComp) {
         const { attrs, styleAttrs } = comp
-        const attrsBody = this.showProperties([...attrs, ...styleAttrs])
+        const attrsBody = this.showProperties([...attrs, ...styleAttrs],comp)
         // TODO  action / event / state
         const insideComps = comp.components
         const classNames: string = comp.className.split(",").join(" ")
@@ -111,7 +111,7 @@ export default class BPRowLayout extends BPWidget {
             const compIns = compList.find((x) => x.constructor.name === icomp.type)
             showBody += compIns.paintShow(icomp)
         })
-        return `{{#${comp.name} classNames="${classNames}" ${attrsBody}}}
+        return `{{#${comp.name} ${attrsBody}}}
                     ${showBody}
                 {{/${comp.name}}}`
     }

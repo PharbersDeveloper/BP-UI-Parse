@@ -87,18 +87,17 @@ export default class BPColumnLayout extends BPWidget {
     public paintShow(comp: BPComp) {
         const { attrs, styleAttrs } = comp
         // TODO  action / event / state
-        const attrsBody = this.showProperties([...attrs, ...styleAttrs])
+        const attrsBody = this.showProperties([...attrs, ...styleAttrs],comp)
         const insideComps = comp.components
         const compListClass = new GenCompList(this.output, this.projectName, this.routeName)
         const compList = compListClass.createList()
-        const classNames: string = comp.className.split(",").join(" ")
 
         let showBody: string = ""
         insideComps.forEach((icomp) => {
             const compIns = compList.find((x) => x.constructor.name === icomp.type)
             showBody += compIns.paintShow(icomp)
         })
-        return `{{#${comp.name} classNames="${classNames}"  ${attrsBody}}}
+        return `{{#${comp.name}  ${attrsBody}}}
                     ${showBody}
                 {{/${comp.name}}}`
     }

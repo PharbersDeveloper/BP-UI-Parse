@@ -694,6 +694,7 @@
                                     "id": "report-table-container",
                                     "type": "BPColumnLayout",
                                     "name": "bp-column-layout",
+                                    "className": "report-table-container",
                                     "layout": [
                                         {
                                             "k": "flex",
@@ -736,6 +737,7 @@
                                             "id": "table-title-container",
                                             "type": "BPColumnLayout",
                                             "name": "bp-column-layout",
+                                            "className": "table-title-container",
                                             "layout": [
                                                 {
                                                     "k": "flex",
@@ -753,7 +755,7 @@
                                                 },
                                                 {
                                                     "k": "padding",
-                                                    "v": "0"
+                                                    "v": "0 24px"
                                                 },
                                                 {
                                                     "k": "margin",
@@ -781,7 +783,28 @@
                                                     "text": "产品地域发展详情",
                                                     "name": "bp-text",
                                                     "className": "china-title",
-                                                    "css": [],
+                                                    "css": [
+                                                        {
+                                                            "k": "width",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "height",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "padding",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "margin",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "box-sizing",
+                                                            "v": "border-box"
+                                                        }
+                                                    ],
                                                     "components": [],
                                                     "attrs": [
                                                         {
@@ -829,7 +852,7 @@
                                                         },
                                                         {
                                                             "name": "classNames",
-                                                            "value": " body-secondary"
+                                                            "value": "body-secondary"
                                                         }
                                                     ],
                                                     "styleAttrs": []
@@ -855,7 +878,7 @@
                                                     "v": "100%"
                                                 },{
                                                     "k": "padding",
-                                                    "v": "0 24px 24px"
+                                                    "v": "0 0 24px"
                                                 },{
                                                     "k": "margin",
                                                     "v": "0"
@@ -886,6 +909,7 @@
                                     "id": "report-bars-container",
                                     "type": "BPColumnLayout",
                                     "name": "bp-column-layout",
+                                    "className": "report-bars-container",
                                     "layout": [
                                         {
                                             "k": "flex",

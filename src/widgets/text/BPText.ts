@@ -81,10 +81,9 @@ export default class BPText extends BPWidget {
     public paintShow(comp: BPComp) {
         const { attrs, styleAttrs } = comp
         // TODO  action / event / state
-        const attrsBody = this.showProperties([...attrs, ...styleAttrs])
-        const classNames: string = comp.className.split(",").join(" ")
+        const attrsBody = this.showProperties([...attrs, ...styleAttrs],comp)
 
-        return `{{#${comp.name} classNames="${classNames}"  ${attrsBody}}}
+        return `{{#${comp.name} ${attrsBody}}}
                     ${comp.text}
                 {{/${comp.name}}}`
     }
