@@ -9,7 +9,7 @@ import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 import BPSlot from "../slotleaf/BPSlot"
 
-export default class BPLabel extends BPWidget {
+export default class BPViewport extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
             super(output, name, routeName)
         }
@@ -31,17 +31,27 @@ export default class BPLabel extends BPWidget {
         return execList
         }
     public paintShow(comp: BPComp) {
+        let comps = ""
         const {attrs, styleAttrs} = comp
         const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
+
             if (typeof item.value === "string") {
                 return ` ${item.name}='${item.value}'`
             } else {
                 return  ` ${item.name}=${item.value}`
             }
+
         }).join("")
 
-        return `{{${comp.name} ssc="ssc" emit="emit"
-            disconnect="disconnect" ${attrsBody}}}`
+        if (comp.components.length > 0) {
+            comp.components.forEach((it) => {
+                comps += `{{#${it.name}}}{{/${it.name}}}`
+            })
+        }
+
+        return `{{#${comp.name} ssc="ssc" emit="emit" disconnect="disconnect" ${attrsBody}}}
+            ${comps}
+        {{/${comp.name}}}`
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
@@ -71,14 +81,6 @@ export default class BPLabel extends BPWidget {
             }
         })
 
-        // attrs.forEach( (item: IAttrs) => {
-        //     if (typeof item.value === "string") {
-        //         styleAttrsBody += `${item.name}: '${item.value}',\n`
-        //     } else {
-        //         styleAttrsBody += `${item.name}: ${item.value},\n`
-        //     }
-        // })
-
         calcAttrs.forEach( (item: IAttrs) => {
             calcAttrsBody += `${item.name}: ${item.value},\n`
         })
@@ -87,14 +89,31 @@ export default class BPLabel extends BPWidget {
         import { computed } from '@ember/object';
         export default Component.extend({
             layout,
-            tagName:'label',
-            classNames:[],
+            tagName:'div',
+            classNames:['${comp.name}','viewport-class'],
             content: 'default',
-            attributeBindings: ['for'],
+            attributeBindings: ['style', 'vid:id'],
             ${attrsBody}
             ${styleAttrsBody}
             ${calcAttrsBody}
-            classNameBindings: ["type"],`
+            classNameBindings: [],
+            style: computed('width', 'height', function() {
+                return 'height:' + this.get('height') + ';width:' + this.get('width') + ';'
+            }),
+            actions: {
+                stepAction(dire) {
+                    let curDom = document.getElementById(this.get('vid'))
+                    let curSroll = curDom.getElementsByClassName("viewport-auto-wrapper")[0]
+                    let curDistance = curSroll.scrollLeft
+                    let step = this.get('step')
+                    window.console.log(11)
+                    if(dire ==="right") {
+                        curSroll.scrollLeft = step + curDistance
+                    }else if (dire === "left") {
+                        curSroll.scrollLeft = curDistance - step
+                    }
+                }
+            }`
 
         return fileDataStart + fileData + fileDataEnd
     }
@@ -103,10 +122,18 @@ export default class BPLabel extends BPWidget {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
         return `${leaf.paintShow()}
-        {{#if hasBlock}}
-            {{yield}}
-        {{else}}
-            {{text}}
+        {{#if clickChange}}
+            <div onclick={{action "stepAction" "left"}} class='viewport-click-left'>{{svg-jar 'pre-year' width='24px' height='24px' class='icon-no-margin'}}</div>
+        {{/if}}
+        <div class="viewport-hidden-wrapper">
+            <div class="viewport-auto-wrapper">
+                <div style="width:2000px;" class="viewport-nowarp">
+                    {{yield}}
+                </div>
+            </div>
+        </div>
+        {{#if clickChange}}
+            <div onclick={{action "stepAction" "right"}} class='viewport-click-right'>{{svg-jar 'next-year' width='24px' height='24px' class='icon-no-margin'}}</div>
         {{/if}}`
     }
 }

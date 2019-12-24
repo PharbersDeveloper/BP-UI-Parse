@@ -44,6 +44,7 @@ import BPText from "../widgets/text/BPText"
 import BPTextarea from "../widgets/textarea/BPTextarea"
 import BPToast from "../widgets/toast/BPToast"
 import BPTooltip from "../widgets/tooltip/BPTooltip"
+import BPViewport from "../widgets/viewport/BPViewport"
 
 export class GenCompList {
     public output: string = ""
@@ -56,6 +57,7 @@ export class GenCompList {
     }
     public createList() {
         return [
+            new BPViewport(this.output, this.projectName, this.routeName),
             new BPIcon(this.output, this.projectName, this.routeName),
             new BPButtonItem(this.output, this.projectName, this.routeName),
             new BPButtonGroup(this.output, this.projectName, this.routeName),

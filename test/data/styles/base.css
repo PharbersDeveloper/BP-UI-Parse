@@ -1673,3 +1673,61 @@ input[type="checkbox"]+label {
     align-content: stretch;
 }
 /** end layout 相关类 */
+
+.viewport-class {
+    background: transparent;
+    position: relative;
+}
+
+.viewport-class .icon-no-margin {
+    margin: 0;
+}
+
+.viewport-hidden-wrapper {
+    overflow: hidden;
+    position: relative; 
+    height: 100%;
+    width: 100%;
+}
+
+.viewport-auto-wrapper {
+    overflow: auto;
+    height: 100%; 
+    width: 100%;
+    scroll-behavior:smooth;
+}
+
+.viewport-click-right {
+    height: 100%;
+    width: 24px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+}
+
+.viewport-click-left {
+    height: 100%;
+    width: 24px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+}
+
+.viewport-nowarp {
+    white-space: nowrap;
+}
+
+.viewport-nowarp div {
+    display: inline-block;
+}
+
+/*隐藏滚动条 记得适配主流浏览器*/
+.viewport-auto-wrapper::-webkit-scrollbar {
+    display: none;   
+}
