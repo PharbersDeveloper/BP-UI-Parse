@@ -273,19 +273,19 @@ export abstract class BPWidget extends BPObject {
                 case (item.pe === "css" && item.tp !== "css"):
                     insidePointClass = `${prefix} .${className}:${item.tp}`
                     styleCont = `    ${item.key}: ${item.value};\r`
-                    pseudoStyleBody += `${pseudoStyleBody}\r${insidePointClass} {\r${styleCont}}\r`
+                    pseudoStyleBody += `\r${insidePointClass} {\r${styleCont}}\r`
                     break
                 // 处理伪元素
                 case (item.pe !== "css" && item.tp === "css"):
                     insidePointClass = `${prefix} .${className}::${item.pe}`
                     styleCont = `    ${item.key}: ${item.value};\r`
-                    pseudoStyleBody += `${pseudoStyleBody}\r${insidePointClass} {\r${styleCont}}\r`
+                    pseudoStyleBody += `\r${insidePointClass} {\r${styleCont}}\r`
                     break
                 // 处理伪类 + 伪元素
                 case (item.pe !== "css" && item.tp !== "css"):
                     insidePointClass = `${prefix} .${className}:${item.tp}::${item.pe}`
                     styleCont = `    ${item.key}: ${item.value};\r`
-                    pseudoStyleBody += `${pseudoStyleBody}\r${insidePointClass} {\r${styleCont}}\r`
+                    pseudoStyleBody += `\r${insidePointClass} {\r${styleCont}}\r`
                     break
                 // 处理标准的 css
                 case (item.pe === "css" && item.tp === "css"):
