@@ -82,9 +82,7 @@ export default class BPEmberCtx extends BPCtx {
         this.paintComps(components)
         // 3. 重写文件，将上面的组件进行展示
         this.showComp(components)
-        // this.supportSass(),
         this.mwStyles(route)
-        // this.moveBaseClass()
         this.moveLayDateFiles()
         // 4. 将执行命令抛出
         return this.runExec()
@@ -94,19 +92,19 @@ export default class BPEmberCtx extends BPCtx {
      * getAllComponents
      */
     public getAllComponents(components: BPComp[]) {
+        if (!components) { return [] }
         let comps: BPComp[] = []
 
         for (const element of components) {
             if (element.cat === "0") {
                 comps.push(element)
             }
-            // comps.push(element)
-            // }
 
             const inner = this.getAllComponents(element.components)
             comps = comps.concat(inner)
 
         }
+
         return comps
     }
 
@@ -131,47 +129,30 @@ export default class BPEmberCtx extends BPCtx {
 
     private showComp(components: BPComp[]) {
         const curComps = this.getAllComponents(components)
+
         const routeComps: string[] = components.map((comp) => comp.name)
         const currentCompTypeList = this.currentCompTypeList
         const that = this
         const uniqCompList = [...new Set(currentCompTypeList)]
-        phLogger.info(curComps)
-        phLogger.info("===============")
-        curComps.forEach((item) => {
-            routeComps.forEach((sc, i) => {
-                // const isShow: boolean = sc === item.type
-                phLogger.info(sc)
-                phLogger.info(item.name)
-                phLogger.info("===============")
-                const isShow: boolean = sc === item.name    // 路由的顶层组件展示
-                const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
-                that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))
-            })
-        })
-
-        // 上方为旧写法，会重复生成组件样式
-        // currentCompTypeList.forEach((comp) => {
-        //     const name = comp.constructor.name
-        //     const isShow = routeComps.includes(name)
-        //     const compConfig = curComps.find((cc) => cc.type === name)
-        //     this.cmds.push(...comp.paint(that, compConfig, isShow))
+        // curComps.forEach((item) => {
+        //     routeComps.forEach((sc, i) => {
+        //         // const isShow: boolean = sc === item.type
+        //         const isShow: boolean = sc === item.name    // 路由的顶层组件展示
+        //         const paintComp = uniqCompList.filter((uc) => uc.constructor.name === item.type)[0]
+        //         that.cmds.push(...paintComp.paint(that, isShow ? components[i] : item, isShow))
+        //     })
         // })
-
-        // 每一个 BPxxxx 类有自己的paint方法
-        // paint 方法返回 compExec 类的执行方法 exec
+        // 每个类的 paintStylesShow() 方法放入了 BPWidget
+        currentCompTypeList.forEach((comp, index: number) => {
+            this.cmds.push(...comp.paint(that, curComps[index], false))
+        })
+        components.forEach((compConf: BPComp) => {
+            const compIns = this.compTypeList.find((x) => x.constructor.name === compConf.type)
+            this.cmds.push(...compIns.paintStylesShow(compConf))
+        })
     }
     private mwStyles(route: BPMainWindow) {
         this.cmds.push(new GenMWStylesExec(this.output, this.projectName, route))
-    }
-
-    private supportSass() {
-        // 用来处理安装 sass 插件之后需要生成 /addon/styles/addon.scss /app/styles/app.scss
-        // this.cmds.push(new addonSassFile(this.output, this.projectName))
-
-    }
-    private moveBaseClass() {
-        this.cmds.push(new AddBaseClass(this.output, this.projectName))
-
     }
     // laydate files 因为对源码进行了修改，所以不能直接引入使用
     private moveLayDateFiles() {

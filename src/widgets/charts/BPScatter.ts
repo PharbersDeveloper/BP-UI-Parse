@@ -29,6 +29,30 @@ export default class BPScatter extends BPChart {
 
         return execList
     }
+    public mainLogic() {
+        return `
+        getChartIns() {
+            const selector = '#' + this.get('eid'),
+                $el = $(selector),
+                echartInstance = echarts.getInstanceByDom($el[0]);
+            return echartInstance;
+        },
+        generateChartOption(chartConfig, cond) {
+            const queryConfig = cond.query
+            const qa = queryConfig.address;
+            const queryChartSql = queryConfig.chartSql;
+            const ajax = this.ajax;
+            const ec = cond.encode;
+
+            ajax.request(qa + '?tag=row2line&dimensionKeys=' + ec.dimension, {
+                method: 'POST',
+                data: JSON.stringify(queryChartSql),
+                dataType: 'json'
+            }).then(data => {
+                this.updateChartData(chartConfig, data);
+            })
+        },` + "\r\n" + this.updateChart()
+    }
     public updateChart() {
         return `updateChartData(chartConfig, chartData) {
 

@@ -1619,6 +1619,60 @@ input[type="checkbox"]+label {
     display: none;
 }
 
+/** layout 相关类 */
+
+.wrap {
+    flex: wrap;
+}
+.main-flex-start {
+    justify-content: flex-start;
+}
+.main-flex-end {
+    justify-content: flex-end;
+}
+.main-center {
+    justify-content: center;
+}
+.main-space-between {
+    justify-content: space-between;
+}
+.main-space-around {
+    justify-content: space-around;
+}
+.cross-flex-start {
+    align-items: flex-start;
+}
+.cross-flex-end {
+    align-items: flex-end;
+}
+.cross-center {
+    align-items: center;
+}
+.cross-baseline {
+    align-items: baseline;
+}
+.cross-stretch {
+    align-items: stretch;
+}
+.wrap-flex-start {
+    align-content: flex-start;
+}
+.wrap-flex-end {
+    align-content: flex-end;
+}
+.wrap-center {
+    align-content: center;
+}
+.wrap-space-between {
+    align-content: space-between;
+}
+.wrap-space-around {
+    align-content: space-around;
+}
+.wrap-stretch {
+    align-content: stretch;
+}
+/** end layout 相关类 */
 
 .viewport-class {
     background: transparent;

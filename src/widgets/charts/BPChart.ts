@@ -62,20 +62,22 @@ export default class BPChart extends BPWidget {
 
             switch (item.type) {
                 case "string":
-                    return ` ${item.name}= "${item.value}"`
+                    return ` ${item.name}="${item.value}"`
                 case "number":
                 case "boolean":
-                    return ` ${item.name}= ${item.value}`
+                case "variable":
+                case "callback":
+                    return ` ${item.name}=${item.value}`
                 case "function":
                 case "object":
                 case "array":
                     return ``
                 default:
-                    return ` ${item.name}= "${item.value}"`
+                    return ` ${item.name}="${item.value}"`
             }
         }).join("")
 
-        return `<section class='chart-container'>{{${comp.name} ${attrsBody}}}</section>`
+        return `{{${comp.name} ${attrsBody}}}`
     }
     public paintHBS() {
         const chartHbs = `{{echarts-chart classNames='bp-chart'
@@ -101,7 +103,6 @@ export default class BPChart extends BPWidget {
     }
     public basicProp(comp: BPComp) {
         return `layout,
-                tagName: '',
                 ajax: service(),
                 classNames:["${comp.name}"],
                 xValues: A([]),`

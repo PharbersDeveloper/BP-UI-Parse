@@ -7,7 +7,7 @@ import { IAttrs, IOptions , IReStyleOpt} from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 
-export default class ChartCard extends BPWidget {
+export default class BPText extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
         super(output, name, routeName)
     }
@@ -18,7 +18,7 @@ export default class ChartCard extends BPWidget {
 
         const options: IOptions  = {
             comp,
-            hbsData: this.paintHBS(),
+            // hbsData: this.paintHBS(),
             logicData: this.paintLogic(comp),
             output: this.output,
             pName: this.projectName,
@@ -52,7 +52,7 @@ export default class ChartCard extends BPWidget {
         const fileDataEnd = this.paintLoginEnd()
         const { attrs, styleAttrs } = comp
 
-        const attrsBody = attrs.map( (item: IAttrs) => {
+        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
 
             if (item.type === "string" || !item.type) {
                 return  `${item.name}: "${item.value}",\n`
@@ -63,10 +63,8 @@ export default class ChartCard extends BPWidget {
             }
 
         }).join("")
-        let styleAttrsBody = ""
         let classNameBindings = ""
         styleAttrs.forEach( (item: IAttrs) => {
-            styleAttrsBody += `${item.name}: ${item.value},`
             classNameBindings += `'${item.name}',`
         })
         const fileData = "\n" +
@@ -74,40 +72,19 @@ export default class ChartCard extends BPWidget {
                 layout,
                 classNames:["${comp.name}"],
                 ${attrsBody}
-                ${styleAttrsBody}
                 classNameBindings: [${classNameBindings}],`
 
         return fileDataStart + fileData + fileDataEnd
     }
 
     public paintShow(comp: BPComp) {
-        const {attrs, styleAttrs} = comp
+        const { attrs, styleAttrs } = comp
         const attrsBody = this.showProperties([...attrs, ...styleAttrs])
-        const insideComps = comp.components
+        const classNames: string = comp.className.split(",").join(" ")
 
-        const titleConfig = insideComps[0]
-        const chartConfig = insideComps[1]
-
-        const title = this.showProperties([...titleConfig.attrs, ...titleConfig.styleAttrs])
-        const chart = this.showProperties([...chartConfig.attrs, ...chartConfig.styleAttrs])
-
-        return `{{#${comp.name}  ${attrsBody} as |card|}}
-                    {{card.head ${title}}}
-                    {{card.body ${chart}}}
+        return `{{#${comp.name} classNames="${classNames}"  ${attrsBody}}}
+                    ${comp.text}
                 {{/${comp.name}}}`
     }
 
-    public paintHBS() {
-        return    `{{yield
-            (hash
-              head=(component "chart-card-title")
-              body=(component chartName)
-              provName=provName
-              cityName=cityName
-              prodName=prodName
-              startDate=startDate
-              endDate=endDate
-            )
-          }}`
-    }
 }

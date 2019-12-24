@@ -10,6 +10,14 @@ export interface IOptions {
     styleData: string
     showData: string
 }
+export interface IReStyleOpt {
+    output: string
+    pName: string
+    rName: string
+    comp: BPComp
+    showData: string
+    styleData: string
+}
 export interface IAttrs {
     value: any
     name: string

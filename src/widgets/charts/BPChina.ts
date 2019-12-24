@@ -3,7 +3,7 @@
 import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
-import { IOptions } from "../../properties/Options"
+import { IAttrs, IOptions } from "../../properties/Options"
 import BPComp from "../Comp"
 import BPChart from "./BPChart"
 
@@ -30,12 +30,36 @@ export default class BPChina extends BPChart {
         return execList
     }
     public paintShow(comp: BPComp) {
-        const showStart = `{{!--
-                <p>在ember-cli-build 中添加app.import('node_modules/echarts/map/js/china.js');</p>
-             --}}` +
-            `<section class='chart-container'>{{${comp.name} eid='${comp.id}'}}</section>`
+        // const showStart = `{{!--
+        //         <p>在ember-cli-build 中添加app.import('node_modules/echarts/map/js/china.js');</p>
+        //      --}}` +
+        //     `{{${comp.name} eid='${comp.id}'}}`
 
-        return showStart
+        // return showStart
+        const { attrs, styleAttrs } = comp
+        const attrsBody = [...attrs, ...styleAttrs].map((item: IAttrs) => {
+
+            switch (item.type) {
+                case "string":
+                    return ` ${item.name}="${item.value}"`
+                case "number":
+                case "boolean":
+                case "variable":
+                case "callback":
+                    return ` ${item.name}=${item.value}`
+                case "function":
+                case "object":
+                case "array":
+                    return ``
+                default:
+                    return ` ${item.name}="${item.value}"`
+            }
+        }).join("")
+
+        return `{{!--
+            <p>在ember-cli-build 中添加app.import('node_modules/echarts/map/js/china.js');</p>
+         --}}
+         {{${comp.name} ${attrsBody}}}`
     }
     public mainLogic() {
         return `
@@ -58,22 +82,14 @@ export default class BPChina extends BPChart {
                 }
                 return data.name + " : " + data.value
             }
-            ajax.request(qa + '?tag=chart&x-axis=' + ec.x + '&y-axis=' + ec.y + '&dimensionKeys=' + ec.dimension, {
+            ajax.request(qa + '?tag=row2line&dimensionKeys=' + ec.dimension, {
                 method: 'POST',
                 data: JSON.stringify({ "sql": queryChartSql }),
                 dataType: 'json'
             }).then(data => {
-                let mock = [
-                    ["省份","浙江"],
-                    ["浙江",32045,66],
-                    ["山东",2045,16],
-                    ["台湾",72045,56],
-                    ["内蒙古",34,6],
-                ]
-                let visualMapMaxArr = mock.map(ele=>typeof ele[1]==="number"?ele[1]:0)
+                let visualMapMaxArr = data.map(ele=>typeof ele[1]==="number"?ele[1]:0)
                 chartConfig.visualMap.max = Math.max.apply(null,visualMapMaxArr)
-                this.updateChartData(chartConfig, mock);
-                // this.updateChartData(chartConfig, data);
+                this.updateChartData(chartConfig, data);
             })
         },` + "\r\n" + this.updateChart()
     }

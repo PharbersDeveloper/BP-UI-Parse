@@ -649,10 +649,45 @@
                         "mouseEnter",
                         "mouseLeave"
                     ]
+                },
+                {
+                    "id": "bp-text-creater",
+                    "type": "BPText",
+                    "cat": "0",
+                    "text": "BPText content",
+                    "name":"bp-text",
+                    "css": [
+                        {
+                            "k": "height",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "width",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },{
+                            "k": "color",
+                            "v": "$color-neutrals-n800"
+                        },{
+                            "k": "background",
+                            "v": "transparent"
+                        }
+                    ],
+                    "components": [],
+                    "attrs": [
+                        {
+                            "name": "tagName",
+                            "value": "span",
+                            "type": "string"
+                        }
+                    ],
+                    "styleAttrs": []
                 }
             ]
-        },
-        
+        },   
         {
             "id": "page with menu",
             "type": "BPMainWindow",
@@ -1389,6 +1424,115 @@
                         {
                             "k": "box-sizing",
                             "v": "border-box"
+                        }
+                    ]
+                }
+            ]
+        },   
+        {
+            "id": "layouts",
+            "type": "BPMainWindow",
+            "cat": "0",
+            "name": "layout",
+            "path": "layout",
+            "layout": [
+                {
+                    "k": "width",
+                    "v": "auto"
+                },
+                {
+                    "k": "height",
+                    "v": "auto"
+                }
+            ],
+            "css": [],
+            "components": [
+                {
+                    "id": "layout-row",
+                    "type": "BPRowLayout",
+                    "cat": "0",
+                    "name":"bp-row-layout",
+                    "css": [
+                        {
+                            "k": "height",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "width",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        }
+                    ],
+                    "components": [],
+                    "attrs": [],
+                    "styleAttrs": [
+                        {
+                            "name": "wrap",
+                            "value": "false",
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "mainAxis",
+                            "value": "main-flex-start",
+                            "type": "string"
+                        },
+                        {
+                            "name": "crossAxis",
+                            "value": "cross-stretch",
+                            "type": "string"
+                        },
+                        {
+                            "name": "alignContent",
+                            "value": "wrap-flex-start",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "id": "layout-column",
+                    "type": "BPColumnLayout",
+                    "cat": "0",
+                    "name":"bp-column-layout",
+                    "className": "",
+                    "css": [
+                        {
+                            "k": "height",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "width",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        }
+                    ],
+                    "components": [],
+                    "attrs": [],
+                    "styleAttrs": [
+                        {
+                            "name": "wrap",
+                            "value": "false",
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "mainAxis",
+                            "value": "main-flex-start",
+                            "type": "string"
+                        },
+                        {
+                            "name": "crossAxis",
+                            "value": "cross-stretch",
+                            "type": "string"
+                        },
+                        {
+                            "name": "alignContent",
+                            "value": "wrap-flex-start",
+                            "type": "string"
                         }
                     ]
                 }

@@ -21,7 +21,7 @@ export default class BPApplication extends BPObject {
 
     public run(args: string[]) {
         const projectPath = args[1] + "/test/data/reportComps" // TODO: 解析工作
-        const inputPath = projectPath + "/chartCard.json"
+        const inputPath = projectPath + "/report1223.json"
         const jsonConvert: JsonConvert = new JsonConvert()
         const inputFileData = fs.readFileSync(inputPath, "utf8")
         const appContent = jsonConvert.deserializeObject(JSON.parse(inputFileData), ParseBPML)
@@ -71,17 +71,15 @@ export default class BPApplication extends BPObject {
         const components: BPComp[] = []
         // 对组件 css 的处理
         comps.forEach((comp) => {
+
             const singleComp = new BPComp()
             const icp = new BPThemeProperty()
             const compCss = comp.css || []
-            compCss.forEach((c) => icp.resetProperty(c.k, c.v, c.tp, c.pe))
+            const compLayout = comp.layout || []
+            const compStyles = [...compCss, ...compLayout]
+            compStyles.forEach((c) => icp.resetProperty(c.k, c.v, c.tp, c.pe))
             Object.assign(singleComp, comp)
-            singleComp.css = compCss.length > 0 ? icp.properties : []
-            // singleComp.type = comp.type
-            // singleComp.name = comp.name
-            // singleComp.text = comp.text || ""
-            // singleComp.attrs = comp.attrs
-            // singleComp.cat = comp.cat || "1"
+            singleComp.css = compStyles.length > 0 ? icp.properties : []
             singleComp.components = this.deepParseComp(comp.components)
 
             components.push(singleComp)
