@@ -1,6 +1,6 @@
 {
     "mixin": {
-        "Display-large": {
+        "display-large": {
             "color": {
                 "value": "{color.text.heading.primary.value}"
             },
@@ -11,7 +11,7 @@
                 "value": "{font.weight.medium.value}"
             }
         },
-        "Title": {
+        "title": {
             "color": {
                 "value": "{color.text.heading.primary.value}"
             },
@@ -121,7 +121,7 @@
                 "value": "{font.weight.regular.value}"
             }
         },
-        "Display-large-inverse": {
+        "display-large-inverse": {
             "color": {
                 "value": "{color.text.heading.primary.inverse.value}"
             },
@@ -132,7 +132,7 @@
                 "value": "{font.weight.medium.value}"
             }
         },
-        "Title-inverse": {
+        "title-inverse": {
             "color": {
                 "value": "{color.text.heading.primary.inverse.value}"
             },

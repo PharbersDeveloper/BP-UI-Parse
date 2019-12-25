@@ -57,6 +57,7 @@ export default class BPColumnLayout extends BPWidget {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
         const { attrs, styleAttrs } = comp
+        // TODO  action / event / state
 
         const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
 
@@ -85,18 +86,20 @@ export default class BPColumnLayout extends BPWidget {
 
     public paintShow(comp: BPComp) {
         const { attrs, styleAttrs } = comp
-        const attrsBody = this.showProperties([...attrs, ...styleAttrs])
+        // TODO  action / event / state
+        const attrsBody = this.showProperties([...attrs, ...styleAttrs], comp)
         const insideComps = comp.components
         const compListClass = new GenCompList(this.output, this.projectName, this.routeName)
         const compList = compListClass.createList()
-        const classNames: string = comp.className.split(",").join(" ")
-
+        // 判断attrs 中是否有 classNames ，如果没有，则使用 className 属性的值
+        const isClassNames = attrs.some((attr: IAttrs) => attr.name === "classNames")
+        const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
         let showBody: string = ""
         insideComps.forEach((icomp) => {
             const compIns = compList.find((x) => x.constructor.name === icomp.type)
             showBody += compIns.paintShow(icomp)
         })
-        return `{{#${comp.name} classNames="${classNames}"  ${attrsBody}}}
+        return `{{#${comp.name} ${classNames} ${attrsBody}}}
                     ${showBody}
                 {{/${comp.name}}}`
     }
