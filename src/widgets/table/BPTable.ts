@@ -30,43 +30,29 @@ export default class BPTable extends BPWidget {
 
         return execList
         }
+
     public paintShow(comp: BPComp) {
+        const { attrs, styleAttrs } = comp
+        // TODO  action / event / state
+        const attrsBody = this.showProperties([...attrs, ...styleAttrs], comp)
+        // 判断attrs 中是否有 classNames ，如果没有，则使用 className 属性的值
+        const isClassNames = attrs.some((attr: IAttrs) => attr.name === "classNames")
+        const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
 
-        const {attrs, styleAttrs} = comp
-        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
-            if (typeof item.value === "string") {
-                return ` ${item.name}='${item.value}'`
-            } else {
-                return  ` ${item.name}=${item.value}`
-            }
-        }).join("")
-
-        return `{{${comp.name} ssc="ssc" emit="emit"
-            disconnect="disconnect" ${attrsBody}}}`
+        // return `{{${comp.name} ssc="ssc" emit="emit"
+        //     disconnect="disconnect" ${attrsBody}}}`
+        return `{{${comp.name}  ${classNames} ${attrsBody}}}`
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
         const {attrs, styleAttrs, events } = comp
-        const attrsBody = attrs.map( (item: IAttrs) => {
-            if (typeof item.value === "string") {
-                return `${item.name}: '${item.value}',`
-            } else {
-                return  `${item.name}: ${item.value},`
-            }
+        const attrsBody = this.logicAttrs([...attrs, styleAttrs])
+        let classNameBindings = ""
+        styleAttrs.forEach((item: IAttrs) => {
+            classNameBindings += `"${item.name}",`
         })
-
-        let styleAttrsBody = ""
-
-        styleAttrs.forEach( (item: IAttrs) => {
-            if (typeof item.value === "string") {
-                styleAttrsBody += `${item.name}: '${item.value}',`
-            } else {
-                styleAttrsBody += `${item.name}: ${item.value},`
-            }
-        })
-
         const fileData = "\n" +
             `import {computed} from '@ember/object';
             import { A } from '@ember/array';
@@ -75,12 +61,10 @@ export default class BPTable extends BPWidget {
             export default Component.extend({
                 layout,
                 ajax: service(),
-                tagName:'div',
                 classNames:["${comp.name}"],
                 content: 'default',
-                classNameBindings: ['border:border-table'],
+                classNameBindings: ['border:border-table',${classNameBindings}],
                 attributeBindings: [''],
-                ${styleAttrsBody}
                 ${attrsBody}
                 didInsertElement() {
                     this._super(...arguments);

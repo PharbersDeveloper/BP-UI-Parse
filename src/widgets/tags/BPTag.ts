@@ -98,7 +98,7 @@ export default class BPTag extends BPWidget {
 
                 return "tag-" + type
             }),
-            ${this.slotActions(events, `${comp.name}`)},`
+            ${this.slotActions(events, `${comp.name}`)}},`
 
         return fileDataStart + fileData + fileDataEnd
     }
