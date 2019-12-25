@@ -58,26 +58,12 @@ export default class BPChart extends BPWidget {
     }
     public paintShow(comp: BPComp) {
         const {attrs, styleAttrs} = comp
-        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
-
-            switch (item.type) {
-                case "string":
-                    return ` ${item.name}="${item.value}"`
-                case "number":
-                case "boolean":
-                case "variable":
-                case "callback":
-                    return ` ${item.name}=${item.value}`
-                case "function":
-                case "object":
-                case "array":
-                    return ``
-                default:
-                    return ` ${item.name}="${item.value}"`
-            }
-        }).join("")
-
-        return `{{${comp.name} ${attrsBody}}}`
+        // TODO  action / event / state
+        const attrsBody = this.showProperties([...attrs, ...styleAttrs], comp)
+        // 判断attrs 中是否有 classNames ，如果没有，则使用 className 属性的值
+        const isClassNames = attrs.some((attr: IAttrs) => attr.name === "classNames")
+        const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
+        return `{{${comp.name} ${classNames} ${attrsBody}}}`
     }
     public paintHBS() {
         const chartHbs = `{{echarts-chart classNames='bp-chart'

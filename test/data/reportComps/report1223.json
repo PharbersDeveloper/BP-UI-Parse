@@ -86,6 +86,7 @@
                                     "type": "BPText",
                                     "text": "报告名称",
                                     "name": "bp-text",
+                                    "className": "header-title",
                                     "css": [
                                         {
                                             "k": "height",
@@ -127,6 +128,7 @@
                                     "type": "BPText",
                                     "text": "datepicker placeholder",
                                     "name": "bp-text",
+                                    "className": "header-datepicker",
                                     "css": [
                                         {
                                             "k": "height",
@@ -467,7 +469,8 @@
                                             ]
                                         }
                                     ]
-                                },{
+                                },
+                                {
                                     "id": "report-scatter-container",
                                     "type": "BPColumnLayout",
                                     "name": "bp-column-layout",
@@ -873,19 +876,24 @@
                                                 {
                                                     "k": "width",
                                                     "v": "100%"
-                                                },{
+                                                },
+                                                {
                                                     "k": "height",
                                                     "v": "100%"
-                                                },{
+                                                },
+                                                {
                                                     "k": "padding",
                                                     "v": "0 0 24px"
-                                                },{
+                                                },
+                                                {
                                                     "k": "margin",
                                                     "v": "0"
-                                                },{
+                                                },
+                                                {
                                                     "k": "position",
                                                     "v": "relative"
-                                                },{
+                                                },
+                                                {
                                                     "k": "box-sizing",
                                                     "v": "border-box"
                                                 }
@@ -949,6 +957,330 @@
                                             "type": "BPColumnLayout",
                                             "name": "bp-column-layout",
                                             "className": "bars-content",
+                                            "layout": [],
+                                            "css": [],
+                                            "attrs": [],
+                                            "components": [
+                                                {
+                                                    "id": "bars-title-container",
+                                                    "type": "BPColumnLayout",
+                                                    "name": "bp-column-layout",
+                                                    "className": "bars-title-container",
+                                                    "layout": [],
+                                                    "css": [],
+                                                    "styleAttrs": [
+                                                        {
+                                                            "name": "mainAxis",
+                                                            "value": "main-center"
+                                                        }
+                                                    ],
+                                                    "components": [
+                                                        {
+                                                            "id": "bars-title",
+                                                            "type": "BPText",
+                                                            "text": "Viread | 市场规模与产品销量发展情况",
+                                                            "name": "bp-text",
+                                                            "className": "bars-title",
+                                                            "css": [],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "h3",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": "heading-medium"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        },
+                                                        {
+                                                            "id": "bars-subtitle",
+                                                            "type": "BPText",
+                                                            "text": "全国·浙江省·杭州市",
+                                                            "name": "bp-text",
+                                                            "className": "bars-subtitle",
+                                                            "css": [],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "p",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": " body-secondary"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "stack-demo-first001",
+                                                    "type": "BPStack",
+                                                    "name": "bp-stack",
+                                                    "className": "chart-bar-content",
+                                                    "layout": [],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "eid",
+                                                            "value": "stack-demo-first001"
+                                                        },
+                                                        {
+                                                            "name": "confReqAdd",
+                                                            "value": "http://192.168.100.25:5555",
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "name": "currentProv",
+                                                            "value": "全国"
+                                                        },
+                                                        {
+                                                            "name": "currentCity",
+                                                            "value": ""
+                                                        },
+                                                        {
+                                                            "name": "startDate",
+                                                            "value": "201801"
+                                                        },
+                                                        {
+                                                            "name": "endDate",
+                                                            "value": "201901"
+                                                        },
+                                                        {
+                                                            "name": "prodName",
+                                                            "value": "Viread"
+                                                        }
+                                                    ],
+                                                    "css": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "report-bars-content",
+                                            "type": "BPColumnLayout",
+                                            "name": "bp-column-layout",
+                                            "className": "bars-content",
+                                            "layout": [],
+                                            "css": [],
+                                            "attrs": [],
+                                            "components": [
+                                                {
+                                                    "id": "bars-title-container",
+                                                    "type": "BPColumnLayout",
+                                                    "name": "bp-column-layout",
+                                                    "className": "bars-title-container",
+                                                    "layout": [],
+                                                    "css": [],
+                                                    "styleAttrs": [
+                                                        {
+                                                            "name": "mainAxis",
+                                                            "value": "main-center"
+                                                        }
+                                                    ],
+                                                    "components": [
+                                                        {
+                                                            "id": "bars-title",
+                                                            "type": "BPText",
+                                                            "text": "Viread | 市场与产品发展趋势",
+                                                            "name": "bp-text",
+                                                            "className": "bars-title",
+                                                            "css": [],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "h3",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": "heading-medium"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        },
+                                                        {
+                                                            "id": "bars-subtitle",
+                                                            "type": "BPText",
+                                                            "text": "全国·浙江省·杭州市",
+                                                            "name": "bp-text",
+                                                            "className": "bars-subtitle",
+                                                            "css": [],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "p",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": " body-secondary"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "line-demo-first003",
+                                                    "type": "BPLine",
+                                                    "name": "bp-line",
+                                                    "className": "chart-bar-content",
+                                                    "layout": [],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "eid",
+                                                            "value": "line-demo-first003"
+                                                        },
+                                                        {
+                                                            "name": "confReqAdd",
+                                                            "value": "http://192.168.100.25:5555",
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "name": "currentProv",
+                                                            "value": "全国"
+                                                        },
+                                                        {
+                                                            "name": "currentCity",
+                                                            "value": ""
+                                                        },
+                                                        {
+                                                            "name": "startDate",
+                                                            "value": "201801"
+                                                        },
+                                                        {
+                                                            "name": "endDate",
+                                                            "value": "201901"
+                                                        },
+                                                        {
+                                                            "name": "prodName",
+                                                            "value": "Viread"
+                                                        }
+                                                    ],
+                                                    "css": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "report-bars-content",
+                                            "type": "BPColumnLayout",
+                                            "name": "bp-column-layout",
+                                            "className": "bars-content",
+                                            "layout": [],
+                                            "css": [],
+                                            "attrs": [],
+                                            "components": [
+                                                {
+                                                    "id": "bars-title-container",
+                                                    "type": "BPColumnLayout",
+                                                    "name": "bp-column-layout",
+                                                    "className": "bars-title-container",
+                                                    "layout": [],
+                                                    "css": [],
+                                                    "styleAttrs": [
+                                                        {
+                                                            "name": "mainAxis",
+                                                            "value": "main-center"
+                                                        }
+                                                    ],
+                                                    "components": [
+                                                        {
+                                                            "id": "bars-title",
+                                                            "type": "BPText",
+                                                            "text": "Viread | 市场内各分子份额变化",
+                                                            "name": "bp-text",
+                                                            "className": "bars-title",
+                                                            "css": [],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "h3",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": "heading-medium"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        },
+                                                        {
+                                                            "id": "bars-subtitle",
+                                                            "type": "BPText",
+                                                            "text": "全国·浙江省·杭州市",
+                                                            "name": "bp-text",
+                                                            "className": "bars-subtitle",
+                                                            "css": [],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "p",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": " body-secondary"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "stack-demo-first002",
+                                                    "type": "BPStack",
+                                                    "name": "bp-stack",
+                                                    "className": "chart-bar-content",
+                                                    "layout": [],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "eid",
+                                                            "value": "stack-demo-first002"
+                                                        },
+                                                        {
+                                                            "name": "confReqAdd",
+                                                            "value": "http://192.168.100.25:5555",
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "name": "currentProv",
+                                                            "value": "全国"
+                                                        },
+                                                        {
+                                                            "name": "currentCity",
+                                                            "value": ""
+                                                        },
+                                                        {
+                                                            "name": "startDate",
+                                                            "value": "201801"
+                                                        },
+                                                        {
+                                                            "name": "endDate",
+                                                            "value": "201901"
+                                                        },
+                                                        {
+                                                            "name": "prodName",
+                                                            "value": "Viread"
+                                                        }
+                                                    ],
+                                                    "css": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "report-bars-content",
+                                            "type": "BPColumnLayout",
+                                            "name": "bp-column-layout",
+                                            "className": "bars-content",
                                             "layout": [
                                                 {
                                                     "k": "flex",
@@ -970,7 +1302,7 @@
                                                 },
                                                 {
                                                     "k": "margin",
-                                                    "v": "0"
+                                                    "v": "0 0 24px"
                                                 },
                                                 {
                                                     "k": "box-sizing",
@@ -995,7 +1327,7 @@
                                                     "layout": [
                                                         {
                                                             "k": "flex",
-                                                            "v": "0 0 80px"
+                                                            "v": " 0 0 80px"
                                                         }
                                                     ],
                                                     "css": [
@@ -1027,17 +1359,30 @@
                                                     "styleAttrs": [
                                                         {
                                                             "name": "mainAxis",
-                                                            "value": "cross-center"
+                                                            "value": "main-center"
                                                         }
                                                     ],
                                                     "components": [
                                                         {
-                                                            "id": "china-title",
+                                                            "id": "bars-title",
                                                             "type": "BPText",
-                                                            "text": "Viread | 市场规模与产品销量发展情况",
+                                                            "text": "Viread | 所在市场内重点产品份额变化",
                                                             "name": "bp-text",
-                                                            "className": "china-title",
-                                                            "css": [],
+                                                            "className": "bars-title",
+                                                            "css": [
+                                                                {
+                                                                    "k": "width",
+                                                                    "v": "auto"
+                                                                },
+                                                                {
+                                                                    "k": "height",
+                                                                    "v": "auto"
+                                                                },
+                                                                {
+                                                                    "k": "margin",
+                                                                    "v": "0"
+                                                                }
+                                                            ],
                                                             "components": [],
                                                             "attrs": [
                                                                 {
@@ -1093,142 +1438,10 @@
                                                     ]
                                                 },
                                                 {
-                                                    "id": "stack-demo-first001",
-                                                    "type": "BPStack",
-                                                    "name": "bp-stack",
-                                                    "layout": [
-                                                        {
-                                                            "k": "flex",
-                                                            "v": 1
-                                                        }
-                                                    ],
-                                                    "attrs": [
-                                                        {
-                                                            "name": "eid",
-                                                            "value": "stack-demo-first001"
-                                                        },
-                                                        {
-                                                            "name": "confReqAdd",
-                                                            "value": "http://192.168.100.25:5555",
-                                                            "type": "string"
-                                                        },
-                                                        {
-                                                            "name": "currentProv",
-                                                            "value": "全国"
-                                                        },
-                                                        {
-                                                            "name": "currentCity",
-                                                            "value": ""
-                                                        },
-                                                        {
-                                                            "name": "startDate",
-                                                            "value": "201801"
-                                                        },
-                                                        {
-                                                            "name": "endDate",
-                                                            "value": "201901"
-                                                        },
-                                                        {
-                                                            "name": "prodName",
-                                                            "value": "Viread"
-                                                        }
-                                                    ],
-                                                    "css": [
-                                                        {
-                                                            "k": "width",
-                                                            "v": "100%"
-                                                        },
-                                                        {
-                                                            "k": "height",
-                                                            "v": "auto"
-                                                        },
-                                                        {
-                                                            "k": "padding",
-                                                            "v": "0 24px 24px"
-                                                        },
-                                                        {
-                                                            "k": "margin",
-                                                            "v": "0"
-                                                        },
-                                                        {
-                                                            "k": "box-sizing",
-                                                            "v": "border-box"
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "id": "report-bars-content",
-                                            "type": "BPColumnLayout",
-                                            "name": "bp-column-layout",
-                                            "className": "bars-content",
-                                            "layout": [],
-                                            "css": [],
-                                            "attrs": [],
-                                            "components": [
-                                                {
-                                                    "id": "bars-title-container",
-                                                    "type": "BPColumnLayout",
-                                                    "name": "bp-column-layout",
-                                                    "className": "bars-title-container",
-                                                    "layout": [],
-                                                    "css": [],
-                                                    "styleAttrs": [
-                                                        {
-                                                            "name": "mainAxis",
-                                                            "value": "cross-center"
-                                                        }
-                                                    ],
-                                                    "components": [
-                                                        {
-                                                            "id": "china-title",
-                                                            "type": "BPText",
-                                                            "text": "Viread | 市场与产品发展趋势",
-                                                            "name": "bp-text",
-                                                            "className": "china-title",
-                                                            "css": [],
-                                                            "components": [],
-                                                            "attrs": [
-                                                                {
-                                                                    "name": "tagName",
-                                                                    "value": "h3",
-                                                                    "type": "string"
-                                                                },
-                                                                {
-                                                                    "name": "classNames",
-                                                                    "value": "heading-medium"
-                                                                }
-                                                            ],
-                                                            "styleAttrs": []
-                                                        },
-                                                        {
-                                                            "id": "bars-subtitle",
-                                                            "type": "BPText",
-                                                            "text": "全国·浙江省·杭州市",
-                                                            "name": "bp-text",
-                                                            "className": "bars-subtitle",
-                                                            "css": [],
-                                                            "components": [],
-                                                            "attrs": [
-                                                                {
-                                                                    "name": "tagName",
-                                                                    "value": "p",
-                                                                    "type": "string"
-                                                                },
-                                                                {
-                                                                    "name": "classNames",
-                                                                    "value": " body-secondary"
-                                                                }
-                                                            ],
-                                                            "styleAttrs": []
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "id": "line-demo-first001",
+                                                    "id": "line-demo-first002",
                                                     "type": "BPLine",
                                                     "name": "bp-line",
+                                                    "className": "chart-bar-content",
                                                     "layout": [
                                                         {
                                                             "k": "flex",
@@ -1238,7 +1451,7 @@
                                                     "attrs": [
                                                         {
                                                             "name": "eid",
-                                                            "value": "line-demo-first001"
+                                                            "value": "line-demo-first002"
                                                         },
                                                         {
                                                             "name": "confReqAdd",
@@ -1286,134 +1499,12 @@
                                                         {
                                                             "k": "box-sizing",
                                                             "v": "border-box"
+                                                        },
+                                                        {
+                                                            "k": "overflow",
+                                                            "v": "auto"
                                                         }
                                                     ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "id": "stack-demo-first002",
-                                            "type": "BPStack",
-                                            "name": "bp-stack",
-                                            "layout": [],
-                                            "attrs": [
-                                                {
-                                                    "name": "eid",
-                                                    "value": "stack-demo-first002"
-                                                },
-                                                {
-                                                    "name": "confReqAdd",
-                                                    "value": "http://192.168.100.25:5555",
-                                                    "type": "string"
-                                                },
-                                                {
-                                                    "name": "currentProv",
-                                                    "value": "全国"
-                                                },
-                                                {
-                                                    "name": "currentCity",
-                                                    "value": ""
-                                                },
-                                                {
-                                                    "name": "startDate",
-                                                    "value": "201801"
-                                                },
-                                                {
-                                                    "name": "endDate",
-                                                    "value": "201901"
-                                                },
-                                                {
-                                                    "name": "prodName",
-                                                    "value": "Viread"
-                                                }
-                                            ],
-                                            "css": [
-                                                {
-                                                    "k": "width",
-                                                    "v": "100%"
-                                                },
-                                                {
-                                                    "k": "height",
-                                                    "v": "349px"
-                                                },
-                                                {
-                                                    "k": "padding",
-                                                    "v": "0"
-                                                },
-                                                {
-                                                    "k": "margin",
-                                                    "v": "0 0 24px 0"
-                                                },
-                                                {
-                                                    "k": "box-sizing",
-                                                    "v": "border-box"
-                                                },
-                                                {
-                                                    "k": "box-shadow",
-                                                    "v": "$depth-z200"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "id": "line-demo-first002",
-                                            "type": "BPLine",
-                                            "name": "bp-line",
-                                            "layout": [],
-                                            "attrs": [
-                                                {
-                                                    "name": "eid",
-                                                    "value": "line-demo-first002"
-                                                },
-                                                {
-                                                    "name": "confReqAdd",
-                                                    "value": "http://192.168.100.25:5555",
-                                                    "type": "string"
-                                                },
-                                                {
-                                                    "name": "currentProv",
-                                                    "value": "全国"
-                                                },
-                                                {
-                                                    "name": "currentCity",
-                                                    "value": ""
-                                                },
-                                                {
-                                                    "name": "startDate",
-                                                    "value": "201801"
-                                                },
-                                                {
-                                                    "name": "endDate",
-                                                    "value": "201901"
-                                                },
-                                                {
-                                                    "name": "prodName",
-                                                    "value": "Viread"
-                                                }
-                                            ],
-                                            "css": [
-                                                {
-                                                    "k": "width",
-                                                    "v": "100%"
-                                                },
-                                                {
-                                                    "k": "height",
-                                                    "v": "349px"
-                                                },
-                                                {
-                                                    "k": "padding",
-                                                    "v": "0"
-                                                },
-                                                {
-                                                    "k": "margin",
-                                                    "v": "0 0 24px 0"
-                                                },
-                                                {
-                                                    "k": "box-sizing",
-                                                    "v": "border-box"
-                                                },
-                                                {
-                                                    "k": "box-shadow",
-                                                    "v": "$depth-z200"
                                                 }
                                             ]
                                         }

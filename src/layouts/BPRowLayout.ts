@@ -100,10 +100,13 @@ export default class BPRowLayout extends BPWidget {
 
     public paintShow(comp: BPComp) {
         const { attrs, styleAttrs } = comp
-        const attrsBody = this.showProperties([...attrs, ...styleAttrs],comp)
+        const attrsBody = this.showProperties([...attrs, ...styleAttrs], comp)
         // TODO  action / event / state
         const insideComps = comp.components
-        const classNames: string = comp.className.split(",").join(" ")
+        // 判断attrs 中是否有 classNames ，如果没有，则使用 className 属性的值
+        const isClassNames = attrs.some((attr: IAttrs) => attr.name === "classNames")
+        const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
+
         const compListClass = new GenCompList(this.output, this.projectName, this.routeName)
         const compList = compListClass.createList()
         let showBody: string = ""
@@ -111,7 +114,7 @@ export default class BPRowLayout extends BPWidget {
             const compIns = compList.find((x) => x.constructor.name === icomp.type)
             showBody += compIns.paintShow(icomp)
         })
-        return `{{#${comp.name} ${attrsBody}}}
+        return `{{#${comp.name} ${classNames} ${attrsBody}}}
                     ${showBody}
                 {{/${comp.name}}}`
     }

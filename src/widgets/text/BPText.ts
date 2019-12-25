@@ -81,9 +81,12 @@ export default class BPText extends BPWidget {
     public paintShow(comp: BPComp) {
         const { attrs, styleAttrs } = comp
         // TODO  action / event / state
-        const attrsBody = this.showProperties([...attrs, ...styleAttrs],comp)
+        const attrsBody = this.showProperties([...attrs, ...styleAttrs], comp)
+        // 判断attrs 中是否有 classNames ，如果没有，则使用 className 属性的值
+        const isClassNames = attrs.some((attr: IAttrs) => attr.name === "classNames")
+        const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
 
-        return `{{#${comp.name} ${attrsBody}}}
+        return `{{#${comp.name} ${classNames} ${attrsBody}}}
                     ${comp.text}
                 {{/${comp.name}}}`
     }

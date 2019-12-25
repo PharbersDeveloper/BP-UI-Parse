@@ -9,8 +9,8 @@ export class BPThemeProperty {
 
     // TODO: 修改配置文件
     protected normals: Array<{key: string, v: any}> = [
-        { key: "height", v: "100px" },
-        { key: "width", v: "100px" },
+        { key: "height", v: "auto" },
+        { key: "width", v: "auto" },
         { key: "margin-left", v: 8 },
         { key: "margin-right", v: 8 },
         { key: "margin-top", v: 8 },
