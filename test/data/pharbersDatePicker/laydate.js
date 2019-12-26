@@ -1258,9 +1258,9 @@
           lay(this).addClass(THIS);
 
           // 选中两个月份或者年的时候直接关闭 待改进
-          if (document.getElementsByClassName(THIS).length === 2) {
-            that.tool(that, "confirm");
-          }
+          // if (document.getElementsByClassName(THIS).length === 2) {
+          //   that.tool(that, "confirm");
+          // }
 
           //如果为年月选择器，点击了年列表，则切换到月选择器
           if(options.type === 'month' && type === 'year'){
@@ -1581,9 +1581,9 @@
       lay(that.footer).find(ELEM_CONFIRM)[that.endDate ? 'removeClass' : 'addClass'](DISABLED);
       
       // 选择日期结束后调用确定按钮绑定的函数 confirm !! 
-        if (that.endDate && that.startDate) {
-          that.tool(that, "confirm");
-        }
+        // if (that.endDate && that.startDate) {
+        //   that.tool(that, "confirm");
+        // }
     } else if(options.position === 'static'){ //直接嵌套的选中
       setDateTime(true);
       that.calendar().done().done(null, 'change');
