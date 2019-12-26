@@ -70,7 +70,7 @@ export default class BPBadge extends BPWidget {
             ${attrsBody}
             ${styleAttrsBody}
             classNameBindings: [${classNameBindings}],
-            ${this.slotActions(events, `${comp.name}`)},`
+            ${this.slotActions(events, `${comp.name}`)}},`
 
         return fileDataStart + fileData + fileDataEnd
     }

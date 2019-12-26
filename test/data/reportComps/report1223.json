@@ -201,43 +201,49 @@
                             ],
                             "components": [
                                 {
-                                    "id": "bp-text-creater",
-                                    "type": "BPText",
-                                    "text": "scroll View is here",
-                                    "name": "bp-text",
-                                    "className": "display-large-inverse",
-                                    "css": [
-                                        {
-                                            "k": "height",
-                                            "v": "106px"
-                                        },
-                                        {
-                                            "k": "width",
-                                            "v": "auto"
-                                        },
-                                        {
-                                            "k": "padding",
-                                            "v": "0"
-                                        },
+                                    "id": "test",
+                                    "type": "BPViewport",
+                                    "name":"bp-viewport",
+                                    "css": [    
                                         {
                                             "k": "margin",
-                                            "v": "0"
+                                            "v": "0 24px"
                                         },
                                         {
-                                            "k": "background",
-                                            "v": "transparent"
+                                            "k": "positon",
+                                            "v": "relative"
                                         }
                                     ],
-                                    "components": [],
                                     "attrs": [
                                         {
-                                            "name": "tagName",
-                                            "value": "h1",
-                                            "type": "string"
+                                            "name": "height",
+                                            "value": "120px"
+                                        },
+                                        {
+                                            "name": "width",
+                                            "value": "calc(100% - 48px)"
+                                        },
+                                        {
+                                            "name": "clickChange",
+                                            "value": true
+                                        },
+                                        {
+                                            "name": "vid",
+                                            "value": "bp-viewport-test"
+                                        },
+                                        {
+                                            "name": "step",
+                                            "value": 200
                                         }
                                     ],
-                                    "styleAttrs": []
-                                }
+                                    "styleAttrs": [
+                                        {
+                                            "name": "row",
+                                            "value": true
+                                        }
+                                    ],
+                                    "events": ["click"]
+                                  }
                             ],
                             "attrs": [],
                             "styleAttrs": [
@@ -776,7 +782,7 @@
                                             "styleAttrs": [
                                                 {
                                                     "name": "mainAxis",
-                                                    "value": "cross-center"
+                                                    "value": "main-center"
                                                 }
                                             ],
                                             "components": [
@@ -866,6 +872,7 @@
                                             "id": "table-demo",
                                             "type": "BPTable",
                                             "name": "bp-table",
+                                            "className": "report-table-content",
                                             "layout": [
                                                 {
                                                     "k": "flex",
@@ -879,7 +886,7 @@
                                                 },
                                                 {
                                                     "k": "height",
-                                                    "v": "100%"
+                                                    "v": "auto"
                                                 },
                                                 {
                                                     "k": "padding",
@@ -907,7 +914,8 @@
                                             "styleAttrs": [
                                                 {
                                                     "name": "border",
-                                                    "value": false
+                                                    "value": false,
+                                                    "type": "boolean"
                                                 }
                                             ]
                                         }

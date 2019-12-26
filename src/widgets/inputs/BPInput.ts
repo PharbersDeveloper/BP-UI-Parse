@@ -94,7 +94,7 @@ export default class BPInput extends BPWidget {
 
                 return "input-" + size
             }),
-            ${this.slotActions(events, `${comp.name}`)},`
+            ${this.slotActions(events, `${comp.name}`)}},`
 
         return fileDataStart + fileData + fileDataEnd
     }

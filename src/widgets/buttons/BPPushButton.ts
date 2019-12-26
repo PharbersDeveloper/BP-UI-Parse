@@ -96,7 +96,7 @@ export default class BPPushButton extends BPWidget {
                     return 'button-density-default'
                 }
             }),
-            ${this.slotActions(events, `${comp.name}`)},`
+            ${this.slotActions(events, `${comp.name}`)}},`
 
         return fileDataStart + fileData + fileDataEnd
     }

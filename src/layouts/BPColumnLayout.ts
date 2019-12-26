@@ -59,17 +59,7 @@ export default class BPColumnLayout extends BPWidget {
         const { attrs, styleAttrs } = comp
         // TODO  action / event / state
 
-        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
-
-            if (item.type === "string" || !item.type) {
-                return  `${item.name}: "${item.value}",\n`
-            } else if (item.type === "variable") {
-                return ``
-            } else {
-                return  `${item.name}: ${item.value},\n`
-            }
-
-        }).join("")
+        const attrsBody = this.logicAttrs([...attrs, ...styleAttrs])
         let classNameBindings = ""
         styleAttrs.forEach( (item: IAttrs) => {
             classNameBindings += `"${item.name}",`

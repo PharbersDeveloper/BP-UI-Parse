@@ -2,6 +2,7 @@
 
 // import { TagExec } from "../../bashexec/widgets/tags/tagExec"
 import { CompExec } from "../../bashexec/compExec"
+import { GenCompList } from "../../bashexec/genCompList"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
 import { IAttrs, IOptions } from "../../properties/Options"
@@ -11,113 +12,84 @@ import BPSlot from "../slotleaf/BPSlot"
 
 export default class BPViewport extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
-            super(output, name, routeName)
-        }
+        super(output, name, routeName)
+    }
     public paint(ctx: BPCtx, comp: BPComp, isShow: boolean) {
         const execList: any[] = []
 
         const options: IOptions = {
-                comp,
-                hbsData: this.paintHBS(),
-                logicData: this.paintLogic(comp), // js
-                output: this.output,
-                pName: this.projectName,
-                rName: this.routeName,
-                showData: this.paintShow(comp), // hbs
-                styleData: this.paintStyle(comp) //  继承自 BPWidget 的方法, css
+            comp,
+            hbsData: this.paintHBS(),
+            logicData: this.paintLogic(comp), // js
+            output: this.output,
+            pName: this.projectName,
+            rName: this.routeName,
+            showData: this.paintShow(comp), // hbs
+            styleData: this.paintStyle(comp) //  继承自 BPWidget 的方法, css
         }
         execList.push(new CompExec(options, isShow))
 
         return execList
-        }
+    }
+
     public paintShow(comp: BPComp) {
-        let comps = ""
-        const {attrs, styleAttrs} = comp
-        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
-
-            if (typeof item.value === "string") {
-                return ` ${item.name}='${item.value}'`
-            } else {
-                return  ` ${item.name}=${item.value}`
-            }
-
-        }).join("")
-
-        if (comp.components.length > 0) {
-            comp.components.forEach((it) => {
-                comps += `{{#${it.name}}}{{/${it.name}}}`
-            })
-        }
-
-        return `{{#${comp.name} ssc="ssc" emit="emit" disconnect="disconnect" ${attrsBody}}}
-            ${comps}
-        {{/${comp.name}}}`
+        const { attrs, styleAttrs } = comp
+        // TODO  action / event / state
+        const attrsBody = this.showProperties([...attrs, ...styleAttrs], comp)
+        const insideComps = comp.components
+        const compListClass = new GenCompList(this.output, this.projectName, this.routeName)
+        const compList = compListClass.createList()
+        // 判断attrs 中是否有 classNames ，如果没有，则使用 className 属性的值
+        const isClassNames = attrs.some((attr: IAttrs) => attr.name === "classNames")
+        const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
+        let showBody: string = ""
+        insideComps.forEach((icomp) => {
+            const compIns = compList.find((x) => x.constructor.name === icomp.type)
+            showBody += compIns.paintShow(icomp)
+        })
+        return `{{#${comp.name} ssc="ssc" emit="emit" disconnect="disconnect" ${classNames} ${attrsBody}}}
+                    ${showBody}
+                {{/${comp.name}}}`
     }
     public paintLogic(comp: BPComp) {
-        // 继承自 BPWidget 的方法
-        const radioFor = comp.attrs.for
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
-        const {attrs, styleAttrs, events, calcAttrs} = comp
+        const { attrs, styleAttrs, events } = comp
+        // TODO  action / event / state
 
-        // map 返回数组，在用${}时候会导致多一个逗号
-        const attrsBody = attrs.map( (item: IAttrs) => {
-            if (typeof item.value === "string") {
-                return `${item.name}: '${item.value}',\n`
-            } else {
-                return  `${item.name}: ${item.value},\n`
-            }
-        }).join("")
-
-        // const attrsBody = ""
-        let styleAttrsBody = ""
-        let calcAttrsBody = ""
-
-        styleAttrs.forEach( (item: IAttrs) => {
-            if (typeof item.value === "string") {
-                styleAttrsBody += `${item.name}: '${item.value}',\n`
-            } else {
-                styleAttrsBody += `${item.name}: ${item.value},\n`
-            }
+        const attrsBody = this.logicAttrs([...attrs, ...styleAttrs])
+        let classNameBindings = ""
+        styleAttrs.forEach((item: IAttrs) => {
+            classNameBindings += `"${item.name}",`
         })
-
-        calcAttrs.forEach( (item: IAttrs) => {
-            calcAttrsBody += `${item.name}: ${item.value},\n`
-        })
-
-        const fileData = `
-        import { computed } from '@ember/object';
-        export default Component.extend({
-            layout,
-            tagName:'div',
-            classNames:['${comp.name}','viewport-class'],
-            content: 'default',
-            attributeBindings: ['style', 'vid:id'],
-            ${attrsBody}
-            ${styleAttrsBody}
-            ${calcAttrsBody}
-            classNameBindings: [],
-            style: computed('width', 'height', function() {
-                return 'height:' + this.get('height') + ';width:' + this.get('width') + ';'
-            }),
-            actions: {
-                stepAction(dire) {
-                    let curDom = document.getElementById(this.get('vid'))
-                    let curSroll = curDom.getElementsByClassName("viewport-auto-wrapper")[0]
-                    let curDistance = curSroll.scrollLeft
-                    let step = this.get('step')
-                    window.console.log(11)
-                    if(dire ==="right") {
-                        curSroll.scrollLeft = step + curDistance
-                    }else if (dire === "left") {
-                        curSroll.scrollLeft = curDistance - step
+        const fileData = "\n" +
+            `import { computed } from '@ember/object';
+            export default Component.extend({
+                layout,
+                classNames:['${comp.name}','viewport-class'],
+                content: 'default',
+                attributeBindings: ['style', 'vid:id'],
+                ${attrsBody}
+                classNameBindings: [${classNameBindings}],
+                style: computed('width', 'height', function() {
+                    return 'height:' + this.get('height') + ';width:' + this.get('width') + ';'
+                }),
+                ${this.slotActions(events, `${comp.name}`)},
+                    stepAction(dire) {
+                        let curDom = document.getElementById(this.get('vid'))
+                        let curSroll = curDom.getElementsByClassName("viewport-auto-wrapper")[0]
+                        let curDistance = curSroll.scrollLeft
+                        let step = this.get('step')
+                        if(dire ==="right") {
+                            curSroll.scrollLeft = step + curDistance
+                        } else if (dire === "left") {
+                            curSroll.scrollLeft = curDistance - step
+                        }
                     }
-                }
-            }`
+                }`
 
         return fileDataStart + fileData + fileDataEnd
     }
-
     public paintHBS() {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 

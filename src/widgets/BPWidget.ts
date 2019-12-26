@@ -118,57 +118,67 @@ export abstract class BPWidget extends BPObject {
             this.sendAction("ssc", mss, mts, mcs)
             },`
         const slotsHeader = "slots: {"
-        const slotFooter = `}}`
+        const slotFooter = `}`
         let slotsBody = ""
         let bodys = null
         let trigger = ""
+        events.forEach((event) => {
+            switch (true) {
+                case event === "click":
+                    bodys = this.ssbody(actionsSSC, slotsBody, trigger, "click")
+                    actionsSSC = bodys.actionsSSC
+                    slotsBody = bodys.slotsBody
+                    trigger = bodys.trigger
+                    break
+                case event === "mouseEnter":
+                    bodys = this.ssbody(actionsSSC, slotsBody, trigger, "mouseEnter")
+                    actionsSSC = bodys.actionsSSC
+                    slotsBody = bodys.slotsBody
+                    trigger = bodys.trigger
+                    break
+                case event === "mouseLeave":
+                    bodys = this.ssbody(actionsSSC, slotsBody, trigger, "mouseLeave")
+                    actionsSSC = bodys.actionsSSC
+                    slotsBody = bodys.slotsBody
+                    trigger = bodys.trigger
+                    break
+                case event === "focus":
+                    bodys = this.ssbody(actionsSSC, slotsBody, trigger, "focus")
+                    actionsSSC = bodys.actionsSSC
+                    slotsBody = bodys.slotsBody
+                    trigger = bodys.trigger
+                    break
+                case event === "blur":
+                    bodys = this.ssbody(actionsSSC, slotsBody, trigger, "blur")
+                    actionsSSC = bodys.actionsSSC
+                    slotsBody = bodys.slotsBody
+                    trigger = bodys.trigger
+                    break
+                case event === "input":
+                    // input event is fired every time the value of the element changes
+                    bodys = this.ssbody(actionsSSC, slotsBody, trigger, "input")
+                    actionsSSC = bodys.actionsSSC
+                    slotsBody = bodys.slotsBody
+                    trigger = bodys.trigger
+                    break
+                case event === "change":
+                    // change event only fires when the value is committed
+                    bodys = this.ssbody(actionsSSC, slotsBody, trigger, "change")
+                    actionsSSC = bodys.actionsSSC
+                    slotsBody = bodys.slotsBody
+                    trigger = bodys.trigger
+                    break
+                case event === "dblclick":
+                    bodys = this.ssbody(actionsSSC, slotsBody, trigger, "dblclick")
+                    actionsSSC = bodys.actionsSSC
+                    slotsBody = bodys.slotsBody
+                    trigger = bodys.trigger
+                    break
+                default:
+                    break
+            }
+        })
 
-        switch (true) {
-            case events.includes("click"):
-                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "click")
-                actionsSSC = bodys.actionsSSC
-                slotsBody = bodys.slotsBody
-                trigger = bodys.trigger
-            case events.includes("mouseEnter"):
-                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "mouseEnter")
-                actionsSSC = bodys.actionsSSC
-                slotsBody = bodys.slotsBody
-                trigger = bodys.trigger
-            case events.includes("mouseLeave"):
-                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "mouseLeave")
-                actionsSSC = bodys.actionsSSC
-                slotsBody = bodys.slotsBody
-                trigger = bodys.trigger
-            case events.includes("focus"):
-                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "focus")
-                actionsSSC = bodys.actionsSSC
-                slotsBody = bodys.slotsBody
-                trigger = bodys.trigger
-            case events.includes("blur"):
-                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "blur")
-                actionsSSC = bodys.actionsSSC
-                slotsBody = bodys.slotsBody
-                trigger = bodys.trigger
-            case events.includes("input"):
-                // input event is fired every time the value of the element changes
-                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "input")
-                actionsSSC = bodys.actionsSSC
-                slotsBody = bodys.slotsBody
-                trigger = bodys.trigger
-            case events.includes("change"):
-                // change event only fires when the value is committed
-                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "change")
-                actionsSSC = bodys.actionsSSC
-                slotsBody = bodys.slotsBody
-                trigger = bodys.trigger
-            case events.includes("dblclick"):
-                bodys = this.ssbody(actionsSSC, slotsBody, trigger, "dblclick")
-                actionsSSC = bodys.actionsSSC
-                slotsBody = bodys.slotsBody
-                trigger = bodys.trigger
-            default:
-                break
-        }
         return `${trigger}
                 ${actionsHeader}
                 ${actionsSSC}
@@ -201,6 +211,21 @@ export abstract class BPWidget extends BPObject {
                     }
                     return ` ${item.name}="${item.value}"`
             }
+        }).join("")
+    }
+    // 使用 json 生成组件的 component.js 时，需要将 attrs / styleAttrs 中的属性
+    // 写入到组件的 component.js 中
+    public logicAttrs(attrs: IAttrs[]) {
+        return  attrs.map((item: IAttrs) => {
+
+            if (item.type === "string" || !item.type) {
+                return `${item.name}: "${item.value}",\n`
+            } else if (item.type === "variable") {
+                return ``
+            } else {
+                return `${item.name}: ${item.value},\n`
+            }
+
         }).join("")
     }
     // 生成当前组件实例的样式，通过 comp.className 属性（或 comp.name）
