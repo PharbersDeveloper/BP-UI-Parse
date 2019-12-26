@@ -3,13 +3,13 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    margin: $spacing-none;
+    padding: $spacing-none;
 }
 
 a {
-    font-size: 14px;
-    color: #3172E0;
+    font-size: $font-size-2;
+    color: $color-primary-b400;
     line-height: 32px;
     text-decoration: none;
     text-align: center;
@@ -20,234 +20,234 @@ button {
 }
 
 .placeholder {
-    color: #8993A4;
-    font-size: 14px;
-    font-weight: 400;
+    color: $color-neutrals-n090;
+    font-size: $font-size-2;
+    font-weight: $font-weight-regular;
 }
 
 .field_value  {
-    color: #42526E;
-    font-size: 14px;
-    font-weight: 400;
+    color: $color-neutrals-n500;
+    font-size: $font-size-2;
+    font-weight: $font-weight-regular;
 }
 
 /* button 通用样式 */
 button.button-primary {
-    background: #3172E0;
-    color: #FFFFFF;
+    background: $color-primary-b400;
+    color: $color-neutrals-n000;
 }
 
 .button-primary:hover {
-    background: #3881FF;
+    background: $color-primary-b300;
 }
 
 .button-primary:active {
-    background: #2355A9;
+    background: $color-primary-b500;
 }
 
 .button-primary .button-icon-color path {
-    fill: #FFFFFF;
+    fill: $color-neutrals-n000;
 }
 
 .button-primary:disabled .button-icon-color path{
-    fill: #B3BAC5;
+    fill: $color-neutrals-n060;
 }
 
 button.button-standard {
-    background: rgba(9,30,66,0.04);
-    color: #505F79;
+    background: $color-neutrals-n020;
+    color: $color-neutrals-n400;
 }
 
 .button-standard:hover {
-    background: rgba(9,30,66,0.08);
+    background: $color-neutrals-n030;
 }
 
 .button-standard:active {
-    background: #E1ECFF;
-    color: #3172E0;
+    background: $color-primary-b050;
+    color: $color-primary-b400;
 }
 
 .button-standard .button-icon-color path {
-    fill: #505F79;
+    fill: $color-neutrals-n400;
 }
 
 .button-standard:disabled .button-icon-color path {
-    fill: #B3BAC5;
+    fill: $color-neutrals-n060;
 }
 
 .button-standard:active .button-icon-color path {
-    fill: #3172E0;
+    fill: $color-primary-b400;
 }
 
 .button-primary:disabled,.button-standard:disabled {
-    background: rgba(9,30,66,0.04);
-    color: #B3BAC5;
-    cursor: not-allowed
+    background: $color-neutrals-n020;
+    color: $color-neutrals-n060;
+    cursor: not-allowed;
 }
 
 
 button.button-subtle {
-    background: #FFFFFF;
-    color: #505F79;
+    background: $color-neutrals-n000;
+    color: $color-neutrals-n400;
 }
 
 .button-subtle:hover {
-    background: rgba(9,30,66,0.08);
+    background: $color-neutrals-n030;
 }
 
 .button-subtle:active {
-    background: #E1ECFF;
+    background: $color-primary-b050;
 }
 
 .button-subtle:disabled {
-    color: #B3BAC5;
+    color: $color-neutrals-n060;
     cursor: not-allowed;
 }
 
 .button-subtle .button-icon-color path {
-    fill: #505F79;
+    fill: $color-neutrals-n400;
 }
 
 .button-subtle:disabled .button-icon-color path {
-    fill: #B3BAC5;
+    fill: $color-neutrals-n060;
 }
 
 .button-subtle:active .button-icon-color path {
-    fill: #3172E0;
+    fill: $color-primary-b400;
 }
 
 .button-destructive {
-    background: #DE350B;
-    color: #FFFFFF;
+    background: $color-negative-r400;
+    color: $color-neutrals-n000;
 }
 
 .button-destructive:hover {
-    background: #FF5630;
+    background: $color-negative-r300;
 }
 
 .button-destructive:active {
-    background: #BF2600;
+    background: $color-negative-r500;
 }
 
 .button-warning {
-    background: #FFAB00;
-    color: #505F79;
+    background: $color-notice-y300;
+    color: $color-neutrals-n400;
 }
 
 .button-warning:hover {
-    background: #FFC400;
+    background: $color-notice-y200;
 }
 
 .button-warning:active {
-    background: #FF991F;
+    background: $color-notice-y400;
 }
 
 .button-density-comfy {
-    height: 40px;
-    line-height: 40px;
+    height: $size-density-comfy;
+    line-height: $size-5x;
 }
 
 .button-density-default {
-    height: 32px;
+    height: $size-density-default;
     line-height: 32px;
 }
 
 .button-density-compact {
-    height: 24px;
-    line-height: 24px;
+    height: $size-density-compact;
+    line-height: $size-3x;
 }
 
 /*button group*/
 
 .button-group .button-item {
-    background: rgba(9,30,66,0.04);
-    color: #505F79;
-    font-size: 14px;
+    background: $color-neutrals-n020;
+    color: $color-neutrals-n400;
+    font-size: $font-size-2;
     outline: none;
     cursor: pointer;
-    border: none;
-    margin-right: 2px;
+    border: $border-none;
+    margin-right: $spacing-compact-1x;
 }
 
 .button-group button:first-child{
-    border-radius: 4px 0 0 4px;
+    border-radius: $radius-medium $radius-none $radius-none $radius-medium;
 }
 
 .button-group button:last-child {
-    border-radius: 0 4px 4px 0;
-    margin-right: 0;
+    border-radius: $radius-none $radius-medium $radius-medium $radius-none;
+    margin-right: $spacing-none;
 }
 
 .button-group .button-item.active {
-    background: #505F79;
-    color: #FFFFFF;
+    background: $color-neutrals-n400;
+    color: $color-neutrals-n000;
 }
 
 /*link 通用样式*/
 .link-disabled {
-    color: #B3BAC5;
+    color: $color-neutrals-n060;
     cursor: not-allowed;
 }
 
 .link-default {
-    color: #5E6C84;
+    color: $color-neutrals-n300;
 }
 
 .link-default:hover {
-    color: #97A0AF;
+    color: $color-neutrals-n080;
 }
 
 .link-default:active {
-    color: #505F79;
+    color: $color-neutrals-n400;
 }
 
 .link-primary {
-    color: #3172E0;
+    color: $color-primary-b400;
 }
 
 .link-primary:hover {
-    color: #3881FF;
+    color: $color-primary-b300;
 }
 
 .link-primary:active {
-    color: #2355A9;
+    color: $color-primary-b500;
 }
 
 /*input 通用样式*/
 
 input:disabled {
-    background: #F4F5F7 !important;
+    background: $color-neutrals-n020 !important;
     border: none !important;
-    color:  #B3BAC5;
+    color:  $color-neutrals-n060;
     cursor: not-allowed;
 }
 
 .input-compact {
-    height: 24px !important;
+    height: $size-3x !important;
 }
 
 .input-comfy {
-    height: 40px !important;
+    height: $size-5x !important;
 }
 
 .input-default {
-    height: 32px !important;
+    height: $size-4x !important;
 }
 
 .input-error {
-    border: 1px solid #DE350B !important;
+    border: $border-regular solid $color-negative-r400 !important;
 }
 
 .input-warning {
-    border: 1px solid #FFAB00 !important;
+    border: $border-regular solid $color-notice-y300 !important;
 }
 
 .input-success {
-    border: 1px solid #36B37E !important;
+    border: $border-regular solid $color-positive-g300 !important;
 }
 
 .input-info {
-    border: 1px solid #403294 !important;
+    border: $border-regular solid $color-informative-p500 !important;
 }
 
 /* 滚动条样式设置 */
@@ -262,7 +262,7 @@ input:disabled {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(9,30,66,0.25);
+    background: $color-neutrals-n050;
     border-radius: 10px;
 }
 
@@ -271,61 +271,61 @@ input:disabled {
 }
 
 .tab-active {
-    color: #3172E0 !important;
+    color: $color-primary-b400 !important;
 }
 
 .tab-active::after {
     position: absolute;
     bottom: -1px;
-    left: 0;
+    left: $spacing-none;
     content: "";
     width: 100%;
     height: 2px;
-    background: #3172E0;
+    background: $color-primary-b400;
 }
 
 .bp-submenu-title {
     display: flex;
-    height: 40px;
+    height: $size-5x;
     align-items: center;
     cursor: pointer;
 }
 
 .menu-sub {
-    padding-left: 40px;
+    padding-left: $spacing-5x;
 }
 
 .icon {
-    margin-right: 12px;
+    margin-right: $spacing-compact-6x;
 }
 
 .icon-small svg{
-    height: 16px;
-    width: 16px;
+    height: $size-2x;
+    width: $size-2x;
 }
 
 .icon-white path{    
-    fill: #FFFFFF;
+    fill: $color-neutrals-n000;
 }
 
 .icon-warning path {
-    fill: #FFAB00;
+    fill: $color-notice-y300;
 }
 
 .icon-error path {
-    fill: #DE350B;
+    fill: $color-negative-r400;
 }
 
 .icon-info path {
-    fill: #3172E0;
+    fill: $color-primary-b400;
 }
 
 .icon-info-filled path {
-    fill: #3172E0;
+    fill: $color-primary-b400;
 }
 
 .icon-green path{
-    fill: #36B37E;;
+    fill: $color-positive-g300;;
 }
 
 .icon-pointer {
@@ -338,8 +338,8 @@ input[type="radio"] {
 }
 
 input[type="radio"]+label {
-    font-size: 14px;
-    color: #344563;
+    font-size: $font-size-2;
+    color: $color-neutrals-n600;
 }
 
 input[type="radio"]+label::before {
@@ -349,15 +349,15 @@ input[type="radio"]+label::before {
     vertical-align: middle;
     width: 10px;
     height: 10px;
-    margin: 6px;
-    border-radius: 50%;
-    border: 1px solid #DFE1E6;
+    margin: $spacing-compact-3x;
+    border-radius: $radius-circle;
+    border: $border-regular solid $color-neutrals-n040;
     line-height: 1;
 }
 
 input[type="radio"]:checked+label::before {
-    background: #ffffff;
-    border: 4px solid #3172E0;
+    background: $color-neutrals-n000;
+    border: 4px solid $color-primary-b400;
     height: 4px;
     width: 4px;
     background-clip: content-box;
@@ -370,10 +370,10 @@ input[type="radio"]:disabled+label::before {
     vertical-align: middle;
     width: 10px;
     height: 10px;
-    margin: 6px;
-    border-radius: 50%;
-    background: #F4F5F7;
-    border: 1px solid #F4F5F7;
+    margin: $spacing-compact-3x;
+    border-radius: $radius-circle;
+    background: $color-neutrals-n020;
+    border: $border-regular solid $color-neutrals-n020;
     line-height: 1;
 }
 
@@ -384,10 +384,10 @@ input[type="radio"]:disabled:checked+label::before {
     vertical-align: middle;
     width: 4px;
     height: 4px;
-    margin: 6px;
-    border-radius: 50%;
-    background: #A5ADBA;
-    border: 4px solid #F4F5F7;
+    margin: $spacing-compact-3x;
+    border-radius: $radius-circle;
+    background: $color-neutrals-n070;
+    border: 4px solid $color-neutrals-n020;
 }
 
 .bp-select-title {
@@ -400,9 +400,9 @@ input[type="radio"]:disabled:checked+label::before {
 }
 
 .bp-option-group {
-    margin: 0;
-    padding: 4px 0;
-    background: #FFFFFF;
+    margin: $spacing-none;
+    padding: $spacing-compact-2x $spacing-none;
+    background: $color-neutrals-n000;
     box-shadow: 0 4px 8px -2px rgba(9, 30, 66, 0.25);
     border-radius: 3px;
 }
@@ -410,11 +410,11 @@ input[type="radio"]:disabled:checked+label::before {
     outline: none;
 }
 .option-active {
-    color: #fff !important;
-    background-color: #505F79 !important;
+    color: $color-neutrals-n000 !important;
+    background-color: $color-neutrals-n400 !important;
 }
 .option-active .icon path {
-    fill: #fff;
+    fill: $color-neutrals-n000;
 }
 
 input[type="checkbox"]+label::before {
@@ -427,7 +427,7 @@ input[type="checkbox"]+label::before {
     margin-right: .2em;
     border-radius: .2em;
     text-indent: .15em;
-    margin: 6px;
+    margin: $spacing-compact-3x;
     line-height: .65;
     /*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
     background-image: url("/hospital-unchecked.svg");
@@ -436,14 +436,14 @@ input[type="checkbox"]+label::before {
 
 input[type="checkbox"]:checked+label::before {
     content: " ";
-    margin: 6px;
+    margin: $spacing-compact-3x;
     background-image: url("/hospital-checked.svg");
     background-size: 12px 12px;
 }
 
 input[type="checkbox"]:checked:disabled+label::before {
     content: " ";
-    margin: 6px;
+    margin: $spacing-compact-3x;
     background-image: url("/hospital-checked-disabled.svg");
     background-size: 12px 12px;
 }
@@ -452,9 +452,9 @@ input[type="checkbox"]:disabled+label::before {
     content: " ";
     height: 12px;
     width: 12px;
-    background: #F4F5F7;
-    border-radius: 2px;
-    margin: 6px;
+    background: $color-neutrals-n020;
+    border-radius: $radius-small;
+    margin: $spacing-compact-3x;
 }
 
 input[type="checkbox"] {
@@ -463,162 +463,162 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]+label {
-    font-size: 14px;
-    color: #344563;
+    font-size: $font-size-2;
+    color: $color-neutrals-n600;
 }
 
 /* status 通用样式 */
 
 .status-default.status-subtle {
-    background: #DFE1E6;
-    color: #42526E;
+    background: $color-neutrals-n040;
+    color: $color-neutrals-n500;
 }
 
 .status-default.status-bold {
-    background: #42526E;
-    color: #FFFFFF;
+    background: $color-neutrals-n500;
+    color: $color-neutrals-n000;
 }
 
 .status-success.status-subtle {
-    background: #E2FFEE;
-    color: #006644;
+    background: $color-positive-g050;
+    color: $color-positive-g500;
 }
 
 .status-success.status-bold {
-    background: #00875A;
-    color: #FFFFFF;
+    background: $color-positive-g400;
+    color: $color-neutrals-n000;
 }
 
 .status-removed.status-subtle {
-    background: #FFEBE6;
-    color: #BF2600;
+    background: $color-negative-r050;
+    color: $color-negative-r500;
 }
 
 .status-removed.status-bold {
-    background: #DE350B;
-    color: #FFFFFF;
+    background: $color-negative-r400;
+    color: $color-neutrals-n000;
 }
 
 .status-in-progress.status-subtle {
-    background: #E1ECFF;
-    color: #2355A9;
+    background: $color-primary-b050;
+    color: $color-primary-b500;
 }
 
 .status-in-progress.status-bold {
-    background: #3172E0;
-    color: #FFFFFF;
+    background: $color-primary-b400;
+    color: $color-neutrals-n000;
 }
 
 .status-new.status-subtle {
-    background: #EAE6FF;
-    color: #403294;
+    background: $color-informative-p050;
+    color: $color-informative-p500;
 }
 
 .status-new.status-bold {
-    background: #5243AA;
-    color: #FFFFFF;
+    background: $color-informative-p400;
+    color: $color-neutrals-n000;
 }
 
 .status-moved.status-subtle {
-    background: #FFF0B3;
-    color: #172B4D;
+    background: $color-notice-y075;
+    color: $color-neutrals-n800;
 }
 
 .status-moved.status-bold {
-    background: #FF8B00;
-    color: #172B4D;
+    background: $color-notice-y500;
+    color: $color-neutrals-n800;
 }
 
 
 /* tag 通用样式 */
 
 .tag-default.tag-subtle {
-    background: #EBECF0;
-    color: #344563;
+    background: $color-neutrals-n030;
+    color: $color-neutrals-n600;
 }
 
 .tag-default.tag-bold {
-    background: #42526E;
-    color: #FFFFFF;
+    background: $color-neutrals-n500;
+    color: $color-neutrals-n000;
 }
 
 .tag-blue.tag-subtle {
-    background: #C2DAFF;
+    background: $color-primary-b075;
     color: #0049B0;
 }
 
 .tag-blue.tag-bold {
-    background: #73ABFF;
-    color: #172B4D;
+    background: $color-primary-b100;
+    color: $color-neutrals-n800;
 }
 .tag-green.tag-subtle {
-    background: #79F2C0;
-    color: #006644;
+    background: $color-positive-g100;
+    color: $color-positive-g500;
 }
 
 .tag-green.tag-bold {
-    background: #57D9A3;
-    color: #172B4D;
+    background: $color-positive-g200;
+    color: $color-neutrals-n800;
 }
 .tag-purple.tag-subtle {
-    background: #C0B6F2;
-    color: #403294;
+    background: $color-informative-p075;
+    color: $color-informative-p500;
 }
 
 .tag-purple.tag-bold {
-    background: #998DD9;
-    color: #172B4D;
+    background: $color-informative-p100;
+    color: $color-neutrals-n800;
 }
 .tag-teals.tag-subtle {
-    background: #79E2F2;
-    color: #344563;
+    background: $color-accent-t100;
+    color: $color-neutrals-n600;
 }
 
 .tag-teals.tag-bold {
-    background: #00C7E6;
-    color: #172B4D;
+    background: $color-accent-t200;
+    color: $color-neutrals-n800;
 }
 .tag-red.tag-subtle {
-    background: #FFBDAD;
-    color: #172B4D;
+    background: $color-negative-r075;
+    color: $color-neutrals-n800;
 }
 
 .tag-red.tag-bold {
-    background: #FF8F73;
-    color: #172B4D;
+    background: $color-negative-r100;
+    color: $color-neutrals-n800;
 }
 .tag-yellow.tag-subtle {
-    background: #FFE380;
-    color: #172B4D;
+    background: $color-notice-y100;
+    color: $color-neutrals-n800;
 }
 
 .tag-yellow.tag-bold {
-    background: #FFC400;
-    color: #172B4D;
+    background: $color-notice-y200;
+    color: $color-neutrals-n800;
 }
 
 /* badge 通用样式 */
 .badge-default {
-    background: #DFE1E6;
-    color: #253858;
+    background: $color-neutrals-n040;
+    color: $color-neutrals-n700;
 }
 
 .badge-primary {
-    background: #3172E0;
-    color: #FFFFFF;
+    background: $color-primary-b400;
+    color: $color-neutrals-n000;
 }
 
 
 /* tooltip 通用样式 */
 .tooltip:hover::after {
-    background: #172B4D;
+    background: $color-neutrals-n800;
     border-radius: 3px;
-    font-size: 12px;
-    color: #FFFFFF;
+    font-size: $font-size-1;
+    color: $color-neutrals-n000;
     line-height: 20px;
     display: block;
     position: relative;
-    padding: 0 4px;
+    padding: $spacing-none $spacing-compact-2x;
 }
 /* bp-charts styles */
 .bp-chart {
@@ -640,7 +640,7 @@ input[type="checkbox"]+label {
 }
 
 .icon-toast-warning path {
-    fill: #505F79;
+    fill: $color-neutrals-n400;
 }
 
 /* toast 通用样式 */
@@ -649,8 +649,8 @@ input[type="checkbox"]+label {
     width: 320px;
     height: 56px;
     line-height: 14px;
-    font-size: 14px;
-    padding: 16px;
+    font-size: $font-size-2;
+    padding: $spacing-2x;
     border-radius: 3px;
     position: relative;
     margin-right: auto;
@@ -658,26 +658,26 @@ input[type="checkbox"]+label {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 6px;
+    margin-bottom: $spacing-compact-3x;
 }
 
 .toast-success {
-    color: #FFFFFF;
+    color: $color-neutrals-n000;
     background: #00865a;
 }
 
 .toast-warning {
-    color: #172B4D;
-    background: #FFAB00;
+    color: $color-neutrals-n800;
+    background: $color-notice-y300;
 }
 
 .toast-error {
-    color: #FFFFFF;
-    background: #DE350B;
+    color: $color-neutrals-n000;
+    background: $color-negative-r400;
 }
 
 .toast-info {
-    color: #FFFFFF;
+    color: $color-neutrals-n000;
     background: #42516E;
 }
 
@@ -685,8 +685,8 @@ input[type="checkbox"]+label {
 .modal-container {
     width: 100vw;
     height: 100vh;
-    background: rgba(9,30,66,0.54);
-    z-index: 998;
+    background: $color-neutrals-n100;
+    z-index: $zindex-sticky;
     position: fixed;
     display: none;
 }
@@ -698,17 +698,17 @@ input[type="checkbox"]+label {
 }
 
 .modal {
-    background: #FFFFFF;
-    box-shadow: 0 4px 8px -2px rgba(9,30,66,0.25);
-    border-radius: 4px;
-    padding: 24px 0;
+    background: $color-neutrals-n000;
+    box-shadow: 0 4px 8px -2px $color-neutrals-n050;
+    border-radius: $radius-medium;
+    padding: $spacing-3x $spacing-none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
     position: fixed;
     left: 50%;
-    z-index: 999;
+    z-index: $zindex-modal;
     max-height: 90%;
 }
 
@@ -730,15 +730,15 @@ input[type="checkbox"]+label {
 
 .modal-title {
     width: 100%;
-    font-size: 20px;
-    color: #172B4D;
-    line-height: 24px;
+    font-size: $font-size-4;
+    color: $color-neutrals-n800;
+    line-height: $size-3x;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     /* padding-bottom: 16px; */
-    padding: 0 24px 16px 24px;
+    padding: $spacing-none $spacing-3x $spacing-2x $spacing-3x;
 }
 
 .modal-title div {
@@ -748,19 +748,19 @@ input[type="checkbox"]+label {
 }
 
 .modal-body {
-    font-size: 14px;
-    color: #172B4D;
+    font-size: $font-size-2;
+    color: $color-neutrals-n800;
     text-align: left;
     overflow-y: auto;
     max-height: calc(90vh-136px);
-    padding: 0 16px;
-    margin-left: 8px;
-    margin-right: 8px;
+    padding: $spacing-none $spacing-2x;
+    margin-left: $spacing-1x;
+    margin-right: $spacing-1x;
 }
 
 .modal-footer {
     /* padding-top: 16px; */
-    padding: 16px 24px 0 24px;
+    padding: $spacing-2x $spacing-3x $spacing-none $spacing-3x;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -768,35 +768,35 @@ input[type="checkbox"]+label {
 }
 
 .modal-footer button {
-    height: 32px;
-    font-size: 14px;
+   height: $size-4x;
+    font-size: $font-size-2;
     text-align: center;
     line-height: 32px;
-    padding: 0 12px;
-    border: none;
-    border-radius: 4px;
+    padding: $spacing-none $spacing-button-padding_h;
+    border: $border-none;
+    border-radius: $radius-medium;
     outline: none;
 }
 
 .modal-footer .modal-subtle-btn {
-    color: #505F79;
-    background: #FFFFFF;
-    margin-left: 4px;
+    color: $color-neutrals-n400;
+    background: $color-neutrals-n000;
+    margin-left: $spacing-compact-2x;
 }
 
 .modal-footer .modal-default-btn {
-    color: #FFFFFF;
-    background: #3172E0;
+    color: $color-neutrals-n000;
+    background: $color-primary-b400;
 }
 
 .modal-footer .modal-error-btn {
-    color: #FFFFFF;
-    background: #DE350B;
+    color: $color-neutrals-n000;
+    background: $color-negative-r400;
 }
 
 .modal-footer .modal-warning-btn {
-    color: #505F79;
-    background: #FFAB00;
+    color: $color-neutrals-n400;
+    background: $color-notice-y300;
 }
 
 .modal-fade {
@@ -812,29 +812,29 @@ input[type="checkbox"]+label {
 }
 
 .modal-scrollable .modal-title{
-    border-bottom: 2px solid #e7e9ed;
+    border-bottom: $spacing-compact-1x solid #e7e9ed;
 }
 
 .modal-scrollable .modal-footer {
-    border-top: 2px solid #e7e9ed;
+    border-top: $spacing-compact-1x solid #e7e9ed;
 }
 
 .modal-scrollable .modal-body {
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin-top: $spacing-compact-6x;
+    margin-bottom: $spacing-compact-6x;
 }
 
 .modal-control-btn {
-    height: 32px;
-    font-size: 14px;
+   height: $size-4x;
+    font-size: $font-size-2;
     text-align: center;
     line-height: 32px;
-    padding: 0 12px;
-    border: none;
-    border-radius: 4px;
+    padding: $spacing-none $spacing-button-padding_h;
+    border: $border-none;
+    border-radius: $radius-medium;
     outline: none;
     width: auto;
-    margin: 4px;
+    margin: $spacing-compact-2x;
 }
 
 /* popover通用样式 */
@@ -843,16 +843,16 @@ input[type="checkbox"]+label {
 .popover-container {
     position: absolute;
     display: none;
-    top: 0;
-    left: 0;
-    z-index: 999
+    top: $spacing-none;
+    left: $spacing-none;
+    z-index: $zindex-popup;
 }
 
 .popover {
     width: 320px;
-    padding: 16px;
-    background: #FFFFFF;
-    box-shadow: 0 0 1px 0 rgba(9,30,66,0.12), 0 8px 16px -4px rgba(9,30,66,0.25);
+    padding: $spacing-2x;
+    background: $color-neutrals-n000;
+    box-shadow: 0 0 1px 0 rgba(9,30,66,0.12), 0 8px 16px -4px $color-neutrals-n050;
     border-radius: 3px;
     box-sizing: border-box;
     display: flex;
@@ -867,20 +867,20 @@ input[type="checkbox"]+label {
 }
 
 .popover-title {
-    font-size: 14px;
-    color: #172B4D;
+    font-size: $font-size-2;
+    color: $color-neutrals-n800;
     text-align: left;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
 }
 
 .popover-desc {
-    margin-top: 12px;
-    font-size: 14px;
-    color: #344563;
+    margin-top: $spacing-compact-6x;
+    font-size: $font-size-2;
+    color: $color-neutrals-n600;
 }
 
 .popover-footer {
-    margin-top: 8px;
+    margin-top: $spacing-1x;
 }
 
 .popover-footer a {
@@ -889,28 +889,28 @@ input[type="checkbox"]+label {
 
 .popover-footer button {
     text-align: right;
-    height: 24px;
-    border-radius: 4px;
-    border: none;
-    font-size: 14px;
-    color: #505F79;
+    height: $size-3x;
+    border-radius: $radius-medium;
+    border: $border-none;
+    font-size: $font-size-2;
+    color: $color-neutrals-n400;
     text-align: center;
-    line-height: 24px;
+    line-height: $size-3x;
     position: relative;
     left: 125px;
-    border-radius: 4px;
+    border-radius: $radius-medium;
     outline: none;
 }
 
 .popover-footer button:last-child {
-    background: rgba(9,30,66,0.04);
+    background: $color-neutrals-n020;
 }
 
 .popover-triangle {
     height: 12px;
     width: 12px;
     transform: rotate(45deg);
-    background: #FFFFFF;
+    background: $color-neutrals-n000;
 }
 
 .popover-triangle-left {
@@ -922,13 +922,13 @@ input[type="checkbox"]+label {
 
 .popover-triangle-left-top {
     left: 314px;
-    top: 16px;
+    top: $spacing-2x;
     position: absolute;
 }
 
 .popover-triangle-left-bottom {
     left: 314px;
-    bottom: 16px;
+    bottom: $spacing-2x;
     position: absolute;
 }
 
@@ -958,7 +958,7 @@ input[type="checkbox"]+label {
 
 .popover-triangle-top-left {
     position: absolute;
-    left: 16px;
+    left: $spacing-2x;
     bottom: -6px;
 }
 
@@ -978,13 +978,13 @@ input[type="checkbox"]+label {
 .popover-triangle-right-top {
     position: absolute;
     left: -6px;
-    top: 16px;
+    top: $spacing-2x;
 }
 
 .popover-triangle-right-bottom {
     position: absolute;
     left: -6px;
-    bottom: 16px;
+    bottom: $spacing-2x;
 }
 
 
@@ -999,15 +999,15 @@ input[type="checkbox"]+label {
 
 .progress-tracker-line {
     margin: 0 55px;
-    background: #3172E0;
+    background: $color-primary-b400;
     border-radius: 24px;
-    height: 8px;
+    height: $size-1x;
     /* width: 170px; */
-    z-index: 99;
+    z-index: $zindex-sticky;
 }
 
 .progress-tracker-step {
-    margin-top: 8px;
+    margin-top: $spacing-1x;
     display: flex;
     flex-direction: row;
     width: fit-content;
@@ -1018,43 +1018,43 @@ input[type="checkbox"]+label {
     width: 120px;
     text-align: center;
     margin-right: 40px;
-    font-size: 14px;
+    font-size: $font-size-2;
     text-align: center;
-    line-height: 24px;
+    line-height: $size-3x;
     position: relative;
 }
 
 .progress-tracker-step-cur {
-    color: #3172E0;
+    color: $color-primary-b400;
 }
 
 .progress-tracker-step-visited {
-    color: #172B4D;
+    color: $color-neutrals-n800;
 }
 
 .progress-tracker-step-disabled {
-    color: #B3BAC5;
+    color: $color-neutrals-n060;
 }
 
 .progress-tracker-step-unvisited {
-    color: #5E6C84;
+    color: $color-neutrals-n300;
 }
 
 
 .progress-tracker-step span::before {
     content: " ";
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #97A0AF;
+    width: $size-1x;
+    height: $size-1x;
+    border-radius: $radius-circle;
+    background: $color-neutrals-n080;
     position: absolute;
     right: 56px;
     top: -16px;
-    z-index: 0;
+    z-index: $zindex-default;
 }
 
 .progress-tracker-step span:last-child {
-    margin-right: 0;
+    margin-right: $spacing-none;
 }
 
 /*spinner 通用样式*/
@@ -1078,8 +1078,8 @@ input[type="checkbox"]+label {
 .full-window-spinner {
     width: 100vw;
     height: 100vh;
-    left: 0;
-    top: 0;
+    left: $spacing-none;
+    top: $spacing-none;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1121,26 +1121,26 @@ input[type="checkbox"]+label {
     flex-direction: row;
     width: max-content;
     align-items: center;
-    font-size: 14px;
-    color: #505F79;
+    font-size: $font-size-2;
+    color: $color-neutrals-n400;
 }
 
 .pagination svg {
-    margin: 0;
+    margin: $spacing-none;
     cursor: pointer;
 }
 
 .pagination span {
-    height: 24px;
-    width: 24px;
+    height: $size-3x;
+    width: $size-3x;
 }
 
 .pagination-able svg path {
-    fill: #505F79;
+    fill: $color-neutrals-n400;
 }
 
 .pagination-unable svg path {
-    fill: #B3BAC5;;
+    fill: $color-neutrals-n060;;
 }
 
 .pagination-page {
@@ -1153,29 +1153,29 @@ input[type="checkbox"]+label {
 }
 
 .pagination-active {
-    background: #505F79;
+    background: $color-neutrals-n400;
     border-radius: 3px;
-    color: white;
-    margin: 0 4px;
+    color: $color-neutrals-n000;
+    margin: $spacing-none $spacing-compact-2x;
 }
 
 .breadcrumbs-container {
     max-width: 560px;
     height: max-content;
-    font-size: 12px;    
-    color: #6B778C;
-    line-height: 16px;
+    font-size: $font-size-1;    
+    color: $color-neutrals-n200;
+    line-height: $size-2x;
 }
 
 .breadcrumbs-container div {
     display: inline-block;
-    margin: 0 16px 0 0;
-    font-weight: 500;
+    margin: $spacing-none $spacing-2x $spacing-none $spacing-none;
+    font-weight: $font-weight-medium;
     cursor: pointer;
 }
 
 .breadcrumbs-container div a {
-    color: #6B778C;
+    color: $color-neutrals-n200;
 }
 
 .breadcrumbs-container span {
@@ -1194,11 +1194,11 @@ input[type="checkbox"]+label {
 }
 
 .bp-table table th {
-    background: #ffffff;
-    border-bottom: 2px solid rgba(9,30,66,0.08);
-    color: #6B778C;
-    font-size: 12px;
-    padding: 8px;
+    background: $color-neutrals-n000;
+    border-bottom: $border-medium solid $color-neutrals-n030;
+    color: $color-neutrals-n200;
+    font-size: $font-size-1;
+    padding: $spacing-1x;
     text-align: left;
 }
 
@@ -1212,23 +1212,23 @@ input[type="checkbox"]+label {
 }
 
 .bp-table table tbody tr {
-    background: #ffffff;
+    background: $color-neutrals-n000;
 }
 
 .bp-table table tbody td {   
     background: inherit;
-    color: #344563;
-    font-size: 14px;
-    padding: 16px 8px;
+    color: $color-neutrals-n600;
+    font-size: $font-size-2;
+    padding: $spacing-2x $spacing-1x;
 }
 
 .border-table table tbody td {
-    border-bottom: 1px solid rgba(9,30,66,0.08);
+    border-bottom: $border-regular solid $color-neutrals-n030;
 }
 
 .bp-table table th .et-sort-indicator::before {
     display: inline-block;
-    border: none;
+    border: $border-none;
     line-height: 1;
     content: '\25be';
 }
@@ -1244,21 +1244,21 @@ input[type="checkbox"]+label {
 /* SpotLight */
 
 .spotlight-item {
-    border: 2px solid #6554C0;
+    border: $border-medium solid $color-informative-p300;
     box-shadow: 0 0 0 6px rgba(101,84,192,0.40);
-    border-radius: 4px;
+    border-radius: $radius-medium;
 }
 
 .spotlight {
     height: max-content;
     width: 320px;
-    background: #6554C0;
-    border-radius: 4px;
-    padding: 16px;
+    background: $color-informative-p300;
+    border-radius: $radius-medium;
+    padding: $spacing-2x;
     position: absolute;
-    color: rgba(255,255,255,0.95);
-    top: 0;
-    left: 0;
+    color: $color-neutrals-n800;
+    top: $spacing-none;
+    left: $spacing-none;
 }
 
 .spotlight div {
@@ -1272,34 +1272,34 @@ input[type="checkbox"]+label {
 }
 
 .spotlight button {
-    height: 32px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.95);
+    height: $size-4x;
+    font-size: $font-size-2;
+    color: $color-neutrals-n800;
     text-align: left;
-    background: rgba(9,30,66,0.08);
-    border-radius: 4px;
-    padding: 0 16px;
+    background: $color-neutrals-n030;
+    border-radius: $radius-medium;
+    padding: $spacing-none $spacing-button-padding_h;
     outline: none;
 }
 
 .spotlight span {
     position: absolute;
-    left: 0px;
+    left: $spacing-none;
     bottom: 5px;
 }
 
 .spotlight .secondary-btn {
-    margin-right: 4px;
-    border: none;
+    margin-right: $spacing-compact-2x;
+    border: $border-none;
     background: transparent;
-     margin-right: 4px;
+     margin-right: $spacing-compact-2x;
 }
 
 .spotlight h3 {
-    font-size: 16px;
-    color: #FFFFFF;
-    margin-top: 0px;
-    margin-bottom: 8px;
+    font-size: $font-size-3;
+    color: $color-neutrals-n000;
+    margin-top: $spacing-none;
+    margin-bottom: $spacing-1x;
 }
 
 /*empty-state*/
@@ -1317,40 +1317,40 @@ input[type="checkbox"]+label {
     height: 160px;
     width: 160px;
     background: #A1C6E7;
-    border-radius: 8px;
-    margin-bottom: 24px;
+    border-radius: $radius-large;
+    margin-bottom: $spacing-3x;
 }
 
 .empty-state .empty-state-title{
-    font-size: 20px;
-    color: #172B4D;
+    font-size: $font-size-4;
+    color: $color-neutrals-n800;
     margin-bottom: 16px;
     margin-top: 0;
 }
 
 .empty-state .empty-state-desc {
-    font-size: 14px;
-    color: #172B4D;
+    font-size: $font-size-2;
+    color: $color-neutrals-n800;
     text-align: center;
     line-height: 20px;
     width: 312px;
-    margin-bottom: 24px;
-    margin-top: 0;
+    margin-bottom: $spacing-3x;
+    margin-top: $spacing-none;
 }
 
 .empty-state .empty-state-actions {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 24px;
+    margin-bottom: $spacing-3x;
 }
 
 .empty-state .empty-state-actions button {
-    border: none;
-    border-radius: 4px;
-    height: 32px;
-    padding: 0 12px;
-    font-size: 14px;
+    border: $border-none;
+    border-radius: $radius-medium;
+    height: $size-4x;
+    padding: $spacing-none $spacing-button-padding_h;
+    font-size: $font-size-2;
     letter-spacing: 0;
     text-align: center;
     line-height: 32px;
@@ -1358,51 +1358,51 @@ input[type="checkbox"]+label {
 
 
 .empty-state .empty-state-btn-p {
-    color: #FFFFFF;
-    background: #3172E0;
+    color: $color-neutrals-n000;
+    background: $color-primary-b400;
 }
 
 .empty-state .empty-state-btn-s {
-    background: rgba(9,30,66,0.04);
-    color: #505F79;
+    background: $color-neutrals-n020;
+    color: $color-neutrals-n400;
     margin-left: 20px;
 }
 
 .empty-state a {
     display: inline-block;
-    margin-bottom: 24px;
+    margin-bottom: $spacing-3x;
 }
 
 /*date picker 右侧的icon calendar*/
 .date-picker-icon {
     position: absolute;
     line-height: 32px;
-    right: 8px;
-    top: 4px;
+    right: $spacing-1x;
+    top: $spacing-compact-2x;
 }
 
 .date-picker-white+.date-picker-icon path{
-    fill: rgba(255,255,255,0.95);
+    fill: $color-neutrals-n800;
 }
 
 .date-picker-white {
-    color: rgba(255,255,255,0.95);
+    color: $color-neutrals-n800;
     background: rgba(255,255,255,0.20);
 }
 
 .date-picker-input {
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    height: 32px;
+    border: $border-none;
+    border-radius: $radius-medium;
+    font-size: $font-size-2;
+    height: $size-4x;
     line-height: 32px;
     outline: none;
-    padding: 6px 8px;
+    padding: $spacing-compact-3x $spacing-text_field-padding_h;
 }
 
 .date-picker-default {
-    background: #F4F5F7;
-    color: #8993A4;
+    background: $color-neutrals-n020;
+    color: $color-neutrals-n090;
 }
 
 .date-picker-width-small {
@@ -1427,18 +1427,18 @@ input[type="checkbox"]+label {
 
 /*add item style*/
 .add-item-input {
-    height: 40px;
+    height: $size-5x;
     width: 240px;
-    border: 1px solid #DFE1E6;
-    border-radius: 4px;
+    border: 1px solid $color-neutrals-n040;
+    border-radius: $radius-medium;
     padding: 10px 8px;
-    font-size: 14px;
-    color: #42526E;
+    font-size: $font-size-2;
+    color: $color-neutrals-n500;
 }
 
 .add-item-input:focus {
     outline: none;
-    border: 1px solid #3172E0;
+    border: $border-regular solid $color-primary-b400;
 }
 
 .flex-direction-row {
@@ -1449,43 +1449,43 @@ input[type="checkbox"]+label {
 
 /*h small*/
 .add-item-label {
-    font-size: 14px;
-    color: #172B4D;
+    font-size: $font-size-2;
+    color: $color-neutrals-n800;
     margin-bottom: 8px;
     display: block;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
 }
 
 /*body-secondary*/
 .add-item-desc {
-    font-size: 14px;
-    color: #7A869A;
-    margin-bottom: 8px;
+    font-size: $font-size-2;
+    color: $color-neutrals-n100;
+    margin-bottom: $spacing-1x;
     display: block;
 }
 
 .add-item-cross-icon {
-    width: 24px;
-    height: 24px;
-    margin-left: 8px;
+    width: $size-3x;
+    height: $size-3x;
+    margin-left: $spacing-1x;
 }
 
 .add-item-main {
-    margin-bottom: 16px;
+    margin-bottom: $spacing-2x;
 }
 
 .add-item-text {
-    font-size: 14px;
-    color: #B3BAC5;
+    font-size: $font-size-2;
+    color: $color-neutrals-n060;
     line-height: 32px;
 }
 
 .add-item-add-icon path{
-    fill: #B3BAC5;
+    fill: $color-neutrals-n060;
 }
 
 .add-item-footer {
-    margin-top: 13px;
+    margin-top: $spacing-compact-6x;
     width: fit-content;
 }
 
@@ -1495,25 +1495,25 @@ input[type="checkbox"]+label {
 
 /* bp-badge styles */
 .bp-badge.primary {
-    background-color: #3172E0;
-    color: #fff;
+    background-color: $color-primary-b400;
+    color: $color-neutrals-n000;
 }
 .bp-badge.primary.reverse {
-    color: #3172E0;
-    background-color: #fff;
+    color: $color-primary-b400;
+    background-color: $color-neutrals-n000;
 }
 /* bp-badge */
 
 
 .textColorRed {
-    color: #FF5630 !important;
+    color: $color-negative-r300 !important;
 }
 
 .display-none {
     display: none;
 }
 
-/* middle components */
+/* middle components 这个实现不好，之后可以删除*/
 .card-size-b {
     height: auto !important;
     width: 893px !important;
@@ -1527,11 +1527,11 @@ input[type="checkbox"]+label {
 }
 
 .card-size-b .heading-medium  {
-    margin-bottom: 6px;
+    margin-bottom: $spacing-compact-3x;
 }
 
 .card-size-b .bp-card-title-desc {
-    margin-left: 0px !important;
+    margin-left: $spacing-none !important;
 }
 
 .card-size-b .bp-button-group {
@@ -1544,18 +1544,18 @@ input[type="checkbox"]+label {
 }
 
 .card-size-c .bp-card-title-part,.card-size-d .bp-card-title-part{
-    height: 80px !important;
+    height: $size-10x !important;
     flex-direction: column !important;
     align-items: start !important;
     justify-content: center !important;
 }
 
 .card-size-c .heading-medium,.card-size-d .heading-medium  {
-    margin-bottom: 2px;
+    margin-bottom: $spacing-compact-1x;
 }
 
 .card-size-c .bp-card-title-desc,.card-size-d .bp-card-title-desc {
-    margin-left: 0px !important;
+    margin-left: $spacing-none !important;
 }
 
 .card-size-a .bp-button-group, .card-size-b .bp-button-group,.card-size-c .bp-button-group {
@@ -1623,7 +1623,7 @@ input[type="checkbox"]+label {
 }
 
 .viewport-class .icon-no-margin {
-    margin: 0;
+    margin: $spacing-none;
 }
 
 .viewport-hidden-wrapper {
@@ -1642,22 +1642,22 @@ input[type="checkbox"]+label {
 
 .viewport-click-right {
     height: 100%;
-    width: 24px;
+    width: $size-3x;
     position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 99;
+    right: $spacing-none;
+    top: $spacing-none;
+    z-index: $zindex-sticky;
     display: flex;
     align-items: center;
 }
 
 .viewport-click-left {
     height: 100%;
-    width: 24px;
+    width: $size-3x;
     position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 99;
+    left: $spacing-none;
+    top: $spacing-none;
+    z-index: $zindex-sticky;
     display: flex;
     align-items: center;
 }
@@ -1672,5 +1672,5 @@ input[type="checkbox"]+label {
 
 /*隐藏滚动条 记得适配主流浏览器*/
 .viewport-auto-wrapper::-webkit-scrollbar {
-    display: none;   
+    /* display: none;    */
 }
