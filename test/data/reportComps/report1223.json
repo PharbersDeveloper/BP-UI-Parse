@@ -872,6 +872,7 @@
                                             "id": "table-demo",
                                             "type": "BPTable",
                                             "name": "bp-table",
+                                            "className": "report-table-content",
                                             "layout": [
                                                 {
                                                     "k": "flex",
@@ -885,7 +886,7 @@
                                                 },
                                                 {
                                                     "k": "height",
-                                                    "v": "100%"
+                                                    "v": "auto"
                                                 },
                                                 {
                                                     "k": "padding",
@@ -913,7 +914,8 @@
                                             "styleAttrs": [
                                                 {
                                                     "name": "border",
-                                                    "value": false
+                                                    "value": false,
+                                                    "type": "boolean"
                                                 }
                                             ]
                                         }

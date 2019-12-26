@@ -46,7 +46,7 @@ export default class BPScatter extends BPChart {
 
             ajax.request(qa + '?tag=row2line&dimensionKeys=' + ec.dimension, {
                 method: 'POST',
-                data: JSON.stringify(queryChartSql),
+                data: JSON.stringify({ "sql": queryChartSql }),
                 dataType: 'json'
             }).then(data => {
                 this.updateChartData(chartConfig, data);
@@ -55,36 +55,21 @@ export default class BPScatter extends BPChart {
     }
     public updateChart() {
         return `updateChartData(chartConfig, chartData) {
-
+            // 示例数据
             let mock = [
                 ["省份","marketGrowth","prodGrowth","sales"],
                 ["山东",28.604,7.7,1111706869],
                 ["浙江",31.163,77.4,27662440],
                 ["北京",-15.16,-68,1154605773],
                 ["台湾",13.670,74.7,10582082],
-                ["海南",28.599,75,4986705],
-                ["上海",-29.476,77.1,56943299],
-                ["内蒙古",31.476,-75.4,78958237],
-                ["西藏",2.8666,78.1,254830],
-                ["云南",1.777,57.7,870601776],
-                ["江西",2.9550,79.1,122249285],
-                ["安徽",20.76,67.9,20194354],
-                ["河南",-12.087,72,42972254],
-                ["湖南",24.021,75.4,3397534],
-                ["湖北",43.296,76.8,4240375,],
-                ["贵州",-10.088,70.8,38195258,],
-                ["山西",1.9349,69.6,147568552,],
-                ["陕西",106.70,-67.3,53994605,],
-                ["四川",26.424,75.7,57110117],
-                ["重庆",-37.062,75.4,252847810]
             ]
             //修改数据顺序需要修改
             // - visualMap.dimension
             // - series.encode.x
             // - series.encode.y
             // - optionWithData 函数体内的 circleRangeArr
-            this.reGenerateChart(chartConfig, mock);
-            // this.reGenerateChart(chartConfig, chartData);
+            // this.reGenerateChart(chartConfig, mock);
+            this.reGenerateChart(chartConfig, chartData);
 
             this.dataReady(chartData, chartConfig);
 
