@@ -124,42 +124,39 @@
                                     "styleAttrs": []
                                 },
                                 {
-                                    "id": "bp-text-creater",
-                                    "type": "BPText",
-                                    "text": "datepicker placeholder",
-                                    "name": "bp-text",
-                                    "className": "header-datepicker",
-                                    "css": [
-                                        {
-                                            "k": "height",
-                                            "v": "auto"
-                                        },
-                                        {
-                                            "k": "width",
-                                            "v": "auto"
-                                        },
-                                        {
-                                            "k": "padding",
-                                            "v": "0"
-                                        },
-                                        {
-                                            "k": "background",
-                                            "v": "transparent"
-                                        }
-                                    ],
-                                    "components": [],
+                                    "id": "test",
+                                    "type": "BPDatePicker",
+                                    "icon": "calendar",
+                                    "text": "simon test",
+                                    "name": "bp-date-picker",
+                                    "css": [],
                                     "attrs": [
                                         {
-                                            "name": "tagName",
-                                            "value": "h2",
-                                            "type": "string"
+                                            "name": "range",
+                                            "value": true
                                         },
                                         {
-                                            "name": "classNames",
-                                            "value": "title-inverse"
+                                            "name": "type",
+                                            "value": "date"
+                                        },
+                                        {
+                                            "name": "pid",
+                                            "value": "date-picker"
                                         }
                                     ],
-                                    "styleAttrs": []
+                                    "styleAttrs": [
+                                        {
+                                            "name": "style",
+                                            "value": "white"
+                                        },
+                                        {
+                                            "name": "size",
+                                            "value": "small"
+                                        }
+                                    ],
+                                    "events": [
+                                        "click"
+                                    ]
                                 }
                             ],
                             "attrs": [],
@@ -204,14 +201,19 @@
                                     "id": "test",
                                     "type": "BPViewport",
                                     "name":"bp-viewport",
+                                    "cat": "0",
                                     "css": [    
                                         {
                                             "k": "margin",
                                             "v": "0 24px"
                                         },
                                         {
-                                            "k": "positon",
+                                            "k": "position",
                                             "v": "relative"
+                                        },
+                                        {
+                                            "k": "background",
+                                            "v": "transparent"
                                         }
                                     ],
                                     "attrs": [
@@ -242,7 +244,637 @@
                                             "value": true
                                         }
                                     ],
-                                    "events": ["click"]
+                                    "events": ["click"],
+                                    "components": [
+                                        {
+                                            "id": "test",
+                                            "type": "BPDiv",
+                                            "cat": "0",
+                                            "name":"bp-product-card-wrapper-right",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "126px"
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "24px"
+                                                },
+                                                {
+                                                    "k": "position",
+                                                    "v": "absolute"
+                                                },
+                                                {
+                                                    "k": "right",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "background",
+                                                    "v": "linear-gradient(90deg, rgba(49,114,224,0.00) 0%, rgba(49,114,224,0.15) 21%, rgba(49,114,224,0.45) 49%, rgba(49,114,224,0.95) 76%, #3172E0 84%)"
+                                                }, 
+                                                {
+                                                    "k": "z-index",
+                                                    "v": "99"
+                                                },
+                                                {
+                                                    "k": "top",
+                                                    "v": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "test",
+                                            "type": "BPDiv",
+                                            "cat": "0",
+                                            "name":"bp-product-card-wrapper-left",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "126px"
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "24px"
+                                                },
+                                                {
+                                                    "k": "background",
+                                                    "v": "linear-gradient(270deg, rgba(49,114,224,0.00) 0%, rgba(49,114,224,0.15) 21%, rgba(49,114,224,0.45) 49%, rgba(49,114,224,0.95) 76%, #3172E0 84%)"
+                                                },
+                                                {
+                                                    "k": "z-index",
+                                                    "v": 99
+                                                }, 
+                                                {
+                                                    "k": "position",
+                                                    "v": "absolute"
+                                                },
+                                                {
+                                                    "k": "left",
+                                                    "v": 0
+                                                },
+                                                {
+                                                    "k": "top",
+                                                    "v": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "column-layout-container",
+                                            "type": "BPColumnLayout",
+                                            "name": "bp-column-layout",
+                                            "className": "report-product-card",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "106px"
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "218px"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "10px 10px 8px 10px"
+                                                },
+                                                {
+                                                    "k": "border-radius",
+                                                    "v": "4px"
+                                                },
+                                                {
+                                                    "k": "background",
+                                                    "v": "#FFFFFF"
+                                                }, 
+                                                {
+                                                    "k": "box-shadow",
+                                                    "v": "0 0 1px 0 rgba(9,30,66,0.12), 0 4px 8px -2px rgba(9,30,66,0.25)"
+                                                },
+                                                {
+                                                    "k": "display",
+                                                    "v": "inline-block"
+                                                },
+                                                {
+                                                    "k": "margin-right",
+                                                    "v": "8px"
+                                                }
+                                            ],
+                                            "components": [
+                                                {
+                                                    "id": "product-card-title",
+                                                    "type": "BPText",
+                                                    "text": "Product Name",
+                                                    "name": "bp-text",
+                                                    "className": "product-card-title",
+                                                    "css": [
+                                                        {
+                                                            "k": "height",
+                                                            "v": "auto"
+                                
+                                                        },
+                                                        {
+                                                            "k": "width",
+                                                            "v": "100%"
+                                                        },
+                                                        {
+                                                            "k": "font-size",
+                                                            "v": "16px"
+                                                        },
+                                                        {
+                                                            "k": "color",
+                                                            "v": "#3172E0"
+                                                        },
+                                                        {
+                                                            "k": "margin",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "font-weight",
+                                                            "v": "500"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "product-card-content",
+                                                    "type": "BPRowLayout",
+                                                    "name": "bp-row-layout",
+                                                    "className": "report-product-content",
+                                                    "css": [
+                                                        {
+                                                            "k": "height",
+                                                            "v": "auto"
+                                
+                                                        },
+                                                        {
+                                                            "k": "width",
+                                                            "v": "100%"
+                                                        },
+                                                        {
+                                                            "k": "display",
+                                                            "v": "flex"
+                                                        },
+                                                        {
+                                                            "k": "flex-direction",
+                                                            "v": "row"
+                                                        },
+                                                        {
+                                                            "k": "justify-content",
+                                                            "v": "space-between"
+                                                        },
+                                                        {
+                                                            "k": "margin-top",
+                                                            "v": "16px"
+                                                        }
+                                                    ],
+                                                    "components":[
+                                                        {
+                                                            "id": "product-card-ei-box",
+                                                            "type": "BPColumnLayout",
+                                                            "name": "bp-column-layout",
+                                                            "className": "product-ei-box",
+                                                            "css":[
+                                                                {
+                                                                    "k": "height",
+                                                                    "v": "auto"
+                                        
+                                                                },
+                                                                {
+                                                                    "k": "width",
+                                                                    "v": "100%"
+                                                                },
+                                                                {
+                                                                    "k": "display",
+                                                                    "v": "flex"
+                                                                },
+                                                                {
+                                                                    "k": "flex-direction",
+                                                                    "v": "column"
+                                                                },
+                                                                {
+                                                                    "k": "box-shadow",
+                                                                    "v": "none"
+                                                                },
+                                                                {
+                                                                    "k": "padding",
+                                                                    "v": "0"
+                                                                }
+                                                            ],
+                                                            "components": [
+                                                                {
+                                                                    "id": "product-ei-text",
+                                                                    "type": "BPText",
+                                                                    "text": "EI",
+                                                                    "name": "bp-text",
+                                                                    "className": "product-ei-text",
+                                                                    "css": [
+                                                                        {
+                                                                            "k": "height",
+                                                                            "v": "auto"
+                                                
+                                                                        },
+                                                                        {
+                                                                            "k": "width",
+                                                                            "v": "max-content"
+                                                                        },
+                                                                        {
+                                                                            "k": "margin-left",
+                                                                            "v": "0"
+                                                                        }
+                                                                    ],
+                                                                    "attrs": [
+                                                                        {
+                                                                            "name":"classNames",
+                                                                            "value": "heading-xsmall"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "id": "product-ei-data",
+                                                                    "type": "BPText",
+                                                                    "text": "100",
+                                                                    "name": "bp-text",
+                                                                    "className": "product-ei-data",
+                                                                    "css": [
+                                                                        {
+                                                                            "k": "height",
+                                                                            "v": "auto"
+                                                
+                                                                        },
+                                                                        {
+                                                                            "k": "width",
+                                                                            "v": "max-content"
+                                                                        },
+                                                                        {
+                                                                            "k": "margin-left",
+                                                                            "v": "0"
+                                                                        }
+                                                                    ],
+                                                                    "attrs": [
+                                                                        {
+                                                                            "name": "classNames",
+                                                                            "value": "title"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "id": "product-card-sales-box",
+                                                            "type": "BPColumnLayout",
+                                                            "name": "bp-column-layout",
+                                                            "className": "product-sales-box",
+                                                            "css": [
+                                                                {
+                                                                    "k": "height",
+                                                                    "v": "auto"
+                                        
+                                                                },
+                                                                {
+                                                                    "k": "width",
+                                                                    "v": "100%"
+                                                                },
+                                                                {
+                                                                    "k": "display",
+                                                                    "v": "flex"
+                                                                },
+                                                                {
+                                                                    "k": "flex-direction",
+                                                                    "v": "column"
+                                                                },
+                                                                {
+                                                                    "k": "box-shadow",
+                                                                    "v": "none"
+                                                                },
+                                                                {
+                                                                    "k": "padding",
+                                                                    "v": "0"
+                                                                }
+                                                            ],
+                                                            "components": [
+                                                                {
+                                                                    "id": "product-sales-text-box",
+                                                                    "type": "BPRowLayout",
+                                                                    "name": "bp-row-layout",
+                                                                    "className": "product-sales-text-box",
+                                                                    "css": [
+                                                                        {
+                                                                            "k": "height",
+                                                                            "v": "auto"
+                                                
+                                                                        },
+                                                                        {
+                                                                            "k": "width",
+                                                                            "v": "max-content"
+                                                                        },
+                                                                        {
+                                                                            "k": "display",
+                                                                            "v": "flex"
+                                                                        },
+                                                                        {
+                                                                            "k": "flex-direction",
+                                                                            "v": "row"
+                                                                        }
+                                                                    ],
+                                                                    "components": [
+                                                                        {
+                                                                            "id": "product-sales-text",
+                                                                            "type": "BPText",
+                                                                            "text": "产品销量",
+                                                                            "name": "bp-text",
+                                                                            "className": "product-sales-text",
+                                                                            "css": [
+                                                                                {
+                                                                                    "k": "height",
+                                                                                    "v": "auto"
+                                                        
+                                                                                },
+                                                                                {
+                                                                                    "k": "width",
+                                                                                    "v": "max-content"
+                                                                                },
+                                                                                {
+                                                                                    "k": "margin-left",
+                                                                                    "v": "0"
+                                                                                }
+                                                                            ],
+                                                                            "attrs": [
+                                                                                {
+                                                                                    "name": "classNames",
+                                                                                    "value": "heading-xsmall"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "id": "product-sales-tag",
+                                                                            "name": "bp-product-card-tag",
+                                                                            "type": "BPTag",
+                                                                            "className":"product-card-tag",
+                                                                            "cat": "0",
+                                                                            "css": [
+                                                                                {
+                                                                                    "k": "width",
+                                                                                    "v": "auto"
+                                                                                  },
+                                                                                  {
+                                                                                    "k": "height",
+                                                                                    "v": "20px"
+                                                                                  },
+                                                                                    {
+                                                                                        "k": "padding",
+                                                                                        "v": "0 4px"
+                                                                                    },
+                                                                                  {
+                                                                                    "k": "border-radius",
+                                                                                    "v": "4px"
+                                                                                  },
+                                                                                  {
+                                                                                    "k": "font-size",
+                                                                                    "v": "14px"
+                                                                                  },
+                                                                                  {
+                                                                                    "k": "text-align",
+                                                                                    "v": "center"
+                                                                                  },
+                                                                                  {
+                                                                                    "k": "line-height",
+                                                                                    "v": "20px"
+                                                                                  },
+                                                                                  {
+                                                                                      "k": "margin-left",
+                                                                                      "v": "5px"
+                                                                                  },
+                                                                                  {
+                                                                                      "k": "background",
+                                                                                      "v": "#EBECF0"
+                                                                                  }
+                                                                            ],
+                                                                            "attrs": [
+                                                                                {
+                                                                                    "name": "index",
+                                                                                    "value": 2
+                                                                                }
+                                                                              ],
+                                                                              "styleAttrs": [
+                                                                                {
+                                                                                  "name": "type", 
+                                                                                  "value": "default"
+                                                                                },
+                                                                                {
+                                                                                  "name": "subtle",
+                                                                                  "value": true
+                                                                                }
+                                                                              ],
+                                                                              "events": ["click", "mouseEnter", "mouseLeave"],
+                                                                              "calcAttrs": [
+                                                                                  {
+                                                                                      "name": "show",
+                                                                                      "value": "computed('index', function(){ return this.get('index') < 3 })"
+                                                                                  },
+                                                                                  {
+                                                                                    "name": "tagContent",
+                                                                                    "value": "computed('index', function(){ return 'TOP ' + (this.get('index')+1) })"
+                                                                                  }
+                                                                              ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "id": "product-sales-data-box",
+                                                                    "type": "BPRowLayout",
+                                                                    "name": "bp-row-layout",
+                                                                    "className": "product-sales-data-box",
+                                                                    "css": [
+                                                                        {
+                                                                            "k": "height",
+                                                                            "v": "auto"
+                                                
+                                                                        },
+                                                                        {
+                                                                            "k": "width",
+                                                                            "v": "max-content"
+                                                                        },
+                                                                        {
+                                                                            "k": "display",
+                                                                            "v": "flex"
+                                                                        },
+                                                                        {
+                                                                            "k": "flex-direction",
+                                                                            "v": "row"
+                                                                        },
+                                                                        {
+                                                                            "k": "align-items",
+                                                                            "v": "center"
+                                                                        },
+                                                                        {
+                                                                            "k": "margin-top",
+                                                                            "v": "4px"
+                                                                        }
+                                                                    ],
+                                                                    "components": [
+                                                                        {
+                                                                            "id": "product-sales-data-numner",
+                                                                            "type": "BPText",
+                                                                            "text": "0000",
+                                                                            "name": "bp-text",
+                                                                            "className":"product-sales-sata-number",
+                                                                            "css": [
+                                                                                {
+                                                                                    "k": "height",
+                                                                                    "v": "auto"
+                                                        
+                                                                                },
+                                                                                {
+                                                                                    "k": "width",
+                                                                                    "v": "max-content"
+                                                                                },
+                                                                                {
+                                                                                    "k": "margin-left",
+                                                                                    "v": "0"
+                                                                                }
+                                                                            ],
+                                                                            "attrs": [
+                                                                                {
+                                                                                    "name": "classNames",
+                                                                                    "value": "heading-medium"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "id": "product-sales-data-mn",
+                                                                            "type": "BPText",
+                                                                            "text": "Mn",
+                                                                            "name": "bp-text",
+                                                                            "className": "product-sales-data-mn",
+                                                                            "css": [
+                                                                                {
+                                                                                    "k": "height",
+                                                                                    "v": "auto"
+                                                        
+                                                                                },
+                                                                                {
+                                                                                    "k": "width",
+                                                                                    "v": "max-content"
+                                                                                },
+                                                                                {
+                                                                                    "k": "margin-left",
+                                                                                    "v": "2px"
+                                                                                }
+                                                                            ],
+                                                                            "attrs": [
+                                                                                {
+                                                                                    "name": "classNames",
+                                                                                    "value": "body-tertiary"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "id": "product-sales-data-percent",
+                                                                            "text": "12.1%",
+                                                                            "type": "BPDiv",
+                                                                            "cat": "0",
+                                                                            "name":"product-sales-data-percent",
+                                                                            "className": "product-sales-data-percent",
+                                                                            "css": [
+                                                                                {
+                                                                                    "k": "height",
+                                                                                    "v": "auto"
+                                                        
+                                                                                },
+                                                                                {
+                                                                                    "k": "width",
+                                                                                    "v": "max-content"
+                                                                                },
+                                                                                {
+                                                                                    "k": "font-size",
+                                                                                    "v": "12px"
+                                                                                },
+                                                                                {
+                                                                                    "k": "color",
+                                                                                    "v": "#00875A"
+                                                                                },
+                                                                                {
+                                                                                    "k": "margin-left",
+                                                                                    "v": "8px"
+                                                                                }
+                                                                            ],
+                                                                            "attrs": [
+                                                                                {
+                                                                                    "name": "value",
+                                                                                    "value": 12.1
+                                                                                }
+                                                                            ],
+                                                                            "styleAttrs": [
+                                                                                {
+                                                                                    "name": "textColorRed",
+                                                                                    "value": "textColorRed"
+                                                                                }
+                                                                            ],
+                                                                            "calcAttrs": [
+                                                                                {
+                                                                                    "name": "textColorRed",
+                                                                                    "value": "computed('value', function(){ return this.get('value') < 0 })"
+                                                                                }
+                                                                            ]
+                                
+                                                                        },
+                                                                        {
+                                                                            "id": "product-sales-data-icon",
+                                                                            "name": "bp-icon",
+                                                                            "type": "BPIcon",
+                                                                            "cat": "0",
+                                                                            "icon": "increase",
+                                                                            "className": "product-sales-data-icon",
+                                                                            "css": [
+                                                                                {
+                                                                                    "k": "height",
+                                                                                    "v": "24px"
+                                                        
+                                                                                },
+                                                                                {
+                                                                                    "k": "width",
+                                                                                    "v": "24px"
+                                                                                },
+                                                                                {
+                                                                                    "k": "margin-bottom",
+                                                                                    "v": "2px"
+                                                                                },
+                                                                                {
+                                                                                    "k": "padding",
+                                                                                    "v": "3px 0 0 5px"
+                                                                                }
+                                                                            ],
+                                                                            "attrs": [
+                                                                                {
+                                                                                    "name": "value",
+                                                                                    "value": 12.2
+                                                                                }
+                                                                            ],
+                                                                            "styleAttrs": [
+                                                                              {
+                                                                                "name": "color", 
+                                                                                "value": null
+                                                                              },
+                                                                              {
+                                                                                  "name": "iconSmall",
+                                                                                  "value": true
+                                                                              }
+                                                                            ],
+                                                                            "events": ["click", "mouseEnter", "mouseLeave"],
+                                                                            "calcAttrs": [
+                                                                                {
+                                                                                    "name": "iconName",
+                                                                                    "value":"computed('value', function(){ if (this.get('value') > 0) { return 'priority-high' } else { return 'priority-low' } })"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                          }
+                                        
+                                    ]
                                   }
                             ],
                             "attrs": [],
@@ -1040,7 +1672,7 @@
                                                         },
                                                         {
                                                             "name": "confReqAdd",
-                                                            "value": "http://192.168.100.25:5555",
+                                                            "value": "http://192.168.100.124:5555",
                                                             "type": "string"
                                                         },
                                                         {
@@ -1148,7 +1780,7 @@
                                                         },
                                                         {
                                                             "name": "confReqAdd",
-                                                            "value": "http://192.168.100.25:5555",
+                                                            "value": "http://192.168.100.124:5555",
                                                             "type": "string"
                                                         },
                                                         {
@@ -1256,7 +1888,7 @@
                                                         },
                                                         {
                                                             "name": "confReqAdd",
-                                                            "value": "http://192.168.100.25:5555",
+                                                            "value": "http://192.168.100.124:5555",
                                                             "type": "string"
                                                         },
                                                         {
@@ -1463,7 +2095,7 @@
                                                         },
                                                         {
                                                             "name": "confReqAdd",
-                                                            "value": "http://192.168.100.25:5555",
+                                                            "value": "http://192.168.100.124:5555",
                                                             "type": "string"
                                                         },
                                                         {

@@ -33,7 +33,9 @@ export abstract class BPWidget extends BPObject {
     public paintStyle(comp: BPComp, prefix?: string) {
 
         // 该组件的 css 样式
-        const className = "." + comp.name + " {" + "\r" + "\n"
+        const alreadyClassName = comp.className ? comp.className : comp.name
+        const className = "." + alreadyClassName + " {" + "\r" + "\n"
+        // const className = "." + comp.name + " {" + "\r" + "\n"
         let fileData = prefix ? "." + prefix + " " + className : className
         let styles: string = ""
 

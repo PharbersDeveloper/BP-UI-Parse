@@ -48,6 +48,7 @@ export default class BPTag extends BPWidget {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
         const {attrs, styleAttrs, events, calcAttrs } = comp
+        const className = comp.className ? comp.className : ""
 
         const attrsBody = attrs.map( (item: IAttrs) => {
             if (typeof item.value === "string") {
@@ -77,8 +78,8 @@ export default class BPTag extends BPWidget {
         import { computed } from '@ember/object';
         export default Component.extend({
             layout,
-            tagName:'span',
-            classNames:['${comp.name}'],
+            tagName:"span",
+            classNames:["${comp.name}", "${className}"],
             content: 'default',
             attributeBindings: [''],
             ${attrsBody}
