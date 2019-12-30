@@ -1191,6 +1191,7 @@ input[type="checkbox"]+label {
 
 .bp-table {
     position: relative;
+    height: 100%;
 }
 
 .bp-table table th {
