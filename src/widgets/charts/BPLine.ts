@@ -29,7 +29,21 @@ export default class BPLine extends BPChart {
 
         return execList
     }
-
+    public mainLogic() {
+        return `
+        getChartIns() {
+            const selector = '#' + this.get('eid'),
+                $el = $(selector),
+                echartInstance = echarts.getInstanceByDom($el[0]);
+            return echartInstance;
+        },
+        generateChartOption(chartConfig, cond) {
+            const {provName,cityName,prodName } = this
+            this.chartData(cond, { provName, cityName, prodName }).then(data => {
+                this.updateChartData(chartConfig, data);
+            })
+        },` + "\r\n" + this.updateChart()
+    }
     public updateChart() {
         return `updateChartData(chartConfig, chartData) {
             let linesPanelConfig = this.calculateLinesNumber(chartConfig, chartData);
@@ -81,7 +95,7 @@ export default class BPLine extends BPChart {
     }
     private calcLinesNumber() {
         return 	`calculateLinesNumber(panelConfig, chartData) {
-            let linesNumber = chartData[0].length - 1,
+            let linesNumber = chartData.length - 1,
                 lineConfig = isArray(panelConfig.series) ? panelConfig.series[0] : panelConfig.series,
                 series = [...Array(linesNumber)].map(() => {
                     return lineConfig;

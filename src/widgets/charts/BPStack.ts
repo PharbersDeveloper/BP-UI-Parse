@@ -29,6 +29,21 @@ export default class BPStack extends BPChart {
 
         return execList
     }
+    public mainLogic() {
+        return `
+        getChartIns() {
+            const selector = '#' + this.get('eid'),
+                $el = $(selector),
+                echartInstance = echarts.getInstanceByDom($el[0]);
+            return echartInstance;
+        },
+        generateChartOption(chartConfig, cond) {
+            const {provName,cityName,prodName } = this
+            this.chartData(cond, { provName, cityName, prodName }).then(data => {
+                this.updateChartData(chartConfig, data);
+            })
+        },` + "\r\n" + this.updateChart()
+    }
     public updateChart() {
         return `	updateChartData(chartConfig, chartData) {
             let stackConfig = this.calcBarsNumber(chartConfig, chartData);
@@ -80,7 +95,7 @@ export default class BPStack extends BPChart {
     }
     private calcBarsNumber() {
         return 	`calcBarsNumber(panelConfig, chartData) {
-            let barsNumber = chartData[0].length - 1,
+            let barsNumber = chartData.length - 1,
                 stackConfig = isArray(panelConfig.series) ? panelConfig.series[0] : panelConfig.series,
                 series = [...Array(barsNumber)].map(() => {
                     return stackConfig;
