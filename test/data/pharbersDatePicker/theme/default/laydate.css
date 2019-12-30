@@ -193,3 +193,4 @@ html #layuicss-laydate{display: none; position: absolute; width: 1989px;}
 .laydate-day-mark::after{display: none;}
 .layui-select-start::after {height: 32px;width: 16px;content: " ";background: #E1ECFF;position: absolute;top: 0;right: 0;z-index: -1;}
 .layui-select-end::before {height: 32px;width: 16px;content: " ";background: #E1ECFF;position: absolute;top: 0;left: 0;z-index: -1;}
+.layui-laydate-footer span:hover{color: #172B4D;}

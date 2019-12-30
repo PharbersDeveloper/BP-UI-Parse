@@ -58,6 +58,8 @@ export default class BPTable extends BPWidget {
             import { A } from '@ember/array';
             import { all } from 'rsvp';
             import { inject as service } from '@ember/service';
+            import { isEmpty, typeOf } from '@ember/utils';
+
             export default Component.extend({
                 layout,
                 ajax: service(),
@@ -98,22 +100,15 @@ export default class BPTable extends BPWidget {
                         }
                     }
                 },
-                getData() {
-                    if (!this.get('rows') && !this.get('columns')) {
+                generateTableOption(condition) {
+                    const query = condition.query // query.xSql query.dimensionSql query.chartSql
+                    const encode = condition.encode
+                    const queryAddress = query.address
+                    const ajax = this.ajax
 
-                    const ajax = this.ajax;
-                    const queryChartSql = "select 月份, 药品名, count(药品名.keyword) as 数量 from hx2 where 药品名.keyword='***' group by 月份.keyword, 药品名.keyword order by 月份.keyword"
-                    const ec = {
-                        dimension: "药品名",
-                        placeHolder: "***",
-                        table: "hx2",
-                        x: "月份",
-                        y: "数量"
-                    }
-
-                    let getXValues = this.get('ajax').request('http://192.168.100.174:3000/sql?tag=array', {
+                    let getXValues = this.get('ajax').request( queryAddress + '?tag=array', {
                         method: 'POST',
-                        data: JSON.stringify({"sql":"select 月份 from hx2 group by 月份.keyword order by 月份.keyword"}),
+                        data: JSON.stringify({"sql":query.xSql}),
                         dataType: 'json'
                     })
 
@@ -128,17 +123,17 @@ export default class BPTable extends BPWidget {
                         this.set("columns", arrC)
 
                         window.console.log(data)
-                        return ajax.request("http://192.168.100.174:3000/sql" + '?tag=array', {
+                        return ajax.request(queryAddress + '?tag=array', {
                             method: 'POST',
-                            data: JSON.stringify({"sql":"select 药品名 from hx2 group by 药品名.keyword order by 药品名.keyword"}),
+                            data: JSON.stringify({"sql": query.dimensionSql}),
                             dataType: 'json'
                         }).then(data => {
                             return all(data.map(ele => {
                                 let reqBody = {
-                                    "sql": queryChartSql.replace(ec.placeHolder, ele),
+                                    "sql": query.chartSql.replace(encode.placeHolder, ele),
                                     "x-values": this.xValues
                                 }
-                                return ajax.request("http://192.168.100.174:3000/sql" + '?tag=chart&x-axis='+ec.x+'&y-axis='+ec.y+'&dimensionKeys='+ec.dimension, {
+                                return ajax.request(queryAddress + '?tag=chart&x-axis='+encode.x+'&y-axis='+encode.y+'&dimensionKeys='+encode.dimension, {
                                     method: 'POST',
                                     data: JSON.stringify(reqBody),
                                     dataType: 'json'
@@ -163,7 +158,23 @@ export default class BPTable extends BPWidget {
                             this.set('rows', arrR)
                         })
                     })
-                }
+                    window.console.log('new data')
+                },
+                getData() {
+                    if (!this.get('rows') && !this.get('columns')) {
+                        const tableId = this.get('tid')
+                        this.get('ajax').request(this.get("confReqAdd") + "/chartsConfig", {
+                            method: 'GET',
+                            data: tableId
+                        }).then(data => {
+                            if (!isEmpty(data.id) && !isEmpty(data.condition)) {
+                                this.setProperties({
+                                    dataCondition: data.condition
+                                });
+                                this.generateTableOption(data.condition);
+                            }
+                        })
+                    }
                 },
                 actions: {
                     sortSowIcon(sorts) {

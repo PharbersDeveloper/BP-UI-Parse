@@ -91,15 +91,17 @@ export default class BPDatePicker extends BPWidget {
                         return 'date-picker-width-default'
                     }
                 }),
+                confirmAction(){
+
+                },
                 didInsertElement() {
                     laydate.render({
                         elem: "#" + this.get('pid'), //指定元素
                         range: this.get('range'),
                         type: this.get('type'),
                         theme: "gray",
-                        showBottom: false,
-                        mark: {
-                        }
+                        btns: ['confirm'],
+                        done: this.confirmAction()
                     });
                 },
                 actions: {`
