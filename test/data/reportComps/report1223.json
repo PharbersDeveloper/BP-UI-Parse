@@ -857,7 +857,6 @@
                                                                                   "value": true
                                                                               }
                                                                             ],
-                                                                            "events": ["click", "mouseEnter", "mouseLeave"],
                                                                             "calcAttrs": [
                                                                                 {
                                                                                     "name": "iconName",
@@ -1672,7 +1671,7 @@
                                                         },
                                                         {
                                                             "name": "confReqAdd",
-                                                            "value": "http://192.168.100.124:5555",
+                                                            "value": "http://192.168.100.59:5555",
                                                             "type": "string"
                                                         },
                                                         {
@@ -1780,7 +1779,7 @@
                                                         },
                                                         {
                                                             "name": "confReqAdd",
-                                                            "value": "http://192.168.100.124:5555",
+                                                            "value": "http://192.168.100.59:5555",
                                                             "type": "string"
                                                         },
                                                         {
@@ -1888,7 +1887,7 @@
                                                         },
                                                         {
                                                             "name": "confReqAdd",
-                                                            "value": "http://192.168.100.124:5555",
+                                                            "value": "http://192.168.100.59:5555",
                                                             "type": "string"
                                                         },
                                                         {
@@ -2095,7 +2094,7 @@
                                                         },
                                                         {
                                                             "name": "confReqAdd",
-                                                            "value": "http://192.168.100.124:5555",
+                                                            "value": "http://192.168.100.59:5555",
                                                             "type": "string"
                                                         },
                                                         {

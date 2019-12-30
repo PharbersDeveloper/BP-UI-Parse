@@ -90,8 +90,13 @@ export default class BPIcon extends BPWidget {
     public paintHBS(comp: BPComp) {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
-        return `${leaf.paintShow()}
+        if (comp.events.length) {
+            return `${leaf.paintShow()}
         {{svg-jar iconName width='24px' height='24px' class=color}}`
+        } else {
+            return `{{svg-jar iconName width='24px' height='24px' class=color}}`
+        }
+
     }
 
 }
