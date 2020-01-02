@@ -102,6 +102,14 @@
                         {
                             "name": "pid",
                             "value": "date-picker"
+                        },
+                        {
+                            "name": "min",
+                            "value": "1990-1-1"
+                        },
+                        {
+                            "name": "max",
+                            "value": "2100-12-31"
                         }
                     ],
                     "styleAttrs": [

@@ -100,6 +100,8 @@ export default class BPDatePicker extends BPWidget {
                         elem: "#" + this.get('pid'), //指定元素
                         range: this.get('range'),
                         type: this.get('type'),
+                        min: this.get("min"),
+                        max: this.get("max"),
                         theme: "gray",
                         btns: ['confirm'],
                         done: function(value) {
