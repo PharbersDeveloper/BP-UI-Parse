@@ -87,10 +87,10 @@ export default class BPChina extends BPChart {
                 data: JSON.stringify({ "sql": queryChartSql }),
                 dataType: 'json'
             }).then(data => {
-                let length = data[0].length -1 
+                let length = data[0].length -1
                 let visualMapMaxArr = data.map(ele=>typeof ele[length]==="number"?ele[length]:0)
                 chartConfig.visualMap.max = Math.max.apply(null,visualMapMaxArr)
-                
+
                 this.updateChartData(chartConfig, data);
             })
         },` + "\r\n" + this.updateChart()

@@ -1212,11 +1212,11 @@
                             "type": "string"
                         },
                         {
-                            "name":"currentProv",
+                            "name":"provName",
                             "value": "全国"
                         },
                         {
-                            "name":"currentCity",
+                            "name":"cityName",
                             "value": ""
                         },
                         {
@@ -1276,12 +1276,12 @@
                             "type": "string"
                         },
                         {
-                            "name":"currentProv",
-                            "value": "全国"
+                            "name":"provName",
+                            "value": "广东"
                         },
                         {
-                            "name":"currentCity",
-                            "value": ""
+                            "name":"cityName",
+                            "value": "广州市"
                         },
                         {
                             "name": "startDate",
@@ -1293,7 +1293,7 @@
                         },
                         {
                             "name": "prodName",
-                            "value": "Viread"
+                            "value": "代文"
                         }
                     ],
                     "css": [
