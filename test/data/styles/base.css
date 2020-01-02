@@ -299,6 +299,10 @@ input:disabled {
     margin-right: $spacing-compact-6x;
 }
 
+.icon-small {
+    height: 18px;
+}
+
 .icon-small svg{
     height: $size-2x;
     width: $size-2x;
@@ -1383,11 +1387,11 @@ input[type="checkbox"]+label {
 }
 
 .date-picker-white+.date-picker-icon path{
-    fill: $color-neutrals-n800;
+    fill: rgba(255,255,255,0.95);
 }
 
 .date-picker-white {
-    color: $color-neutrals-n800;
+    color: rgba(255,255,255,0.95);
     background: rgba(255,255,255,0.20);
 }
 
@@ -1674,4 +1678,31 @@ input[type="checkbox"]+label {
 /*隐藏滚动条 记得适配主流浏览器*/
 .viewport-auto-wrapper::-webkit-scrollbar {
     /* display: none;    */
+}
+
+.report-product-card-active {
+    background: $color-primary-b500 !important;
+}
+
+
+.report-product-card-active .product-card-title, 
+.report-product-card-active .product-ei-text,
+.report-product-card-active .product-ei-data,
+.report-product-card-active .product-sales-text,
+.report-product-card-active .product-sales-sata-number,
+.report-product-card-active .product-sales-data-percent {
+    color: $color-neutrals-n000 !important;
+}
+
+.report-product-card-active .product-sales-data-mn {
+    color: rgba(255,255,255,0.45) !important;
+}
+
+.report-product-card-active .bp-icon path{
+    fill: $color-neutrals-n000 !important;
+}
+
+.report-product-card-active .bp-product-card-tag {
+    background: $color-neutrals-n000 !important;
+    color: $color-primary-b500 !important;
 }

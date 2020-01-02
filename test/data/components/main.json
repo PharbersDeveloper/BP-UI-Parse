@@ -3,7 +3,7 @@
         "paint": [
             "ember"
         ],
-        "name": "components"
+        "name": "basic-components"
     },
     "routers": [
         {
@@ -42,11 +42,11 @@
                     "css": [
                         {
                             "k": "width",
-                            "v": "800px"
+                            "v": "100%"
                         },
                         {
                             "k": "height",
-                            "v": "600px"
+                            "v": "auto"
                         },
                         {
                             "k": "padding",
@@ -69,6 +69,10 @@
                         {
                             "name": "tid",
                             "value": "bp-table-test"
+                        },
+                        {
+                            "name": "confReqAdd",
+                            "value": "http://192.168.100.59:5555"
                         }
                     ],
                     "styleAttrs": [
