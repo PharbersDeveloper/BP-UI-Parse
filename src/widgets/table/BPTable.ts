@@ -115,9 +115,9 @@ export default class BPTable extends BPWidget {
                     getXValues.then(data => {
                         this.set("xValues", data)
                         let arrC = []
-                        arrC.push({ name: "药品名", valuePath: "月份", width: 200,isFixed: 'left',  isSortable: false})
+                        arrC.push({ name: "药品名", valuePath: "YM", width: 200,isFixed: 'left',  isSortable: false})
                         data.forEach(it => {
-                            arrC.push({name: it, valuePath: it, isSortable: true})
+                            arrC.push({name:  it , valuePath: ` + "`${it}`"  + `, isSortable: true})
                         })
 
                         this.set("columns", arrC)
@@ -148,7 +148,12 @@ export default class BPTable extends BPWidget {
                                     if (!ele[1][index]) {
                                         obj[it] = 0
                                     } else {
-                                        obj[it] = ele[1][index]
+                                        let isNum = ele[1][index]
+                                        if (typeOf(isNum) === "number") {
+                                            obj[it] = isNum.toFixed(6)
+                                        } else {
+                                            obj[it] = isNum
+                                        }
                                     }
 
                                 })
