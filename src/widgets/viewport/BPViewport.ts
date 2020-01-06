@@ -99,7 +99,7 @@ export default class BPViewport extends BPWidget {
         {{/if}}
         <div class="viewport-hidden-wrapper">
             <div class="viewport-auto-wrapper">
-                <div style="width:2000px;" class="viewport-nowarp">
+                <div class="viewport-nowarp">
                     {{yield}}
                 </div>
             </div>

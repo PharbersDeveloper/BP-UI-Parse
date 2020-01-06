@@ -129,7 +129,12 @@ export default class BPDiv extends BPWidget {
     public paintHBS(comp: BPComp) {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
-        return `${leaf.paintShow()}
+        if (comp.events.length) {
+            return `${leaf.paintShow()}
         {{yield}}`
+        } else {
+            return `{{yield}}`
+        }
+
     }
 }

@@ -3,7 +3,7 @@
         "paint": [
             "ember"
         ],
-        "name": "components-stage2"
+        "name": "basic-components"
     },
     "routers": [
         {
@@ -42,11 +42,11 @@
                     "css": [
                         {
                             "k": "width",
-                            "v": "800px"
+                            "v": "100%"
                         },
                         {
                             "k": "height",
-                            "v": "600px"
+                            "v": "auto"
                         },
                         {
                             "k": "padding",
@@ -69,6 +69,10 @@
                         {
                             "name": "tid",
                             "value": "bp-table-test"
+                        },
+                        {
+                            "name": "confReqAdd",
+                            "value": "http://192.168.100.59:5555"
                         }
                     ],
                     "styleAttrs": [
@@ -98,6 +102,14 @@
                         {
                             "name": "pid",
                             "value": "date-picker"
+                        },
+                        {
+                            "name": "min",
+                            "value": "1990-1-1"
+                        },
+                        {
+                            "name": "max",
+                            "value": "2100-12-31"
                         }
                     ],
                     "styleAttrs": [

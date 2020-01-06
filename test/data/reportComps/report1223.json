@@ -355,6 +355,10 @@
                                                 {
                                                     "k": "margin-right",
                                                     "v": "8px"
+                                                },
+                                                {
+                                                    "k": "cursor",
+                                                    "v": "pointer"
                                                 }
                                             ],
                                             "components": [
@@ -389,6 +393,10 @@
                                                         {
                                                             "k": "font-weight",
                                                             "v": "500"
+                                                        },
+                                                        {
+                                                            "k": "background",
+                                                            "v": "transparent"
                                                         }
                                                     ]
                                                 },
@@ -422,6 +430,10 @@
                                                         {
                                                             "k": "margin-top",
                                                             "v": "16px"
+                                                        },
+                                                        {
+                                                            "k": "background",
+                                                            "v": "transparent"
                                                         }
                                                     ],
                                                     "components":[
@@ -455,6 +467,10 @@
                                                                 {
                                                                     "k": "padding",
                                                                     "v": "0"
+                                                                },
+                                                                {
+                                                                    "k": "background",
+                                                                    "v": "transparent"
                                                                 }
                                                             ],
                                                             "components": [
@@ -477,6 +493,10 @@
                                                                         {
                                                                             "k": "margin-left",
                                                                             "v": "0"
+                                                                        },
+                                                                        {
+                                                                            "k": "background",
+                                                                            "v": "transparent"
                                                                         }
                                                                     ],
                                                                     "attrs": [
@@ -505,6 +525,10 @@
                                                                         {
                                                                             "k": "margin-left",
                                                                             "v": "0"
+                                                                        },
+                                                                        {
+                                                                            "k": "background",
+                                                                            "v": "transparent"
                                                                         }
                                                                     ],
                                                                     "attrs": [
@@ -546,6 +570,10 @@
                                                                 {
                                                                     "k": "padding",
                                                                     "v": "0"
+                                                                },
+                                                                {
+                                                                    "k": "background",
+                                                                    "v": "transparent"
                                                                 }
                                                             ],
                                                             "components": [
@@ -571,6 +599,10 @@
                                                                         {
                                                                             "k": "flex-direction",
                                                                             "v": "row"
+                                                                        },
+                                                                        {
+                                                                            "k": "background",
+                                                                            "v": "transparent"
                                                                         }
                                                                     ],
                                                                     "components": [
@@ -593,6 +625,10 @@
                                                                                 {
                                                                                     "k": "margin-left",
                                                                                     "v": "0"
+                                                                                },
+                                                                                {
+                                                                                    "k": "background",
+                                                                                    "v": "transparent"
                                                                                 }
                                                                             ],
                                                                             "attrs": [
@@ -701,11 +737,15 @@
                                                                         },
                                                                         {
                                                                             "k": "align-items",
-                                                                            "v": "center"
+                                                                            "v": "flex-end"
                                                                         },
                                                                         {
                                                                             "k": "margin-top",
-                                                                            "v": "4px"
+                                                                            "v": "6px"
+                                                                        },
+                                                                        {
+                                                                            "k": "background",
+                                                                            "v": "transparent"
                                                                         }
                                                                     ],
                                                                     "components": [
@@ -728,6 +768,10 @@
                                                                                 {
                                                                                     "k": "margin-left",
                                                                                     "v": "0"
+                                                                                },
+                                                                                {
+                                                                                    "k": "background",
+                                                                                    "v": "transparent"
                                                                                 }
                                                                             ],
                                                                             "attrs": [
@@ -756,6 +800,10 @@
                                                                                 {
                                                                                     "k": "margin-left",
                                                                                     "v": "2px"
+                                                                                },
+                                                                                {
+                                                                                    "k": "background",
+                                                                                    "v": "transparent"
                                                                                 }
                                                                             ],
                                                                             "attrs": [
@@ -793,6 +841,10 @@
                                                                                 {
                                                                                     "k": "margin-left",
                                                                                     "v": "8px"
+                                                                                },
+                                                                                {
+                                                                                    "k": "background",
+                                                                                    "v": "transparent"
                                                                                 }
                                                                             ],
                                                                             "attrs": [
@@ -839,6 +891,10 @@
                                                                                 {
                                                                                     "k": "padding",
                                                                                     "v": "3px 0 0 5px"
+                                                                                },
+                                                                                {
+                                                                                    "k": "background",
+                                                                                    "v": "transparent"
                                                                                 }
                                                                             ],
                                                                             "attrs": [
@@ -857,7 +913,6 @@
                                                                                   "value": true
                                                                               }
                                                                             ],
-                                                                            "events": ["click", "mouseEnter", "mouseLeave"],
                                                                             "calcAttrs": [
                                                                                 {
                                                                                     "name": "iconName",
@@ -1377,8 +1432,12 @@
                                             "v": "border-box"
                                         },
                                         {
-                                            "k": "overflow",
+                                            "k": "overflow-x",
                                             "v": "auto"
+                                        },
+                                        {
+                                            "k": "overflow-y",
+                                            "v": "hidden"
                                         },
                                         {
                                             "k": "box-shadow",
@@ -1531,11 +1590,7 @@
                                                 },
                                                 {
                                                     "k": "height",
-                                                    "v": "auto"
-                                                },
-                                                {
-                                                    "k": "padding",
-                                                    "v": "0 0 24px"
+                                                    "v": "calc(100% - 93px)"
                                                 },
                                                 {
                                                     "k": "margin",

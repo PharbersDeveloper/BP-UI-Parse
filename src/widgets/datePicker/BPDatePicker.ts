@@ -95,13 +95,18 @@ export default class BPDatePicker extends BPWidget {
 
                 },
                 didInsertElement() {
+                    let that = this
                     laydate.render({
                         elem: "#" + this.get('pid'), //指定元素
                         range: this.get('range'),
                         type: this.get('type'),
+                        min: this.get("min"),
+                        max: this.get("max"),
                         theme: "gray",
                         btns: ['confirm'],
-                        done: this.confirmAction()
+                        done: function(value) {
+                            that.confirmAction(value)
+                        }
                     });
                 },
                 actions: {`
