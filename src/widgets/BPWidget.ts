@@ -200,11 +200,11 @@ export abstract class BPWidget extends BPObject {
                     return ` ${item.name}="${item.value}"`
                 case "number":
                 case "boolean":
-                case "variable":
                 case "callback":
                     return ` ${item.name}=${item.value}`
                 case "function":
                 case "object":
+                case "variable":
                 case "array":
                     return ``
                 default:

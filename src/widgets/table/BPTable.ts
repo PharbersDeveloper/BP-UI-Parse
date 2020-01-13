@@ -122,7 +122,6 @@ export default class BPTable extends BPWidget {
 
                         this.set("columns", arrC)
 
-                        window.console.log(data)
                         return ajax.request(queryAddress + '?tag=array', {
                             method: 'POST',
                             data: JSON.stringify({"sql": query.dimensionSql}),
@@ -159,11 +158,9 @@ export default class BPTable extends BPWidget {
                                 })
                                 arrR.push(obj)
                             })
-                            window.console.log(arrR)
                             this.set('rows', arrR)
                         })
                     })
-                    window.console.log('new data')
                 },
                 getData() {
                     if (!this.get('rows') && !this.get('columns')) {

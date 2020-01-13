@@ -70,25 +70,44 @@ export default class BPStack extends BPChart {
         },
         didUpdateAttrs() {
             this._super(...arguments);
-            const {dataConfig,dataCondition} = this;
-
-            this.generateChartOption(dataConfig, dataCondition);
+            const { dataConfig, dataCondition } = this;
+            if (!isEmpty(dataCondition)) {
+                this.generateChartOption(dataConfig, dataCondition);
+            }
         },
         didInsertElement() {
             this._super(...arguments);
 
             const chartId = this.eid;
             this.set('chartId', chartId)
-            this.get('ajax').request(this.confReqAdd+'/chartsConfig', {
-                method: 'GET',
-                data: chartId
-            }).then(data => {
-                if (!isEmpty(data.id) && !isEmpty(data.condition)) {
+            let chartConfPromise = null
+            if (isEmpty(this.store)) {
+                chartConfPromise = this.get('ajax').request(this.confReqAdd, {
+                    method: 'GET',
+                    data: chartId
+                })
+            } else {
+                chartConfPromise = this.store.findRecord("chart", chartId)
+            }
+
+            chartConfPromise.then(data => {
+                const config = data.styleConfigs
+                const condition = data.dataConfigs
+
+                if (!isEmpty(data.id) && !isEmpty(condition)) {
+                    // 处理提示框
+                    let tooltipType = config.tooltip.formatter;
+
+                    if(tooltipType in tooltips) {
+                        config.tooltip.formatter = tooltips[tooltipType]
+                    } else {
+                        delete config.tooltip.formatter
+                    }
                     this.setProperties({
-                        dataConfig: data.config,
-                        dataCondition: data.condition
-                      });
-                    this.generateChartOption(data.config, data.condition);
+                        dataConfig: config,
+                        dataCondition: condition
+                    });
+                    this.generateChartOption(config, condition);
                 }
             })
         },`

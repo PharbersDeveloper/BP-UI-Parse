@@ -3,7 +3,7 @@
         "paint": [
             "ember"
         ],
-        "name": "basic-components"
+        "name": "basic-components-v2"
     },
     "routers": [
         {
@@ -110,10 +110,6 @@
                         {
                             "name": "max",
                             "value": "2100-12-31"
-                        },
-                        {
-                            "name": "value",
-                            "value": "2020-1-1"
                         }
                     ],
                     "styleAttrs": [
@@ -1085,6 +1081,11 @@
                             "type": "string"
                         },
                         {
+                            "name": "store",
+                            "value": "this.store",
+                            "type": "variable"
+                        },
+                        {
                             "name": "confReqAdd",
                             "value": "http://192.168.100.25:5555",
                             "type": "string"
@@ -1148,6 +1149,11 @@
                         {
                             "name": "eid",
                             "value": "scatter-demo-first001"
+                        },
+                        {
+                            "name":"store",
+                            "value":"this.store",
+                            "type": "variable"
                         },
                         {
                             "name": "confReqAdd",
@@ -1219,6 +1225,11 @@
                             "value": "line-demo-first001"
                         },
                         {
+                            "name": "store",
+                            "value": "this.store",
+                            "type": "variable"
+                        },
+                        {
                             "name": "confReqAdd",
                             "value": "http://192.168.100.25:5555",
                             "type": "string"
@@ -1283,6 +1294,11 @@
                             "value": "stack-demo-first001"
                         },
                         {
+                            "name": "store",
+                            "value": "this.store",
+                            "type": "variable"
+                        },
+                        {
                             "name": "confReqAdd",
                             "value": "http://192.168.100.25:5555",
                             "type": "string"
@@ -1345,6 +1361,11 @@
                         {
                             "name": "eid",
                             "value": "bar-demo-first001"
+                        },
+                        {
+                            "name":"store",
+                            "value": "this.store",
+                            "type": "variable"
                         }
                     ],
                     "css": [

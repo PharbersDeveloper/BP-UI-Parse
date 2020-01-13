@@ -118,7 +118,10 @@ export default class BPDatePicker extends BPWidget {
     }
 
     public paintHBS(comp: BPComp) {
-        return `<Input id="{{pid}}" class="date-picker-input {{currentStyle}} {{currentWidth}}" @value={{mut date}} />
+        return `
+        {{!--  <Input id="{{pid}}" class="date-picker-input {{currentStyle}} {{currentWidth}}" @value={{mut date}} /> --}}
+        <input id="{{pid}}" class="date-picker-input {{currentStyle}} {{currentWidth}}" value={{mut date}} />
+
         {{svg-jar 'calendar' width='24px' height='24px' class='date-picker-icon' }}`
     }
 
