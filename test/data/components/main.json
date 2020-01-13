@@ -110,6 +110,10 @@
                         {
                             "name": "max",
                             "value": "2100-12-31"
+                        },
+                        {
+                            "name": "value",
+                            "value": "2020-1-1"
                         }
                     ],
                     "styleAttrs": [

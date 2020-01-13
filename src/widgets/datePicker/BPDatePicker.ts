@@ -102,6 +102,7 @@ export default class BPDatePicker extends BPWidget {
                         type: this.get('type'),
                         min: this.get("min"),
                         max: this.get("max"),
+                        value: this.get("value"),
                         theme: "gray",
                         btns: ['confirm'],
                         done: function(value) {
