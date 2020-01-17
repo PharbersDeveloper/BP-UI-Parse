@@ -1,0 +1,142 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "refactoring-code-card"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "card",
+        "path": "/card",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "column"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "100%"
+          },
+          {
+            "k": "height",
+            "v": "max-content"
+          }
+        ],
+        "components": [
+            {
+                "id": "test",
+                "type": "BPDiv",
+                "cat": "0",
+                "text": "",
+                "name":"bp-card",
+                "css": [
+                    {
+                        "k": "width",
+                        "v": "368px"
+                    },
+                    {
+                        "k": "height",
+                        "v": "max-content"
+                    },
+                    {
+                        "k": "background",
+                        "v": "#FFFFFF"
+                    },
+                    {
+                        "k": "display",
+                        "v": "flex"
+                    },
+                    {
+                    "k": "flex-direction",
+                    "v": "column"
+                    }
+                ],
+                "components": [
+                    {
+                        "id": "test",
+                        "type": "BPDiv",
+                        "cat": "0",
+                        "text": "Card Title Medium",
+                        "name":"bp-card-title",
+                        "css":[
+                            {
+                                "k": "height",
+                                "v": "56px"
+                            },
+                            {
+                                "k": "width",
+                                "v": "100%"
+                            },
+                            {
+                                "k": "padding",
+                                "v": "0 24px"
+                            },
+                            {
+                                "k": "display",
+                                "v": "flex"
+                            },
+                            {
+                                "k": "flex-direction",
+                                "v": "row"
+                            },
+                            {
+                                "k": "align-items",
+                                "v": "center"
+                            },
+                            {
+                                "k": "font-ize",
+                                "v": "16px"
+                            },
+                            {
+                                "k": "color",
+                                "v": "#172B4D"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "test",
+                        "type": "BPDiv",
+                        "cat": "0",
+                        "text": "Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur ",
+                        "name":"bp-card-content",
+                        "css":[
+                            {
+                                "k": "height",
+                                "v": "max-cnotent"
+                            },
+                            {
+                                "k": "width",
+                                "v": "100%"
+                            },
+                            {
+                                "k": "padding",
+                                "v": "24px"
+                            },
+                            {
+                                "k": "font-ize",
+                                "v": "14px"
+                            },
+                            {
+                                "k": "color",
+                                "v": "#344563;"
+                            },
+                            {
+                                "k": "line-height",
+                                "v": "20px"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+      }
+    ]
+  }

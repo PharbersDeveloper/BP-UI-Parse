@@ -1,0 +1,92 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "refactoring-code-status"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "status-route",
+        "path": "/status-route",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "row"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "100%"
+          },
+          {
+            "k": "height",
+            "v": "300px"
+          }
+        ],
+  
+        "components": [
+          {
+            "id": "test",
+            "type": "BPStatus",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-status",
+            "css": [
+              {
+                "k": "width",
+                "v": "auto"
+              },
+              {
+                "k": "height",
+                "v": "16px"
+              },
+              {
+                "k": "padding",
+                "v": "0 4px"
+              },
+              {
+                "k": "font-size",
+                "v": "12px"
+              },
+              {
+                "k": "line-height",
+                "v": "16px"
+              },
+              {
+                "k": "text-align",
+                "v": "center"
+              },
+              {
+                "k": "border-radius",
+                "v": "4px"
+              }
+            ],
+            "attrs": [
+              {
+                "name": "statusContent",
+                "value": "status test"
+              }
+            ],
+            "styleAttrs": [
+              {
+                "name": "type", 
+                "value": "success"
+              },
+              {
+                "name": "subtle",
+                "value": true
+              }
+            ],
+            "events": ["click", "mouseEnter", "mouseLeave"]
+            }
+        ]
+      }
+    ]
+  }

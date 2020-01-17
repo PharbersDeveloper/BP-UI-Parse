@@ -1,0 +1,111 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "refactoring-code-input"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "inputs",
+        "path": "/inputs",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "row"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "100%"
+          },
+          {
+            "k": "height",
+            "v": "300px"
+          }
+        ],
+  
+        "components": [
+          {
+            "id": "test",
+            "type": "BPInput",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-input",
+            "css": [
+              {
+                "k": "width",
+                "v": "240px"
+              },
+              {
+                "k": "height",
+                "v": "32px"
+              }, {
+                "k": "line-height",
+                "v": "14px"
+              },{
+                "k": "font-size",
+                "v": "14px"
+              }, {
+                "k": "padding",
+                "v": "10px 8px"
+              }, {
+                "k": "border",
+                "v": "1px solid #DFE1E6"
+              }, {
+                "k": "border-radius",
+                "v": "4px"
+              }, {
+                "k": "color",
+                "v": "#172B4D"
+              },
+              {
+                "k": "border",
+                "v": "1px solid #3172E0",
+                "tp": "focus"
+              },
+              {
+                "k": "outline",
+                "v": "none",
+                "tp": "focus"
+              },{
+                "k": "box-sizing",
+                "v": "border-box"
+              }
+            ],
+            "attrs": [
+                {
+                  "name": "disabled",
+                  "value": false
+                },
+                {
+                    "name": "value",
+                    "value": null
+                },
+                {
+                    "name": "placeholder",
+                    "value": "test placeHolder"
+                },
+                {
+                    "name": "size",
+                    "value": "comfy"
+                }
+              ],
+              "styleAttrs": [
+                {
+                  "name": "states", 
+                  "value": ""
+                }
+              ],
+              "events": ["focus", "blur", "input", "change"]
+        }
+        ]
+      }
+    ]
+  }

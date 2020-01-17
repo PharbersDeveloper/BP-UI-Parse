@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-scrollBar"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "scrollbar",
+      "path": "/scrollbar",
+      "layout": [
+        {
+          "k": "display",
+          "v": "block"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "300px"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }, 
+				{
+					"k": "overflow",
+          "v": "scroll"
+				},
+				{  
+					"k": "width",
+          "v": "4px",
+          "pe": "-webkit-scrollbar"
+				}, {
+					"k": "height",
+					"v": "4px",
+					"pe": "-webkit-scrollbar"
+				}, {
+					"k": "background-color",
+					"v": "rgba(255,255,255,0.2)",
+					"pe": "-webkit-scrollbar"
+				}, {
+					"k": "background-color",
+					"v": "rgba(255,255,255,0.2)",
+					"pe": "-webkit-scrollbar-track"
+				}, {
+					"k": "border-radius",
+					"v": "10px",
+					"pe": "-webkit-scrollbar-track"
+				}, {
+					"k": "border-radius",
+					"v": "10px",
+					"pe": "-webkit-scrollbar-thumb"
+				}, {
+					"k": "background-color",
+					"v": "rgba(80,95,121,1)",
+					"pe": "-webkit-scrollbar-thumb"
+				}, {
+					"k": "display",
+					"v": "none",
+					"pe": "-webkit-scrollbar-corner"
+				}
+      ],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPScrollBar",
+          "cat": "test",
+          "text": "simon test",
+          "name":"bp-scroll-bar-show",
+          "css": [
+            {
+              "k": "width",
+              "v": "600px"
+            },
+            {
+              "k": "height",
+              "v": "600px"
+            },{
+              "k": "color",
+              "v": "rgba(9,30,66,0.08)"
+            }, {
+							"k": "background",
+							"v": "rgba(9,30,66,0.08)"
+						}
+            
+          ]
+					}
+      ]
+    },
+    {
+      "id": "page with menu",
+      "type": "BPMainWindow",
+      "cat": "navigation",
+      "name":"navigation",
+      "path":"navigation",
+      "layout":[],
+      "css":[],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPNavMenu",
+          "cat": "test",
+          "text": "alfred test",
+          "name":"bp-nav-menu",
+          "css":[
+            {
+              "k":"color",
+              "v":"red"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

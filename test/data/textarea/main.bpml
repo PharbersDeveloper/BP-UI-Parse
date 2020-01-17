@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-textarea"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "textarea",
+      "path": "/textarea",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPTextarea",
+          "cat": "0",
+          "text": "simon test",
+          "name":"bp-textarea-default",
+          "css": [
+            {
+              "k": "width",
+              "v": "480px"
+            },
+            {
+              "k": "height",
+              "v": "56px"
+            }, {
+              "k": "line-height",
+              "v": "14px"
+            },{
+              "k": "font-size",
+              "v": "14px"
+            }, {
+              "k": "padding",
+              "v": "10px 8px"
+            }, {
+              "k": "border",
+              "v": "1px solid #DFE1E6"
+            }, {
+              "k": "max-width",
+              "v": "480px"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "outline",
+              "v": "none"
+            }
+          ]
+		}
+      ]
+    }
+  ]
+}

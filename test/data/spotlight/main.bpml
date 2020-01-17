@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-spotlight"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "spotlight",
+      "path": "/spotlight",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "simon test",
+          "name":"bp-div-container",
+          "css": [
+            {
+              "k": "width",
+              "v": "max-content"
+            },
+            {
+              "k": "height",
+              "v": "max-content"
+            }, {
+              "k": "position",
+              "v": "relative"
+            }
+          ],
+          "components": [
+              {
+                "id": "test",
+                "type": "BPDiv",
+                "cat": "0",
+                "text": "Laura Sofía Ureña",
+                "name":"bp-spotlight-item",
+                "css": [
+                    {
+                        "k": "width",
+                        "v": "247px"
+                    },
+                    {
+                        "k": "height",
+                        "v": "86px"
+                    }, {
+                        "k": "position",
+                        "v": "relative"
+                    }, {
+                        "k": "padding",
+                        "v": "16px 24px"
+                    }
+                ],
+                "attrs": {
+                    "specialClass": "spotlight-item"
+                }
+              },
+              {
+                "id": "test",
+                "type": "BPSpotlight",
+                "cat": "0",
+                "text": "",
+                "name":"bp-spotlight-default",
+                "css": [
+                    
+                ],
+                "attrs": {
+                    "secondaryButton": "true",
+                    "title": "Title test",
+                    "placement": "right",
+                    "text": ["1. Help or  instruction text goes here.Lorem ipsum dolor sit amet, consectetur adipisicing elit.", "2. Help or  instruction text goes here.Lorem ipsum dolor sit amet, consectetur adipisicing elit."]
+                }
+              }
+          ]
+		}
+      ]
+    }
+  ]
+}

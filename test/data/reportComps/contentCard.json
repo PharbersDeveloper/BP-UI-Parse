@@ -1,0 +1,248 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "reportCard"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "cards",
+        "path": "/cards",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "column"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "100%"
+          },
+          {
+            "k": "height",
+            "v": "auto"
+          }
+        ],
+        "components": [
+          {
+            "id": "test",
+            "type": "BPDiv",
+            "cat": "0",
+            "name":"bp-card",
+            "css": [
+                {
+                    "k": "height",
+                    "v": "385px"
+                },
+                {
+                    "k": "width",
+                    "v": "664px"
+                },
+                {
+                    "k": "margin",
+                    "v": "0 24px"
+                },
+                {
+                    "k": "border-radius",
+                    "v": "4px"
+                },
+                {
+                    "k": "background",
+                    "v": "white"
+                }, 
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "flex-direction",
+                    "v": "column"
+                },
+                {
+                    "k": "box-shadow",
+                    "v": "0 0 1px 0 rgba(9,30,66,0.12), 0 4px 8px -4px rgba(9,30,66,0.24)"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPDiv",
+                    "cat": "0",
+                    "name":"bp-card-title-wrapper",
+                    "css": [
+                        {
+                            "k": "height",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "display",
+                            "v": "flex"
+                        },
+                        {
+                            "k": "flex-direction",
+                            "v": "row"
+                        },
+                        {
+                            "k": "align-items",
+                            "v": "center"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0 24px"
+                        }
+                    ],
+                    "components": [
+                        {
+                            "id": "test",
+                            "type": "BPDiv",
+                            "cat": "0",
+                            "name":"bp-card-title-part",
+                            "css": [
+                                {
+                                    "k": "height",
+                                    "v": "56px"
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "100%"
+                                },
+                                {
+                                    "k": "display",
+                                    "v": "flex"
+                                },
+                                {
+                                    "k": "flex-direction",
+                                    "v": "row"
+                                },
+                                {
+                                    "k": "align-items",
+                                    "v": "center"
+                                },
+                                {
+                                    "k": "flex",
+                                    "v": "1"
+                                }
+                            ],
+                            "components": [
+                                {
+                                    "id": "test",
+                                    "type": "BPLabel",
+                                    "cat": "0",
+                                    "name":"bp-card-title",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "auto"
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "auto"
+                                        }
+                                    ],
+                                    "attrs": [
+                                        {
+                                            "name": "data",
+                                            "value": "Viread"
+                                        },
+                                        {
+                                            "name": "title",
+                                            "value": " | 所在市场省份分布"
+                                        }
+                                    ],
+                                    "styleAttrs": [
+                                        {
+                                            "name": "type",
+                                            "value": "heading-medium"
+                                        }
+                                    ],
+                                    "calcAttrs": [
+                                        {
+                                            "name": "text",
+                                            "value": "computed('data', 'title', function() { return this.get('data') + this.get('title') })"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "test",
+                                    "type": "BPLabel",
+                                    "cat": "0",
+                                    "name":"bp-card-title-desc",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "auto"
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "auto"
+                                        },
+                                        {
+                                            "k": "margin-left",
+                                            "v": "8px"
+                                        }
+                                    ],
+                                    "attrs": [
+                                        {
+                                            "name": "text",
+                                            "value": "全国"
+                                        }
+                                    ],
+                                    "styleAttrs": [
+                                        {
+                                            "name": "type",
+                                            "value": "body-secondary"
+                                        }
+                                    ]
+                                    
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "test",
+                    "type": "BPDiv",
+                    "cat": "0",
+                    "name":"bp-content-wrapper",
+                    "css": [
+                        {
+                            "k": "height",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0 24px 24px 24px"
+                        }
+                    ]
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "style",
+                    "value": "card-size-c"
+                }
+            ],
+            "styleAttrs": [
+                
+            ],
+            "events": ["click"]
+          }
+        ]
+      }
+    ]
+  }

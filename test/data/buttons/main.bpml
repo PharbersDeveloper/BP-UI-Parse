@@ -1,0 +1,337 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "uiparse-buttons-test"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "index",
+      "path": "/",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+
+      "components": [
+        {
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "0",
+          "text": "alfred test",
+          "name":"bp-push-button",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },
+            {
+              "k": "min-width",
+              "v": "80px"
+            },
+            {
+              "k": "background",
+              "v": "rgba(9,30,66,0.04)"
+            },
+            {
+              "k": "font-size",
+              "v": "14px"
+            },
+            {
+              "k": "color",
+              "v": "#505F79"
+            },
+            {
+              "k": "text-align",
+              "v": "center"
+            },
+            {
+              "k": "line-height",
+              "v": "32px"
+            }, {
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "padding",
+              "v": "0 12px"
+            }, {
+              "k": "border",
+              "v": "0"
+            }, {
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "cursor",
+              "v": "pointer"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }, {
+              "k": "background",
+              "v": "#E1ECFF",
+              "tp": "active"
+            }, {
+              "k": "color",
+              "v": "#3172E0",
+              "tp": "active"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "0",
+          "text": "alfred test primary",
+          "name":"bp-push-button-primary",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "min-width",
+              "v": "80px"
+            },{
+              "k": "height",
+              "v": "32px"
+            },{
+              "k": "background-color",
+              "v": "#3172E0"
+            },{
+              "k": "font-size",
+              "v": "14px"
+            },{
+              "k": "color",
+              "v": "#fff"
+            },{
+              "k": "text-align",
+              "v": "center"
+            },{
+              "k": "line-height",
+              "v": "32px"
+            },{
+              "k": "padding",
+              "v": "0 12px"
+            },{
+              "k": "border",
+              "v": "0"
+            },{
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "background",
+              "v": "#3881FF",
+              "tp": "hover"
+            }, {
+              "k": "background",
+              "v": "#2355A9",
+              "tp": "active"
+            }, {
+              "k": "color",
+              "v": "#fff",
+              "tp": "active"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "0",
+          "text": "alfred test danger",
+          "name":"bp-push-button-danger",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "min-width",
+              "v": "80px"
+            },{
+              "k": "height",
+              "v": "32px"
+            },{
+              "k": "background",
+              "v": "#DE350B"
+            },{
+              "k": "font-size",
+              "v": "14px"
+            },{
+              "k": "color",
+              "v": "#fff"
+            },{
+              "k": "text-align",
+              "v": "center"
+            },{
+              "k": "line-height",
+              "v": "32px"
+            },{
+              "k": "padding",
+              "v": "0 12px"
+            },{
+              "k": "border",
+              "v": "0"
+            },{
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "background",
+              "v": "#FF5630",
+              "tp": "hover"
+            }, {
+              "k": "background",
+              "v": "#BF2600",
+              "tp": "active"
+            }, {
+              "k": "color",
+              "v": "#fff",
+              "tp": "active"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "0",
+          "text": "alfred test warning",
+          "name":"bp-push-button-warning",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "min-width",
+              "v": "80px"
+            },{
+              "k": "height",
+              "v": "32px"
+            },{
+              "k": "background",
+              "v": "#FFAB00"
+            },{
+              "k": "font-size",
+              "v": "14px"
+            },{
+              "k": "color",
+              "v": "#505F79"
+            },{
+              "k": "text-align",
+              "v": "center"
+            },{
+              "k": "line-height",
+              "v": "32px"
+            },{
+              "k": "padding",
+              "v": "0 12px"
+            },{
+              "k": "border",
+              "v": "0"
+            },{
+              "k": "border-radius",
+              "v": "4px"
+            }, {
+              "k": "background",
+              "v": "#FFC400",
+              "tp": "hover"
+            }, {
+              "k": "background",
+              "v": "#FF991F",
+              "tp": "active"
+            }, {
+              "k": "color",
+              "v": "#505F79",
+              "tp": "active"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "0",
+          "text": "alfred test subtle",
+          "name":"bp-push-button-subtle",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "min-width",
+              "v": "80px"
+            },{
+              "k": "height",
+              "v": "32px"
+            }, {
+              "k": "background",
+              "v": "transparent"
+            }, {
+              "k": "background",
+              "v": "rgba(9,30,66,0.08)",
+              "tp": "hover"
+            }, {
+              "k": "background",
+              "v": "#E1ECFF",
+              "tp": "active"
+            }, {
+              "k": "color",
+              "v": "#3172E0",
+              "tp": "active"
+            }
+          ]
+        },{
+          "id": "test",
+          "type": "BPPushButton",
+          "cat": "0",
+          "text": "alfred test link",
+          "name":"bp-push-button-link",
+          "css": [
+            {
+              "k": "width",
+              "v": "auto"
+            },{
+              "k": "min-width",
+              "v": "80px"
+            },{
+              "k": "height",
+              "v": "32px"
+            },{
+              "k": "background",
+              "v": "transparent"
+            },{
+              "k": "color",
+              "v": "#3172E0"
+            }, {
+              "k": "color",
+              "v": "#3881FF",
+              "tp": "hover"
+            },{
+              "k": "background",
+              "v": "transparent",
+              "tp": "hover"
+            },{
+              "k": "background",
+              "v": "transparent",
+              "tp": "active"
+            },{
+              "k": "color",
+              "v": "#2355A9",
+              "tp": "active"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

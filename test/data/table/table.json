@@ -1,0 +1,70 @@
+{
+    "meta": {
+        "paint": [
+            "ember"
+        ],
+        "name": "refactoring-code-table"
+    },
+    "routers": [
+        {
+            "id": "page with table",
+            "type": "BPMainWindow",
+            "cat": "table",
+            "name": "tables",
+            "path": "tables",
+            "layout": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "100%"
+                }
+            ],
+            "css": [],
+            "components": [
+                {
+                    "id": "table-demo",
+                    "type": "BPTable",
+                    "cat": "0",
+                    "name": "bp-table",
+                    "layout": [],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100%"
+                        },{
+                            "k": "height",
+                            "v": "100%"
+                        },{
+                            "k": "padding",
+                            "v": "0"
+                        },{
+                            "k": "margin",
+                            "v": "0"
+                        },{
+                            "k": "position",
+                            "v": "relative"
+                        },{
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        }
+                    ],
+                    "attrs": [
+                        {
+                            "name": "tid",
+                            "value": "bp-table-test"
+                        }
+                    ],
+                    "styleAttrs": [
+                        {
+                            "name": "border",
+                            "value": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

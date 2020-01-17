@@ -1,0 +1,114 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "button-group"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "button-group",
+        "path": "/button-group",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "row"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "max-content"
+          },
+          {
+            "k": "height",
+            "v": "auto"
+          }
+        ],
+  
+        "components": [
+          {
+            "id": "test",
+            "type": "BPButtonGroup",
+            "cat": "0",
+            "name":"bp-button-group",
+            "css": [
+              {
+                "k": "width",
+                "v": "max-content"
+              },
+              {
+                  "k": "height",
+                  "v": "auto"
+              }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPButtonItem",
+                    "cat": "0",
+                    "name":"bp-button-item",
+                    "css": [
+                    ],
+                    "attrs": [
+                        {
+                            "name": "disabled",
+                            "value": false
+                        },
+                        {
+                            "name": "text",
+                            "value": "test text"
+                        }
+                    ],
+                    "styleAttrs": [
+                        {
+                          "name": "density",
+                          "value": "default"
+                        },
+                        {
+                            "name": "active",
+                            "value": true
+                        }
+                    ],
+                    "events": ["click", "dblclick"]
+                  },
+                  {
+                    "id": "test",
+                    "type": "BPButtonItem",
+                    "cat": "1",
+                    "name":"bp-button-item",
+                    "css": [
+                    ],
+                    "attrs": [
+                        {
+                            "name": "disabled",
+                            "value": false
+                        },
+                        {
+                            "name": "text",
+                            "value": "test text"
+                        }
+                    ],
+                    "styleAttrs": [
+                        {
+                          "name": "density",
+                          "value": "default"
+                        },
+                        {
+                            "name": "active",
+                            "value": false
+                        }
+                    ],
+                    "events": ["click", "dblclick"]
+                  }
+            ]
+          }
+        ]
+      }
+    ]
+  }

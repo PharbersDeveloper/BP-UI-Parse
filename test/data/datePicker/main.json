@@ -1,0 +1,73 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "refactoring-code-date-picker"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "date-picker",
+        "path": "/date-picker",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "column"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "max-content"
+          },
+          {
+            "k": "height",
+            "v": "max-content"
+          }
+        ],
+        "components": [
+          {
+            "id": "test",
+            "type": "BPDatePicker",
+            "icon": "calendar",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-date-picker",
+            "css": [
+              
+            ],
+            "attrs": [
+              {
+                "name": "range",
+                "value": true
+              },
+              {
+                "name": "type",
+                "value": "date"
+              },
+              {
+                "name": "pid",
+                "value": "date-picker"
+              }
+            ],
+            "styleAttrs": [
+              {
+                "name": "style",
+                "value": "default"
+              },
+              {
+                "name": "size",
+                "value": "small"
+              }
+            ],
+            "events": ["click"]
+          }
+        ]
+      }
+    ]
+  }

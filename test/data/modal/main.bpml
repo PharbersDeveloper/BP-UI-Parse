@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-modal"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "modal",
+      "path": "/modal",
+      "layout": [
+        {
+          "k": "display",
+          "v": "block"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "3000px"
+        }
+      ],
+      "components": [
+        {
+            "id": "test",
+            "type": "BPModal",
+            "cat": "0",
+            "text": "Small Default",
+            "name":"bp-modal-default-a",
+            "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "32px"
+                },
+                {
+                    "k": "background",
+                    "v": "#3172E0"
+                },
+                {
+                    "k": "color",
+                    "v": "#FFFFFF"
+                }
+            ],
+            "attrs": {
+                "title": "Modal dialog - Small",
+                "content": "This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution."
+            }
+		},
+        {
+            "id": "test",
+            "type": "BPModal",
+            "cat": "0",
+            "text": "Medium Default",
+            "name":"bp-modal-default-b",
+            "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "32px"
+                },
+                {
+                    "k": "background",
+                    "v": "#3172E0"
+                },
+                {
+                    "k": "color",
+                    "v": "#FFFFFF"
+                }
+            ],
+            "attrs": {
+                "size": "medium",
+                "title": "Modal dialog - medium",
+                "bgClose": "false",
+                "content": "This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution."
+            }
+		},
+        {
+            "id": "test",
+            "type": "BPModal",
+            "cat": "0",
+            "text": "large Default",
+            "name":"bp-modal-default-c",
+            "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "32px"
+                },
+                {
+                    "k": "background",
+                    "v": "#3172E0"
+                },
+                {
+                    "k": "color",
+                    "v": "#FFFFFF"
+                }
+            ],
+            "attrs": {
+                "size": "large",
+                "title": "Modal dialog large",
+                "content": "This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution."
+            }
+		},
+        {
+            "id": "test",
+            "type": "BPModal",
+            "cat": "0",
+            "text": "Small Error",
+            "name":"bp-modal-error",
+            "icon": "error",
+            "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "32px"
+                },
+                {
+                    "k": "background",
+                    "v": "#DE350B"
+                },
+                {
+                    "k": "color",
+                    "v": "#FFFFFF"
+                }
+            ],
+            "attrs": {
+                "title": "Error / Delete",
+                "content": "This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution."
+            }
+		},
+        {
+            "id": "test",
+            "type": "BPModal",
+            "cat": "0",
+            "text": "Small Warning",
+            "name":"bp-modal-warning",
+            "icon": "warning",
+            "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "32px"
+                }
+            ],
+            "attrs": {
+                "closeIcon": "true",
+                "show": "true",
+                "title": "Warning",
+                "btnControl": "false",
+                "content": "This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution."
+            }
+		},
+        {
+            "id": "test",
+            "type": "BPModal",
+            "cat": "0",
+            "text": "Scrollable",
+            "name":"bp-modal-scroll",
+            "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "32px"
+                },
+                {
+                    "k": "background",
+                    "v": "#3172E0"
+                },
+                {
+                    "k": "color",
+                    "v": "#FFFFFF"
+                }
+            ],
+            "attrs": {
+                "type": "scrollable",
+                "size": "medium",
+                "title": "Modal dialog - Scrollable",
+                "content": "This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution.This is place holder text. The basic dialog for modals should contain only valuable and relevant information. Simplify dialogs by removing unnecessary elements or content that does not support user tasks. If you find that the number of required elements for your design are making the dialog excessively large, then try a different design solution."
+            }
+		}
+      ]
+    }
+  ]
+}

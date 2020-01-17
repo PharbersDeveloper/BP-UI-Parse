@@ -1,0 +1,166 @@
+{
+    "size": {
+        "1x": {
+            "value": "8px"
+        },
+        "2x": {
+            "value": "2*{size.1x.value}"
+        },
+        "3x": {
+            "value": "3*{size.1x.value}"
+        },
+        "4x": {
+            "value": "4*{size.1x.value}"
+        },
+        "5x": {
+            "value": "5*{size.1x.value}"
+        },
+        "6x": {
+            "value": "6*{size.1x.value}"
+        },
+        "10x": {
+            "value": "10*{size.1x.value}"
+        },
+        "12x": {
+            "value": "12*{size.1x.value}"
+        },
+        "16x": {
+            "value": "16*{size.1x.value}"
+        },
+        "20x": {
+            "value": "20*{size.1x.value}"
+        },
+        "density": {
+            "compact": {
+                "value": "{size.3x.value}"
+            },
+            "default": {
+                "value": "{size.4x.value}"
+            },
+            "comfy": {
+                "value": "{size.5x.value}"
+            }
+        },
+        "avatar": {
+            "user": {
+                "small": {
+                    "value": "{size.2x.value}"
+                },
+                "medium": {
+                    "value": "{size.3x.value}"
+                },
+                "large": {
+                    "value": "{size.4x.value}"
+                },
+                "xlarge": {
+                    "value": "{size.5x.value}"
+                },
+                "xxlarge": {
+                    "value": "{size.12x.value}"
+                },
+                "xxxlarge": {
+                    "value": "{size.16x.value}"
+                }
+            },
+            "entity": {
+                "small": {
+                    "value": "{size.2x.value}"
+                },
+                "medium": {
+                    "value": "{size.3x.value}"
+                },
+                "large": {
+                    "value": "{size.4x.value}"
+                },
+                "xlarge": {
+                    "value": "{size.5x.value}"
+                }
+            }
+        },
+        "model": {
+            "small": {
+                "value": "50*{size.1x.value}"
+            },
+            "medium": {
+                "value": "75*{size.1x.value}"
+            },
+            "large": {
+                "value": "100*{size.1x.value}"
+            }
+        },
+        "badge": {
+            "value": "{size.2x.value}"
+        },
+        "button": {
+            "compact": {
+                "value": "{size.density.compact.value}"
+            },
+            "default": {
+                "value": "{size.density.default.value}"
+            },
+            "comfy": {
+                "value": "{size.density.comfy.value}"
+            }
+        },
+        "text_field": {
+            "compact": {
+                "value": "{size.density.compact.value}"
+            },
+            "default": {
+                "value": "{size.density.default.value}"
+            },
+            "comfy": {
+                "value": "{size.density.comfy.value}"
+            }
+        },
+        "select": {
+            "compact": {
+                "value": "{size.density.compact.value}"
+            },
+            "default": {
+                "value": "{size.density.default.value}"
+            },
+            "comfy": {
+                "value": "{size.density.comfy.value}"
+            }
+        },
+        "table": {
+            "row": {
+                "default": {
+                    "value": "{size.5x.value}"
+                },
+                "comfy": {
+                    "value": "{size.6x.value}"
+                }
+            }
+        },
+        "icon": {
+            "small": {
+                "value": "{size.2x.value}"
+            },
+            "medium": {
+                "value": "{size.3x.value}"
+            },
+            "large": {
+                "value": "{size.4x.value}"
+            },
+            "xlarge": {
+                "value": "{size.6x.value}"
+            }
+        },
+        "spinner": {
+            "xsmall": {
+                "value": "{size.1x.value}"
+            },
+            "small": {
+                "value": "{size.2x.value}"
+            },
+            "medium": {
+                "value": "{size.3x.value}"
+            },
+            "large": {
+                "value": "{size.6x.value}"
+            }
+        }
+    }
+}

@@ -4,5 +4,5 @@ export abstract class CommonProperty {
     protected tp: string
     protected key: string
     protected value: any
-    protected description: string = undefined
+    protected description?: string = undefined
 }
