@@ -1,0 +1,127 @@
+{
+    "meta": {
+        "paint": [
+            "ember"
+        ],
+        "name": "refactoring-code-badge"
+    },
+    "routers": [
+        {
+            "id": "page main window",
+            "type": "BPMainWindow",
+            "cat": "main-window",
+            "name": "badge-route",
+            "path": "/badge-route",
+            "layout": [
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "flex-direction",
+                    "v": "row"
+                }
+            ],
+            "css": [
+                {
+                    "k": "width",
+                    "v": "100%"
+                },
+                {
+                    "k": "height",
+                    "v": "300px"
+                }
+            ],
+            "components": [
+                {
+                    "id": "test",
+                    "type": "BPBadge",
+                    "cat": "0",
+                    "text": "9",
+                    "name": "bp-badge",
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "font-size",
+                            "v": "12px"
+                        },
+                        {
+                            "k": "text-align",
+                            "v": "center"
+                        },
+                        {
+                            "k": "line-height",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "border",
+                            "v": "0"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "8px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0 6px"
+                        }
+                    ],
+                    "attrs": {
+                        "type": "primary"
+                    }
+                },
+                {
+                    "id": "test",
+                    "type": "BPBadge",
+                    "cat": "1",
+                    "text": "99+",
+                    "name": "bp-badge",
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "font-size",
+                            "v": "12px"
+                        },
+                        {
+                            "k": "text-align",
+                            "v": "center"
+                        },
+                        {
+                            "k": "line-height",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "16px"
+                        },
+                        {
+                            "k": "border",
+                            "v": "0"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "8px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0 6px"
+                        }
+                    ],
+                    "attrs": {
+                        "type": "default"
+                    }
+                }
+            ]
+        }
+    ]
+}

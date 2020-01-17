@@ -1,0 +1,96 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "refactoring-code-tag"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "tags",
+        "path": "/tags",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "row"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "100%"
+          },
+          {
+            "k": "height",
+            "v": "300px"
+          }
+        ],
+  
+        "components": [
+          {
+            "id": "test",
+            "type": "BPTag",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-tag",
+            "css": [
+              {
+                "k": "width",
+                "v": "auto"
+              },
+              {
+                "k": "height",
+                "v": "20px"
+              },
+                {
+                    "k": "padding",
+                    "v": "0 4px"
+                },
+              {
+                "k": "border-radius",
+                "v": "4px"
+              },
+              {
+                "k": "font-size",
+                "v": "14px"
+              },
+              {
+                "k": "text-align",
+                "v": "center"
+              },
+              {
+                "k": "line-height",
+                "v": "20px"
+              }
+            ],
+            "attrs": [
+              {
+                "name": "tagContent",
+                "value": "tag test"
+              },
+              {
+                "name": "show",
+                "value": true
+              }
+            ],
+            "styleAttrs": [
+              {
+                "name": "type", 
+                "value": "blue"
+              },
+              {
+                "name": "subtle",
+                "value": true
+              }
+            ],
+            "events": ["click", "mouseEnter", "mouseLeave"]
+         }
+        ]
+      }
+    ]
+  }

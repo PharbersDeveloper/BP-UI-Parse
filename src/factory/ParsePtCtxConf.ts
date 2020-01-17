@@ -7,4 +7,7 @@ export class ParsePtCtxConf {
 
     @JsonProperty("paint", [String] )
     public ctxs: string[] = []
+
+    @JsonProperty("name", String)
+    public name: string = ""
 }

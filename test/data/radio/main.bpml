@@ -1,0 +1,477 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-radio"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "radio",
+      "path": "/radio",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "column"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "300px"
+        }
+      ],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-disabled",
+          "css": [
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPRadio",
+              "cat": "0",
+              "text": "",
+              "name":"bp-radio-single-a",
+              "attrs": {
+                "id": "singleRadioA",
+                "name": "",
+                "disabled": "true"
+              },
+              "css": [
+              ]
+            },
+            {
+              "id": "test",
+              "type": "BPLabel",
+              "cat": "0",
+              "text": "Disabled",
+              "name":"bp-label-single-a",
+              "attrs": {
+                "for": "singleRadioA"
+              },
+              "css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-rest",
+          "css": [
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPRadio",
+              "cat": "0",
+              "text": "",
+              "name":"bp-radio-single-b",
+              "attrs": {
+                "id": "singleRadioB",
+                "name": ""
+              },
+              "css": [
+              ]
+            },
+            {
+              "id": "test",
+              "type": "BPLabel",
+              "cat": "0",
+              "text": "Resting",
+              "name":"bp-label-single-b",
+              "attrs": {
+                "for": "singleRadioB"
+              },
+              "css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-checked",
+          "css": [
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPRadio",
+              "cat": "0",
+              "text": "",
+              "name":"bp-radio-single-c",
+              "attrs": {
+                "id": "singleRadioC",
+                "name": "",
+                "checked": "true"
+              },
+              "css": [
+              ]
+            },
+            {
+              "id": "test",
+              "type": "BPLabel",
+              "cat": "0",
+              "text": "Checked",
+              "name":"bp-label-single-c",
+              "attrs": {
+                "for": "singleRadioC"
+              },
+              "css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-disabled-checked",
+          "css": [
+          ],
+          "components": [
+            {
+              "id": "test",
+              "type": "BPRadio",
+              "cat": "0",
+              "text": "",
+              "name":"bp-radio-single-d",
+              "attrs": {
+                "id": "singleRadioD",
+                "name": "",
+                "disabled": "true",
+                "checked": "true"
+              },
+              "css": [
+              ]
+            },
+            {
+              "id": "test",
+              "type": "BPLabel",
+              "cat": "0",
+              "text": "Disabled Checked",
+              "name":"bp-label-single-d",
+              "attrs": {
+                "for": "singleRadioD"
+              },
+              "css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
+              ]
+            }
+          ]
+        },
+				{
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-group-h",
+          "css": [
+          ],
+					"layout": [
+						{
+							"k": "display",
+							"v": "flex"
+						},{
+							"k": "flex-direction",
+							"v": "row"
+						}
+					],
+					"components": [
+						{
+							"id": "test",
+							"type": "BPRadio",
+							"cat": "0",
+							"text": "",
+							"name":"bp-hgroup-radio-a",
+							"attrs": {
+								"id": "groupHRadioA",
+                "name": "groupH"
+							},
+							"css": [
+							]
+						},
+						{
+							"id": "test",
+							"type": "BPLabel",
+							"cat": "0",
+							"text": "Option A",
+							"name":"bp-hgroup-label-a",
+							"attrs": {
+								"for": "groupHRadioA"
+							},
+							"css": [	
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
+							]
+						},
+            {
+							"id": "test",
+							"type": "BPRadio",
+							"cat": "0",
+							"text": "",
+							"name":"bp-hgroup-radio-b",
+							"attrs": {
+								"id": "groupHRadioB",
+                "name": "groupH"
+							},
+							"css": [
+							]
+						},
+						{
+							"id": "test",
+							"type": "BPLabel",
+							"cat": "0",
+							"text": "Option B",
+							"name":"bp-hgroup-label-b",
+							"attrs": {
+								"for": "groupHRadioB"
+							},
+							"css": [
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
+							]
+						},
+            {
+							"id": "test",
+							"type": "BPRadio",
+							"cat": "0",
+							"text": "",
+							"name":"bp-hgroup-radio-c",
+							"attrs": {
+								"id": "groupHRadioC",
+                "name": "groupH"
+							},
+							"css": [
+							]
+						},
+						{
+							"id": "test",
+							"type": "BPLabel",
+							"cat": "0",
+							"text": "Option C",
+							"name":"bp-hgroup-label-c",
+							"attrs": {
+								"for": "groupHRadioC"
+							},
+							"css": [
+                {
+                  "k": "font-size",
+                  "v": "14px"
+                },
+                {
+                  "k": "color",
+                  "v": "#344563"
+                }
+							]
+						}
+					]
+        },
+        {
+          "id": "test",
+          "type": "BPDiv",
+          "cat": "0",
+          "text": "",
+          "name":"bp-radio-group-v",
+          "css": [
+            {
+							"k": "display",
+							"v": "flex"
+						},{
+							"k": "flex-direction",
+							"v": "column"
+						}
+          ],
+					"components": [
+            {
+              "id": "test",
+              "type": "BPDiv",
+              "cat": "0",
+              "name": "bp-div-row",
+              "components": [
+                {
+                  "id": "test",
+                  "type": "BPRadio",
+                  "cat": "0",
+                  "text": "",
+                  "name":"bp-vgroup-radio-a",
+                  "attrs": {
+                    "id": "groupVRadioA",
+                    "name": "groupV"
+                  },
+                  "css": [
+                  ]
+                },
+                {
+                  "id": "test",
+                  "type": "BPLabel",
+                  "cat": "0",
+                  "text": "Option A",
+                  "name":"bp-vgroup-label-a",
+                  "attrs": {
+                    "for": "groupVRadioA"
+                  },
+                  "css": [
+                    {
+                      "k": "font-size",
+                      "v": "14px"
+                    },
+                    {
+                      "k": "color",
+                      "v": "#344563"
+                    }
+                  ]
+                }
+              ]
+            },
+						{
+              "id": "test",
+              "type": "BPDiv",
+              "cat": "0",
+              "name": "bp-div-row",
+              "components": [
+                {
+                  "id": "test",
+                  "type": "BPRadio",
+                  "cat": "0",
+                  "text": "",
+                  "name":"bp-vgroup-radio-b",
+                  "attrs": {
+                    "id": "groupVRadioB",
+                    "name": "groupV"
+                  },
+                  "css": [
+                  ]
+                },
+                {
+                  "id": "test",
+                  "type": "BPLabel",
+                  "cat": "0",
+                  "text": "Option B",
+                  "name":"bp-vgroup-label-b",
+                  "attrs": {
+                    "for": "groupVRadioB"
+                  },
+                  "css": [
+                    {
+                      "k": "font-size",
+                      "v": "14px"
+                    },
+                    {
+                      "k": "color",
+                      "v": "#344563"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "test",
+              "type": "BPDiv",
+              "cat": "0",
+              "name": "bp-div-row",
+              "components": [
+                 {
+                  "id": "test",
+                  "type": "BPRadio",
+                  "cat": "0",
+                  "text": "",
+                  "name":"bp-vgroup-radio-c",
+                  "attrs": {
+                    "id": "groupVRadioC",
+                    "name": "groupV"
+                  },
+                  "css": [
+                  ]
+                },
+                {
+                  "id": "test",
+                  "type": "BPLabel",
+                  "cat": "0",
+                  "text": "Option C",
+                  "name":"bp-vgroup-label-c",
+                  "attrs": {
+                    "for": "groupVRadioC"
+                  },
+                  "css": [
+                    {
+                      "k": "font-size",
+                      "v": "14px"
+                    },
+                    {
+                      "k": "color",
+                      "v": "#344563"
+                    }
+                  ]
+                }
+              ]
+            }
+					]
+        }
+      ]
+    }
+  ]
+}

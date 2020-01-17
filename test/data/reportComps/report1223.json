@@ -1,0 +1,2317 @@
+{
+    "meta": {
+        "paint": [
+            "ember"
+        ],
+        "name": "report-stage2"
+    },
+    "routers": [
+        {
+            "id": "page main window",
+            "type": "BPMainWindow",
+            "cat": "main-window",
+            "name": "report",
+            "path": "/report",
+            "layout": [
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "flex-direction",
+                    "v": "column"
+                }
+            ],
+            "css": [
+                {
+                    "k": "width",
+                    "v": "auto"
+                },
+                {
+                    "k": "height",
+                    "v": "auto"
+                }
+            ],
+            "components": [
+                {
+                    "id": "column-layout-container",
+                    "type": "BPColumnLayout",
+                    "name": "bp-column-layout",
+                    "className": "report-container",
+                    "css": [
+                        {
+                            "k": "height",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "width",
+                            "v": "auto"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },
+                        {
+                            "k": "background",
+                            "v": "#fff"
+                        }
+                    ],
+                    "components": [
+                        {
+                            "id": "report-header",
+                            "type": "BPRowLayout",
+                            "name": "bp-row-layout",
+                            "className": "report-header",
+                            "css": [
+                                {
+                                    "k": "height",
+                                    "v": "72px"
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "auto"
+                                },
+                                {
+                                    "k": "padding",
+                                    "v": "0 24px"
+                                },
+                                {
+                                    "k": "background",
+                                    "v": "$color-primary-b400"
+                                }
+                            ],
+                            "components": [
+                                {
+                                    "id": "bp-text-creater",
+                                    "type": "BPText",
+                                    "text": "报告名称",
+                                    "name": "bp-text",
+                                    "className": "header-title",
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "auto"
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "auto"
+                                        },
+                                        {
+                                            "k": "padding",
+                                            "v": "0"
+                                        },
+                                        {
+                                            "k": "margin",
+                                            "v": "0"
+                                        },
+                                        {
+                                            "k": "background",
+                                            "v": "transparent"
+                                        }
+                                    ],
+                                    "components": [],
+                                    "attrs": [
+                                        {
+                                            "name": "tagName",
+                                            "value": "h2",
+                                            "type": "string"
+                                        },
+                                        {
+                                            "name": "classNames",
+                                            "value": "title-inverse"
+                                        }
+                                    ],
+                                    "styleAttrs": []
+                                },
+                                {
+                                    "id": "test",
+                                    "type": "BPDatePicker",
+                                    "icon": "calendar",
+                                    "text": "simon test",
+                                    "name": "bp-date-picker",
+                                    "css": [],
+                                    "attrs": [
+                                        {
+                                            "name": "range",
+                                            "value": true
+                                        },
+                                        {
+                                            "name": "type",
+                                            "value": "date"
+                                        },
+                                        {
+                                            "name": "pid",
+                                            "value": "date-picker"
+                                        }
+                                    ],
+                                    "styleAttrs": [
+                                        {
+                                            "name": "style",
+                                            "value": "white"
+                                        },
+                                        {
+                                            "name": "size",
+                                            "value": "small"
+                                        }
+                                    ],
+                                    "events": [
+                                        "click"
+                                    ]
+                                }
+                            ],
+                            "attrs": [],
+                            "styleAttrs": [
+                                {
+                                    "name": "mainAxis",
+                                    "value": "main-space-between",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "crossAxis",
+                                    "value": "cross-center",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "report-scrollview",
+                            "type": "BPRowLayout",
+                            "name": "bp-row-layout",
+                            "className": "report-scrollview",
+                            "css": [
+                                {
+                                    "k": "height",
+                                    "v": "138px"
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "auto"
+                                },
+                                {
+                                    "k": "padding",
+                                    "v": "0 24px"
+                                },
+                                {
+                                    "k": "background",
+                                    "v": "$color-primary-b400"
+                                }
+                            ],
+                            "components": [
+                                {
+                                    "id": "test",
+                                    "type": "BPViewport",
+                                    "name":"bp-viewport",
+                                    "cat": "0",
+                                    "css": [    
+                                        {
+                                            "k": "margin",
+                                            "v": "0 24px"
+                                        },
+                                        {
+                                            "k": "position",
+                                            "v": "relative"
+                                        },
+                                        {
+                                            "k": "background",
+                                            "v": "transparent"
+                                        }
+                                    ],
+                                    "attrs": [
+                                        {
+                                            "name": "height",
+                                            "value": "120px"
+                                        },
+                                        {
+                                            "name": "width",
+                                            "value": "calc(100% - 48px)"
+                                        },
+                                        {
+                                            "name": "clickChange",
+                                            "value": true
+                                        },
+                                        {
+                                            "name": "vid",
+                                            "value": "bp-viewport-test"
+                                        },
+                                        {
+                                            "name": "step",
+                                            "value": 200
+                                        }
+                                    ],
+                                    "styleAttrs": [
+                                        {
+                                            "name": "row",
+                                            "value": true
+                                        }
+                                    ],
+                                    "events": ["click"],
+                                    "components": [
+                                        {
+                                            "id": "test",
+                                            "type": "BPDiv",
+                                            "cat": "0",
+                                            "name":"bp-product-card-wrapper-right",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "126px"
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "24px"
+                                                },
+                                                {
+                                                    "k": "position",
+                                                    "v": "absolute"
+                                                },
+                                                {
+                                                    "k": "right",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "background",
+                                                    "v": "linear-gradient(90deg, rgba(49,114,224,0.00) 0%, rgba(49,114,224,0.15) 21%, rgba(49,114,224,0.45) 49%, rgba(49,114,224,0.95) 76%, #3172E0 84%)"
+                                                }, 
+                                                {
+                                                    "k": "z-index",
+                                                    "v": "99"
+                                                },
+                                                {
+                                                    "k": "top",
+                                                    "v": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "test",
+                                            "type": "BPDiv",
+                                            "cat": "0",
+                                            "name":"bp-product-card-wrapper-left",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "126px"
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "24px"
+                                                },
+                                                {
+                                                    "k": "background",
+                                                    "v": "linear-gradient(270deg, rgba(49,114,224,0.00) 0%, rgba(49,114,224,0.15) 21%, rgba(49,114,224,0.45) 49%, rgba(49,114,224,0.95) 76%, #3172E0 84%)"
+                                                },
+                                                {
+                                                    "k": "z-index",
+                                                    "v": 99
+                                                }, 
+                                                {
+                                                    "k": "position",
+                                                    "v": "absolute"
+                                                },
+                                                {
+                                                    "k": "left",
+                                                    "v": 0
+                                                },
+                                                {
+                                                    "k": "top",
+                                                    "v": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "column-layout-container",
+                                            "type": "BPColumnLayout",
+                                            "name": "bp-column-layout",
+                                            "className": "report-product-card",
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "106px"
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "218px"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "10px 10px 8px 10px"
+                                                },
+                                                {
+                                                    "k": "border-radius",
+                                                    "v": "4px"
+                                                },
+                                                {
+                                                    "k": "background",
+                                                    "v": "#FFFFFF"
+                                                }, 
+                                                {
+                                                    "k": "box-shadow",
+                                                    "v": "0 0 1px 0 rgba(9,30,66,0.12), 0 4px 8px -2px rgba(9,30,66,0.25)"
+                                                },
+                                                {
+                                                    "k": "display",
+                                                    "v": "inline-block"
+                                                },
+                                                {
+                                                    "k": "margin-right",
+                                                    "v": "8px"
+                                                },
+                                                {
+                                                    "k": "cursor",
+                                                    "v": "pointer"
+                                                }
+                                            ],
+                                            "components": [
+                                                {
+                                                    "id": "product-card-title",
+                                                    "type": "BPText",
+                                                    "text": "Product Name",
+                                                    "name": "bp-text",
+                                                    "className": "product-card-title",
+                                                    "css": [
+                                                        {
+                                                            "k": "height",
+                                                            "v": "auto"
+                                
+                                                        },
+                                                        {
+                                                            "k": "width",
+                                                            "v": "100%"
+                                                        },
+                                                        {
+                                                            "k": "font-size",
+                                                            "v": "16px"
+                                                        },
+                                                        {
+                                                            "k": "color",
+                                                            "v": "#3172E0"
+                                                        },
+                                                        {
+                                                            "k": "margin",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "font-weight",
+                                                            "v": "500"
+                                                        },
+                                                        {
+                                                            "k": "background",
+                                                            "v": "transparent"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "product-card-content",
+                                                    "type": "BPRowLayout",
+                                                    "name": "bp-row-layout",
+                                                    "className": "report-product-content",
+                                                    "css": [
+                                                        {
+                                                            "k": "height",
+                                                            "v": "auto"
+                                
+                                                        },
+                                                        {
+                                                            "k": "width",
+                                                            "v": "100%"
+                                                        },
+                                                        {
+                                                            "k": "display",
+                                                            "v": "flex"
+                                                        },
+                                                        {
+                                                            "k": "flex-direction",
+                                                            "v": "row"
+                                                        },
+                                                        {
+                                                            "k": "justify-content",
+                                                            "v": "space-between"
+                                                        },
+                                                        {
+                                                            "k": "margin-top",
+                                                            "v": "16px"
+                                                        },
+                                                        {
+                                                            "k": "background",
+                                                            "v": "transparent"
+                                                        }
+                                                    ],
+                                                    "components":[
+                                                        {
+                                                            "id": "product-card-ei-box",
+                                                            "type": "BPColumnLayout",
+                                                            "name": "bp-column-layout",
+                                                            "className": "product-ei-box",
+                                                            "css":[
+                                                                {
+                                                                    "k": "height",
+                                                                    "v": "auto"
+                                        
+                                                                },
+                                                                {
+                                                                    "k": "width",
+                                                                    "v": "100%"
+                                                                },
+                                                                {
+                                                                    "k": "display",
+                                                                    "v": "flex"
+                                                                },
+                                                                {
+                                                                    "k": "flex-direction",
+                                                                    "v": "column"
+                                                                },
+                                                                {
+                                                                    "k": "box-shadow",
+                                                                    "v": "none"
+                                                                },
+                                                                {
+                                                                    "k": "padding",
+                                                                    "v": "0"
+                                                                },
+                                                                {
+                                                                    "k": "background",
+                                                                    "v": "transparent"
+                                                                }
+                                                            ],
+                                                            "components": [
+                                                                {
+                                                                    "id": "product-ei-text",
+                                                                    "type": "BPText",
+                                                                    "text": "EI",
+                                                                    "name": "bp-text",
+                                                                    "className": "product-ei-text",
+                                                                    "css": [
+                                                                        {
+                                                                            "k": "height",
+                                                                            "v": "auto"
+                                                
+                                                                        },
+                                                                        {
+                                                                            "k": "width",
+                                                                            "v": "max-content"
+                                                                        },
+                                                                        {
+                                                                            "k": "margin-left",
+                                                                            "v": "0"
+                                                                        },
+                                                                        {
+                                                                            "k": "background",
+                                                                            "v": "transparent"
+                                                                        }
+                                                                    ],
+                                                                    "attrs": [
+                                                                        {
+                                                                            "name":"classNames",
+                                                                            "value": "heading-xsmall"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "id": "product-ei-data",
+                                                                    "type": "BPText",
+                                                                    "text": "100",
+                                                                    "name": "bp-text",
+                                                                    "className": "product-ei-data",
+                                                                    "css": [
+                                                                        {
+                                                                            "k": "height",
+                                                                            "v": "auto"
+                                                
+                                                                        },
+                                                                        {
+                                                                            "k": "width",
+                                                                            "v": "max-content"
+                                                                        },
+                                                                        {
+                                                                            "k": "margin-left",
+                                                                            "v": "0"
+                                                                        },
+                                                                        {
+                                                                            "k": "background",
+                                                                            "v": "transparent"
+                                                                        }
+                                                                    ],
+                                                                    "attrs": [
+                                                                        {
+                                                                            "name": "classNames",
+                                                                            "value": "title"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "id": "product-card-sales-box",
+                                                            "type": "BPColumnLayout",
+                                                            "name": "bp-column-layout",
+                                                            "className": "product-sales-box",
+                                                            "css": [
+                                                                {
+                                                                    "k": "height",
+                                                                    "v": "auto"
+                                        
+                                                                },
+                                                                {
+                                                                    "k": "width",
+                                                                    "v": "100%"
+                                                                },
+                                                                {
+                                                                    "k": "display",
+                                                                    "v": "flex"
+                                                                },
+                                                                {
+                                                                    "k": "flex-direction",
+                                                                    "v": "column"
+                                                                },
+                                                                {
+                                                                    "k": "box-shadow",
+                                                                    "v": "none"
+                                                                },
+                                                                {
+                                                                    "k": "padding",
+                                                                    "v": "0"
+                                                                },
+                                                                {
+                                                                    "k": "background",
+                                                                    "v": "transparent"
+                                                                }
+                                                            ],
+                                                            "components": [
+                                                                {
+                                                                    "id": "product-sales-text-box",
+                                                                    "type": "BPRowLayout",
+                                                                    "name": "bp-row-layout",
+                                                                    "className": "product-sales-text-box",
+                                                                    "css": [
+                                                                        {
+                                                                            "k": "height",
+                                                                            "v": "auto"
+                                                
+                                                                        },
+                                                                        {
+                                                                            "k": "width",
+                                                                            "v": "max-content"
+                                                                        },
+                                                                        {
+                                                                            "k": "display",
+                                                                            "v": "flex"
+                                                                        },
+                                                                        {
+                                                                            "k": "flex-direction",
+                                                                            "v": "row"
+                                                                        },
+                                                                        {
+                                                                            "k": "background",
+                                                                            "v": "transparent"
+                                                                        }
+                                                                    ],
+                                                                    "components": [
+                                                                        {
+                                                                            "id": "product-sales-text",
+                                                                            "type": "BPText",
+                                                                            "text": "产品销量",
+                                                                            "name": "bp-text",
+                                                                            "className": "product-sales-text",
+                                                                            "css": [
+                                                                                {
+                                                                                    "k": "height",
+                                                                                    "v": "auto"
+                                                        
+                                                                                },
+                                                                                {
+                                                                                    "k": "width",
+                                                                                    "v": "max-content"
+                                                                                },
+                                                                                {
+                                                                                    "k": "margin-left",
+                                                                                    "v": "0"
+                                                                                },
+                                                                                {
+                                                                                    "k": "background",
+                                                                                    "v": "transparent"
+                                                                                }
+                                                                            ],
+                                                                            "attrs": [
+                                                                                {
+                                                                                    "name": "classNames",
+                                                                                    "value": "heading-xsmall"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "id": "product-sales-tag",
+                                                                            "name": "bp-product-card-tag",
+                                                                            "type": "BPTag",
+                                                                            "className":"product-card-tag",
+                                                                            "cat": "0",
+                                                                            "css": [
+                                                                                {
+                                                                                    "k": "width",
+                                                                                    "v": "auto"
+                                                                                  },
+                                                                                  {
+                                                                                    "k": "height",
+                                                                                    "v": "20px"
+                                                                                  },
+                                                                                    {
+                                                                                        "k": "padding",
+                                                                                        "v": "0 4px"
+                                                                                    },
+                                                                                  {
+                                                                                    "k": "border-radius",
+                                                                                    "v": "4px"
+                                                                                  },
+                                                                                  {
+                                                                                    "k": "font-size",
+                                                                                    "v": "14px"
+                                                                                  },
+                                                                                  {
+                                                                                    "k": "text-align",
+                                                                                    "v": "center"
+                                                                                  },
+                                                                                  {
+                                                                                    "k": "line-height",
+                                                                                    "v": "20px"
+                                                                                  },
+                                                                                  {
+                                                                                      "k": "margin-left",
+                                                                                      "v": "5px"
+                                                                                  },
+                                                                                  {
+                                                                                      "k": "background",
+                                                                                      "v": "#EBECF0"
+                                                                                  }
+                                                                            ],
+                                                                            "attrs": [
+                                                                                {
+                                                                                    "name": "index",
+                                                                                    "value": 2
+                                                                                }
+                                                                              ],
+                                                                              "styleAttrs": [
+                                                                                {
+                                                                                  "name": "type", 
+                                                                                  "value": "default"
+                                                                                },
+                                                                                {
+                                                                                  "name": "subtle",
+                                                                                  "value": true
+                                                                                }
+                                                                              ],
+                                                                              "events": ["click", "mouseEnter", "mouseLeave"],
+                                                                              "calcAttrs": [
+                                                                                  {
+                                                                                      "name": "show",
+                                                                                      "value": "computed('index', function(){ return this.get('index') < 3 })"
+                                                                                  },
+                                                                                  {
+                                                                                    "name": "tagContent",
+                                                                                    "value": "computed('index', function(){ return 'TOP ' + (this.get('index')+1) })"
+                                                                                  }
+                                                                              ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "id": "product-sales-data-box",
+                                                                    "type": "BPRowLayout",
+                                                                    "name": "bp-row-layout",
+                                                                    "className": "product-sales-data-box",
+                                                                    "css": [
+                                                                        {
+                                                                            "k": "height",
+                                                                            "v": "auto"
+                                                
+                                                                        },
+                                                                        {
+                                                                            "k": "width",
+                                                                            "v": "max-content"
+                                                                        },
+                                                                        {
+                                                                            "k": "display",
+                                                                            "v": "flex"
+                                                                        },
+                                                                        {
+                                                                            "k": "flex-direction",
+                                                                            "v": "row"
+                                                                        },
+                                                                        {
+                                                                            "k": "align-items",
+                                                                            "v": "flex-end"
+                                                                        },
+                                                                        {
+                                                                            "k": "margin-top",
+                                                                            "v": "6px"
+                                                                        },
+                                                                        {
+                                                                            "k": "background",
+                                                                            "v": "transparent"
+                                                                        }
+                                                                    ],
+                                                                    "components": [
+                                                                        {
+                                                                            "id": "product-sales-data-numner",
+                                                                            "type": "BPText",
+                                                                            "text": "0000",
+                                                                            "name": "bp-text",
+                                                                            "className":"product-sales-sata-number",
+                                                                            "css": [
+                                                                                {
+                                                                                    "k": "height",
+                                                                                    "v": "auto"
+                                                        
+                                                                                },
+                                                                                {
+                                                                                    "k": "width",
+                                                                                    "v": "max-content"
+                                                                                },
+                                                                                {
+                                                                                    "k": "margin-left",
+                                                                                    "v": "0"
+                                                                                },
+                                                                                {
+                                                                                    "k": "background",
+                                                                                    "v": "transparent"
+                                                                                }
+                                                                            ],
+                                                                            "attrs": [
+                                                                                {
+                                                                                    "name": "classNames",
+                                                                                    "value": "heading-medium"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "id": "product-sales-data-mn",
+                                                                            "type": "BPText",
+                                                                            "text": "Mn",
+                                                                            "name": "bp-text",
+                                                                            "className": "product-sales-data-mn",
+                                                                            "css": [
+                                                                                {
+                                                                                    "k": "height",
+                                                                                    "v": "auto"
+                                                        
+                                                                                },
+                                                                                {
+                                                                                    "k": "width",
+                                                                                    "v": "max-content"
+                                                                                },
+                                                                                {
+                                                                                    "k": "margin-left",
+                                                                                    "v": "2px"
+                                                                                },
+                                                                                {
+                                                                                    "k": "background",
+                                                                                    "v": "transparent"
+                                                                                }
+                                                                            ],
+                                                                            "attrs": [
+                                                                                {
+                                                                                    "name": "classNames",
+                                                                                    "value": "body-tertiary"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "id": "product-sales-data-percent",
+                                                                            "text": "12.1%",
+                                                                            "type": "BPDiv",
+                                                                            "cat": "0",
+                                                                            "name":"product-sales-data-percent",
+                                                                            "className": "product-sales-data-percent",
+                                                                            "css": [
+                                                                                {
+                                                                                    "k": "height",
+                                                                                    "v": "auto"
+                                                        
+                                                                                },
+                                                                                {
+                                                                                    "k": "width",
+                                                                                    "v": "max-content"
+                                                                                },
+                                                                                {
+                                                                                    "k": "font-size",
+                                                                                    "v": "12px"
+                                                                                },
+                                                                                {
+                                                                                    "k": "color",
+                                                                                    "v": "#00875A"
+                                                                                },
+                                                                                {
+                                                                                    "k": "margin-left",
+                                                                                    "v": "8px"
+                                                                                },
+                                                                                {
+                                                                                    "k": "background",
+                                                                                    "v": "transparent"
+                                                                                }
+                                                                            ],
+                                                                            "attrs": [
+                                                                                {
+                                                                                    "name": "value",
+                                                                                    "value": 12.1
+                                                                                }
+                                                                            ],
+                                                                            "styleAttrs": [
+                                                                                {
+                                                                                    "name": "textColorRed",
+                                                                                    "value": "textColorRed"
+                                                                                }
+                                                                            ],
+                                                                            "calcAttrs": [
+                                                                                {
+                                                                                    "name": "textColorRed",
+                                                                                    "value": "computed('value', function(){ return this.get('value') < 0 })"
+                                                                                }
+                                                                            ]
+                                
+                                                                        },
+                                                                        {
+                                                                            "id": "product-sales-data-icon",
+                                                                            "name": "bp-icon",
+                                                                            "type": "BPIcon",
+                                                                            "cat": "0",
+                                                                            "icon": "increase",
+                                                                            "className": "product-sales-data-icon",
+                                                                            "css": [
+                                                                                {
+                                                                                    "k": "height",
+                                                                                    "v": "24px"
+                                                        
+                                                                                },
+                                                                                {
+                                                                                    "k": "width",
+                                                                                    "v": "24px"
+                                                                                },
+                                                                                {
+                                                                                    "k": "margin-bottom",
+                                                                                    "v": "2px"
+                                                                                },
+                                                                                {
+                                                                                    "k": "padding",
+                                                                                    "v": "3px 0 0 5px"
+                                                                                },
+                                                                                {
+                                                                                    "k": "background",
+                                                                                    "v": "transparent"
+                                                                                }
+                                                                            ],
+                                                                            "attrs": [
+                                                                                {
+                                                                                    "name": "value",
+                                                                                    "value": 12.2
+                                                                                }
+                                                                            ],
+                                                                            "styleAttrs": [
+                                                                              {
+                                                                                "name": "color", 
+                                                                                "value": null
+                                                                              },
+                                                                              {
+                                                                                  "name": "iconSmall",
+                                                                                  "value": true
+                                                                              }
+                                                                            ],
+                                                                            "calcAttrs": [
+                                                                                {
+                                                                                    "name": "iconName",
+                                                                                    "value":"computed('value', function(){ if (this.get('value') > 0) { return 'priority-high' } else { return 'priority-low' } })"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                          }
+                                        
+                                    ]
+                                  }
+                            ],
+                            "attrs": [],
+                            "styleAttrs": [
+                                {
+                                    "name": "mainAxis",
+                                    "value": "main-center",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "crossAxis",
+                                    "value": "cross-center",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "report-map-scatter",
+                            "type": "BPRowLayout",
+                            "name": "bp-row-layout",
+                            "className": "report-map-scatter",
+                            "css": [
+                                {
+                                    "k": "height",
+                                    "v": "385px"
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "auto"
+                                },
+                                {
+                                    "k": "padding",
+                                    "v": "0 24px"
+                                }
+                            ],
+                            "components": [
+                                {
+                                    "id": "report-china-container",
+                                    "type": "BPColumnLayout",
+                                    "name": "bp-column-layout",
+                                    "className": "report-china-container",
+                                    "layout": [
+                                        {
+                                            "k": "flex",
+                                            "v": 1
+                                        }
+                                    ],
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "100%"
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "auto"
+                                        },
+                                        {
+                                            "k": "box-shadow",
+                                            "v": "$depth-z200"
+                                        }
+                                    ],
+                                    "components": [
+                                        {
+                                            "id": "report-china-title",
+                                            "type": "BPRowLayout",
+                                            "name": "bp-row-layout",
+                                            "className": "report-china-title",
+                                            "layout": [
+                                                {
+                                                    "k": "flex",
+                                                    "v": "0 0 56px"
+                                                }
+                                            ],
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "56px"
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "100%"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "0 24px"
+                                                }
+                                            ],
+                                            "styleAttrs": [
+                                                {
+                                                    "name": "crossAxis",
+                                                    "value": "cross-center"
+                                                }
+                                            ],
+                                            "components": [
+                                                {
+                                                    "id": "china-title",
+                                                    "type": "BPText",
+                                                    "text": "Viread | 所在市场省份分布",
+                                                    "name": "bp-text",
+                                                    "className": "chart-title",
+                                                    "layout": [],
+                                                    "css": [
+                                                        {
+                                                            "k": "width",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "height",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "padding",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "margin",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "box-sizing",
+                                                            "v": "border-box"
+                                                        }
+                                                    ],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "classNames",
+                                                            "value": "heading-medium"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "china-subtitle",
+                                                    "type": "BPText",
+                                                    "text": "全国",
+                                                    "name": "bp-text",
+                                                    "className": "chart-subtitle",
+                                                    "layout": [],
+                                                    "css": [
+                                                        {
+                                                            "k": "width",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "height",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "padding",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "margin",
+                                                            "v": "0 0 0 8px"
+                                                        },
+                                                        {
+                                                            "k": "box-sizing",
+                                                            "v": "border-box"
+                                                        }
+                                                    ],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "classNames",
+                                                            "value": "body-secondary"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "china-demo-first001",
+                                            "type": "BPChina",
+                                            "name": "bp-china",
+                                            "layout": [
+                                                {
+                                                    "k": "flex",
+                                                    "v": "1"
+                                                }
+                                            ],
+                                            "css": [
+                                                {
+                                                    "k": "width",
+                                                    "v": "100%"
+                                                },
+                                                {
+                                                    "k": "height",
+                                                    "v": "329px"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "0 24px 24px"
+                                                },
+                                                {
+                                                    "k": "margin",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "box-sizing",
+                                                    "v": "border-box"
+                                                },
+                                                {
+                                                    "k": "overflow",
+                                                    "v": "auto"
+                                                }
+                                            ],
+                                            "attrs": [
+                                                {
+                                                    "name": "eid",
+                                                    "value": "5e15ca980f84221d01409e63"
+                                                },
+                                                {
+                                                    "name": "store",
+                                                    "value": "this.store",
+                                                    "type":"variable"
+                                                },
+                                                {
+                                                    "name": "startDate",
+                                                    "value": "startDate",
+                                                    "type": "variable"
+                                                },
+                                                {
+                                                    "name": "endDate",
+                                                    "value": "endDate",
+                                                    "type": "variable"
+                                                },
+                                                {
+                                                    "name": "prodName",
+                                                    "value": "prodName",
+                                                    "type": "variable"
+                                                },
+                                                {
+                                                    "name": "onChangeProv",
+                                                    "value": "(action 'changeProv')",
+                                                    "type": "callback"
+                                                },
+                                                {
+                                                    "name": "confReqAdd",
+                                                    "value": "http://127.0.0.1:5555" 
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "report-scatter-container",
+                                    "type": "BPColumnLayout",
+                                    "name": "bp-column-layout",
+                                    "className": "report-scatter-container",
+                                    "layout": [
+                                        {
+                                            "k": "flex",
+                                            "v": 1
+                                        }
+                                    ],
+                                    "css": [
+                                        {
+                                            "k": "height",
+                                            "v": "100%"
+                                        },
+                                        {
+                                            "k": "width",
+                                            "v": "auto"
+                                        },
+                                        {
+                                            "k": "margin",
+                                            "v": "0 0 0 24px"
+                                        },
+                                        {
+                                            "k": "box-shadow",
+                                            "v": "$depth-z200"
+                                        }
+                                    ],
+                                    "components": [
+                                        {
+                                            "id": "report-scatter-title",
+                                            "type": "BPRowLayout",
+                                            "name": "bp-row-layout",
+                                            "className": "report-scatter-title",
+                                            "layout": [
+                                                {
+                                                    "k": "flex",
+                                                    "v": "0 0 56px"
+                                                }
+                                            ],
+                                            "css": [
+                                                {
+                                                    "k": "height",
+                                                    "v": "56px"
+                                                },
+                                                {
+                                                    "k": "width",
+                                                    "v": "100%"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "0 24px"
+                                                }
+                                            ],
+                                            "styleAttrs": [
+                                                {
+                                                    "name": "crossAxis",
+                                                    "value": "cross-center"
+                                                }
+                                            ],
+                                            "components": [
+                                                {
+                                                    "id": "china-title",
+                                                    "type": "BPText",
+                                                    "text": "{{prodName}} | 所在市场城市概况",
+                                                    "name": "bp-text",
+                                                    "className": "chart-title",
+                                                    "layout": [],
+                                                    "css": [
+                                                        {
+                                                            "k": "width",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "height",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "padding",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "margin",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "box-sizing",
+                                                            "v": "border-box"
+                                                        }
+                                                    ],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "classNames",
+                                                            "value": "heading-medium"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "chart-subtitle",
+                                                    "type": "BPText",
+                                                    "text": "{{provName}}",
+                                                    "name": "bp-text",
+                                                    "className": "chart-subtitle",
+                                                    "layout": [],
+                                                    "css": [
+                                                        {
+                                                            "k": "margin",
+                                                            "v": "0 0 0 8px"
+                                                        }
+                                                    ],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "classNames",
+                                                            "value": "body-secondary"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "scatter-demo-first002",
+                                            "type": "BPScatter",
+                                            "name": "bp-scatter",
+                                            "layout": [
+                                                {
+                                                    "k": "flex",
+                                                    "v": "1"
+                                                }
+                                            ],
+                                            "css": [
+                                                {
+                                                    "k": "width",
+                                                    "v": "100%"
+                                                },
+                                                {
+                                                    "k": "height",
+                                                    "v": "329px"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "0 24px 24px"
+                                                },
+                                                {
+                                                    "k": "margin",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "box-sizing",
+                                                    "v": "border-box"
+                                                },
+                                                {
+                                                    "k": "overflow",
+                                                    "v": "auto"
+                                                }
+                                            ],
+                                            "attrs": [
+                                                {
+                                                    "name": "eid",
+                                                    "value": "5e15cc6a0f84221d01409e89"
+                                                },
+                                                {
+                                                    "name": "store",
+                                                    "value": "this.store",
+                                                    "type": "variable"
+                                                },
+                                                {
+                                                    "name": "startDate",
+                                                    "value": "startDate",
+                                                    "type": "variable"
+                                                },
+                                                {
+                                                    "name": "endDate",
+                                                    "value": "endDate",
+                                                    "type": "variable"
+                                                },
+                                                {
+                                                    "name": "currentProv",
+                                                    "value": "prodName",
+                                                    "type": "variable"
+                                                },
+                                                {
+                                                    "name": "onChangeCity",
+                                                    "value": "(action 'changeCity')",
+                                                    "type": "callback"
+                                                },
+                                                {
+                                                    "name": "confReqAdd",
+                                                    "value": "http://127.0.0.1:5555" 
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ],
+                            "attrs": [],
+                            "styleAttrs": [
+                                {
+                                    "name": "mainAxis",
+                                    "value": "main-space-between",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "crossAxis",
+                                    "value": "cross-center",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "report-table-bars",
+                            "type": "BPRowLayout",
+                            "name": "bp-row-layout",
+                            "className": "report-table-bars",
+                            "css": [
+                                {
+                                    "k": "height",
+                                    "v": "auto"
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "auto"
+                                },
+                                {
+                                    "k": "padding",
+                                    "v": "0 24px"
+                                },
+                                {
+                                    "k": "margin",
+                                    "v": "24px 0"
+                                },
+                                {
+                                    "k": "overflow",
+                                    "v": "auto"
+                                }
+                            ],
+                            "components": [
+                                {
+                                    "id": "report-table-container",
+                                    "type": "BPColumnLayout",
+                                    "name": "bp-column-layout",
+                                    "className": "report-table-container",
+                                    "layout": [
+                                        {
+                                            "k": "flex",
+                                            "v": "2"
+                                        }
+                                    ],
+                                    "css": [
+                                        {
+                                            "k": "width",
+                                            "v": "100%"
+                                        },
+                                        {
+                                            "k": "height",
+                                            "v": "600px"
+                                        },
+                                        {
+                                            "k": "padding",
+                                            "v": "0"
+                                        },
+                                        {
+                                            "k": "margin",
+                                            "v": "0"
+                                        },
+                                        {
+                                            "k": "box-sizing",
+                                            "v": "border-box"
+                                        },
+                                        {
+                                            "k": "overflow-x",
+                                            "v": "auto"
+                                        },
+                                        {
+                                            "k": "overflow-y",
+                                            "v": "hidden"
+                                        },
+                                        {
+                                            "k": "box-shadow",
+                                            "v": "$depth-z200"
+                                        }
+                                    ],
+                                    "attrs": [],
+                                    "components": [
+                                        {
+                                            "id": "table-title-container",
+                                            "type": "BPColumnLayout",
+                                            "name": "bp-column-layout",
+                                            "className": "table-title-container",
+                                            "layout": [
+                                                {
+                                                    "k": "flex",
+                                                    "v": "0 0 93px"
+                                                }
+                                            ],
+                                            "css": [
+                                                {
+                                                    "k": "width",
+                                                    "v": "auto"
+                                                },
+                                                {
+                                                    "k": "height",
+                                                    "v": "auto"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "0 24px"
+                                                },
+                                                {
+                                                    "k": "margin",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "box-sizing",
+                                                    "v": "border-box"
+                                                },
+                                                {
+                                                    "k": "overflow",
+                                                    "v": "auto"
+                                                }
+                                            ],
+                                            "styleAttrs": [
+                                                {
+                                                    "name": "mainAxis",
+                                                    "value": "main-center"
+                                                }
+                                            ],
+                                            "components": [
+                                                {
+                                                    "id": "china-title",
+                                                    "type": "BPText",
+                                                    "text": "产品地域发展详情",
+                                                    "name": "bp-text",
+                                                    "className": "china-title",
+                                                    "css": [
+                                                        {
+                                                            "k": "width",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "height",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "padding",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "margin",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "box-sizing",
+                                                            "v": "border-box"
+                                                        }
+                                                    ],
+                                                    "components": [],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "tagName",
+                                                            "value": "h3",
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "name": "classNames",
+                                                            "value": "heading-medium"
+                                                        }
+                                                    ],
+                                                    "styleAttrs": []
+                                                },
+                                                {
+                                                    "id": "table-subtitle",
+                                                    "type": "BPText",
+                                                    "text": "全国·浙江省·杭州市",
+                                                    "name": "bp-text",
+                                                    "className": "table-subtitle",
+                                                    "css": [
+                                                        {
+                                                            "k": "height",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "width",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "padding",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "margin",
+                                                            "v": "6px 0 0"
+                                                        }
+                                                    ],
+                                                    "components": [],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "tagName",
+                                                            "value": "p",
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "name": "classNames",
+                                                            "value": "body-secondary"
+                                                        }
+                                                    ],
+                                                    "styleAttrs": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "table-demo",
+                                            "type": "BPTable",
+                                            "name": "bp-table",
+                                            "className": "report-table-content",
+                                            "layout": [
+                                                {
+                                                    "k": "flex",
+                                                    "v": 1
+                                                }
+                                            ],
+                                            "css": [
+                                                {
+                                                    "k": "width",
+                                                    "v": "100%"
+                                                },
+                                                {
+                                                    "k": "height",
+                                                    "v": "calc(100% - 93px)"
+                                                },
+                                                {
+                                                    "k": "margin",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "0 24px"
+                                                },
+                                                {
+                                                    "k": "position",
+                                                    "v": "relative"
+                                                },
+                                                {
+                                                    "k": "box-sizing",
+                                                    "v": "border-box"
+                                                }
+                                            ],
+                                            "attrs": [
+                                                {
+                                                    "name": "tid",
+                                                    "value": "bp-table-test"
+                                                }
+                                            ],
+                                            "styleAttrs": [
+                                                {
+                                                    "name": "border",
+                                                    "value": false,
+                                                    "type": "boolean"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "report-bars-container",
+                                    "type": "BPColumnLayout",
+                                    "name": "bp-column-layout",
+                                    "className": "report-bars-container",
+                                    "layout": [
+                                        {
+                                            "k": "flex",
+                                            "v": "1"
+                                        }
+                                    ],
+                                    "css": [
+                                        {
+                                            "k": "width",
+                                            "v": "100%"
+                                        },
+                                        {
+                                            "k": "height",
+                                            "v": "auto"
+                                        },
+                                        {
+                                            "k": "padding",
+                                            "v": "0"
+                                        },
+                                        {
+                                            "k": "margin",
+                                            "v": "0 0 0 24px"
+                                        },
+                                        {
+                                            "k": "box-sizing",
+                                            "v": "border-box"
+                                        },
+                                        {
+                                            "k": "overflow",
+                                            "v": "auto"
+                                        }
+                                    ],
+                                    "attrs": [],
+                                    "components": [
+                                        {
+                                            "id": "report-bars-content",
+                                            "type": "BPColumnLayout",
+                                            "name": "bp-column-layout",
+                                            "className": "bars-content",
+                                            "layout": [],
+                                            "css": [],
+                                            "attrs": [],
+                                            "components": [
+                                                {
+                                                    "id": "bars-title-container",
+                                                    "type": "BPColumnLayout",
+                                                    "name": "bp-column-layout",
+                                                    "className": "bars-title-container",
+                                                    "layout": [],
+                                                    "css": [],
+                                                    "styleAttrs": [
+                                                        {
+                                                            "name": "mainAxis",
+                                                            "value": "main-center"
+                                                        }
+                                                    ],
+                                                    "components": [
+                                                        {
+                                                            "id": "bars-title",
+                                                            "type": "BPText",
+                                                            "text": "Viread | 市场规模与产品销量发展情况",
+                                                            "name": "bp-text",
+                                                            "className": "bars-title",
+                                                            "css": [],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "h3",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": "heading-medium"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        },
+                                                        {
+                                                            "id": "bars-subtitle",
+                                                            "type": "BPText",
+                                                            "text": "全国·浙江省·杭州市",
+                                                            "name": "bp-text",
+                                                            "className": "bars-subtitle",
+                                                            "css": [],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "p",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": " body-secondary"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "stack-demo-first001",
+                                                    "type": "BPStack",
+                                                    "name": "bp-stack",
+                                                    "className": "chart-bar-content",
+                                                    "layout": [],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "eid",
+                                                            "value": "5e15cd240f84221d01409e96"
+                                                        },
+                                                        {
+                                                            "name": "store",
+                                                            "value": "this.store",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "confReqAdd",
+                                                            "value": "http://127.0.0.1:5555",
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "name": "provName",
+                                                            "value": "provName",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "cityName",
+                                                            "value": "cityName",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "startDate",
+                                                            "value": "startDate",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "endDate",
+                                                            "value": "endDate",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "prodName",
+                                                            "value": "provName",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "chartData",
+                                                            "value": "firstStackQuery",
+                                                            "type": "variable"
+                                                        }
+                                                    ],
+                                                    "css": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "report-bars-content",
+                                            "type": "BPColumnLayout",
+                                            "name": "bp-column-layout",
+                                            "className": "bars-content",
+                                            "layout": [],
+                                            "css": [],
+                                            "attrs": [],
+                                            "components": [
+                                                {
+                                                    "id": "bars-title-container",
+                                                    "type": "BPColumnLayout",
+                                                    "name": "bp-column-layout",
+                                                    "className": "bars-title-container",
+                                                    "layout": [],
+                                                    "css": [],
+                                                    "styleAttrs": [
+                                                        {
+                                                            "name": "mainAxis",
+                                                            "value": "main-center"
+                                                        }
+                                                    ],
+                                                    "components": [
+                                                        {
+                                                            "id": "bars-title",
+                                                            "type": "BPText",
+                                                            "text": "Viread | 市场与产品发展趋势",
+                                                            "name": "bp-text",
+                                                            "className": "bars-title",
+                                                            "css": [],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "h3",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": "heading-medium"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        },
+                                                        {
+                                                            "id": "bars-subtitle",
+                                                            "type": "BPText",
+                                                            "text": "全国·浙江省·杭州市",
+                                                            "name": "bp-text",
+                                                            "className": "bars-subtitle",
+                                                            "css": [],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "p",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": " body-secondary"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "line-demo-first003",
+                                                    "type": "BPLine",
+                                                    "name": "bp-line",
+                                                    "className": "chart-bar-content",
+                                                    "layout": [],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "eid",
+                                                            "value": "5e15cd7e0f84221d01409ea3"
+                                                        },
+                                                        {
+                                                            "name": "store",
+                                                            "value": "this.store",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "confReqAdd",
+                                                            "value": "http://127.0.0.1:5555",
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "name": "provName",
+                                                            "value": "provName",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "cityName",
+                                                            "value": "cityName",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "startDate",
+                                                            "value": "startDate",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "endDate",
+                                                            "value": "endDate",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "prodName",
+                                                            "value": "provName",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "chartData",
+                                                            "value": "firstLineQuery",
+                                                            "type": "variable"
+                                                        }
+                                                    ],
+                                                    "css": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "report-bars-content",
+                                            "type": "BPColumnLayout",
+                                            "name": "bp-column-layout",
+                                            "className": "bars-content",
+                                            "layout": [],
+                                            "css": [],
+                                            "attrs": [],
+                                            "components": [
+                                                {
+                                                    "id": "bars-title-container",
+                                                    "type": "BPColumnLayout",
+                                                    "name": "bp-column-layout",
+                                                    "className": "bars-title-container",
+                                                    "layout": [],
+                                                    "css": [],
+                                                    "styleAttrs": [
+                                                        {
+                                                            "name": "mainAxis",
+                                                            "value": "main-center"
+                                                        }
+                                                    ],
+                                                    "components": [
+                                                        {
+                                                            "id": "bars-title",
+                                                            "type": "BPText",
+                                                            "text": "Viread | 市场内各分子份额变化",
+                                                            "name": "bp-text",
+                                                            "className": "bars-title",
+                                                            "css": [],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "h3",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": "heading-medium"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        },
+                                                        {
+                                                            "id": "bars-subtitle",
+                                                            "type": "BPText",
+                                                            "text": "全国·浙江省·杭州市",
+                                                            "name": "bp-text",
+                                                            "className": "bars-subtitle",
+                                                            "css": [],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "p",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": " body-secondary"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "stack-demo-first002",
+                                                    "type": "BPStack",
+                                                    "name": "bp-stack",
+                                                    "className": "chart-bar-content",
+                                                    "layout": [],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "eid",
+                                                            "value": "5e15cd830f84221d01409ea4"
+                                                        },
+                                                        {
+                                                            "name": "store",
+                                                            "value": "this.store",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "confReqAdd",
+                                                            "value": "http://127.0.0.1:5555",
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "name": "provName",
+                                                            "value": "provName",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "cityName",
+                                                            "value": "cityName",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "startDate",
+                                                            "value": "startDate",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "endDate",
+                                                            "value": "endDate",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "prodName",
+                                                            "value": "prodName",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "chartData",
+                                                            "value": "secondStackQuery",
+                                                            "type": "variable"
+                                                        }
+                                                    ],
+                                                    "css": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "report-bars-content",
+                                            "type": "BPColumnLayout",
+                                            "name": "bp-column-layout",
+                                            "className": "bars-content",
+                                            "layout": [
+                                                {
+                                                    "k": "flex",
+                                                    "v": " 0 0 349px"
+                                                }
+                                            ],
+                                            "css": [
+                                                {
+                                                    "k": "width",
+                                                    "v": "100%"
+                                                },
+                                                {
+                                                    "k": "height",
+                                                    "v": "auto"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "margin",
+                                                    "v": "0 0 24px"
+                                                },
+                                                {
+                                                    "k": "box-sizing",
+                                                    "v": "border-box"
+                                                },
+                                                {
+                                                    "k": "overflow",
+                                                    "v": "auto"
+                                                },
+                                                {
+                                                    "k": "box-shadow",
+                                                    "v": "$depth-z200"
+                                                }
+                                            ],
+                                            "attrs": [],
+                                            "components": [
+                                                {
+                                                    "id": "bars-title-container",
+                                                    "type": "BPColumnLayout",
+                                                    "name": "bp-column-layout",
+                                                    "className": "bars-title-container",
+                                                    "layout": [
+                                                        {
+                                                            "k": "flex",
+                                                            "v": " 0 0 80px"
+                                                        }
+                                                    ],
+                                                    "css": [
+                                                        {
+                                                            "k": "width",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "height",
+                                                            "v": "auto"
+                                                        },
+                                                        {
+                                                            "k": "padding",
+                                                            "v": "0 24px"
+                                                        },
+                                                        {
+                                                            "k": "margin",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "box-sizing",
+                                                            "v": "border-box"
+                                                        },
+                                                        {
+                                                            "k": "overflow",
+                                                            "v": "auto"
+                                                        }
+                                                    ],
+                                                    "styleAttrs": [
+                                                        {
+                                                            "name": "mainAxis",
+                                                            "value": "main-center"
+                                                        }
+                                                    ],
+                                                    "components": [
+                                                        {
+                                                            "id": "bars-title",
+                                                            "type": "BPText",
+                                                            "text": "Viread | 所在市场内重点产品份额变化",
+                                                            "name": "bp-text",
+                                                            "className": "bars-title",
+                                                            "css": [
+                                                                {
+                                                                    "k": "width",
+                                                                    "v": "auto"
+                                                                },
+                                                                {
+                                                                    "k": "height",
+                                                                    "v": "auto"
+                                                                },
+                                                                {
+                                                                    "k": "margin",
+                                                                    "v": "0"
+                                                                }
+                                                            ],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "h3",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": "heading-medium"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        },
+                                                        {
+                                                            "id": "bars-subtitle",
+                                                            "type": "BPText",
+                                                            "text": "全国·浙江省·杭州市",
+                                                            "name": "bp-text",
+                                                            "className": "bars-subtitle",
+                                                            "css": [
+                                                                {
+                                                                    "k": "height",
+                                                                    "v": "auto"
+                                                                },
+                                                                {
+                                                                    "k": "width",
+                                                                    "v": "auto"
+                                                                },
+                                                                {
+                                                                    "k": "padding",
+                                                                    "v": "0"
+                                                                },
+                                                                {
+                                                                    "k": "margin",
+                                                                    "v": "2px 0 0"
+                                                                }
+                                                            ],
+                                                            "components": [],
+                                                            "attrs": [
+                                                                {
+                                                                    "name": "tagName",
+                                                                    "value": "p",
+                                                                    "type": "string"
+                                                                },
+                                                                {
+                                                                    "name": "classNames",
+                                                                    "value": " body-secondary"
+                                                                }
+                                                            ],
+                                                            "styleAttrs": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "line-demo-first002",
+                                                    "type": "BPLine",
+                                                    "name": "bp-line",
+                                                    "className": "chart-bar-content",
+                                                    "layout": [
+                                                        {
+                                                            "k": "flex",
+                                                            "v": 1
+                                                        }
+                                                    ],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "eid",
+                                                            "value": "5e15cd870f84221d01409ea5"
+                                                        },
+                                                        {
+                                                            "name": "store",
+                                                            "value": "this.store",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "confReqAdd",
+                                                            "value": "http://127.0.0.1:5555",
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "name": "provName",
+                                                            "value": "provName",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "cityName",
+                                                            "value": "cityName",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "startDate",
+                                                            "value": "startDate",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "endDate",
+                                                            "value": "endDate",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "prodName",
+                                                            "value": "prodName",
+                                                            "type": "variable"
+                                                        },
+                                                        {
+                                                            "name": "chartData",
+                                                            "value": "secondLineQuery",
+                                                            "type": "variable"
+                                                        }
+                                                    ],
+                                                    "css": [
+                                                        {
+                                                            "k": "width",
+                                                            "v": "100%"
+                                                        },
+                                                        {
+                                                            "k": "height",
+                                                            "v": "269px"
+                                                        },
+                                                        {
+                                                            "k": "padding",
+                                                            "v": "0 24px 24px"
+                                                        },
+                                                        {
+                                                            "k": "margin",
+                                                            "v": "0"
+                                                        },
+                                                        {
+                                                            "k": "box-sizing",
+                                                            "v": "border-box"
+                                                        },
+                                                        {
+                                                            "k": "overflow",
+                                                            "v": "auto"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ],
+                            "attrs": [],
+                            "styleAttrs": [
+                                {
+                                    "name": "mainAxis",
+                                    "value": "main-space-between",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "crossAxis",
+                                    "value": "cross-flex-start",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ],
+                    "attrs": [],
+                    "styleAttrs": []
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,109 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "pushButton"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "buttons",
+        "path": "/buttons",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "column"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "100%"
+          },
+          {
+            "k": "height",
+            "v": "auto"
+          }
+        ],
+  
+        "components": [
+          {
+            "id": "test",
+            "type": "BPPushButton",
+            "cat": "0",
+            "text": "alfred test",
+            "name":"bp-button",
+            "css": [
+              {
+                "k": "width",
+                "v": "max-content"
+              },
+              {
+                "k": "font-size",
+                "v": "14px"
+              },
+              {
+                "k": "text-align",
+                "v": "center"
+              },
+              {
+                "k": "padding",
+                "v": "0 12px"
+              }, {
+                "k": "border",
+                "v": "0"
+              }, {
+                "k": "border-radius",
+                "v": "4px"
+              }, {
+                "k": "cursor",
+                "v": "pointer"
+              }, {
+                  "k": "outline",
+                  "v": "none"
+              }, {
+                "k": "display",
+                "v": "flex"
+              },{
+                "k": "flex-direction",
+                "v": "row"
+              }, {
+                "k": "align-items",
+                "v": "center"
+              }
+            ],
+            "attrs": [
+                {
+                    "name": "disabled",
+                    "value": false
+                },
+                {
+                    "name": "text",
+                    "value": "test text"
+                }
+            ],
+            "styleAttrs": [
+                {
+                    "name": "type",
+                    "value": "primary"
+                }, 
+                {
+                  "name": "density",
+                  "value": "default"
+                },
+                {
+                  "name": "icon",
+                  "value": "edit"
+                }
+            ],
+            "events": ["click", "dblclick"]
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,47 @@
+{
+    "meta": {
+      "paint": ["ember"],
+      "name": "refactoring-code-add-item"
+    },
+  
+    "routers": [
+      {
+        "id": "page main window",
+        "type": "BPMainWindow",
+        "cat": "main-window",
+        "name": "add-item",
+        "path": "/add-item",
+        "layout": [
+          {
+            "k": "display",
+            "v": "flex"
+          },{
+            "k": "flex-direction",
+            "v": "column"
+          }
+        ],
+        "css": [
+          {
+            "k": "width",
+            "v": "max-content"
+          },
+          {
+            "k": "height",
+            "v": "max-content"
+          }
+        ],
+        "components": [
+          {
+            "id": "test",
+            "type": "BPAddItem",
+            "cat": "0",
+            "text": "simon test",
+            "name":"bp-add-item",
+            "css": [
+            
+            ]
+          }
+        ]
+      }
+    ]
+  }

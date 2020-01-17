@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-empty-state"
+  },
+
+  "routers": [
+    {
+		"id": "page main window",
+		"type": "BPMainWindow",
+		"cat": "main-window",
+		"name": "empty-state",
+		"path": "/empty-state",
+		"layout": [
+			{
+			"k": "display",
+			"v": "flex"
+			},{
+			"k": "flex-direction",
+			"v": "column"
+			}
+		],
+		"css": [
+			{
+			"k": "width",
+			"v": "100%"
+			},
+			{
+			"k": "height",
+			"v": "auto"
+			}
+		],
+      	"components": [
+		{
+			"id": "test",
+			"type": "BPEmptyState",
+			"cat": "0",
+			"text": "simon test",
+			"name":"bp-empty-state-default",
+			"css": [
+			{
+				"k": "width",
+				"v": "100%"
+			},
+			{
+				"k": "height",
+				"v": "348px"
+			}
+			],
+			"attrs": {
+				"img": "#",
+				"title": "Collect your important files",
+				"desc": "Here’s where you would download this reportory and any files your team has shared.",
+				"primaryAction": "Primary action",
+				"secondaryAction": "Secondary action"
+			}
+		},
+		{
+			"id": "test",
+			"type": "BPEmptyState",
+			"cat": "0",
+			"text": "simon test",
+			"name":"bp-empty-state-link",
+			"css": [
+			{
+				"k": "width",
+				"v": "100%"
+			},
+			{
+				"k": "height",
+				"v": "348px"
+			}
+			],
+			"attrs": {
+				"img": "#",
+				"title": "Collect your important files",
+				"desc": "Here’s where you would download this reportory and any files your team has shared.",
+				"link": {
+					"name": "Learn now",
+					"href": "#"
+				}
+			}
+		},
+		{
+			"id": "test",
+			"type": "BPEmptyState",
+			"cat": "0",
+			"text": "simon test",
+			"name":"bp-empty-state-desc",
+			"css": [
+			{
+				"k": "width",
+				"v": "100%"
+			},
+			{
+				"k": "height",
+				"v": "348px"
+			}
+			],
+			"attrs": {
+				"img": "#",
+				"desc": "Here’s where you would download this reportory and any files your team has shared."
+			}
+		}
+      ]
+    }
+  ]
+}

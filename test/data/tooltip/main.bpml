@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-tooltip"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "tooltip",
+      "path": "/tooltip",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "column"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "auto"
+        }
+      ],
+      "components": [
+        {
+          "id": "test",
+          "type": "BPTooltip",
+          "cat": "0",
+          "text": "",
+          "name":"bp-tooltip-top",
+          "css": [
+            {
+              "k": "width",
+              "v": "24px"
+            },
+            {
+              "k": "height",
+              "v": "24px"
+            }, {
+              "k": "background",
+              "v": "#A1C6E7"
+            },{
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "margin",
+              "v": "100px"
+            },
+            {
+                "k": "content",
+                "v": "'Short and brief'",
+                "tp": "hover",
+                "pe": "after"
+            }, 
+            {
+                "k": "width",
+                "v": "85px",
+                "tp": "hover",
+                "pe": "after"
+            },
+            {
+                "k": "bottom",
+                "v": "24px",
+                "tp": "hover",
+                "pe": "after"
+            }
+          ],
+          "attrs": {
+              "baseClass": "tooltip"
+          }
+		},
+        {
+          "id": "test",
+          "type": "BPTooltip",
+          "cat": "0",
+          "text": "",
+          "icon": "info",
+          "name":"bp-tooltip-bottom",
+          "css": [
+            {
+              "k": "width",
+              "v": "24px"
+            },
+            {
+              "k": "height",
+              "v": "24px"
+            },
+            {
+              "k": "margin",
+              "v": "100px"
+            },
+            {
+                "k": "content",
+                "v": "'Short and brief'",
+                "tp": "hover",
+                "pe": "after"
+            }, 
+            {
+                "k": "width",
+                "v": "85px",
+                "tp": "hover",
+                "pe": "after"
+            },
+            {
+                "k": "top",
+                "v": "0px",
+                "tp": "hover",
+                "pe": "after"
+            }
+          ],
+          "attrs": {
+              "baseClass": "tooltip"
+          }
+		},
+        {
+          "id": "test",
+          "type": "BPTooltip",
+          "cat": "0",
+          "text": "",
+          "name":"bp-tooltip-right",
+          "css": [
+            {
+              "k": "width",
+              "v": "24px"
+            },
+            {
+              "k": "height",
+              "v": "24px"
+            }, {
+              "k": "background",
+              "v": "#A1C6E7"
+            },{
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "margin",
+              "v": "100px"
+            },
+            {
+                "k": "content",
+                "v": "'Short and brief'",
+                "tp": "hover",
+                "pe": "after"
+            }, 
+            {
+                "k": "width",
+                "v": "85px",
+                "tp": "hover",
+                "pe": "after"
+            },
+            {
+                "k": "left",
+                "v": "28px",
+                "tp": "hover",
+                "pe": "after"
+            }
+          ],
+          "attrs": {
+              "baseClass": "tooltip"
+          }
+		},
+        {
+          "id": "test",
+          "type": "BPTooltip",
+          "cat": "0",
+          "text": "",
+          "name":"bp-tooltip-left",
+          "css": [
+            {
+              "k": "width",
+              "v": "24px"
+            },
+            {
+              "k": "height",
+              "v": "24px"
+            }, {
+              "k": "background",
+              "v": "#A1C6E7"
+            },{
+              "k": "border-radius",
+              "v": "4px"
+            },
+            {
+              "k": "margin",
+              "v": "100px"
+            },
+            {
+                "k": "content",
+                "v": "'Short and brief'",
+                "tp": "hover",
+                "pe": "after"
+            }, 
+            {
+                "k": "width",
+                "v": "85px",
+                "tp": "hover",
+                "pe": "after"
+            },
+            {
+                "k": "right",
+                "v": "97px",
+                "tp": "hover",
+                "pe": "after"
+            }
+          ],
+          "attrs": {
+              "baseClass": "tooltip"
+          }
+		}
+      ]
+    }
+  ]
+}

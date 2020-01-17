@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "paint": ["ember"],
+    "name": "refactoring-code-divider"
+  },
+
+  "routers": [
+    {
+      "id": "page main window",
+      "type": "BPMainWindow",
+      "cat": "main-window",
+      "name": "divider-route",
+      "path": "/divider-route",
+      "layout": [
+        {
+          "k": "display",
+          "v": "flex"
+        },{
+          "k": "flex-direction",
+          "v": "row"
+        }
+      ],
+      "css": [
+        {
+          "k": "width",
+          "v": "100%"
+        },
+        {
+          "k": "height",
+          "v": "1px"
+        }
+      ],
+
+      "components": [
+        {
+          "id": "test",
+          "type": "BPDivider",
+          "cat": "0",
+          "text": "simon test",
+          "name":"bp-divider",
+          "css": [
+            {
+              "k": "width",
+              "v": "100%"
+            },
+            {
+              "k": "height",
+              "v": "1px"
+            },{
+              "k": "color",
+              "v": "rgba(9,30,66,0.08)"
+            }, {
+							"k": "background",
+							"v": "rgba(9,30,66,0.08)"
+						}
+            
+          ]
+					}
+      ]
+    }
+  ]
+}
