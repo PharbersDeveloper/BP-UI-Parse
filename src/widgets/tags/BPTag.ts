@@ -50,25 +50,8 @@ export default class BPTag extends BPWidget {
         const {attrs, styleAttrs, events, calcAttrs } = comp
         const className = comp.className ? comp.className : ""
 
-        const attrsBody = attrs.map( (item: IAttrs) => {
-            if (typeof item.value === "string") {
-                return `${item.name}: '${item.value}',`
-            } else {
-                return  `${item.name}: ${item.value},`
-            }
-        })
-        let styleAttrsBody = ""
-        let classNameBindings = ""
+        const attrsBody = this.logicAttrs([...attrs, ...styleAttrs])
         let calcAttrsBody = ""
-
-        styleAttrs.forEach( (item: IAttrs) => {
-            if (typeof item.value === "string") {
-                styleAttrsBody += `${item.name}: '${item.value}',`
-            } else {
-                styleAttrsBody += `${item.name}: ${item.value},`
-            }
-            classNameBindings += `'${item.name}',`
-        })
 
         calcAttrs.forEach( (item: IAttrs) => {
             calcAttrsBody += `${item.name}: ${item.value},`
@@ -80,10 +63,8 @@ export default class BPTag extends BPWidget {
             layout,
             tagName:"span",
             classNames:["${comp.name}", "${className}"],
-            content: 'default',
             attributeBindings: [''],
             ${attrsBody}
-            ${styleAttrsBody}
             ${calcAttrsBody}
             classNameBindings: ["currentStyle", "currentType", "show::display-none"],
             currentStyle: computed('subtle', function () {

@@ -52,17 +52,18 @@ export default class BPChina extends BPChart {
         generateChartOption(chartConfig, cond) {
             const ajax = this.ajax
 
+            let { prodName, endDate, compName } = this;
             const queryConfig = cond.query
             const qa = queryConfig.address;
-            let queryChartSql = "SELECT PROVINCE_NAME, AVG(PROV_SALES_VALUE) " +
-                "AS PROV_SALES_VALUE, AVG(EI) AS EI FROM test2 WHERE MKT IN " +
-                "(SELECT MKT FROM test2 WHERE COMPANY = 'Sankyo' AND YM = " +
-                this.endDate + " AND PRODUCT_NAME = '" + this.prodName + "') AND " +
-                "COMPANY  = 'Sankyo' AND YM = " + this.endDate +
-                " GROUP BY PROVINCE_NAME.keyword"
+            let queryChartSql = "SELECT PROVINCE, AVG(CURR_MKT_SALES_IN_PROV)  " +
+            "AS MKT_SALES, AVG(EI_MKT_PROV) AS EI FROM result WHERE MKT " +
+            "IN (SELECT MKT FROM result WHERE COMPANY = '" + compName + "' AND " +
+            "DATE = " + endDate + " AND PRODUCT_NAME = '" +
+            prodName + "') AND COMPANY = '" + compName + "' AND DATE = " +
+            endDate + " GROUP BY PROVINCE.keyword"
             const ec = cond.encode;
 
-            ajax.request(qa + '?tag=row2line&dimensionKeys=' + ec.dimension, {
+            ajax.request(qa + '?tag='+ec.tag+'&dimensionKeys=' + ec.dimension, {
                 method: 'POST',
                 data: JSON.stringify({ "sql": queryChartSql }),
                 dataType: 'json'

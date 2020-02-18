@@ -40,15 +40,16 @@ export default class BPScatter extends BPChart {
         generateChartOption(chartConfig, cond) {
             const queryConfig = cond.query
             const qa = queryConfig.address;
-            const queryChartSql = "SELECT CITY_NAME, AVG(CITY_SALES_VALUE) AS " +
-                "CITY_SALES_VALUE, AVG(CITY_MOM) AS CITY_MOM, AVG(MKT_MOM) AS " +
-                "MKT_MOM FROM test2 WHERE MKT IN (SELECT MKT FROM test2 WHERE " +
-                "COMPANY = 'Sankyo' AND YM = " + this.endDate + " AND PRODUCT_NAME " +
-                "= '" + this.prodName + "') AND COMPANY = 'Sankyo' AND YM = " +
-                this.endDate + " AND PROVINCE_NAME = '" + this.currentProv +
-                "' GROUP BY CITY_NAME.keyword"
+            const { endDate, prodName, currentProv, compName, ajax } = this;
 
-            const ajax = this.ajax;
+            const queryChartSql = "SELECT CITY_NAME, AVG(CURR_MKT_SALES_IN_CITY) " +
+            "AS CITY_SALES, AVG(MOM_RATE_ON_MKT_CITY) AS CITY_MOM, "+
+            "AVG(MOM_RATE_ON_MKT_PROV) AS PROV_MOM FROM result "+
+            "WHERE MKT IN (SELECT MKT FROM result WHERE COMPANY = '"+compName +
+            "' AND DATE = "+endDate +" AND PRODUCT_NAME = '"+prodName +
+            "') AND COMPANY = '"+compName+"' AND  DATE = "+
+            endDate +" AND PROVINCE = '"+currentProv+"' GROUP BY CITY.keyword";
+
             const ec = cond.encode;
 
             ajax.request(qa + '?tag=row2line&dimensionKeys=' + ec.dimension, {

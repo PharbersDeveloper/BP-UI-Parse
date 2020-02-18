@@ -3,9 +3,324 @@
         "paint": [
             "ember"
         ],
-        "name": "report-stage2"
+        "name": "report-stage3"
     },
     "routers": [
+        {
+            "id": "page for login",
+            "type": "BPMainWindow",
+            "cat": "main-window",
+            "name": "login",
+            "path": "/login",
+            "layout": [
+                {
+                    "k": "display",
+                    "v": "flex"
+                },
+                {
+                    "k": "align-items",
+                    "v": "center"
+                },
+                {
+                    "k": "justify-content",
+                    "v": "center"
+                }
+            ],
+            "css": [
+                {
+                    "k": "height",
+                    "v": "100%"
+                },
+                {
+                    "k": "width",
+                    "v": "100%"
+                }
+            ],
+            "components":[
+                {
+                    "id": "row-layout-container",
+                    "type": "BPRowLayout",
+                    "name": "bp-row-layout",
+                    "className": "login-container",
+                    "css":[
+                        {
+                            "k": "height",
+                            "v": "425px"
+                        },
+                        {
+                            "k": "width",
+                            "v": "960px"
+                        },
+                        {
+                            "k": "border-radius",
+                            "v": "12px"
+                        },
+                        {
+                            "k": "box-shadow",
+                            "v": "$depth-z400"
+                        },
+                        {
+                            "k": "overflow",
+                            "v": "hidden"
+                        }
+                    ],
+                    "styleAttrs": [
+                        {
+                            "name": "crossAxis",
+                            "value": "cross-stretch"
+                        }
+                    ],
+                    "components":[
+                        {
+                            "id": "login form",
+                            "type": "BPColumnLayout",
+                            "name": "bp-column-layout",
+                            "className": "login-form",
+                            "css": [
+                                {
+                                    "k": "flex",
+                                    "v": 1
+                                },
+                                {
+                                    "k": "height",
+                                    "v": "auto"
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "auto"
+                                },
+                                {
+                                    "k": "padding",
+                                    "v": "80px"
+                                }
+                            ],
+                            "components": [
+                                {
+                                    "id": "login-title",
+                                    "type": "BPText",
+                                    "name": "bp-text",
+                                    "text": "MAX REPORT",
+                                    "className": "title",
+                                    "css":[
+                                        {
+                                            "k": "margin",
+                                            "v": "0 0 40px 0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "login-account",
+                                    "type": "BPInput",
+                                    "name": "bp-input",
+                                    "className": "login-input",
+                                    "css":[],
+                                    "attrs": [
+                                        {
+                                            "name": "placeholder",
+                                            "value": "邮箱",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "login-account",
+                                    "type": "BPInput",
+                                    "name": "bp-input",
+                                    "className": "login-input",
+                                    "css":[
+                                        {
+                                            "k": "margin",
+                                            "v": "0 0 8px 0"
+                                        },
+                                        {
+                                            "k": "padding",
+                                            "v": "0px"
+                                        }
+                                    ],
+                                    "attrs": [
+                                        {
+                                            "name": "placeholder",
+                                            "value": "密码",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "login-btn",
+                                    "type": "BPPushButton",
+                                    "name": "bp-button",
+                                    "className": "login-btn",
+                                    "text": "登录",
+                                    "layout": [
+                                        {
+                                            "k": "display",
+                                            "v": "flex"
+                                        },
+                                        {
+                                            "k": "justify-content",
+                                            "v": "center"
+                                        }
+                                    ],
+                                    "css":[
+                                        {
+                                            "k": "margin",
+                                            "v": "8px 0 16px"
+                                        },
+                                        {
+                                            "k": "padding",
+                                            "v": "0px"
+                                        },
+                                        {
+                                            "k": "height",
+                                            "v": "40px"
+                                        }
+                                    ],
+                                    "attrs": [
+                                        {
+                                            "name": "block",
+                                            "value": true,
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "name": "text",
+                                            "value": "登录"
+                                        },
+                                        {
+                                            "name": "icon",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "login-forget-password",
+                                    "type": "BPRowLayout",
+                                    "name": "bp-row-layout",
+                                    "className": "login-forget-password",
+                                    "css":[],
+                                    "styleAttrs": [
+                                        {
+                                            "name": "mainAxis",
+                                            "value": "main-space-between"
+                                        }
+                                    ],
+                                    "components": [
+                                        {
+                                            "id": "login-fp-text",
+                                            "type": "BPText",
+                                            "name": "bp-text",
+                                            "className": "login-fp-text",
+                                            "css":[
+                                                {
+                                                    "k": "cursor",
+                                                    "v": "not-allowed"
+                                                }
+                                            ],
+                                            "text": "忘记密码"
+                                        },
+                                        {
+                                            "id": "login-into-ow",
+                                            "type": "BPRowLayout",
+                                            "name": "bp-row-layout",
+                                            "className": "login-into-ow",
+                                            "css":[],
+                                            "components":[
+                                                {
+                                                    "id": "login-logo",
+                                                    "type": "BPImg",
+                                                    "name": "bp-img",
+                                                    "className": "login-logo",
+                                                    "css": [
+                                                        {
+                                                            "k": "width",
+                                                            "v": "14px"
+                                                        },
+                                                        {
+                                                            "k": "height",
+                                                            "v": "14px"
+                                                        },
+                                                        {
+                                                            "k": "margin",
+                                                            "v": "0 8px 0 0"
+                                                        }
+                                                    ],
+                                                    "attrs": [
+                                                        {
+                                                            "name": "src",
+                                                            "value": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg",
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "name": "alt",
+                                                            "value": "pharbers logo",
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "login-fp-text",
+                                                    "type": "BPText",
+                                                    "name": "bp-text",
+                                                    "className": "login-fp-text",
+                                                    "css":[
+                                                        {
+                                                            "k": "cursor",
+                                                            "v": "pointer"
+                                                        }
+                                                    ],
+                                                    "text": "进入法伯科技官网>"
+                                                }
+                                            ],
+                                            "attrs": [
+                                                {
+                                                    "name": "crossAxis",
+                                                    "value": "cross-center"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "login image",
+                            "type": "BPImg",
+                            "name": "bp-img",
+                            "className": "login-img",
+                            "css": [
+                                {
+                                    "k": "flex",
+                                    "v": 1
+                                },
+                                {
+                                    "k": "height",
+                                    "v": "auto"
+                                },
+                                {
+                                    "k": "width",
+                                    "v": "480px"
+                                },
+                                {
+                                    "k": "padding",
+                                    "v": "0"
+                                }
+                            ],
+                            "attrs": [
+                                {
+                                    "name": "src",
+                                    "value": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "alt",
+                                    "value": "project description image",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
         {
             "id": "page main window",
             "type": "BPMainWindow",

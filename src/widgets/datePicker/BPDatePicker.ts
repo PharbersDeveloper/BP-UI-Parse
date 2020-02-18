@@ -44,36 +44,45 @@ export default class BPDatePicker extends BPWidget {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
         const {attrs, styleAttrs } = comp
+        const attrsBody = this.logicAttrs([...attrs, ...styleAttrs])
 
-        const attrsBody = attrs.map( (item: IAttrs) => {
-            if (typeof item.value === "string") {
-                return `${item.name}: '${item.value}',`
-            } else {
-                return  `${item.name}: ${item.value},`
-            }
-        }).join("")
+        // const attrsBody = attrs.map( (item: IAttrs) => {
+        //     if (typeof item.value === "string") {
+        //         return `${item.name}: '${item.value}',`
+        //     } else {
+        //         return  `${item.name}: ${item.value},`
+        //     }
+        // }).join("")
 
-        let styleAttrsBody = ""
+        // let styleAttrsBody = ""
 
-        styleAttrs.forEach( (item: IAttrs) => {
-            if (typeof item.value === "string") {
-                styleAttrsBody += `${item.name}: '${item.value}',`
-            } else {
-                styleAttrsBody += `${item.name}: ${item.value},`
-            }
-        })
+        // styleAttrs.forEach( (item: IAttrs) => {
+        //     if (typeof item.value === "string") {
+        //         styleAttrsBody += `${item.name}: '${item.value}',`
+        //     } else {
+        //         styleAttrsBody += `${item.name}: ${item.value},`
+        //     }
+        // })
 
         let fileData = "\n" +
             `import { computed } from '@ember/object';
+            import {isEmpty} from "@ember/utils"
+
             export default Component.extend({
                 layout,
-                tagName:'div',
                 classNames:['positon-relative', 'width-fit-content'],
-                content: 'default',
                 classNameBindings: [],
                 attributeBindings: [],
-                date: "",
-                ${styleAttrsBody}
+                date: computed("endDate",function() {
+                    let endDate = this.endDate.toString();
+                    if(isEmpty(endDate)) {
+                        return ""
+                    }
+                    let year = endDate.slice(0,4)
+                    let month = endDate.slice(4)
+                    return year + "-" + month
+                }),
+                endDate: "",
                 ${attrsBody}
                 currentStyle: computed("style", function() {
                     let style = this.get('style')
@@ -91,9 +100,7 @@ export default class BPDatePicker extends BPWidget {
                         return 'date-picker-width-default'
                     }
                 }),
-                confirmAction(){
-
-                },
+                confirmAction(){},
                 didInsertElement() {
                     let that = this
                     laydate.render({
@@ -102,7 +109,7 @@ export default class BPDatePicker extends BPWidget {
                         type: this.get('type'),
                         min: this.get("min"),
                         max: this.get("max"),
-                        value: this.get("value"),
+                        value: this.get("date"),
                         theme: "gray",
                         btns: ['confirm'],
                         done: function(value) {
