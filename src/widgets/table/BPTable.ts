@@ -88,15 +88,15 @@ export default class BPTable extends BPWidget {
                     const that = this
                     const thisComp = document.getElementById(this.get('tid'))
                     const table = thisComp.getElementsByClassName('ember-table')[0]
-            
+
                     table.onscroll = function () {
                         const ths = table.getElementsByTagName('th')
                         const length = ths.length
                         const leftWidth = ths[0].offsetWidth
                         const leftHeight = table.offsetHeight
-            
+
                         const rightWidth = ths[length - 2].offsetWidth
-            
+
                         that.set('leftWidth', leftWidth)
                         that.set('leftHeight', leftHeight)
                         that.set('rightWidth', rightWidth)
@@ -105,7 +105,7 @@ export default class BPTable extends BPWidget {
                         } else {
                             that.set('tableLeftFixed', true)
                         }
-            
+
                         if ((ths[length - 1].offsetLeft - ths[length - 2].offsetLeft) < rightWidth) {
                             that.set('tableRightFixed', true)
                         } else {
@@ -197,7 +197,7 @@ export default class BPTable extends BPWidget {
                         this.columns.forEach(it => {
                             it.isAscending = false
                             it.isDesending = false
-            
+
                             if (sorts.length >= 1) {
                                 if (it.valuePath === sorts[0].valuePath) {
                                     it.isAscending = sorts[0].isAscending
