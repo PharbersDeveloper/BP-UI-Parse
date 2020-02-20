@@ -1,7 +1,8 @@
 "use strict"
 
 // import { EmberAddonExec } from "../bashexec/addonExec"
-import config from "../../conf/config"
+// import config from "../../conf/config"
+import configResult from "../application/configResult"
 import { AddBaseClass } from "../bashexec/addBaseClass"
 import { AddLayDateFiles } from "../bashexec/addLayDateFiles"
 import { EmberAddonExec } from "../bashexec/addonExec"
@@ -32,7 +33,7 @@ export default class BPEmberCtx extends BPCtx {
         super()
         phLogger.info("exec something with emberjs")
         this.projectName = projectName
-        const output: string = config.outputPath
+        const output: string = configResult.getOutput()
         this.output = output
     }
     public cmdStart() {

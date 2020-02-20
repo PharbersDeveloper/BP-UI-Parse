@@ -18,6 +18,7 @@ export interface IReStyleOpt {
     showData: string
     styleData: string
 }
+
 export interface IAttrs {
     value: any
     name: string

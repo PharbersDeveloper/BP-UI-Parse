@@ -2,7 +2,6 @@
 
 import fs from "fs"
 import { JsonConvert } from "json2typescript"
-import config from "../../conf/config"
 import { BashSpwanCmds } from "../bashexec/bashcmdlst"
 import BPCtx from "../context/BPCtx"
 import BPEmberCtx from "../context/BPEmberCtx"
@@ -20,8 +19,8 @@ export default class BPApplication extends BPObject {
     public routers: BPMainWindow[] = []
     private cmdlst = new BashSpwanCmds()
 
-    public run() {
-        const inputPath = config.targetFile
+    public run(inputPath: string) {
+
         const jsonConvert: JsonConvert = new JsonConvert()
         const inputFileData = fs.readFileSync(inputPath, "utf8")
         const appContent = jsonConvert.deserializeObject(JSON.parse(inputFileData), ParseBPML)
