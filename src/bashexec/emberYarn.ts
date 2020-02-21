@@ -10,7 +10,6 @@ export class EmberYarnExec extends BashExec {
             this.args = !depPosition ?  [type, name] : [type, name, depPosition]
         } else {
             this.args = [type]
-
         }
     }
 }

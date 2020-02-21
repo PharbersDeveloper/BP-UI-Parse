@@ -31,5 +31,4 @@ async function runBuild() {
     configResult.setTarget(targetFile)
     configResult.setIsAddon(config.isAddon)
     new BPApplication().run(configResult.getTarget())
-
 }

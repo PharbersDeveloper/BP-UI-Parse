@@ -1,13 +1,18 @@
 "use strict"
 
 import * as fs from "fs"
+import path from "path"
+import configResult from "../application/configResult"
 import phLogger from "../logger/phLogger"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
 import { BashExec } from "./bashexec"
+
 export class GenMWStylesExec extends BashExec {
     private route: BPMainWindow = null
+    private isAddon: boolean = true
     constructor(outputPath: string, projectName: string, route: BPMainWindow) {
         super()
+        this.isAddon = configResult.getIsAddon()
         this.route = route
         this.args = [outputPath, projectName]
     }
@@ -18,7 +23,8 @@ export class GenMWStylesExec extends BashExec {
         }
     }
     private async genMWStyles(outputPath: string, projectName: string, route: BPMainWindow) {
-        const outPath = outputPath + "/" + projectName + "/tests/dummy/app/styles"
+        const folderName: string = this.isAddon ? "tests/dummy/app/styles" : "app/styles"
+        const outPath = path.resolve(outputPath, projectName, folderName)
 
         const containerStart: string = ".bp-" + route.routeName + " {" + "\r"
         let containerBody: string = ""
@@ -27,9 +33,12 @@ export class GenMWStylesExec extends BashExec {
             if (css.pe === "css") {
                 containerBody = containerBody + css.key + ":" + css.value + ";\r"
             }
-            // containerBody = containerBody + css.key + ":" + css.value + ";\r"
         })
-        fs.appendFileSync(outPath + "/app.css", containerStart + containerBody + containerEnd)
+        if (this.isAddon) {
+            fs.appendFileSync(outPath + "/app.css", containerStart + containerBody + containerEnd)
+        } else {
+            fs.appendFileSync(outPath + `/${route.routeName}.scss`, containerStart + containerBody + containerEnd)
+        }
 
         // 伪元素
         let pseudoEleStyle = ""
@@ -39,7 +48,11 @@ export class GenMWStylesExec extends BashExec {
             pseudoEle = pseudoEle + pseudoStyle + "\r" + "}" + "\r"
             pseudoEleStyle += pseudoEle
         })
-        fs.appendFileSync(outPath + "/app.css", pseudoEleStyle)
+        if (this.isAddon) {
+            fs.appendFileSync(outPath + `/app.css`, pseudoEleStyle)
+        } else {
+            fs.appendFileSync(outPath + `/${route.routeName}.scss`, pseudoEleStyle)
+        }
 
     }
 }

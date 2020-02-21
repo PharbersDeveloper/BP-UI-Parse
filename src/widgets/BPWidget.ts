@@ -332,7 +332,6 @@ export abstract class BPWidget extends BPObject {
         const baseStyleBody = baseClass.map((prop: CssProperty) => {
             return `    ${prop.key}: ${prop.value};\r`
         }).join("")
-        // pointClass = `${prefix} .${className} `
 
         const styles = `${pseudoStyleBody}\r${pointClass} {\r${baseStyleBody}}\r`
         const insideStyles: string = comp.components.map((ele) => this.createChainStyles(ele, pointClass)).join("")

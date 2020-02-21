@@ -1,5 +1,5 @@
 module.exports = {
-    isAddon: true,
+    isAddon: false,
     outputPath: "output",
     // 绝对路径写法
     // outputPath: "/Users/frank/Documents/work/pharbers/nocode-output",

@@ -1,7 +1,7 @@
 "use strict"
 
 import * as fs from "fs"
-import phLogger from "../logger/phLogger"
+import path from "path"
 import { IOptions } from "../properties/Options"
 import { BashExec } from "./bashexec"
 
@@ -42,8 +42,7 @@ export class CompExec extends BashExec {
     }
     // 生成 css 类
     private async addCompStyles(options: IOptions) {
-
-        const outputPath = options.output + "/" + options.pName + "/addon/styles"
+        const outputPath = path.resolve(options.output, options.pName, "/addon/styles")
         const existFile: boolean = this.fsExistsSync(outputPath)
         if (!existFile) {
             fs.mkdirSync(outputPath, { recursive: true })
@@ -51,9 +50,9 @@ export class CompExec extends BashExec {
 
         fs.appendFileSync(outputPath + "/addon.scss", options.styleData)
     }
-    private fsExistsSync(path: string) {
+    private fsExistsSync(dir: string) {
         try {
-            fs.accessSync(path, fs.constants.R_OK | fs.constants.W_OK)
+            fs.accessSync(dir, fs.constants.R_OK | fs.constants.W_OK)
         } catch (err) {
             return false
         }
@@ -61,7 +60,7 @@ export class CompExec extends BashExec {
     }
     // 展示 components
     private async showComponents(options: IOptions) {
-        const outputPath = options.output + "/" + options.pName + "/tests/dummy/app/templates/" + options.rName + ".hbs"
+        const outputPath = path.resolve(options.output, options.pName, "/tests/dummy/app/templates/" + options.rName + ".hbs")
         const hbsData = fs.readFileSync(outputPath, "utf8")
         let containerStart: string = ""
         const containerBody = options.showData
