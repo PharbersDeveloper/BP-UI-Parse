@@ -3,7 +3,6 @@
 import * as fs from "fs"
 import path from "path"
 import { BashExec } from "./bashexec"
-
 const baseFileAddress = "test/data/styles/base.css"
 // 将 base.css 的内容移动到项目的 addonName/addon/styles/_base.scss 内。
 export class AddBaseClass extends BashExec {

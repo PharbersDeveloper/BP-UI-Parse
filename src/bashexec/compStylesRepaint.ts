@@ -30,7 +30,8 @@ export class CompStylesRepaint extends BashExec {
     private async repaintCompStyles(option: IReStyleOpt) {
         const { output, pName, styleData } = option
         const folderName: string = this.isAddon ? "addon" : "app"
-        const outputPath: string = path.resolve(output, pName, folderName, "styles")
+        const stylePath: string = this.isAddon ? "tests/dummy/app" : "app"
+        const outputPath: string = path.resolve(output, pName, stylePath, "styles")
         const filePath: string = outputPath + `/${folderName}.scss`
         const existFile: boolean = this.fsExistsSync(outputPath)
         if (!existFile) {
@@ -61,7 +62,9 @@ export class CompStylesRepaint extends BashExec {
         // 所以会导致组件样式重复书写好多次
         // 在 ember project 中可以根据路由来写样式
         // 在 ember addon 中只对最外层展示组件写，内部通过递归加层级。
-        fs.appendFileSync(filePath, `@import "./${option.rName}.scss";`)
+        if (!this.isAddon) {
+            fs.appendFileSync(filePath, `@import "./${option.rName}.scss";`)
+        }
 
         fs.appendFileSync(filePath, styleData)
 

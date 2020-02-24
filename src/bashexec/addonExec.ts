@@ -10,7 +10,7 @@ export class EmberAddonExec extends BashExec {
         if (configResult.getIsAddon()) {
             this.args = ["addon", name, "--skip-npm"]
         } else {
-            this.args = ["new", name, "--skip-npm"]
+            this.args = ["new", name, "--skip-npm", "--no-welcome"]
         }
 
     }

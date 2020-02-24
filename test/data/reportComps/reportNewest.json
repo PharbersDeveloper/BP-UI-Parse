@@ -439,42 +439,47 @@
                                     "styleAttrs": []
                                 },
                                 {
-                                    "id": "bp-text-creater",
-                                    "type": "BPText",
-                                    "text": "datepicker placeholder",
-                                    "name": "bp-text",
-                                    "className": "header-datepicker",
-                                    "css": [
-                                        {
-                                            "k": "height",
-                                            "v": "auto"
-                                        },
-                                        {
-                                            "k": "width",
-                                            "v": "auto"
-                                        },
-                                        {
-                                            "k": "padding",
-                                            "v": "0"
-                                        },
-                                        {
-                                            "k": "background",
-                                            "v": "transparent"
-                                        }
-                                    ],
-                                    "components": [],
+                                    "id": "test",
+                                    "type": "BPDatePicker",
+                                    "icon": "calendar",
+                                    "text": "simon test",
+                                    "name": "bp-date-picker",
+                                    "css": [],
                                     "attrs": [
                                         {
-                                            "name": "tagName",
-                                            "value": "h2",
-                                            "type": "string"
+                                            "name": "range",
+                                            "value": false,
+                                            "type": "boolean"
                                         },
                                         {
-                                            "name": "classNames",
-                                            "value": "title-inverse"
+                                            "name": "type",
+                                            "value": "month"
+                                        },
+                                        {
+                                            "name": "endDate",
+                                            "value": "endDate",
+                                            "type": "variable"
+                                        },
+                                        {
+                                            "name": "confirmAction",
+                                            "value": "changeDate",
+                                            "type": "variable"
+                                        },
+                                        {
+                                            "name": "pid",
+                                            "value": "date-picker-month"
                                         }
                                     ],
-                                    "styleAttrs": []
+                                    "styleAttrs": [
+                                        {
+                                            "name": "style",
+                                            "value": "white"
+                                        },
+                                        {
+                                            "name": "size",
+                                            "value": "small"
+                                        }
+                                    ]
                                 }
                             ],
                             "attrs": [],
@@ -525,8 +530,12 @@
                                             "v": "0 24px"
                                         },
                                         {
-                                            "k": "positon",
+                                            "k": "position",
                                             "v": "relative"
+                                        },
+                                        {
+                                            "k": "background",
+                                            "v": "transparent"
                                         }
                                     ],
                                     "attrs": [
@@ -540,7 +549,8 @@
                                         },
                                         {
                                             "name": "clickChange",
-                                            "value": true
+                                            "value": false,
+                                            "type": "boolean"
                                         },
                                         {
                                             "name": "vid",
@@ -548,7 +558,8 @@
                                         },
                                         {
                                             "name": "step",
-                                            "value": 200
+                                            "value": 200,
+                                            "type": "number"
                                         }
                                     ],
                                     "styleAttrs": [
@@ -557,7 +568,7 @@
                                             "value": true
                                         }
                                     ],
-                                    "events": ["click"]
+                                    "components": []
                                   }
                             ],
                             "attrs": [],
@@ -765,21 +776,26 @@
                                             "attrs": [
                                                 {
                                                     "name": "eid",
-                                                    "value": "china-demo-first001"
+                                                    "value": "5e15ca980f84221d01409e63"
+                                                },
+                                                {
+                                                    "name": "store",
+                                                    "value": "this.store",
+                                                    "type":"variable"
                                                 },
                                                 {
                                                     "name": "startDate",
-                                                    "value": "201801",
+                                                    "value": "startDate",
                                                     "type": "variable"
                                                 },
                                                 {
                                                     "name": "endDate",
-                                                    "value": "201901",
+                                                    "value": "endDate",
                                                     "type": "variable"
                                                 },
                                                 {
                                                     "name": "prodName",
-                                                    "value": "TestProdName",
+                                                    "value": "prodName",
                                                     "type": "variable"
                                                 },
                                                 {
@@ -860,7 +876,7 @@
                                                 {
                                                     "id": "china-title",
                                                     "type": "BPText",
-                                                    "text": "Viread | 所在市场城市概况",
+                                                    "text": "{{prodName}} | 所在市场城市概况",
                                                     "name": "bp-text",
                                                     "className": "chart-title",
                                                     "layout": [],
@@ -896,7 +912,7 @@
                                                 {
                                                     "id": "chart-subtitle",
                                                     "type": "BPText",
-                                                    "text": "浙江省",
+                                                    "text": "{{provName}}",
                                                     "name": "bp-text",
                                                     "className": "chart-subtitle",
                                                     "layout": [],
@@ -954,21 +970,26 @@
                                             "attrs": [
                                                 {
                                                     "name": "eid",
-                                                    "value": "scatter-demo-first002"
+                                                    "value": "5e15cc6a0f84221d01409e89"
+                                                },
+                                                {
+                                                    "name": "store",
+                                                    "value": "this.store",
+                                                    "type": "variable"
                                                 },
                                                 {
                                                     "name": "startDate",
-                                                    "value": "card.startDate",
+                                                    "value": "startDate",
                                                     "type": "variable"
                                                 },
                                                 {
                                                     "name": "endDate",
-                                                    "value": "card.endDate",
+                                                    "value": "endDate",
                                                     "type": "variable"
                                                 },
                                                 {
                                                     "name": "currentProv",
-                                                    "value": "card.prodName",
+                                                    "value": "prodName",
                                                     "type": "variable"
                                                 },
                                                 {
@@ -1060,8 +1081,12 @@
                                             "v": "border-box"
                                         },
                                         {
-                                            "k": "overflow",
+                                            "k": "overflow-x",
                                             "v": "auto"
+                                        },
+                                        {
+                                            "k": "overflow-y",
+                                            "v": "hidden"
                                         },
                                         {
                                             "k": "box-shadow",
@@ -1214,15 +1239,15 @@
                                                 },
                                                 {
                                                     "k": "height",
-                                                    "v": "auto"
-                                                },
-                                                {
-                                                    "k": "padding",
-                                                    "v": "0 0 24px"
+                                                    "v": "calc(100% - 93px)"
                                                 },
                                                 {
                                                     "k": "margin",
                                                     "v": "0"
+                                                },
+                                                {
+                                                    "k": "padding",
+                                                    "v": "0 24px"
                                                 },
                                                 {
                                                     "k": "position",
@@ -1364,7 +1389,12 @@
                                                     "attrs": [
                                                         {
                                                             "name": "eid",
-                                                            "value": "stack-demo-first001"
+                                                            "value": "5e15cd240f84221d01409e96"
+                                                        },
+                                                        {
+                                                            "name": "store",
+                                                            "value": "this.store",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "confReqAdd",
@@ -1373,23 +1403,28 @@
                                                         },
                                                         {
                                                             "name": "provName",
-                                                            "value": "广东"
+                                                            "value": "provName",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "cityName",
-                                                            "value": "广州市"
+                                                            "value": "cityName",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "startDate",
-                                                            "value": "201801"
+                                                            "value": "startDate",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "endDate",
-                                                            "value": "201901"
+                                                            "value": "endDate",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "prodName",
-                                                            "value": "代文"
+                                                            "value": "provName",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "chartData",
@@ -1477,7 +1512,12 @@
                                                     "attrs": [
                                                         {
                                                             "name": "eid",
-                                                            "value": "line-demo-first003"
+                                                            "value": "5e15cd7e0f84221d01409ea3"
+                                                        },
+                                                        {
+                                                            "name": "store",
+                                                            "value": "this.store",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "confReqAdd",
@@ -1486,23 +1526,28 @@
                                                         },
                                                         {
                                                             "name": "provName",
-                                                            "value": "广东"
+                                                            "value": "provName",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "cityName",
-                                                            "value": "广州市"
+                                                            "value": "cityName",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "startDate",
-                                                            "value": "201801"
+                                                            "value": "startDate",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "endDate",
-                                                            "value": "201901"
+                                                            "value": "endDate",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "prodName",
-                                                            "value": "代文"
+                                                            "value": "provName",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "chartData",
@@ -1590,7 +1635,12 @@
                                                     "attrs": [
                                                         {
                                                             "name": "eid",
-                                                            "value": "stack-demo-first002"
+                                                            "value": "5e15cd830f84221d01409ea4"
+                                                        },
+                                                        {
+                                                            "name": "store",
+                                                            "value": "this.store",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "confReqAdd",
@@ -1599,23 +1649,28 @@
                                                         },
                                                         {
                                                             "name": "provName",
-                                                            "value": "广东"
+                                                            "value": "provName",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "cityName",
-                                                            "value": "广州市"
+                                                            "value": "cityName",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "startDate",
-                                                            "value": "201801"
+                                                            "value": "startDate",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "endDate",
-                                                            "value": "201901"
+                                                            "value": "endDate",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "prodName",
-                                                            "value": "代文"
+                                                            "value": "prodName",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "chartData",
@@ -1802,7 +1857,12 @@
                                                     "attrs": [
                                                         {
                                                             "name": "eid",
-                                                            "value": "line-demo-first002"
+                                                            "value": "5e15cd870f84221d01409ea5"
+                                                        },
+                                                        {
+                                                            "name": "store",
+                                                            "value": "this.store",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "confReqAdd",
@@ -1811,23 +1871,28 @@
                                                         },
                                                         {
                                                             "name": "provName",
-                                                            "value": "广东"
+                                                            "value": "provName",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "cityName",
-                                                            "value": "广州市"
+                                                            "value": "cityName",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "startDate",
-                                                            "value": "201801"
+                                                            "value": "startDate",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "endDate",
-                                                            "value": "201901"
+                                                            "value": "endDate",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "prodName",
-                                                            "value": "代文"
+                                                            "value": "prodName",
+                                                            "type": "variable"
                                                         },
                                                         {
                                                             "name": "chartData",

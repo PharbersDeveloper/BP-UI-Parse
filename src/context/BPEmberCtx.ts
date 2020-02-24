@@ -14,6 +14,7 @@ import { GenMWStylesExec } from "../bashexec/genMWStylesExec"
 import { RemoveFolderExec } from "../bashexec/removeFolderExec"
 import { SassyStyles } from "../bashexec/sassyStyles"
 import phLogger from "../logger/phLogger"
+import { AddChartTools } from "../utils/AddChartTools"
 import BPComp from "../widgets/Comp"
 import BPSlot from "../widgets/slotleaf/BPSlot"
 import BPMainWindow from "../widgets/windows/BPMainWindow"
@@ -30,8 +31,7 @@ export default class BPEmberCtx extends BPCtx {
         super()
         phLogger.info("exec something with emberjs")
         this.projectName = projectName
-        const output: string = configResult.getOutput()
-        this.output = output
+        this.output = configResult.getOutput()
     }
 
     public cmdStart() {
@@ -83,7 +83,8 @@ export default class BPEmberCtx extends BPCtx {
                 geneSlot[0],
                 new AddSvgFiles(output, projectName),
                 new AddBaseClass(output, projectName),
-                new SassyStyles(output, projectName)
+                new SassyStyles(output, projectName),
+                new AddChartTools(output, projectName)
             ]
         } else {
             return [

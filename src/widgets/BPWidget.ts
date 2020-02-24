@@ -200,11 +200,11 @@ export abstract class BPWidget extends BPObject {
                     return ` ${item.name}="${item.value}"`
                 case "number":
                 case "boolean":
+                case "variable":
                 case "callback":
                     return ` ${item.name}=${item.value}`
                 case "function":
                 case "object":
-                case "variable":
                 case "array":
                     return ``
                 default:
@@ -295,12 +295,15 @@ export abstract class BPWidget extends BPObject {
         const className: string = comp.className || comp.name
         const pointClass: string = prefix ? `${prefix} .${className} ` : `.${className} `
         const styleProperties: CssProperty[] = [...comp.css, ...comp.layout]
+        if (styleProperties.length === 0) {
+            return `\r`
+        }
         let pseudoStyleBody: string = ""
         const baseClass: CssProperty[] = styleProperties.filter((item) => item.pe === "css" && item.tp === "css")
 
         styleProperties.forEach((item: CssProperty) => {
-            let insidePointClass: string
-            let styleCont: string
+            let insidePointClass: string = ""
+            let styleCont: string = ""
             switch (true) {
                 // 处理伪类
                 case (item.pe === "css" && item.tp !== "css"):
