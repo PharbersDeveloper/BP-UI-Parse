@@ -1,9 +1,9 @@
 "use strict"
 
 import { CompExec } from "../../bashexec/compExec"
-import {CompStylesRepaint} from "../../bashexec/compStylesRepaint"
+import { CompStylesRepaint } from "../../bashexec/compStylesRepaint"
 import BPCtx from "../../context/BPCtx"
-import { IAttrs, IOptions , IReStyleOpt} from "../../properties/Options"
+import { IAttrs, IOptions, IReStyleOpt } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 
@@ -16,7 +16,7 @@ export default class BPText extends BPWidget {
     public paint(ctx: BPCtx, comp: BPComp, isShow: boolean = false) {
         const execList: any[] = []
 
-        const options: IOptions  = {
+        const options: IOptions = {
             comp,
             // hbsData: this.paintHBS(),
             logicData: this.paintLogic(comp),
@@ -52,19 +52,19 @@ export default class BPText extends BPWidget {
         const fileDataEnd = this.paintLoginEnd()
         const { attrs, styleAttrs } = comp
         // TODO  action / event / state
-        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
+        const attrsBody = [...attrs, ...styleAttrs].map((item: IAttrs) => {
 
             if (item.type === "string" || !item.type) {
-                return  `${item.name}: "${item.value}",\n`
+                return `${item.name}: "${item.value}",\n`
             } else if (item.type === "variable") {
                 return ``
             } else {
-                return  `${item.name}: ${item.value},\n`
+                return `${item.name}: ${item.value},\n`
             }
 
         }).join("")
         let classNameBindings = ""
-        styleAttrs.forEach( (item: IAttrs) => {
+        styleAttrs.forEach((item: IAttrs) => {
             classNameBindings += `'${item.name}',`
         })
 

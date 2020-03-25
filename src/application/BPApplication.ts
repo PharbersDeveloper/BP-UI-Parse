@@ -19,9 +19,8 @@ export default class BPApplication extends BPObject {
     public routers: BPMainWindow[] = []
     private cmdlst = new BashSpwanCmds()
 
-    public run(args: string[]) {
-        const projectPath = args[1] + "/test/data/reportComps" // TODO: 解析工作
-        const inputPath = projectPath + "/report1223.json"
+    public run(inputPath: string) {
+
         const jsonConvert: JsonConvert = new JsonConvert()
         const inputFileData = fs.readFileSync(inputPath, "utf8")
         const appContent = jsonConvert.deserializeObject(JSON.parse(inputFileData), ParseBPML)

@@ -3,7 +3,7 @@
         "paint": [
             "ember"
         ],
-        "name": "basic-components"
+        "name": "basic-components-v3"
     },
     "routers": [
         {
@@ -110,10 +110,6 @@
                         {
                             "name": "max",
                             "value": "2100-12-31"
-                        },
-                        {
-                            "name": "value",
-                            "value": "2020-1-1"
                         }
                     ],
                     "styleAttrs": [
@@ -713,7 +709,7 @@
                             "v": "0 24px"
                         },
                         {
-                            "k": "positon",
+                            "k": "position",
                             "v": "relative"
                         }
                     ],
@@ -1085,6 +1081,11 @@
                             "type": "string"
                         },
                         {
+                            "name": "store",
+                            "value": "this.store",
+                            "type": "variable"
+                        },
+                        {
                             "name": "confReqAdd",
                             "value": "http://192.168.100.25:5555",
                             "type": "string"
@@ -1148,6 +1149,11 @@
                         {
                             "name": "eid",
                             "value": "scatter-demo-first001"
+                        },
+                        {
+                            "name":"store",
+                            "value":"this.store",
+                            "type": "variable"
                         },
                         {
                             "name": "confReqAdd",
@@ -1219,6 +1225,11 @@
                             "value": "line-demo-first001"
                         },
                         {
+                            "name": "store",
+                            "value": "this.store",
+                            "type": "variable"
+                        },
+                        {
                             "name": "confReqAdd",
                             "value": "http://192.168.100.25:5555",
                             "type": "string"
@@ -1283,6 +1294,11 @@
                             "value": "stack-demo-first001"
                         },
                         {
+                            "name": "store",
+                            "value": "this.store",
+                            "type": "variable"
+                        },
+                        {
                             "name": "confReqAdd",
                             "value": "http://192.168.100.25:5555",
                             "type": "string"
@@ -1345,6 +1361,11 @@
                         {
                             "name": "eid",
                             "value": "bar-demo-first001"
+                        },
+                        {
+                            "name":"store",
+                            "value": "this.store",
+                            "type": "variable"
                         }
                     ],
                     "css": [
@@ -1597,6 +1618,53 @@
                             "name": "alignContent",
                             "value": "wrap-flex-start",
                             "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "simple comps",
+            "type": "BPMainWindow",
+            "cat": "0",
+            "name": "simple",
+            "path": "simple",
+            "layout":[],
+            "css": [],
+            "components": [
+                {
+                    "id": "components-image",
+                    "type": "BPImg",
+                    "cat": "0",
+                    "name": "bp-img",
+                    "className": "login-img",
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "100px"
+                        },
+                        {
+                            "k": "height",
+                            "v": "100px"
+                        },
+                        {
+                            "k": "padding",
+                            "v": "0"
+                        },
+                        {
+                            "k": "margin",
+                            "v": "0"
+                        }
+                    ],
+                    "attrs": [
+                        {
+                            "name": "src",
+                            "value": "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwvKILghAAAXdSSmnlysAALGvgEMwnEABd1h654.jpg",
+                            "type": "string"
+                        },
+                        {
+                            "name": "alt",
+                            "value": "image description"
                         }
                     ]
                 }

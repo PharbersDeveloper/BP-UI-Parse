@@ -1,6 +1,7 @@
 "use strict"
 
 import * as fs from "fs"
+import path from "path"
 import phLogger from "../logger/phLogger"
 import { IOptions } from "../properties/Options"
 import { BashExec } from "./bashexec"
@@ -16,9 +17,9 @@ export class CompExec extends BashExec {
         this.isShow = isShow
     }
     public async exec(callback: (code: number) => void) {
-        this.changeCompProperties(this.options)
-        this.addCompStyles(this.options)
-        this.changeHBSFile(this.options)
+        this.changeCompProperties()
+        this.addCompStyles()
+        this.changeHBSFile()
         if (this.isShow) {
             this.showComponents(this.options)
         }
@@ -27,33 +28,37 @@ export class CompExec extends BashExec {
         }
     }
     // 根据 bppushbutton 之类的类，修改 components 的属性
-    private async changeCompProperties(options: IOptions) {
-        const outputPath = options.output + "/" + options.pName + "/addon/components/" + options.comp.name + ".js"
+    private async changeCompProperties() {
+        const { output, pName, comp, logicData } = this.options
+        const outputPath = path.resolve(output, pName, "addon/components", comp.name + ".js")
 
-        fs.writeFileSync(outputPath, options.logicData)
+        fs.writeFileSync(outputPath, logicData)
     }
     // 修改 handlebars
-    private async changeHBSFile(options: IOptions) {
-        const outputPath = options.output + "/" + options.pName + "/addon/templates/components/" + options.comp.name + ".hbs"
+    private async changeHBSFile() {
+        const { output, pName, comp, hbsData } = this.options
 
-        const hbsData = options.hbsData ? options.hbsData : "{{yield}}"
+        const outputPath = path.resolve(output, pName, "addon/templates/components", comp.name + ".hbs")
 
-        fs.writeFileSync(outputPath, hbsData)
+        const hbsDataResult = hbsData ? hbsData : "{{yield}}"
+
+        fs.writeFileSync(outputPath, hbsDataResult)
     }
     // 生成 css 类
-    private async addCompStyles(options: IOptions) {
+    private async addCompStyles() {
+        const { output, pName, styleData } = this.options
 
-        const outputPath = options.output + "/" + options.pName + "/addon/styles"
+        const outputPath = path.resolve(output, pName, "addon/styles")
         const existFile: boolean = this.fsExistsSync(outputPath)
         if (!existFile) {
             fs.mkdirSync(outputPath, { recursive: true })
         }
 
-        fs.appendFileSync(outputPath + "/addon.scss", options.styleData)
+        fs.appendFileSync(outputPath + "/addon.scss", styleData)
     }
-    private fsExistsSync(path: string) {
+    private fsExistsSync(dir: string) {
         try {
-            fs.accessSync(path, fs.constants.R_OK | fs.constants.W_OK)
+            fs.accessSync(dir, fs.constants.R_OK | fs.constants.W_OK)
         } catch (err) {
             return false
         }
@@ -61,7 +66,7 @@ export class CompExec extends BashExec {
     }
     // 展示 components
     private async showComponents(options: IOptions) {
-        const outputPath = options.output + "/" + options.pName + "/tests/dummy/app/templates/" + options.rName + ".hbs"
+        const outputPath = path.resolve(options.output, options.pName, "/tests/dummy/app/templates/" + options.rName + ".hbs")
         const hbsData = fs.readFileSync(outputPath, "utf8")
         let containerStart: string = ""
         const containerBody = options.showData

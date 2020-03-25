@@ -1,25 +1,28 @@
 "use strict"
 
 import * as fs from "fs"
-
-import * as path from "path"
+import path from "path"
+import configResult from "../application/configResult"
 import phLogger from "../logger/phLogger"
 import { BashExec } from "./bashexec"
 
 export class AddLayDateFiles extends BashExec {
     protected cmd = "ember"
-
+    private isAddon: boolean = true
     constructor(output: string, pName: string) {
         super()
+        this.isAddon = configResult.getIsAddon()
         this.args = [output, pName]
     }
     public async exec(callback: (code: number) => void) {
         const args = this.args
         const srcDir = path.join(process.argv[1], "test", "data", "pharbersDatePicker")
-        const tarDir = args[0] + "/" + args[1] + "/vendor/laydate"
-        this.copyDir(srcDir, tarDir, (err) => {if (err) {
-            phLogger.info(err)
-          }})
+        const tarDir = path.resolve(args[0], args[1], "vendor/laydate")
+        this.copyDir(srcDir, tarDir, (err) => {
+            if (err) {
+                phLogger.info(err)
+            }
+        })
 
         // ember cli build 文件中引入laydate
         this.emberBuildImport()
@@ -31,33 +34,35 @@ export class AddLayDateFiles extends BashExec {
 
     private emberBuildImport() {
         const args = this.args
-        const src = args[0] + "/" + args[1] + "/ember-cli-build.js"
-        const content = `'use strict';
-            const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+        const src = path.resolve(args[0], args[1], "ember-cli-build.js")
+        const EmberIns: string = this.isAddon ? "EmberAddon" : "EmberApp"
+        const projType: string = this.isAddon ? "addon" : "app"
+        const content = `
+'use strict';
+const ${EmberIns} = require('ember-cli/lib/broccoli/ember-${projType}');
 
-            module.exports = function(defaults) {
-            let app = new EmberAddon(defaults, {
-                // Add options here
-            });
-            // layui-laydate
-                app.import("vendor/laydate/theme/default/font/iconfont.eot", {
-                    destDir: '/assets/laydate/fonts'
-                })
-                app.import("vendor/laydate/theme/default/font/iconfont.svg", {
-                    destDir: '/assets/laydate/fonts'
-                })
-                app.import("vendor/laydate/theme/default/font/iconfont.ttf", {
-                    destDir: '/assets/laydate/fonts'
-                })
-                app.import("vendor/laydate/theme/default/font/iconfont.woff", {
-                    destDir: '/assets/laydate/fonts'
-                })
-                app.import("vendor/laydate/theme/default/laydate.css")
-            app.import("vendor/laydate/laydate.js")
-            app.import('node_modules/echarts/map/js/china.js');
-            app.import('node_modules/echarts/map/js/province/zhejiang.js');
-            return app.toTree();
-            };`
+module.exports = function(defaults) {
+    let app = new ${EmberIns}(defaults, {
+        // Add options here
+    });
+    // layui-laydate
+    app.import("vendor/laydate/theme/default/font/iconfont.eot", {
+        destDir: '/assets/laydate/fonts'
+    })
+    app.import("vendor/laydate/theme/default/font/iconfont.svg", {
+        destDir: '/assets/laydate/fonts'
+    })
+    app.import("vendor/laydate/theme/default/font/iconfont.ttf", {
+        destDir: '/assets/laydate/fonts'
+    })
+    app.import("vendor/laydate/theme/default/font/iconfont.woff", {
+        destDir: '/assets/laydate/fonts'
+    })
+    app.import("vendor/laydate/theme/default/laydate.css")
+    app.import("vendor/laydate/laydate.js")
+    app.import('node_modules/echarts/map/js/china.js');
+    return app.toTree();
+};`
         fs.writeFileSync(src, content)
     }
 

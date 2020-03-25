@@ -48,7 +48,7 @@ export default class BPTable extends BPWidget {
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
         const {attrs, styleAttrs, events } = comp
-        const attrsBody = this.logicAttrs([...attrs, styleAttrs])
+        const attrsBody = this.logicAttrs([...attrs, ...styleAttrs])
         let classNameBindings = ""
         styleAttrs.forEach((item: IAttrs) => {
             classNameBindings += `"${item.name}",`
@@ -64,25 +64,38 @@ export default class BPTable extends BPWidget {
                 layout,
                 ajax: service(),
                 classNames:["${comp.name}"],
-                content: 'default',
                 classNameBindings: ['border:border-table',${classNameBindings}],
                 attributeBindings: [''],
                 ${attrsBody}
+                didUpdateAttrs() {
+                    this._super(...arguments);
+                    this.tableData.then(data => {
+                        this.setProperties({
+                            columns: data.columns,
+                            rows: data.rows
+                        })
+                    })
+                },
                 didInsertElement() {
                     this._super(...arguments);
-                    this.getData()
-
+                    // this.getData()
+                    this.tableData.then(data => {
+                        this.setProperties({
+                            columns: data.columns,
+                            rows: data.rows
+                        })
+                    })
                     const that = this
                     const thisComp = document.getElementById(this.get('tid'))
                     const table = thisComp.getElementsByClassName('ember-table')[0]
 
-                    table.onscroll = function(){
+                    table.onscroll = function () {
                         const ths = table.getElementsByTagName('th')
                         const length = ths.length
                         const leftWidth = ths[0].offsetWidth
                         const leftHeight = table.offsetHeight
 
-                        const rightWidth = ths[length-2].offsetWidth
+                        const rightWidth = ths[length - 2].offsetWidth
 
                         that.set('leftWidth', leftWidth)
                         that.set('leftHeight', leftHeight)
@@ -93,7 +106,7 @@ export default class BPTable extends BPWidget {
                             that.set('tableLeftFixed', true)
                         }
 
-                        if ((ths[length-1].offsetLeft - ths[length-2].offsetLeft) < rightWidth) {
+                        if ((ths[length - 1].offsetLeft - ths[length - 2].offsetLeft) < rightWidth) {
                             that.set('tableRightFixed', true)
                         } else {
                             that.set('tableRightFixed', false)
@@ -122,7 +135,6 @@ export default class BPTable extends BPWidget {
 
                         this.set("columns", arrC)
 
-                        window.console.log(data)
                         return ajax.request(queryAddress + '?tag=array', {
                             method: 'POST',
                             data: JSON.stringify({"sql": query.dimensionSql}),
@@ -159,11 +171,9 @@ export default class BPTable extends BPWidget {
                                 })
                                 arrR.push(obj)
                             })
-                            window.console.log(arrR)
                             this.set('rows', arrR)
                         })
                     })
-                    window.console.log('new data')
                 },
                 getData() {
                     if (!this.get('rows') && !this.get('columns')) {
@@ -189,7 +199,7 @@ export default class BPTable extends BPWidget {
                             it.isDesending = false
 
                             if (sorts.length >= 1) {
-                                if(it.valuePath === sorts[0].valuePath) {
+                                if (it.valuePath === sorts[0].valuePath) {
                                     it.isAscending = sorts[0].isAscending
                                     it.isDesending = !sorts[0].isAscending
                                 }

@@ -17,51 +17,59 @@ export default class BPInput extends BPWidget {
         const execList: any[] = []
 
         const options: IOptions = {
-                comp,
-                hbsData: this.paintHBS(),
-                logicData: this.paintLogic(comp), // js
-                output: this.output,
-                pName: this.projectName,
-                rName: this.routeName,
-                showData: this.paintShow(comp), // hbs
-                styleData: this.paintStyle(comp) //  继承自 BPWidget 的方法, css
+            comp,
+            hbsData: this.paintHBS(),
+            logicData: this.paintLogic(comp), // js
+            output: this.output,
+            pName: this.projectName,
+            rName: this.routeName,
+            showData: this.paintShow(comp), // hbs
+            styleData: this.paintStyle(comp) //  继承自 BPWidget 的方法, css
         }
         execList.push(new CompExec(options, isShow))
 
         return execList
-        }
-    public paintShow(comp: BPComp) {
-        const {attrs, styleAttrs} = comp
-        const attrsBody = [...attrs, ...styleAttrs].map( (item: IAttrs) => {
-            if (typeof item.value === "string") {
-                return ` ${item.name}='${item.value}'`
-            } else {
-                return  ` ${item.name}=${item.value}`
-            }
-        }).join("")
-
-        return `{{${comp.name} ssc="ssc" emit="emit"
-            disconnect="disconnect" ${attrsBody}}}`
-        // return "{{#" + comp.name + "}}" + comp.text + "{{/" + comp.name + "}}"
     }
+    public paintShow(comp: BPComp) {
+        const { attrs, styleAttrs } = comp
+        // TODO  action / event / state
+        const attrsBody = this.showProperties([...attrs, ...styleAttrs], comp)
+        // 判断attrs 中是否有 classNames ，如果没有，则使用 className 属性的值
+        const isClassNames = attrs.some((attr: IAttrs) => attr.name === "classNames")
+        const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
+        return `{{${comp.name} ${classNames} ${attrsBody}}}`
+    }
+    // public paintShow(comp: BPComp) {
+    //     const { attrs, styleAttrs } = comp
+    //     const attrsBody = [...attrs, ...styleAttrs].map((item: IAttrs) => {
+    //         if (typeof item.value === "string") {
+    //             return ` ${item.name}='${item.value}'`
+    //         } else {
+    //             return ` ${item.name}=${item.value}`
+    //         }
+    //     }).join("")
+
+    //     return `{{${comp.name} ssc="ssc" emit="emit"
+    //         disconnect="disconnect" ${attrsBody}}}`
+    // }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
 
         const fileDataStart = this.paintLoginStart(comp)
         const fileDataEnd = this.paintLoginEnd()
-        const {attrs, styleAttrs, events } = comp
+        const { attrs, styleAttrs, events } = comp
 
-        const attrsBody = attrs.map( (item: IAttrs) => {
+        const attrsBody = attrs.map((item: IAttrs) => {
             if (typeof item.value === "string") {
                 return `${item.name}: '${item.value}',`
             } else {
-                return  `${item.name}: ${item.value},`
+                return `${item.name}: ${item.value},`
             }
         }).join("")
         let styleAttrsBody = ""
         let classNameBindings = ""
 
-        styleAttrs.forEach( (item: IAttrs) => {
+        styleAttrs.forEach((item: IAttrs) => {
             if (typeof item.value === "string") {
                 styleAttrsBody += `${item.name}: '${item.value}',`
             } else {
@@ -78,7 +86,8 @@ export default class BPInput extends BPWidget {
             classNames:['${comp.name}'],
             content: 'default',
             classNameBindings: ['currentStates', 'currentSize'],
-            attributeBindings: ['disabled:disabled', 'placeholder', 'value'],
+            attributeBindings: ['disabled:disabled', 'type', 'placeholder', 'value'],
+            type: "text",
             ${attrsBody}
             ${styleAttrsBody}
             currentStates: computed('states', function () {
@@ -107,5 +116,5 @@ export default class BPInput extends BPWidget {
         {{else}}
             {{value}}
         {{/if}}`
-     }
+    }
 }

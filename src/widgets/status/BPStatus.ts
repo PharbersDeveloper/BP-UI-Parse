@@ -75,10 +75,8 @@ export default class BPStatus extends BPWidget {
             layout,
             tagName:'span',
             classNames:['${comp.name}'],
-            content: 'default',
             classNameBindings: ['currentType', 'currentStyle'],
             attributeBindings: [''],
-            statusContent: null,
             ${attrsBody}
             ${styleAttrsBody}
             currentStyle: computed('subtle', function () {

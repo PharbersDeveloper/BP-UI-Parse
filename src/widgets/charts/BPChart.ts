@@ -3,8 +3,7 @@
 import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
-import { IOptions } from "../../properties/Options"
-import {IAttrs} from "../../properties/Options"
+import { IAttrs, IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 
@@ -82,7 +81,10 @@ export default class BPChart extends BPWidget {
         import $ from 'jquery';
         import { inject as service } from '@ember/service';
         import { all } from 'rsvp';
-        import EmberObject from '@ember/object';`
+        import EmberObject from '@ember/object';
+        import { tooltips,otherConfCb } from "../utils/tooltips";
+        import { copy } from '@ember/object/internals';
+    `
     }
     public basicStrHead() {
         return `export default Component.extend({`
@@ -109,12 +111,33 @@ export default class BPChart extends BPWidget {
 
             const chartId = this.eid;
             this.set('chartId', chartId)
-            this.get('ajax').request(this.confReqAdd+'/chartsConfig', {
-                method: 'GET',
-                data: chartId
-            }).then(data => {
-                if (!isEmpty(data.id) && !isEmpty(data.condition)) {
-                    this.generateChartOption(data.config, data.condition);
+            let chartConfPromise = null
+            if (isEmpty(this.store)) {
+                chartConfPromise = this.get('ajax').request(this.confReqAdd, {
+                    method: 'GET',
+                    data: chartId
+                })
+            } else {
+                chartConfPromise = this.store.findRecord("chart", chartId)
+            }
+
+            chartConfPromise.then(data => {
+                const config = data.styleConfigs
+                const condition = data.dataConfigs
+                if (!isEmpty(data.id) && !isEmpty(condition)) {
+                    // 处理提示框
+                    let tooltipType = config.tooltip.formatter;
+
+                    if (tooltipType in tooltips) {
+                        config.tooltip.formatter = tooltips[tooltipType]
+                    } else {
+                        delete config.tooltip.formatter
+                    }
+                    this.setProperties({
+                        dataConfig: config,
+                        dataCondition: condition
+                    });
+                    this.generateChartOption(config, condition);
                 }
             })
         },`

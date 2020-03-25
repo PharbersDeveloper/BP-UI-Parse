@@ -294,13 +294,23 @@ export abstract class BPWidget extends BPObject {
 
         const className: string = comp.className || comp.name
         const pointClass: string = prefix ? `${prefix} .${className} ` : `.${className} `
-        const styleProperties: CssProperty[] = [...comp.css, ...comp.layout]
+
+        // const styleProperties: CssProperty[] = [...comp.css, ...comp.layout]
+        // 因为在 BPApplication line 78 对来自 json 文件的 comp 的 css 以及 layout
+        // 属性进行了合并，并将处理后的数组放入了 BPComp 实例的 css 属性中，所以这里不再需要
+        // 获取实例的 layout 属性。因为这时实例的 layout 属性还是未经处理的 ParseCssConf
+        // 对象
+        const styleProperties: CssProperty[] = [...comp.css]
+
+        if (styleProperties.length === 0) {
+            return `\r`
+        }
         let pseudoStyleBody: string = ""
         const baseClass: CssProperty[] = styleProperties.filter((item) => item.pe === "css" && item.tp === "css")
 
         styleProperties.forEach((item: CssProperty) => {
-            let insidePointClass: string
-            let styleCont: string
+            let insidePointClass: string = ""
+            let styleCont: string = ""
             switch (true) {
                 // 处理伪类
                 case (item.pe === "css" && item.tp !== "css"):
@@ -332,7 +342,6 @@ export abstract class BPWidget extends BPObject {
         const baseStyleBody = baseClass.map((prop: CssProperty) => {
             return `    ${prop.key}: ${prop.value};\r`
         }).join("")
-        // pointClass = `${prefix} .${className} `
 
         const styles = `${pseudoStyleBody}\r${pointClass} {\r${baseStyleBody}}\r`
         const insideStyles: string = comp.components.map((ele) => this.createChainStyles(ele, pointClass)).join("")

@@ -1,10 +1,9 @@
 "use strict"
 
 import * as fs from "fs"
-import * as path from "path"
+import path from "path"
 import phLogger from "../logger/phLogger"
 import { BashExec } from "./bashexec"
-
 // 移动 svg file
 export class AddSvgFiles extends BashExec {
     protected cmd = "ember"
@@ -16,7 +15,7 @@ export class AddSvgFiles extends BashExec {
     public async exec(callback: (code: number) => void) {
         const args = this.args
         const srcDir = path.join(process.argv[1], "test", "data", "icons")
-        const tarDir = args[0] + "/" + args[1] + "/tests/dummy/public"
+        const tarDir = path.resolve(args[0], args[1] , "tests/dummy/public")
         this.copyDir(srcDir, tarDir, (err) => {if (err) {
             phLogger.info(err)
           }})
@@ -25,6 +24,7 @@ export class AddSvgFiles extends BashExec {
             callback(0)
         }
     }
+    // TODO 可提取为 utils
     private copyDir(src: string, dist: string, callback: (err: any) => void) {
         fs.access(dist, (err) => {
             if (err) {
