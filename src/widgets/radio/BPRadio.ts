@@ -38,19 +38,7 @@ export default class BPRadio extends BPWidget {
         const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
         return `{{${comp.name} ${classNames} ${attrsBody}}}`
     }
-    // public paintShow(comp: BPComp) {
-    //     const { attrs, styleAttrs } = comp
-    //     const attrsBody = [...attrs, ...styleAttrs].map((item: IAttrs) => {
-    //         if (typeof item.value === "string") {
-    //             return ` ${item.name}='${item.value}'`
-    //         } else {
-    //             return ` ${item.name}=${item.value}`
-    //         }
-    //     }).join("")
 
-    //     return `{{${comp.name} ssc="ssc" emit="emit"
-    //         disconnect="disconnect" ${attrsBody}}}`
-    // }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
 
@@ -59,10 +47,10 @@ export default class BPRadio extends BPWidget {
         const { attrs, styleAttrs, events } = comp
 
         const attrsBody = attrs.map((item: IAttrs) => {
-            if (typeof item.value === "string") {
-                return `${item.name}: '${item.value}',`
-            } else {
+            if (typeof item.type === "boolean") {
                 return `${item.name}: ${item.value},`
+            } else {
+                return `${item.name}: '${item.value}',`
             }
         }).join("")
         let styleAttrsBody = ""
@@ -85,10 +73,10 @@ export default class BPRadio extends BPWidget {
             classNames:['${comp.name}'],
             content: 'default',
             classNameBindings: [],
-            attributeBindings: ['disabled:disabled', 'type', 'value', 'id', 'name'],
+            attributeBindings: ['disabled:disabled', 'type', 'value', 'name'],
             type: "radio",
             value: "text",
-            id: "rid",
+            rid: "rid",
             name: "radio name",
             ${attrsBody}
             ${styleAttrsBody}
@@ -99,15 +87,24 @@ export default class BPRadio extends BPWidget {
     public paintHBS() {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
-
-        return `${leaf.paintShow()}
+        return `
         {{#if hasBlock}}
             {{yield}}
-            <input type="radio" id={{rid}} name={{name}} value={{value}}>
-            <label for={{id}}>{{value}}</label>
+            {{#if disabled}}
+                <input type="radio" id={{rid}} name={{name}} value={{value}} disabled>
+                <label for={{rid}} style="color: #B3BAC5;">{{value}}</label>
+            {{else}}
+                <input type="radio" id={{rid}} name={{name}} value={{value}}>
+                <label for={{rid}}>{{value}}</label>
+            {{/if}}
         {{else}}
-            <input type="radio" id={{rid}} name={{name}} value={{value}}>
-            <label for={{id}}>{{value}}</label>
+            {{#if disabled}}
+                <input type="radio" id={{rid}} name={{name}} value={{value}} disabled>
+                <label for={{rid}} style="color: #B3BAC5;">{{value}}</label>
+            {{else}}
+                <input type="radio" id={{rid}} name={{name}} value={{value}}>
+                <label for={{rid}}>{{value}}</label>
+            {{/if}}
         {{/if}}`
     }
 }
