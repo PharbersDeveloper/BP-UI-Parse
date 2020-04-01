@@ -39,7 +39,10 @@ export default class BPIcon extends BPWidget {
             }
         }).join("")
 
-        return `{{${comp.name} ssc="ssc" emit="emit" disconnect="disconnect" ${attrsBody}}}`
+        const isClassNames = attrs.some((attr: IAttrs) => attr.name === "classNames")
+        const className = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
+
+        return `{{${comp.name} ssc="ssc" emit="emit" disconnect="disconnect" ${attrsBody} ${className}}}`
     }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法

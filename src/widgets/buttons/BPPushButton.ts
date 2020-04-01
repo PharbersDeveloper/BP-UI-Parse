@@ -92,7 +92,7 @@ export default class BPPushButton extends BPWidget {
         export default Component.extend({
             layout,
             tagName:'button',
-            classNames:['${comp.name}'],
+            classNames:['${comp.name}', '${comp.className}'],
             content: 'default',
             classNameBindings: ['block:btn-block','currentType', 'currentDensity'],
             attributeBindings: ['disabled:disabled'],

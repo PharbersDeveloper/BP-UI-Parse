@@ -1,6 +1,5 @@
 "use strict"
 
-// import { InputExec } from "../../bashexec/widgets/inputs/inputExec"
 import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
@@ -9,7 +8,7 @@ import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 import BPSlot from "../slotleaf/BPSlot"
 
-export default class BPInput extends BPWidget {
+export default class BPDateSelect extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
         super(output, name, routeName)
     }
@@ -39,19 +38,7 @@ export default class BPInput extends BPWidget {
         const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
         return `{{${comp.name} ${classNames} ${attrsBody}}}`
     }
-    // public paintShow(comp: BPComp) {
-    //     const { attrs, styleAttrs } = comp
-    //     const attrsBody = [...attrs, ...styleAttrs].map((item: IAttrs) => {
-    //         if (typeof item.value === "string") {
-    //             return ` ${item.name}='${item.value}'`
-    //         } else {
-    //             return ` ${item.name}=${item.value}`
-    //         }
-    //     }).join("")
 
-    //     return `{{${comp.name} ssc="ssc" emit="emit"
-    //         disconnect="disconnect" ${attrsBody}}}`
-    // }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
 
@@ -60,10 +47,10 @@ export default class BPInput extends BPWidget {
         const { attrs, styleAttrs, events } = comp
 
         const attrsBody = attrs.map((item: IAttrs) => {
-            if (typeof item.value === "string") {
-                return `${item.name}: '${item.value}',`
-            } else {
+            if (typeof item.type === "boolean") {
                 return `${item.name}: ${item.value},`
+            } else {
+                return `${item.name}: '${item.value}',`
             }
         }).join("")
         let styleAttrsBody = ""
@@ -82,39 +69,65 @@ export default class BPInput extends BPWidget {
         import { computed } from '@ember/object';
         export default Component.extend({
             layout,
-            tagName:'input',
-            classNames:['${comp.name}'],
-            content: 'default',
-            classNameBindings: ['currentStates', 'currentSize'],
-            attributeBindings: ['disabled:disabled', 'type', 'placeholder', 'value', 'maxlength'],
-            type: "text",
+            start: 2000,
+            end: 2020,
+            show: false,
+            type: "year",
+            classNames:['bp-input-downdrop'],
+            attributeBindings: ['tabIndex'],
+            inputListType: computed("type", function () {
+                return "input-list-container-"  + this.get("type")
+                // type 目前有 month 和 year
+            }),
+            array: computed("start", "end", function() {
+                let s = Number(this.get("start")),
+                e = Number(this.get("end")),
+                a = []
+
+                for(let i = s; i <= e; i++) {
+                a.push(i)
+                }
+                return a
+            }),
+            value: "2020",
+            tabIndex: '1',
+            focusOut() {
+                this.set('show',false)
+                window.console.log("1")
+            },
             ${attrsBody}
             ${styleAttrsBody}
-            currentStates: computed('states', function () {
-                let states = this.get('states')
-                if (states) {
-                    return "input-" + states
-                } else {
-                    return ''
-                }
-            }),
-            currentSize: computed('size', function () {
-                let size = this.get('size') ? this.get('size') : 'default';
+            actions: {
+                toggleShow() {
+                    // this.set("show", true)
+                    this.toggleProperty("show")
+                  },
+                  chooseItem(index) {
+                    let a = this.get("array")
+                    this.set("value", a[index])
+                    this.set("show", false)
 
-                return "input-" + size
-            }),
-            ${this.slotActions(events, `${comp.name}`)}},`
+                    return false
+                  }
+            }`
 
         return fileDataStart + fileData + fileDataEnd
     }
     public paintHBS() {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
-        return `${leaf.paintShow()}
-        {{#if hasBlock}}
-            {{yield}}
-        {{else}}
-            {{value}}
-        {{/if}}`
+        return `
+        <div class="input-list-container {{inputListType}}">
+        <div class="bp-input select-input" {{action "toggleShow"}} >{{value}}</div>
+        {{#if show}}
+            <div class="input-list">
+                {{#each array as |item index|}}
+                    <span onclick={{action "chooseItem" index bubbles=false}} class="cursor-pointer">{{item}}</span>
+                {{/each}}
+            </div>
+        {{/if}}
+        </div>
+
+        `
     }
 }

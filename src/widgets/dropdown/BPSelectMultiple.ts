@@ -1,6 +1,5 @@
 "use strict"
 
-// import { InputExec } from "../../bashexec/widgets/inputs/inputExec"
 import { CompExec } from "../../bashexec/compExec"
 import BPCtx from "../../context/BPCtx"
 import phLogger from "../../logger/phLogger"
@@ -9,7 +8,7 @@ import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 import BPSlot from "../slotleaf/BPSlot"
 
-export default class BPInput extends BPWidget {
+export default class BPSelectMultiple extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
         super(output, name, routeName)
     }
@@ -39,19 +38,7 @@ export default class BPInput extends BPWidget {
         const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
         return `{{${comp.name} ${classNames} ${attrsBody}}}`
     }
-    // public paintShow(comp: BPComp) {
-    //     const { attrs, styleAttrs } = comp
-    //     const attrsBody = [...attrs, ...styleAttrs].map((item: IAttrs) => {
-    //         if (typeof item.value === "string") {
-    //             return ` ${item.name}='${item.value}'`
-    //         } else {
-    //             return ` ${item.name}=${item.value}`
-    //         }
-    //     }).join("")
 
-    //     return `{{${comp.name} ssc="ssc" emit="emit"
-    //         disconnect="disconnect" ${attrsBody}}}`
-    // }
     public paintLogic(comp: BPComp) {
         // 继承自 BPWidget 的方法
 
@@ -60,10 +47,10 @@ export default class BPInput extends BPWidget {
         const { attrs, styleAttrs, events } = comp
 
         const attrsBody = attrs.map((item: IAttrs) => {
-            if (typeof item.value === "string") {
-                return `${item.name}: '${item.value}',`
-            } else {
+            if (typeof item.type === "boolean") {
                 return `${item.name}: ${item.value},`
+            } else {
+                return `${item.name}: '${item.value}',`
             }
         }).join("")
         let styleAttrsBody = ""
@@ -82,39 +69,73 @@ export default class BPInput extends BPWidget {
         import { computed } from '@ember/object';
         export default Component.extend({
             layout,
-            tagName:'input',
-            classNames:['${comp.name}'],
-            content: 'default',
-            classNameBindings: ['currentStates', 'currentSize'],
-            attributeBindings: ['disabled:disabled', 'type', 'placeholder', 'value', 'maxlength'],
-            type: "text",
+            show: false,
+            type: "year",
+            width: 320,
+            classNames:['bp-input-downdrop'],
+            attributeBindings: ['tabIndex'],
+            dataArray: ["option 1", "option 2", "option 3", "option 4", "option 5", "option 6", "option 7", "option 8"],
+            selectArr: [],
+            tabIndex: '1',
+            focusOut() {
+              this.set('show',false)
+            },
             ${attrsBody}
             ${styleAttrsBody}
-            currentStates: computed('states', function () {
-                let states = this.get('states')
-                if (states) {
-                    return "input-" + states
-                } else {
-                    return ''
-                }
-            }),
-            currentSize: computed('size', function () {
-                let size = this.get('size') ? this.get('size') : 'default';
+            actions: {
+              toggleShow() {
+                this.toggleProperty("show")
+              },
+              chooseItem(index) {
+                let arr = this.get("dataArray"),
+                  curArr = this.get("selectArr")
+                  curArr.push(arr[index])
 
-                return "input-" + size
-            }),
-            ${this.slotActions(events, `${comp.name}`)}},`
+                this.set("show", false)
+                this.set("selectArr", [...new Set(curArr)])
+                // [...new Ser()] 的写法会让模版进行更新，curArr 不会
+                // 原因？
+                return false
+              },
+              deleteTag(item) {
+                let curArr = this.get("selectArr")
+                for(let i = 0; i < curArr.length; i++) {
+                  if (curArr[i] === item) {
+                    curArr.splice(i, 1)
+                    i = i - 1
+                  }
+                }
+                this.set("selectArr", [...new Set(curArr)])
+                this.set("show", false)
+
+                return false
+              }
+            }`
 
         return fileDataStart + fileData + fileDataEnd
     }
     public paintHBS() {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
-        return `${leaf.paintShow()}
-        {{#if hasBlock}}
-            {{yield}}
-        {{else}}
-            {{value}}
-        {{/if}}`
+        return `
+    <div class="bp-input input-tags" {{action "toggleShow" bubbles=false}} style="width:{{width}}px;">
+        {{#each selectArr as |item index|}}
+            <span class="select-input-tag">{{item}}
+                <div onclick={{action "deleteTag" item bubbles=false}}>
+                    {{svg-jar 'cross' width='12px' height='12px' class='cursor-pointer'}}
+                </div>
+            </span>
+        {{/each}}
+        </div>
+
+    {{#if show}}
+        <div class="input-list-tags" style="width:{{width}}px;">
+            {{#each dataArray as |item index|}}
+                <span onclick={{action "chooseItem" index bubbles=false}} class="cursor-pointer">{{item}}</span>
+            {{/each}}
+        </div>
+    {{/if}}
+
+        `
     }
 }

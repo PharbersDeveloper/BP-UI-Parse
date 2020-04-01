@@ -13,8 +13,10 @@ import BPCheckbox from "../widgets/checkbox/BPCheckbox"
 import BPDatePicker from "../widgets/datePicker/BPDatePicker"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
+import BPDateSelect from "../widgets/dropdown/BPDateSelect"
 import BPOption from "../widgets/dropdown/BPOption"
 import BPSelect from "../widgets/dropdown/BPSelect"
+import BPSelectMultiple from "../widgets/dropdown/BPSelectMultiple"
 import BPEmptyState from "../widgets/emptyState/BPEmptyState"
 import BPIcon from "../widgets/icon/BPIcon"
 import BPImg from "../widgets/img/BPImg"
@@ -57,6 +59,8 @@ export class GenCompList {
     }
     public createList() {
         return [
+            new BPDateSelect(this.output, this.projectName, this.routeName),
+            new BPSelectMultiple(this.output, this.projectName, this.routeName),
             new BPViewport(this.output, this.projectName, this.routeName),
             new BPIcon(this.output, this.projectName, this.routeName),
             new BPButtonItem(this.output, this.projectName, this.routeName),

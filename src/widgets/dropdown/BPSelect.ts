@@ -42,6 +42,8 @@ export default class BPSelect extends BPWidget {
             "    classNameBindings: ['disabled:select-disabled']," + "\r" +
             "    attributeBindings: ['tabIndex']," + "\r" +
             "    disabled: false," + "\r" +
+            "    selectIcon: 'down'," + "\r" +
+            "    iconClass: 'icon'," + "\r" +
             "    choosedValue: '请选择'," + "\r" +
             "    show: false," + "\r" +
             "    tabIndex: '1'," + "\r" +
@@ -92,7 +94,7 @@ export default class BPSelect extends BPWidget {
 
     public paintHBS() {
         const selectTitle = "<div class='bp-select-title' {{action 'toggleShow'}}><span>{{choosedValue}}</span>" +
-            "{{svg-jar 'down' width='24px' height='24px' class='icon'}}</div>" +
+            "{{svg-jar selectIcon width='24px' height='24px' class=iconClass}}</div>" +
             "<ul class={{if show 'bp-option-group' 'd-none'}}>" +
             "{{yield (hash" +
             "    onChange=(action 'change')" +

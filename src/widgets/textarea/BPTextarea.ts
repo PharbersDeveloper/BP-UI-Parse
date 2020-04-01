@@ -40,7 +40,7 @@ export default class BPTextarea extends BPWidget {
             "export default Component.extend({" + "\r" +
             "    layout," + "\r" +
             "    tagName:'textarea'," + "\r" +
-            "    classNames:['" + comp.name + "']," + "\r" +
+            "    classNames:['" + comp.name + "','" + comp.className + "']," + "\r" +
             "    content: 'default'," + "\r" +
             "    classNameBindings: ['block:btn-block', 'reverse', 'active', 'computedIconOnly:icon-only']," + "\r" +
             "    attributeBindings: []," + "\r"
