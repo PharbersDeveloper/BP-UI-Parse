@@ -3,7 +3,7 @@
         "paint": [
             "ember"
         ],
-        "name": "basic-components-v3"
+        "name": "basic-components-v5"
     },
     "routers": [
         {
@@ -439,6 +439,10 @@
                         {
                             "name": "size",
                             "value": "comfy"
+                        },
+                        {
+                            "name": "maxlength",
+                            "value": 50
                         }
                     ],
                     "styleAttrs": [
@@ -682,7 +686,7 @@
                             "v": "0"
                         },{
                             "k": "color",
-                            "v": "$color-neutrals-n800"
+                            "v": "#172B4D"
                         },{
                             "k": "background",
                             "v": "transparent"
@@ -745,7 +749,117 @@
                         }
                     ],
                     "events": ["click"]
-                  }
+                  },
+                {
+                    "id": "test",
+                    "type": "BPSelect",
+                    "cat": "0",
+                    "name": "bp-select",
+                    "layout": [],
+                    "css": [
+                        {
+                            "k": "width",
+                            "v": "240px"
+                        },{
+                            "k": "height",
+                            "v": "40px"
+                        },{
+                            "k": "padding",
+                            "v": "0"
+                        },{
+                            "k": "margin",
+                            "v": "0"
+                        },{
+                            "k": "position",
+                            "v": "relative"
+                        },{
+                            "k": "cursor",
+                            "v": "pointer"
+                        },{
+                            "k": "box-sizing",
+                            "v": "border-box"
+                        },{
+                            "k": "background",
+                            "v": "rgba(9,30,66,0.04)"
+                        },{
+                            "k": "border-radius",
+                            "v": "4px"
+                        }, {
+                            "k": "background",
+                            "v": "#EBECF0",
+                            "tp": "hover"
+                        }
+                    ],
+                    "components": [
+                        {
+                            "id": "test",
+                            "type": "BPOption",
+                            "cat": "1",
+                            "text": "option 1",
+                            "icon": "home-filled",
+                            "name": "bp-option"
+                        },
+                        {
+                            "id": "test",
+                            "type": "BPOption",
+                            "cat": "1",
+                            "text": "menuItem 1",
+                            "icon": "marketplace",
+                            "name": "bp-option"
+                        },
+                        {
+                            "id": "test",
+                            "type": "BPOption",
+                            "cat": "0",
+                            "text": "sub menu 2",
+                            "icon": "male",
+                            "name": "bp-option",
+                            "css": [
+                                {
+                                    "k":"width",
+                                    "v":"100%"
+                                },{
+                                    "k": "height",
+                                    "v": "32px"
+                                },{
+                                    "k": "color",
+                                    "v": "#344563"
+                                },{
+                                    "k": "display",
+                                    "v": "flex"
+                                },{
+                                    "k": "padding",
+                                    "v": "0 16px"
+                                },{
+                                    "k": "align-items",
+                                    "v": "center"
+                                },{
+                                    "k": "background-color",
+                                    "v": "#EBECF0",
+                                    "tp": "hover"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "bp-icon",
+                    "type": "BPIcon",
+                    "name": "bp-icon",
+                    "cat": "0",
+                    "attrs": [
+                        {
+                            "name": "iconName",
+                            "value": "cross"
+                        }
+                    ],
+                    "styleAttrs": [
+                        {
+                            "name": "color",
+                            "value": "icon-info"
+                        }
+                    ]
+                }
             ]
         },   
         {
@@ -1641,11 +1755,11 @@
                     "css": [
                         {
                             "k": "width",
-                            "v": "100px"
+                            "v": "200px"
                         },
                         {
                             "k": "height",
-                            "v": "100px"
+                            "v": "200px"
                         },
                         {
                             "k": "padding",
@@ -1666,6 +1780,104 @@
                             "name": "alt",
                             "value": "image description"
                         }
+                    ]
+                },
+                {
+                    "id": "radio",
+                    "type": "BPRadio",
+                    "cat": "0",
+                    "name": "bp-radio",
+                    "css": [],
+                    "attrs": [
+                        {
+                            "name": "disabled",
+                            "value": false,
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "value",
+                            "value": "radio text"
+                        },
+                        {
+                            "name": "type",
+                            "value": "radio"
+                        },
+                        {
+                            "name": "name",
+                            "value": "radio"
+                        },
+                        {
+                            "name":"rid",
+                            "value": "rid"
+                        }
+                    ],
+                    "styleAttrs": [
+                    ],
+                    "events": [
+                        "click"
+                    ]
+                },
+                {
+                    "id": "checkbox",
+                    "type": "BPCheckbox",
+                    "cat": "0",
+                    "name": "bp-checkbox",
+                    "css": [],
+                    "attrs": [
+                        {
+                            "name": "disabled",
+                            "value": false,
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "value",
+                            "value": "check text"
+                        },
+                        {
+                            "name": "type",
+                            "value": "checkbox"
+                        },
+                        {
+                            "name": "name",
+                            "value": "checkbox"
+                        },
+                        {
+                            "name":"cid",
+                            "value": "cid"
+                        }
+                    ],
+                    "styleAttrs": [
+                    ],
+                    "events": [
+                        "click"
+                    ]
+                },
+                {
+                    "id": "bp-select-multiple",
+                    "type": "BPSelectMultiple",
+                    "cat": "0",
+                    "name": "bp-select-multiple",
+                    "css": [],
+                    "attrs": [
+                    ],
+                    "styleAttrs": [
+                    ],
+                    "events": [
+                        "click"
+                    ]
+                },
+                {
+                    "id": "bp-select-date",
+                    "type": "BPDateSelect",
+                    "cat": "0",
+                    "name": "bp-date-select",
+                    "css": [],
+                    "attrs": [
+                    ],
+                    "styleAttrs": [
+                    ],
+                    "events": [
+                        "click"
                     ]
                 }
             ]
