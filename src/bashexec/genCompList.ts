@@ -10,6 +10,7 @@ import BPButtonItem from "../widgets/buttons/BPButtonItem"
 import BPPushButton from "../widgets/buttons/BPPushButton"
 import { BPBar , BPBarLine, BPChina, BPLine, BPPie, BPRadar, BPScatter, BPStack} from "../widgets/charts/charts"
 import BPCheckbox from "../widgets/checkbox/BPCheckbox"
+import BPCheckboxGroup from "../widgets/checkbox/BPCheckboxGroup"
 import BPDatePicker from "../widgets/datePicker/BPDatePicker"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
@@ -36,6 +37,7 @@ import BPPagination from "../widgets/pagination/BPPagination"
 import BPPopover from "../widgets/popover/BPPopover"
 import BPProgressTracker from "../widgets/progressTracker/BPProgressTracker"
 import BPRadio from "../widgets/radio/BPRadio"
+import BPRadioGroup from "../widgets/radio/BPRadioGroup"
 import BPScrollBar from "../widgets/scrollBar/BPScrollBar"
 import BPSpinner from "../widgets/spinner/BPSpinner"
 import BPSpotlight from "../widgets/spotlight/BPSpotlight"
@@ -59,6 +61,8 @@ export class GenCompList {
     }
     public createList() {
         return [
+            new BPCheckboxGroup(this.output, this.projectName, this.routeName),
+            new BPRadioGroup(this.output, this.projectName, this.routeName),
             new BPDateSelect(this.output, this.projectName, this.routeName),
             new BPSelectMultiple(this.output, this.projectName, this.routeName),
             new BPViewport(this.output, this.projectName, this.routeName),

@@ -454,7 +454,6 @@
                     "events": [
                         "focus",
                         "blur",
-                        "input",
                         "change"
                     ]
                 },
@@ -1783,6 +1782,18 @@
                     ]
                 },
                 {
+                    "id": "radio-group",
+                    "type": "BPRadioGroup",
+                    "cat": "0",
+                    "name": "bp-radio-group",
+                    "css": [],
+                    "attrs": [
+                    ],
+                    "styleAttrs": [
+                    ],
+                    "events": []
+                },
+                {
                     "id": "radio",
                     "type": "BPRadio",
                     "cat": "0",
@@ -1816,6 +1827,18 @@
                     "events": [
                         "click"
                     ]
+                },
+                {
+                    "id": "checkbox-group",
+                    "type": "BPCheckboxGroup",
+                    "cat": "0",
+                    "name": "bp-checkbox-group",
+                    "css": [],
+                    "attrs": [
+                    ],
+                    "styleAttrs": [
+                    ],
+                    "events": []
                 },
                 {
                     "id": "checkbox",

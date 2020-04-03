@@ -87,12 +87,20 @@ export default class BPCheckbox extends BPWidget {
             content: 'default',
             classNameBindings: [],
             attributeBindings: ['disabled:disabled', 'type', 'value'],
-            type: "checkbox",
             value: "text",
-            id: "cid",
+            choosedValue: [],
+            isChecked: false,
             ${attrsBody}
             ${styleAttrsBody}
-            ${this.slotActions(events, `${comp.name}`)}},`
+            isChoosed: computed('choosedValue', "isChecked",function() {
+                return this.get("choosedValue").includes(this.value)
+            }),
+            onClick() {
+            },
+            click() {
+                this.onClick(this.value)
+                this.toggleProperty("isChecked")
+            },`
 
         return fileDataStart + fileData + fileDataEnd
     }
@@ -100,24 +108,15 @@ export default class BPCheckbox extends BPWidget {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
         return `
-        {{#if hasBlock}}
-            {{yield}}
-            {{#if disabled}}
-                <input type="checkbox" id={{cid}} name={{name}} value={{value}} disabled>
-                <label for={{cid}} style="color: #B3BAC5;">{{value}}</label>
-            {{else}}
-                <input type="checkbox" id={{cid}} name={{name}} value={{value}}>
-                <label for={{cid}} >{{value}}</label>
-            {{/if}}
-            <label for={{cid}}>{{value}}</label>
+        {{#if disabled}}
+                <input type="checkbox" id={{rid}} name={{name}} value={{value}} disabled>
+                <label for={{rid}} style="color: #B3BAC5;">{{value}}</label>
+        {{else if isChoosed}}
+            <input type="checkbox" id={{rid}} name={{name}} value={{value}} checked>
+            <label for={{rid}}>{{value}}</label>
         {{else}}
-            {{#if disabled}}
-                <input type="checkbox" id={{cid}} name={{name}} value={{value}} disabled>
-                <label for={{cid}} style="color: #B3BAC5;">{{value}}</label>
-            {{else}}
-                <input type="checkbox" id={{cid}} name={{name}} value={{value}}>
-                <label for={{cid}} >{{value}}</label>
-            {{/if}}
+            <input type="checkbox" id={{rid}} name={{name}} value={{value}}>
+            <label for={{rid}}>{{value}}</label>
         {{/if}}`
     }
 }

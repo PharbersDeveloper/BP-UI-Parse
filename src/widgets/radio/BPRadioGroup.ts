@@ -8,7 +8,7 @@ import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 import BPSlot from "../slotleaf/BPSlot"
 
-export default class BPRadio extends BPWidget {
+export default class BPRadioGroup extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
         super(output, name, routeName)
     }
@@ -35,8 +35,10 @@ export default class BPRadio extends BPWidget {
         const attrsBody = this.showProperties([...attrs, ...styleAttrs], comp)
         // 判断attrs 中是否有 classNames ，如果没有，则使用 className 属性的值
         const isClassNames = attrs.some((attr: IAttrs) => attr.name === "classNames")
+        const {choosedValue} = comp.attrs
+        const cVal: string = choosedValue ? choosedValue : "请选择"
         const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
-        return `{{${comp.name} onClick=(action s.onChange) choosedValue=s.val ${classNames} ${attrsBody}}}`
+        return `{{#${comp.name} ${classNames} ${attrsBody} choosedValue='${cVal}' as |s| }}{{/${comp.name}}}`
     }
 
     public paintLogic(comp: BPComp) {
@@ -73,37 +75,22 @@ export default class BPRadio extends BPWidget {
             classNames:['${comp.name}'],
             content: 'default',
             classNameBindings: [],
-            attributeBindings: ['disabled:disabled', 'type', 'value', 'name'],
-            type: "radio",
             value: "text",
-            rid: "rid",
-            name: "radio name",
+            onChange() { },
             ${attrsBody}
             ${styleAttrsBody}
-            isChoosed: computed('choosedValue',function() {
-                return this.value === this.choosedValue
-            }),
-            onClick() {
-            },
-            click() {
-                this.onClick(this.value)
-            }, `
+            actions: {
+                change(value) {
+                     this.set('choosedValue',value);
+                     this.onChange(value)
+                 }
+            },`
 
         return fileDataStart + fileData + fileDataEnd
     }
     public paintHBS() {
         const leaf = new BPSlot(this.output, this.projectName, this.routeName)
 
-        return `
-        {{#if disabled}}
-                <input type="radio" id={{rid}} name={{name}} value={{value}} disabled>
-                <label for={{rid}} style="color: #B3BAC5;">{{value}}</label>
-        {{else if isChoosed}}
-            <input type="radio" id={{rid}} name={{name}} value={{value}} checked>
-            <label for={{rid}}>{{value}}</label>
-        {{else}}
-            <input type="radio" id={{rid}} name={{name}} value={{value}}>
-            <label for={{rid}}>{{value}}</label>
-        {{/if}}`
+        return `{{yield (hash  onChange=(action 'change')   val=choosedValue)}}`
     }
 }
