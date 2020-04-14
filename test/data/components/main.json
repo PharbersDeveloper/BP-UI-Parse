@@ -3,7 +3,7 @@
         "paint": [
             "ember"
         ],
-        "name": "basic-components-v5"
+        "name": "basic-components-v4"
     },
     "routers": [
         {
@@ -1901,6 +1901,19 @@
                     ],
                     "events": [
                         "click"
+                    ]
+                },
+                {
+                    "id": "bp-cascader",
+                    "type": "BPCascader",
+                    "cat": "0",
+                    "name": "bp-cascader",
+                    "css": [],
+                    "attrs": [
+                    ],
+                    "styleAttrs": [
+                    ],
+                    "events": [
                     ]
                 }
             ]

@@ -169,8 +169,6 @@ export default class BPSelectMultiple extends BPWidget {
             {{/each}}
         </div>
     {{/if}}
-
-
         `
     }
 }

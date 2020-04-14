@@ -2447,16 +2447,118 @@ input[type="checkbox"]+label {
 .select-multiple-input {
     border: none;
     width: 4px;
-    // padding: 0 2px;
+     /* padding: 0 2px; */
     height: 32px;
     background: #FFFFFF;
     line-height: 14px;
     font-size: 14px;
     color: transparent;
-    // box-sizing: border-box;
+     /* box-sizing: border-box; */
     caret-color: #172B4D;
 }
 
 .select-multiple-input:focus {
     outline: none;
+}
+
+/* cascader style */
+
+.bp-cascader {
+    height: 32px;
+    width: 222px;
+    background: rgba(9, 30, 66, 0.04);
+    padding: 0;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.bp-cascader:focus {
+    outline: none;
+}
+
+.bp-cascader ul {
+    padding: 0;
+}
+
+.bp-cascader-title {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    justify-content: space-between;
+    height: 32px;
+}
+
+.cascader-list {
+    width: 222px;
+    margin: 0;
+    padding: 4px 0;
+    background: #FFFFFF;
+    box-shadow: 0 0 1px 0 rgba(9,30,66,0.12), 0 4px 8px -2px rgba(9,30,66,0.25);
+    border-radius: 3px;
+    height: 300px;
+    overflow-y: scroll;
+    z-index: 99;
+    position: absolute;
+}
+
+.cascader-list .cascader-list-item, .subSelect .cascader-list-item {
+    line-height: 32px;
+}
+
+.cascader-list .cascader-list-item:hover {
+    background: #EBECF0;
+}
+
+.cascader-list .cascader-list-item:hover  label{
+    color: #3172E0;
+}
+
+.subSelect {
+    position: absolute;
+    top: 32px;
+    left: 222px;
+    width: 222px;
+    background-color: white;
+    box-shadow: 0 0 1px 0 rgba(9,30,66,0.12), 0 4px 8px -2px rgba(9,30,66,0.25);
+    border-radius: 3px;
+    max-height: 300px;
+    overflow-y: scroll;
+    z-index: 99;
+}
+
+.subSelect div:hover {
+    background-color: #EBECF0;
+}
+
+.downRight path{
+    fill:  #505F79;
+}
+
+.downRight {
+    transform: rotate(-90deg);
+}
+
+.select-tag {
+    background: rgba(9,30,66,0.04);
+    border-radius: 2.5px;
+    font-size: 14px;
+    color: #42526E;
+    line-height: 16px;
+    line-height: 20px;
+    padding: 2px 6px;
+}
+
+
+input[type="checkbox"].some-checked-checkbox+label::before {
+    content: " ";
+    margin: $spacing-compact-3x;
+    background-color: white;
+    border-top: 5px solid #3172e0;
+    border-bottom: 5px solid #3172e0;
+    border-right: 2px solid #3172e0;
+    border-left: 2px solid #3172e0;
+    box-sizing: border-box;
 }

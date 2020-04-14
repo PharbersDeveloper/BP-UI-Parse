@@ -14,6 +14,7 @@ import BPCheckboxGroup from "../widgets/checkbox/BPCheckboxGroup"
 import BPDatePicker from "../widgets/datePicker/BPDatePicker"
 import BPDiv from "../widgets/div/BPDiv"
 import BPDivider from "../widgets/divider/BPDivider"
+import BPCascader from "../widgets/dropdown/BPCascader"
 import BPDateSelect from "../widgets/dropdown/BPDateSelect"
 import BPOption from "../widgets/dropdown/BPOption"
 import BPSelect from "../widgets/dropdown/BPSelect"
@@ -61,6 +62,7 @@ export class GenCompList {
     }
     public createList() {
         return [
+            new BPCascader(this.output, this.projectName, this.routeName),
             new BPCheckboxGroup(this.output, this.projectName, this.routeName),
             new BPRadioGroup(this.output, this.projectName, this.routeName),
             new BPDateSelect(this.output, this.projectName, this.routeName),
