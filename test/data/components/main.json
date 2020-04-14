@@ -1915,6 +1915,19 @@
                     ],
                     "events": [
                     ]
+                },
+                {
+                    "id": "bp-pagination",
+                    "type": "BPPagination",
+                    "cat": "0",
+                    "name": "bp-pagination",
+                    "css": [],
+                    "attrs": [
+                    ],
+                    "styleAttrs": [
+                    ],
+                    "events": [
+                    ]
                 }
             ]
         }

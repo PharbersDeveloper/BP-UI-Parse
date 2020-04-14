@@ -178,7 +178,7 @@ export default class BPCascader extends BPWidget {
 
         <ul class={{if show 'cascader-list' 'd-none'}}>
         {{#each data as |city index|}}
-            <div class={{if (eq index curItemIndex) "flex-row main-space-between cascader-list-item cascader-list-item-active" "flex-row main-space-between cascader-list-item"}} >
+            <div class={{if (bp-eq index curItemIndex) "flex-row main-space-between cascader-list-item cascader-list-item-active" "flex-row main-space-between cascader-list-item"}} >
                 <div onclick={{action "addItem" city index }} class="flex-1">
                     {{#if (belong-to selectItems city)}}
                     <input type="checkbox" id={{city}} name="list" value={{city}} checked>
