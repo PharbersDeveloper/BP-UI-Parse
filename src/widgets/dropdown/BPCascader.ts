@@ -75,6 +75,7 @@ export default class BPCascader extends BPWidget {
             choosedValue: 0,
             curItemIndex: 0, // 一级的item
             tabIndex: '1',
+            classNames:['${comp.name}'],
             attributeBindings: ['tabIndex'],
             positionalParams: ["selectItems", "subSelectItems","data", "subData"],
             focusOut() {
@@ -178,20 +179,20 @@ export default class BPCascader extends BPWidget {
 
         <ul class={{if show 'cascader-list' 'd-none'}}>
         {{#each data as |city index|}}
-            <div class={{if (bp-eq index curItemIndex) "flex-row main-space-between cascader-list-item cascader-list-item-active" "flex-row main-space-between cascader-list-item"}} >
-                <div onclick={{action "addItem" city index }} class="flex-1">
+            <div class={{if (bp-eq index curItemIndex) "flex-row main-space-between cascader-list-item-active" "flex-row main-space-between cascader-list-item"}} >
+                <div onclick={{action "addItem" city index }} style="display: flex;align-items: center;">
                     {{#if (belong-to selectItems city)}}
-                    <input type="checkbox" id={{city}} name="list" value={{city}} checked>
+                    <span class="checkbox"></span>
                     {{else if (some-belong-to subData subSelectItems index)}}
-                    <input type="checkbox" id={{city}} name="list" value={{city}} class="some-checked-checkbox">
+                    <span class="some-checked-box"></span>
                     {{else}}
-                    <input type="checkbox" id={{city}} name="list" value={{city}} >
+                    <span class="uncheckbox"></span>
                     {{/if}}
-                    <label for={{city}} >{{city}}</label>
                 </div>
-                <span onclick={{action "showSub" index}}>
+                <div onclick={{action "showSub" index}} class="flex-1 main-space-between cross-center" style="display: flex;" >
+                    <label for="">{{city}}</label>
                     {{svg-jar  "down" width='24px' height='24px' class="downRight"}}
-                </span>
+                </div>
             </div>
         {{/each}}
         </ul>

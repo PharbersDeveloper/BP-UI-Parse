@@ -2463,6 +2463,8 @@ input[type="checkbox"]+label {
 
 /* cascader style */
 
+/* cascader style */
+
 .bp-cascader {
     height: 32px;
     width: 222px;
@@ -2504,17 +2506,30 @@ input[type="checkbox"]+label {
     position: absolute;
 }
 
-.cascader-list .cascader-list-item, .subSelect .cascader-list-item {
+.cascader-list .cascader-list-item, 
+.subSelect .cascader-list-item,
+.cascader-list-item-active  {
     line-height: 32px;
 }
 
-.cascader-list .cascader-list-item:hover {
+ 
+.cascader-list .cascader-list-item label,
+.subSelect .cascader-list-item label {
+    font-size: 14px;
+    color: rgba(9, 30, 66, 0.82);
+    margin:0;
+ }
+
+ .cascader-list .cascader-list-item:hover  label, .cascader-list-item-active label {
+     color: #3172E0;
+     font-size: 14px;
+     margin:0;
+}
+
+.cascader-list .cascader-list-item:hover, .cascader-list-item-active {
     background: #EBECF0;
 }
 
-.cascader-list .cascader-list-item:hover  label{
-    color: #3172E0;
-}
 
 .subSelect {
     position: absolute;
@@ -2532,6 +2547,37 @@ input[type="checkbox"]+label {
 .subSelect div:hover {
     background-color: #EBECF0;
 }
+
+.uncheckbox {
+    height: 12px;
+    width: 12px;
+    background-color: #fafbfc;
+    border: 1px solid #e0e1e6;
+    border-radius: 2px;
+    margin:0  8px;
+    
+}
+
+.some-checked-box {
+    height: 12px;
+    width: 12px;
+    background-color: #fafbfc;
+    border-top: 5px solid #3172e0;
+    border-bottom: 5px solid #3172e0;
+    border-right: 2px solid #3173e0;
+    border-left: 2px solid #3173e0;
+    border-radius: 2px;
+    margin:0  8px;
+}
+
+.checkbox {
+    background-image: url("/hospital-checked.svg");
+    background-size: 12px 12px;
+    height: 12px;
+    width: 12px;
+    margin:0  8px;
+}
+
 
 .downRight path{
     fill:  #505F79;
@@ -2562,3 +2608,26 @@ input[type="checkbox"].some-checked-checkbox+label::before {
     border-left: 2px solid #3172e0;
     box-sizing: border-box;
 }
+
+
+// progressbar
+
+.bp-progressbar-container {
+    position: relative;
+}
+
+.bp-progressbar-container .progress-bottom {
+    background: #F4F5F7;
+    border-radius: 2px;
+}
+
+.bp-progressbar-container .progress-top {
+    background: #3881FF;
+    border-radius: 2px; 
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+

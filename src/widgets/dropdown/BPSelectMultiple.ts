@@ -74,6 +74,7 @@ export default class BPSelectMultiple extends BPWidget {
             classNames:['bp-input-downdrop'],
             attributeBindings: ['tabIndex'],
             dataArray: ["option 1", "option 2", "option 3", "option 4", "option 5", "option 6", "option 7", "option 8"],
+            showDataList: true,
             selectArr: [],
             tabIndex: '1',
             flagFirst: 0,
@@ -163,11 +164,13 @@ export default class BPSelectMultiple extends BPWidget {
     </div>
 
     {{#if show}}
+        {{#if showDataList}}
         <div class="input-list-tags" style="width:{{width}}px;z-index:999;" tabindex="1">
             {{#each dataArray as |item index|}}
                 <span onmousedown={{action "chooseItem" index bubbles=false}} class={{if (belong-to selectArr item) "input-list-tags-choosed-span" "input-list-tags-span"}} >{{item}}</span>
             {{/each}}
         </div>
+        {{/if}}
     {{/if}}
         `
     }
