@@ -7,6 +7,7 @@ import { IAttrs, IOptions } from "../../properties/Options"
 import { BPWidget } from "../BPWidget"
 import BPComp from "../Comp"
 import BPSlot from "../slotleaf/BPSlot"
+import BPRadio from "./BPRadio"
 
 export default class BPRadioGroup extends BPWidget {
     constructor(output: string, name: string, routeName: string) {
@@ -38,7 +39,15 @@ export default class BPRadioGroup extends BPWidget {
         const {choosedValue} = comp.attrs
         const cVal: string = choosedValue ? choosedValue : "请选择"
         const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
-        return `{{#${comp.name} ${classNames} ${attrsBody} choosedValue='${cVal}' as |s| }}{{/${comp.name}}}`
+        const menuItem = new BPRadio(this.output, this.projectName, this.routeName)
+        const iComps = comp.components
+        let showBody = ""
+
+        iComps.forEach((item) => {
+            showBody += menuItem.paintShow(item) + "\r\n"
+        })
+
+        return `{{#${comp.name} ${classNames} ${attrsBody} choosedValue='${cVal}' as |s| }}${showBody}{{/${comp.name}}}`
     }
 
     public paintLogic(comp: BPComp) {

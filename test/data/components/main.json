@@ -3,7 +3,7 @@
         "paint": [
             "ember"
         ],
-        "name": "basic-components-v4"
+        "name": "basic-components-test"
     },
     "routers": [
         {
@@ -1791,43 +1791,46 @@
                     ],
                     "styleAttrs": [
                     ],
-                    "events": []
-                },
-                {
-                    "id": "radio",
-                    "type": "BPRadio",
-                    "cat": "0",
-                    "name": "bp-radio",
-                    "css": [],
-                    "attrs": [
+                    "events": [],
+                    "components": [
                         {
-                            "name": "disabled",
-                            "value": false,
-                            "type": "boolean"
-                        },
-                        {
-                            "name": "value",
-                            "value": "radio text"
-                        },
-                        {
-                            "name": "type",
-                            "value": "radio"
-                        },
-                        {
-                            "name": "name",
-                            "value": "radio"
-                        },
-                        {
-                            "name":"rid",
-                            "value": "rid"
+                            "id": "radio",
+                            "type": "BPRadio",
+                            "cat": "0",
+                            "name": "bp-radio",
+                            "css": [],
+                            "attrs": [
+                                {
+                                    "name": "disabled",
+                                    "value": false,
+                                    "type": "boolean"
+                                },
+                                {
+                                    "name": "value",
+                                    "value": "radio text"
+                                },
+                                {
+                                    "name": "type",
+                                    "value": "radio"
+                                },
+                                {
+                                    "name": "name",
+                                    "value": "radio"
+                                },
+                                {
+                                    "name":"rid",
+                                    "value": "rid"
+                                }
+                            ],
+                            "styleAttrs": [
+                            ],
+                            "events": [
+                                "click"
+                            ]
                         }
-                    ],
-                    "styleAttrs": [
-                    ],
-                    "events": [
-                        "click"
                     ]
                 },
+               
                 {
                     "id": "checkbox-group",
                     "type": "BPCheckboxGroup",
@@ -1838,43 +1841,46 @@
                     ],
                     "styleAttrs": [
                     ],
-                    "events": []
-                },
-                {
-                    "id": "checkbox",
-                    "type": "BPCheckbox",
-                    "cat": "0",
-                    "name": "bp-checkbox",
-                    "css": [],
-                    "attrs": [
+                    "events": [],
+                    "components": [
                         {
-                            "name": "disabled",
-                            "value": false,
-                            "type": "boolean"
-                        },
-                        {
-                            "name": "value",
-                            "value": "check text"
-                        },
-                        {
-                            "name": "type",
-                            "value": "checkbox"
-                        },
-                        {
-                            "name": "name",
-                            "value": "checkbox"
-                        },
-                        {
-                            "name":"cid",
-                            "value": "cid"
+                            "id": "checkbox",
+                            "type": "BPCheckbox",
+                            "cat": "0",
+                            "name": "bp-checkbox",
+                            "css": [],
+                            "attrs": [
+                                {
+                                    "name": "disabled",
+                                    "value": false,
+                                    "type": "boolean"
+                                },
+                                {
+                                    "name": "value",
+                                    "value": "check text"
+                                },
+                                {
+                                    "name": "type",
+                                    "value": "checkbox"
+                                },
+                                {
+                                    "name": "name",
+                                    "value": "checkbox"
+                                },
+                                {
+                                    "name":"cid",
+                                    "value": "cid"
+                                }
+                            ],
+                            "styleAttrs": [
+                            ],
+                            "events": [
+                                "click"
+                            ]
                         }
-                    ],
-                    "styleAttrs": [
-                    ],
-                    "events": [
-                        "click"
                     ]
                 },
+               
                 {
                     "id": "bp-select-multiple",
                     "type": "BPSelectMultiple",
@@ -1921,6 +1927,20 @@
                     "type": "BPPagination",
                     "cat": "0",
                     "name": "bp-pagination",
+                    "css": [],
+                    "attrs": [
+                    ],
+                    "styleAttrs": [
+                    ],
+                    "events": [
+                    ]
+                },
+                {
+                    
+                    "id": "bp-progressbar",
+                    "type": "BPProgressbar",
+                    "cat": "0",
+                    "name": "bp-progressbar",
                     "css": [],
                     "attrs": [
                     ],

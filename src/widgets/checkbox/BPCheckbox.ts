@@ -37,7 +37,7 @@ export default class BPCheckbox extends BPWidget {
         // 判断attrs 中是否有 classNames ，如果没有，则使用 className 属性的值
         const isClassNames = attrs.some((attr: IAttrs) => attr.name === "classNames")
         const classNames: string = isClassNames ? "" : `classNames="${comp.className.split(",").join(" ")}"`
-        return `{{${comp.name} ${classNames} ${attrsBody}}}`
+        return `{{${comp.name}  onClick=(action s.onChange) choosedValue=s.val ${classNames} ${attrsBody}}}`
     }
     // public paintShow(comp: BPComp) {
     //     const { attrs, styleAttrs } = comp
