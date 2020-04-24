@@ -36,6 +36,7 @@ import BPTabBar from "../widgets/navs/BPTabBar"
 import BPTabButton from "../widgets/navs/BPTabButton"
 import BPPagination from "../widgets/pagination/BPPagination"
 import BPPopover from "../widgets/popover/BPPopover"
+import BPProgressbar from "../widgets/progressTracker/BPProgressbar"
 import BPProgressTracker from "../widgets/progressTracker/BPProgressTracker"
 import BPRadio from "../widgets/radio/BPRadio"
 import BPRadioGroup from "../widgets/radio/BPRadioGroup"
@@ -62,6 +63,7 @@ export class GenCompList {
     }
     public createList() {
         return [
+            new BPProgressbar(this.output, this.projectName, this.routeName),
             new BPCascader(this.output, this.projectName, this.routeName),
             new BPCheckboxGroup(this.output, this.projectName, this.routeName),
             new BPRadioGroup(this.output, this.projectName, this.routeName),
