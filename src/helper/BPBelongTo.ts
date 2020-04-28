@@ -9,8 +9,8 @@ import { BPHelper } from "./BPHelper"
 // import BPSlot from "../slotleaf/BPSlot"
 
 export default class BPBelongTo extends BPHelper {
-    constructor(output: string, name: string, routeName: string) {
-        super(output, name, routeName)
+    constructor(output: string, name: string, helperName: string) {
+        super(output, name, helperName)
     }
     public paint() {
         const execList: any[] = []
@@ -20,7 +20,6 @@ export default class BPBelongTo extends BPHelper {
             logicData: this.paintLogic(), // js
             output: this.output,
             pName: this.projectName,
-            rName: this.routeName
         }
         execList.push(new EmberHelperExec(options))
 
@@ -30,7 +29,7 @@ export default class BPBelongTo extends BPHelper {
     public paintLogic() {
         // 继承自 BPWidget 的方法
 
-        const fileDataStart = this.paintLoginStart("bpEq")
+        const fileDataStart = this.paintLoginStart("belongTo")
         const fileDataEnd = this.paintLoginEnd()
 
         const fileData = `

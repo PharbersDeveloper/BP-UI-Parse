@@ -13,20 +13,20 @@ export abstract class BPHelper extends BPObject {
 
     public output: string = ""
     public projectName: string = ""
-    public routeName: string = ""
+    public helperName: string = ""
     protected mainLayout: BPLayout = null
 
-    constructor(output?: string, projName?: string, routeName?: string) {
+    constructor(output?: string, projName?: string, helperName?: string) {
         super()
         this.output = output
         this.projectName = projName
-        this.routeName = routeName
+        this.helperName = helperName
     }
 
     public paintLoginStart(helperName: string) {
         const fileData =
      `import { helper } from '@ember/component/helper';
-     export default helper(function helperName(params/*, hash*/) {
+     export default helper(function ${helperName}(params/*, hash*/) {
 
      `
         return fileData

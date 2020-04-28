@@ -9,8 +9,8 @@ import { BPHelper } from "./BPHelper"
 // import BPSlot from "../slotleaf/BPSlot"
 
 export default class BPEq extends BPHelper {
-    constructor(output: string, name: string, routeName: string) {
-        super(output, name, routeName)
+    constructor(output: string, name: string, helperName: string) {
+        super(output, name, helperName)
     }
     public paint() {
         const execList: any[] = []
@@ -20,7 +20,6 @@ export default class BPEq extends BPHelper {
             logicData: this.paintLogic(), // js
             output: this.output,
             pName: this.projectName,
-            rName: this.routeName
         }
         execList.push(new EmberHelperExec(options))
 
@@ -33,8 +32,7 @@ export default class BPEq extends BPHelper {
         const fileDataStart = this.paintLoginStart("bpEq")
         const fileDataEnd = this.paintLoginEnd()
 
-        const fileData = `
-        return params[0] === params[1];
+        const fileData = `return params[0] === params[1];
         `
 
         return fileDataStart + fileData + fileDataEnd
