@@ -14,6 +14,7 @@ import { GenMWStylesExec } from "../bashexec/genMWStylesExec"
 import { RemoveFolderExec } from "../bashexec/removeFolderExec"
 import { SassyStyles } from "../bashexec/sassyStyles"
 import BPBelongTo from "../helper/BPBelongTo"
+import BPEmberHelper from "../helper/BPEmberHelper"
 import BPEq from "../helper/bpEq"
 import BPSomeBelongTo from "../helper/BPSomeBelongTo"
 import phLogger from "../logger/phLogger"
@@ -72,6 +73,7 @@ export default class BPEmberCtx extends BPCtx {
 
         const geneSlot = slot.paint(this, cpLeaf, false)
         if (configResult.getIsAddon()) {
+            const arr = this.paintHelpers() // 加入helper
             return [
                 new EmberYarnExec("remove", "ember-cli-htmlbars"),
                 new EmberInstallDepExec("ember-cli-htmlbars@3.0.0", "-S"),
@@ -88,7 +90,7 @@ export default class BPEmberCtx extends BPCtx {
                 new AddBaseClass(output, projectName),
                 new SassyStyles(output, projectName),
                 new AddChartTools(output, projectName)
-            ]
+            ].concat(arr)
         } else {
             return [
                 new EmberInstallDepExec("ember-cli-echarts"),
@@ -110,8 +112,6 @@ export default class BPEmberCtx extends BPCtx {
         }
         // 2. 生成当前路由下的 component
         this.paintComps(components)
-
-        this.paintHelpers() // 测试 生成helper
         // 3. 重写文件，将上面的组件进行展示
         this.showComp(components)
         this.mwStyles(route)
@@ -143,20 +143,27 @@ export default class BPEmberCtx extends BPCtx {
     // 思考 helper 的优化
     public paintHelpers() {
         const { output, projectName } = this
-        const helpersName = ["bp-eq", "belong-to", "some-belong-to"]
-        const helperCalss = [
-            new BPEq(output, projectName, ""),
-            new BPBelongTo(output, projectName, ""),
-            new BPSomeBelongTo(output, projectName, "")
+        const helperArr = [
+            {
+                helper: new BPEq(output, projectName, ""),
+                name: "bp-eq"
+            },
+            {
+                helper: new BPBelongTo(output, projectName, ""),
+                name: "belong-to"
+            },
+            {
+                helper: new BPSomeBelongTo(output, projectName, ""),
+                name: "some-belong-to"
+            }
         ]
+        const arr = []
 
-        for (const name of helpersName) {
-            this.cmds.push(new EmberGenExec("helper", name))
+        for (const obj of helperArr) {
+            arr.push(new EmberGenExec("helper", obj.name))
+            arr.push(...obj.helper.paint())
         }
-
-        for (const helper of helperCalss) {
-            this.cmds.push(...helper.paint())
-        }
+        return arr
     }
 
     public paintComps(components: BPComp[]) {
